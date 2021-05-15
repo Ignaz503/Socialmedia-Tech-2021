@@ -31,11 +31,12 @@ UserList = list[User]
 class Users:
   data: UserList
  
-  def __init__(self, some_users: UserList = None):
-    if some_users is None:
-      self.data = []
-    else:
-      self.data = some_users  
+  def __init__(self, data = None):
+    self.data = []
+    if data is not None:
+      for user in data["data"]:
+        self.data.append(User(user["name"],user["subreddtis"]))
+
 
   def get_or_add_user(self, user_name: str, subreddit: str = None) -> User:
     for user in self.data:
@@ -49,6 +50,10 @@ class Users:
   def to_json(self):
     return json.dumps(self,default=lambda o: o.__dict__,sort_keys=True,indent=4)
   
+  def print_user_names(self):
+    for user in self.data:
+      print(user.name)
+
   def save_to_file(self, file_path: str):
     content = self.to_json()
     with open(file_path, 'w') as f:
@@ -63,4 +68,4 @@ def load(file_path: str) -> Users:
     with open(file_path, 'r') as f:
       content = f.read()
       deser = json.loads(content)
-      return Users(deser["data"])
+      return Users(deser)

@@ -3,8 +3,7 @@ import praw.models
 from praw.models.comment_forest import CommentForest
 from praw.reddit import Comment, Submission
 import json
-
-import user_tests
+from tests import Subreddit_Test, User_Tests
 
 SOME_URL = "https://www.reddit.com/r/Veloren/comments/n4wwx7/server_issue/"
 CLIENT_ID="oLm5KqTNCR5qrw"
@@ -29,15 +28,14 @@ def handle_post(post: Submission):
     print_comment(comment)
 
 def run_tests():
-  user_tests.load_test()
+  Subreddit_Test().load_test()
 
 def main():
   reddit = praw.Reddit(
     client_id=CLIENT_ID,
     client_secret=CLIENT_SECRET,
     user_agent=USER_AGENT)
-  re: praw.models.Subreddit = reddit.subreddit("redditdev")
-  print(type(re.subscribers))
+  run_tests()
   #submission: Submission = reddit.submission(url=SOME_URL)
   #handle_post(submission)
 

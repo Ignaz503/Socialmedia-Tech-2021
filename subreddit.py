@@ -6,12 +6,10 @@ SUBREDDIT_FILE = "subreddits.json"
 class Subreddit:
   name: str
   sub_count: int
-  id: str
 
-  def __init__(self, name: str, id: str, sub_count: int) -> None:
+  def __init__(self, name: str, sub_count: int) -> None:
       self.name = name
       self.sub_count = sub_count
-      self.id = id
 
   def to_json(self) -> str:
     return json.dumps(self,default=lambda o: o.__dict__,sort_keys=True,indent=4)
@@ -22,10 +20,11 @@ class Subreddits:
   data: SubredditList
 
   def __init__(self, some_data: SubredditList = None) -> None:
-    if some_data is None:
-      self.data = []
-    else:
-      self.data = some_data  
+    self.data = []
+
+    if some_data is not None:
+      for subreddit in some_data["data"]:
+        self.data.append(Subreddit(subreddit["name"],subreddit["sub_count"]))
   
   def get_subreddit(self, name: str) -> Subreddit:
     for sub in self.data:
@@ -33,15 +32,18 @@ class Subreddits:
         return sub
     return None
 
-  def get_or_add_subreddit(self, name: str, id: str, count: int) -> Subreddit:
+  def get_or_add_subreddit(self, name: str, count: int) -> Subreddit:
     sub = self.get_subreddit(name)
 
     if sub is not None:
       return sub
 
-    self.data.appen(Subreddit(name, id, count))
+    self.data.append(Subreddit(name, count))
     return self.data[-1]
 
+  def print_subreddit_names(self):
+    for sub in self.data:
+      print(sub.name)
 
   def to_json(self) -> str:
     return json.dumps(self,default=lambda o: o.__dict__,sort_keys=True,indent=4)
@@ -59,4 +61,4 @@ def load(file_path: str) -> Subreddits:
     with open(file_path, 'r') as f:
       content = f.read()
       deser = json.loads(content)
-      return Subreddits(deser["data"])
+      return Subreddits(deser)
