@@ -28,7 +28,7 @@ def handle_post(post: Submission):
     print_comment(comment)
 
 def run_tests():
-  User_Tests().load_test()
+  User_Tests().all_pair_test()
 
 def main():
   reddit = praw.Reddit(
