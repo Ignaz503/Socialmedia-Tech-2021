@@ -4,8 +4,7 @@ from os import path
 import jsonpickle
 from jsonpickle.handlers import DatetimeHandler
 
-
-USER_FILE = "users.json"
+FILE = "users.json"
 
 class Users:
   data: dict[str,set[str]]
@@ -31,6 +30,7 @@ class Users:
     self.data[user_name].add(subreddit)
 
   def generate_subreddit_pair_for_user(self,user_name: str) -> list[tuple[str,str]]:
+    #todo maybe make this a generator as well
     subs = list(self.data[user_name])
     pairs =[(subs[i],subs[j]) for i in range(len(subs)) for j in range(i+1, len(subs))]
     return  pairs
