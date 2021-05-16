@@ -3,12 +3,12 @@ import praw.models
 from praw.models.comment_forest import CommentForest
 from praw.reddit import Comment, Submission
 import json
-from tests import Subreddit_Test, User_Tests
+from tests import  User_Tests
 
 SOME_URL = "https://www.reddit.com/r/Veloren/comments/n4wwx7/server_issue/"
 CLIENT_ID="oLm5KqTNCR5qrw"
 CLIENT_SECRET="E-uXbSsa6JTNph_zp49vnbSLZpO0tg"
-USER_AGENT="Comment Extraction (by u/Ignaz503)"
+USER_AGENT="python:TUG-CommentCrawler:v1.0.0 (by u/Ignaz503)"
 
 def print_comment(the_comment: Comment):
   comment_dict={
@@ -28,7 +28,7 @@ def handle_post(post: Submission):
     print_comment(comment)
 
 def run_tests():
-  Subreddit_Test().load_test()
+  User_Tests().load_test()
 
 def main():
   reddit = praw.Reddit(
