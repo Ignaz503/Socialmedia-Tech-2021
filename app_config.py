@@ -2,7 +2,7 @@ import jsonpickle
 from os import path
 from submission_getters import HotSubmissionGetter, NewSubmissionGetter, SubmissionsGetter
 
-FILE = "crawl.config"
+FILE = "app.config"
 
 class Config:
   subreddits_to_crawl: list[str]

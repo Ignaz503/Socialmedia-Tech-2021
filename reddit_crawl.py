@@ -2,26 +2,19 @@ import subreddit
 import bot_blacklist
 from bot_blacklist import Bot_Blacklist
 from simple_logging import Logger
-import praw
 import praw.models
 from praw.models.comment_forest import CommentForest
 from praw.models import Comment, Submission, Subreddit
-import sys
-import crawl_config
+from app_config import Config
 from context import Context
-from os import path
-import os
-import traceback
+from main import DATA_BASE_PATH
 
-DATA_BASE_PATH = "data"
 SOME_URL = "https://www.reddit.com/r/Veloren/comments/n4wwx7/server_issue/"
 CLIENT_ID="oLm5KqTNCR5qrw"
 CLIENT_SECRET="E-uXbSsa6JTNph_zp49vnbSLZpO0tg"
 USER_AGENT="python:TUG-CommentCrawler:v1.0.0 (by u/Ignaz503)"
 
 def handle_user(user_name: str, subreddit: Subreddit, submission: Submission, context: Context):
-  #todo check if user is bot
-
   if context.blacklist.contains(user_name):
     context.logger.log("Detected Bot {name}".format(name= user_name))
     return
@@ -34,6 +27,7 @@ def get_all_comments(forest: CommentForest):
   return forest.list()
 
 def scan_if_bot(comment: Comment, context: Context):  
+  #todo maybe better check if user is bot
   if "I am a bot" in comment.body:
     context.logger.log("Detected New Bot: {name}".format(comment.auhtor.name))
     context.blacklist.add(comment.author.name)
@@ -73,21 +67,12 @@ def handle_subreddit(subreddit_name: str, context: Context):
 def save(context: Context):
   context.blacklist.save_to_file(bot_blacklist.FILE)
 
-def ensure_data_location():
-  if not path.exists(DATA_BASE_PATH):
-    os.makedirs(DATA_BASE_PATH)
-
-def main(args: list[str]):
-
-  ensure_data_location()
-
+def run(config: Config, logger: Logger):
   reddit = praw.Reddit(
     client_id=CLIENT_ID,
     client_secret=CLIENT_SECRET,
     user_agent=USER_AGENT)
 
-  config = crawl_config.load(crawl_config.FILE)
-  logger: Logger = Logger(config.verbose)
   blacklist: Bot_Blacklist = bot_blacklist.load(bot_blacklist.FILE)
   context = Context(reddit,config, None,logger,blacklist)
 
@@ -97,5 +82,3 @@ def main(args: list[str]):
   save(context)
 
 
-if __name__ == "__main__":
-  main(sys.argv)

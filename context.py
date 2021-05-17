@@ -2,7 +2,7 @@ from bot_blacklist import Bot_Blacklist
 from simple_logging import Logger
 import praw.models
 from praw.reddit import Reddit
-from crawl_config import Config
+from app_config import Config
 from subreddit import Subreddit_Data
 
 class Context:
