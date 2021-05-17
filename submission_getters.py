@@ -17,7 +17,7 @@ class TopSubmissionGetter(SubmissionsGetter):
       self.category = top_category
 
   def get(self, subreddit: Subreddit,  number_of_posts: int, logger: Logger):
-    logger.log("Getting {number} of top posts from category {cat} for subreddit {sub}".format(number= number_of_posts, cat=self.category,sub=subreddit.display_name))
+    logger.log("Getting {number} top posts from category {cat} from subreddit {sub}".format(number= number_of_posts, cat=self.category,sub=subreddit.display_name))
     return subreddit.top(self.category,limit= number_of_posts)
 
 class HotSubmissionGetter(SubmissionsGetter):
@@ -25,7 +25,7 @@ class HotSubmissionGetter(SubmissionsGetter):
       super().__init__()
   
   def get(self, subreddit: Subreddit, number_of_posts: int, logger: Logger):
-      logger.log("Getting {number} of hot posts".format(number = number_of_posts))
+      logger.log("Getting {number} hot posts from subreddit {sub}".format(number = number_of_posts,sub=subreddit.display_name))
       return subreddit.hot(limit= number_of_posts)
 
 class NewSubmissionGetter(SubmissionsGetter):
@@ -33,7 +33,7 @@ class NewSubmissionGetter(SubmissionsGetter):
       super().__init__()
 
   def get(self, subreddit: Subreddit, number_of_posts:int, logger: Logger):
-    logger.log( "Getting {number} of new posts".format(number = number_of_posts))
+    logger.log( "Getting {number} of new posts from subreddit {sub}".format(number = number_of_posts,sub=subreddit.display_name))
     return subreddit.new(limit= number_of_posts)
 
 class RisingSubmissionGetter(SubmissionsGetter):
@@ -41,6 +41,6 @@ class RisingSubmissionGetter(SubmissionsGetter):
       super().__init__()
 
   def get(self, subreddit: Subreddit, number_of_posts: int, logger: Logger):
-    logger.log("Getting {number} of rising posts".format(number = number_of_posts))
+    logger.log("Getting {number} rising posts from subreddit {sub}".format(number = number_of_posts,sub=subreddit.display_name))
     return subreddit.rising(limit= number_of_posts)
 
