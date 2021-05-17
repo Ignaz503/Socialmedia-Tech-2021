@@ -7,3 +7,7 @@ class Logger:
   def log(self, message: str):
     if self.active:
       print(message)
+  
+  def log_same_line(self, message: str):
+    if self.active:
+      print(message,end='')

@@ -1,3 +1,4 @@
+import subreddit
 import bot_blacklist
 from bot_blacklist import Bot_Blacklist
 from simple_logging import Logger
@@ -5,29 +6,14 @@ import praw
 import praw.models
 from praw.models.comment_forest import CommentForest
 from praw.models import Comment, Submission, Subreddit
-from praw.reddit import Reddit
-import users
-from users import Users
 import sys
-import tests
 import crawl_config
-from crawl_config import Config
+from context import Context
+from os import path
+import os
+import traceback
 
-class Context:
-  reddit: Reddit
-  config: Config
-  userDB: Users
-  logger: Logger
-  blacklist: Bot_Blacklist
-
-  def __init__(self, reddit: Reddit,config: Config, userDB: Users, logger: Logger, blacklist: Bot_Blacklist) -> None:
-      self.reddit = reddit
-      self.config = config 
-      self.userDB = userDB
-      self.logger = logger
-      self.blacklist = blacklist
-
-
+DATA_BASE_PATH = "data"
 SOME_URL = "https://www.reddit.com/r/Veloren/comments/n4wwx7/server_issue/"
 CLIENT_ID="oLm5KqTNCR5qrw"
 CLIENT_SECRET="E-uXbSsa6JTNph_zp49vnbSLZpO0tg"
@@ -40,7 +26,7 @@ def handle_user(user_name: str, subreddit: Subreddit, submission: Submission, co
     context.logger.log("Detected Bot {name}".format(name= user_name))
     return
 
-  context.userDB.add_subreddit_for_user(user_name,subreddit.display_name)
+  context.current_data.add_user(user_name)
   pass
 
 def get_all_comments(forest: CommentForest):
@@ -72,34 +58,39 @@ def handle_subreddit(subreddit_name: str, context: Context):
 
   context.logger.log("Crawling subreddit: {subreddit}".format(subreddit = sub.display_name))
 
+  context.current_data = subreddit.load(DATA_BASE_PATH,sub.display_name)
+
   try:
     for submission in context.config.submission_getter.get(sub,context.config.number_of_posts, context.logger):
       handle_post(submission,sub,context)
-  except:
-    context.logger.log("something went wrong whilst crawling. saving what's crawled so far")
+  except Exception as err:
+    print(err)
+  finally:
+    context.logger.log("Finished Crawling subreddit: {subreddit}. Saving data.".format(subreddit = sub.display_name))
+    context.current_data.save_to_file(DATA_BASE_PATH)
+    print("Saved {subreddit} data to disk".format(subreddit = sub.display_name))
 
 def save(context: Context):
-  context.userDB.save_to_file(users.FILE)
   context.blacklist.save_to_file(bot_blacklist.FILE)
+
+def ensure_data_location():
+  if not path.exists(DATA_BASE_PATH):
+    os.makedirs(DATA_BASE_PATH)
 
 def main(args: list[str]):
 
-  if "-test" in args:
-    tests.run()
-    return
+  ensure_data_location()
 
   reddit = praw.Reddit(
     client_id=CLIENT_ID,
     client_secret=CLIENT_SECRET,
     user_agent=USER_AGENT)
 
-  userDB = users.load(users.FILE)
   config = crawl_config.load(crawl_config.FILE)
   logger: Logger = Logger(config.verbose)
   blacklist: Bot_Blacklist = bot_blacklist.load(bot_blacklist.FILE)
-  context = Context(reddit,config, userDB,logger,blacklist)
+  context = Context(reddit,config, None,logger,blacklist)
 
-  #todo read config
   for subreddit in config.subreddits_to_crawl:
     handle_subreddit(subreddit,context)
   
