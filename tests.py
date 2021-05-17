@@ -1,8 +1,11 @@
 import string
 import random
+from submission_getters import HotSubmissionGetter, TopSubmissionGetter
 import jsonpickle
 import users
 from users import Users
+import crawl_config
+from crawl_config import Config
 
 def random_string(length: int = 10)-> str:
   return ''.join(random.choice(string.ascii_letters) for i in range(0,length))
@@ -30,7 +33,7 @@ class User_Tests:
     deser.print_user_names()
 
   def load_test(self):
-    my_users = users.load(users.USER_FILE)
+    my_users = users.load(users.FILE)
     my_users.print_user_names()
 
   def all_pair_test(self):
@@ -44,5 +47,28 @@ class User_Tests:
       print(my_user[1])
       input("next user?")
 
+class Config_Tests:
+  def __init__(self) -> None:
+      pass
+  def run_all(self):
+    self.serialize_test()
+    self.load_test()
+
+  def serialize_test(self):
+    config:Config = Config(["empty","fword","list"],10,TopSubmissionGetter("year"),True)
+    js = config.to_json()
+    print(js)
+    new: Config = jsonpickle.decode(js)
+    print(new.subreddits_to_crawl)
+
+  def load_test(self):
+    config = crawl_config.load(crawl_config.FILE)
+    print(type(config.submission_getter).__name__)
+  
+
 def run_all():
   User_Tests().run_all()
+  Config_Tests().run_all()
+
+def run():
+  pass
