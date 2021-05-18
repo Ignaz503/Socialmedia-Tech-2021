@@ -2,7 +2,7 @@ from app_config import Config
 from simple_logging import Logger
 import subreddit
 from subreddit import Subreddit_Data
-from main import DATA_BASE_PATH
+import defines
 
 def sub_pairs(subs:list[str]):
   return [(subs[i],subs[j]) for i in range(len(subs)) for j in range(i+1, len(subs))]
@@ -16,8 +16,8 @@ def define_index_dict(subs: list[str]):
   return idx_dict
 
 def update_adjacency_matrix(index_dict: dict[str,int], pair: tuple[str,str], adjacency_mat):
-  sub_one: Subreddit_Data = subreddit.load(DATA_BASE_PATH,pair[0])
-  sub_two: Subreddit_Data = subreddit.load(DATA_BASE_PATH,pair[1]) 
+  sub_one: Subreddit_Data = subreddit.load(defines.DATA_BASE_PATH,pair[0])
+  sub_two: Subreddit_Data = subreddit.load(defines.DATA_BASE_PATH,pair[1]) 
   #loop over users, check if other has same user, if yes note in adjacency matrix, else continue
   raise NotImplementedError()
 

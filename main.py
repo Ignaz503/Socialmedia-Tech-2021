@@ -5,12 +5,12 @@ import sys
 import reddit_crawl as crawl
 import data_generator as generator
 from simple_logging import Logger
+import defines
 
-DATA_BASE_PATH = "data"
 
 def ensure_data_location():
-  if not path.exists(DATA_BASE_PATH):
-    os.makedirs(DATA_BASE_PATH)
+  if not path.exists(defines.DATA_BASE_PATH):
+    os.makedirs(defines.DATA_BASE_PATH)
 
 def main(args: list[str]):
   ensure_data_location()

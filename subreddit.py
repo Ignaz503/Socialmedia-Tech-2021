@@ -16,8 +16,10 @@ class Subreddit_Data:
     self.name = name
     self.users = users
 
-  def add_user(self, user_name: str):
+  def add_user(self, user_name: str) -> bool:
+    contained = user_name in self.users
     self.users.add(user_name)
+    return not contained
 
   def to_json(self):
     return jsonpickle.encode(self,indent=2)

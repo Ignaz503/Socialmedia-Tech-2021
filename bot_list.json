@@ -1,6 +1,8 @@
 {
   "py/object": "bot_blacklist.Bot_Blacklist",
   "blacklist": {
-    "py/set": []
+    "py/set": [
+      "AutoModerator"
+    ]
   }
 }
