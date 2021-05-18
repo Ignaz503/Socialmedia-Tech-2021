@@ -7,4 +7,4 @@ CRAWL_ARGS = ["-crawl","-c"]
 GENERATE_ARGS = ["-generate","-g"]
 ALL_ARGS = ["-all","-a", "-both"]
 REPEAT_ARGS = ["-repeat","-r"]
-MIN_REPEAT_TIME = 60
+MIN_REPEAT_TIME = 5 * 60
