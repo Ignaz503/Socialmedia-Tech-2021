@@ -1,5 +1,6 @@
 from typing import Any
 from simple_logging import Logger
+import time
 
 class Data_Handler:
   def __init__(self) -> None:
@@ -47,7 +48,6 @@ class Diagnostics:
       self.data[key] = self.data_handler[key].init_value()
 
 class Increment_Data_Handler(Data_Handler):
-    start_value: int
     def __init__(self, start_value) -> None:
       self.start_value = start_value
     
@@ -71,6 +71,40 @@ class Total_Of_Incremnt_Data_Handler(Increment_Data_Handler):
   def build_message(self, value):
     return "A total of {val} ".format(val = value) + self.message_end
 
+class Timer_Data_Handler(Data_Handler):
+    def __init__(self) -> None:
+      pass   
+    def update(self, current_value, new_value):
+      current_value.append(time.perf_counter())
+      return current_value
+      
+    def log(self, value, logger: Logger):
+      logger.log(self.build_message(value))
+
+    
+    def build_message(self, value):
+      return "{t:0.4f} seconds passed ".format(t = self.seconds_passed(value))
+
+    def seconds_passed(self, value:list[float]):
+      return value[-1]-value[0]
+
+    def init_value(self):
+      return [time.perf_counter()]
+
+class Subreddit_Timer_Data_Handler(Timer_Data_Handler):
+  def __init__(self, diagnostic_parent) -> None:
+      super().__init__()
+      self.parent = diagnostic_parent
+
+  def build_message(self, value):
+    return "Crawl time for {n}: {t:0.4f} seconds".format(n=self.parent.name, t = self.seconds_passed(value))
+
+class Total_Crawl_Time_Data_Handler(Timer_Data_Handler):
+  def __init__(self) -> None:
+      super().__init__()
+  def build_message(self, value):
+    return "Total crawling time: {t:0.4f} seconds".format(t = self.seconds_passed(value))
+
 class Subreddit_Crawl_Diagnostic(Diagnostics):
   comments_total ="comments_total"
   comments_no_auhtor = "comments_no_auhtor"
@@ -78,6 +112,7 @@ class Subreddit_Crawl_Diagnostic(Diagnostics):
   new_bots_detected = "new_bots_detected"
   submissions_total = "submissions_total" 
   new_users = "new_users"
+  time_elapsed="time_elapsed"
   name: str
   def __init__(self) -> None:
       super().__init__()
@@ -88,6 +123,7 @@ class Subreddit_Crawl_Diagnostic(Diagnostics):
       self.create_category(self.new_bots_detected, Total_Of_Incremnt_Data_Handler(message_end="new bots have been detected"))
       self.create_category(self.submissions_total,Total_Of_Incremnt_Data_Handler(message_end="submissions have been crawled"))     
       self.create_category(self.new_users, Total_Of_Incremnt_Data_Handler(message_end="new users have been detected"))
+      self.create_category(self.time_elapsed, Subreddit_Timer_Data_Handler(self))
   
   def increment_comments_total(self):
     self.update_value(self.comments_total,1) 
@@ -107,11 +143,13 @@ class Subreddit_Crawl_Diagnostic(Diagnostics):
   def increment_new_bots_total(self):
     self.update_value(self.new_bots_detected,1)
 
+  def end_timing(self):
+    self.update_value(self.time_elapsed,None)
+
   def log(self, logger: Logger):
     logger.log("-"*15 + self.name + "-"*15)
     super().log(logger)
     logger.log("-"*30)
-
 
 class Reddit_Crawl_Diagnostics(Diagnostics):
   submissions_total = "submissions_total"
@@ -121,6 +159,7 @@ class Reddit_Crawl_Diagnostics(Diagnostics):
   bots_detected = "bots_detected"
   new_bots_detected = "new_bots_detected"
   new_users = "new_users"
+  time_elapsed="time_elapsed"
   def __init__(self) -> None:
       super().__init__()
       self.create_category(self.subreddits_total, Total_Of_Incremnt_Data_Handler(message_end="subreddits have been crawled"))
@@ -130,6 +169,7 @@ class Reddit_Crawl_Diagnostics(Diagnostics):
       self.create_category(self.bots_detected, Total_Of_Incremnt_Data_Handler(message_end="bots have been detected (not unique)"))
       self.create_category(self.new_bots_detected, Total_Of_Incremnt_Data_Handler(message_end="new bots have been detected"))
       self.create_category(self.new_users, Total_Of_Incremnt_Data_Handler(message_end="new users have been detected"))
+      self.create_category(self.time_elapsed, Total_Crawl_Time_Data_Handler())
   
   def increment_subreddits_total(self):
     self.update_value(self.subreddits_total,1)
@@ -142,7 +182,10 @@ class Reddit_Crawl_Diagnostics(Diagnostics):
     self.update_value(self.submissions_total,subreddit_diagnostics.get(subreddit_diagnostics.submissions_total))
     self.update_value(self.new_users,subreddit_diagnostics.get(subreddit_diagnostics.new_users))
 
+  def end_timing(self):
+    self.update_value(self.time_elapsed,None)
+
   def log(self, logger: Logger):
-    logger.log("-"*30)
+    logger.log("-"*15 + "Total Crawl" + "-"*15)
     super().log(logger)
     logger.log("-"*30)

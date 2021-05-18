@@ -72,6 +72,7 @@ def handle_subreddit(subreddit_name: str, context: Context):
     print(err)
     traceback.print_tb(err.__traceback__)
   finally:
+    context.subreddit_diagnostics.end_timing()
     context.logger.log("Finished Crawling subreddit: {subreddit}.".format(subreddit = sub.display_name))
     handle_subreddit_diagnostics(context)
     context.logger.log("Saving data.")
@@ -93,6 +94,7 @@ def run(config: Config, logger: Logger):
   for subreddit in config.subreddits_to_crawl:
     handle_subreddit(subreddit,context)
   
+  context.crawl_diagnostics.end_timing()
   context.crawl_diagnostics.log(context.logger)
   save(context)
 
