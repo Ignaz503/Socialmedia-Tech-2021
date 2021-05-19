@@ -72,7 +72,8 @@ def comments_stream(subs: SubredditHelper, reddit: Reddit, context: Thread_Safe_
   for comment in subs.stream.comments():
     if(token.is_cancel_requested()):
       break
-    handle_comment(comment,context)
+    handle_comment(comment,context)   
+  queue.enqueue(context.current_data)
   token.inform_finsihed_cancel()
 
 def submission_stream(subs: SubredditHelper,reddit: Reddit, context: Thread_Safe_Context, queue: Subreddit_Batch_Queue, token: Cancel_Token):
@@ -83,6 +84,7 @@ def submission_stream(subs: SubredditHelper,reddit: Reddit, context: Thread_Safe
     if(token.is_cancel_requested()):
       break
     handle_post(submission,context)
+  queue.enqueue(context.current_data)
   token.inform_finsihed_cancel()
 
 
