@@ -38,6 +38,9 @@ def handle_repeat_execution(config: app_config.Config, logger: Logger, batch_que
   #todo config time reading
   seconds = config.get_repeat_time_in_seconds()
 
+  if seconds == 0:
+    return None
+
   if seconds < MIN_REPEAT_TIME:
     seconds = MIN_REPEAT_TIME
 
