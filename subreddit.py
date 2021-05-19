@@ -66,7 +66,6 @@ class Subreddit_Batch:
 
   def save_to_file(self, logger: Logger):
     for sub in  self.subs:
-
       self.__handle_data(sub,self.subs[sub], logger)
 
 

@@ -10,6 +10,7 @@ CRAWL_ARGS = ["-crawl","-c"]
 GENERATE_ARGS = ["-generate","-g"]
 ALL_ARGS = ["-all","-a", "-both"]
 STREAM_ARGS = ["-s","-str", "-stream"]
+HISTORIC_ARGS = ["-h","-historic","-hc","-historic-crawl","-ch"]
 MIN_REPEAT_TIME = 5 * 60
 CONFIG = "app.config"
 BOT_LIST = "bot_list.json"

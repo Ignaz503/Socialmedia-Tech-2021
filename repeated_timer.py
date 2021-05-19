@@ -21,6 +21,11 @@ class RepeatedTimer(object):
         self._timer = threading.Timer(self.interval, self.__run)
         self._timer.start()
         self.is_running = True
+  
+  def start_running(self):
+    #hacks
+    self._timer = threading.Timer(0.1,self.__run)
+
   def stop(self):
     self._timer.cancel()
     self.is_running = False
