@@ -14,11 +14,10 @@ def handle_user(user_name: str, sub_name: str, context: Context):
   if context.blacklist.contains(user_name):
     context.crawl_diagnostics.increment_bots_detected()
     return
-
   new_user = context.current_data.add_user(sub_name,user_name)
   if new_user:
     context.crawl_diagnostics.increment_usrers_extracted_total()
-  pass
+
 
 def handle_comment(comment: Comment, submission: Submission, context: Context):
   if comment.author is None:

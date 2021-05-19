@@ -55,12 +55,14 @@ class Subreddit_Batch:
     return True
 
   def __handle_data(self, sub_name: str, data: Subreddit_Data, logger: Logger):
+    logger.log("-"*30)
     logger.log("Loading data for {s}".format(s=sub_name))
     current = load(DATA_BASE_PATH,sub_name)
     logger.log("Updating data for {s}".format(s=sub_name))
     current.add_users(data.users) 
     logger.log("Saving {s} to disk".format(s=sub_name))
     current.save_to_file(DATA_BASE_PATH)
+    logger.log("-"*30)
 
   def save_to_file(self, logger: Logger):
     for sub in  self.subs:
@@ -89,11 +91,12 @@ class Subreddit_Batch_Queue:
         batch = self.batch_queue.pop(0)
       self.__store_batch(batch, logger)
 
-  def handle_all(self):
+  def handle_all(self, logger: Logger):
     for batch in self.batch_queue:
-      self.__store_batch(batch)
+      self.__store_batch(batch, logger)
 
   def __store_batch(self, batch: Subreddit_Batch, logger: Logger):
     if batch is None:
       return
     batch.save_to_file(logger)
+    del batch

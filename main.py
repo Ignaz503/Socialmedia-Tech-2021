@@ -62,7 +62,7 @@ def handle_observation_shut_down(repeat_action: RepeatedTimer, tokens:tuple[Canc
     logger.log("Streams ended")
   logger.log("Saving data to disk")      
   blist.save_to_file(BOT_LIST)
-  batch_queue.handle_all()
+  batch_queue.handle_all(logger)
   logger.log("Done with saving")
 
 def main(args: list[str]):

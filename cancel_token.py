@@ -26,7 +26,6 @@ class Cancel_Token:
   def __init__(self) -> None:
       self.__cancel_request = False
       self.__onwership_taken = False
-      self.__cancel_request = -1
       self.__cancel_event = threading.Event()
 
   def take_ownership(self, new_owner_id: int):
