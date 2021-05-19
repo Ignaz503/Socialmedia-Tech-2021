@@ -105,31 +105,29 @@ class Total_Crawl_Time_Data_Handler(Timer_Data_Handler):
   def build_message(self, value):
     return "Total crawling time: {t:0.4f} seconds".format(t = self.seconds_passed(value))
 
-class Subreddit_Crawl_Diagnostic(Diagnostics):
+class Reddit_Crawl_Diagnostics(Diagnostics):
+  submissions_total = "submissions_total"
   comments_total ="comments_total"
   comments_no_auhtor = "comments_no_auhtor"
-  bots_detected = "bots_detected"  
+  bots_detected = "bots_detected"
   new_bots_detected = "new_bots_detected"
-  submissions_total = "submissions_total" 
-  new_users = "new_users"
+  users_extracted = "users_extracted"
   time_elapsed="time_elapsed"
-  name: str
   def __init__(self) -> None:
       super().__init__()
-      self.name = ""
+      self.create_category(self.submissions_total,Total_Of_Incremnt_Data_Handler(message_end="submissions have been crawled"))
       self.create_category(self.comments_total,Total_Of_Incremnt_Data_Handler(message_end="comments have been crawled"))
       self.create_category(self.comments_no_auhtor, Total_Of_Incremnt_Data_Handler(message_end="comments have had no author"))
       self.create_category(self.bots_detected, Total_Of_Incremnt_Data_Handler(message_end="bots have been detected (not unique)"))
       self.create_category(self.new_bots_detected, Total_Of_Incremnt_Data_Handler(message_end="new bots have been detected"))
-      self.create_category(self.submissions_total,Total_Of_Incremnt_Data_Handler(message_end="submissions have been crawled"))     
-      self.create_category(self.new_users, Total_Of_Incremnt_Data_Handler(message_end="new users have been detected"))
-      self.create_category(self.time_elapsed, Subreddit_Timer_Data_Handler(self))
+      self.create_category(self.users_extracted, Total_Of_Incremnt_Data_Handler(message_end="users have been detected"))
+      self.create_category(self.time_elapsed, Total_Crawl_Time_Data_Handler())
   
   def increment_comments_total(self):
     self.update_value(self.comments_total,1) 
   
-  def increment_new_usrers_total(self):
-    self.update_value(self.new_users,1) 
+  def increment_usrers_extracted_total(self):
+    self.update_value(self.users_extracted,1) 
 
   def increment_comments_no_author(self):
     self.update_value(self.comments_no_auhtor,1)
@@ -142,45 +140,6 @@ class Subreddit_Crawl_Diagnostic(Diagnostics):
   
   def increment_new_bots_total(self):
     self.update_value(self.new_bots_detected,1)
-
-  def end_timing(self):
-    self.update_value(self.time_elapsed,None)
-
-  def log(self, logger: Logger):
-    logger.log("-"*15 + self.name + "-"*15)
-    super().log(logger)
-    logger.log("-"*30)
-
-class Reddit_Crawl_Diagnostics(Diagnostics):
-  submissions_total = "submissions_total"
-  subreddits_total ="subreddits_total"
-  comments_total ="comments_total"
-  comments_no_auhtor = "comments_no_auhtor"
-  bots_detected = "bots_detected"
-  new_bots_detected = "new_bots_detected"
-  new_users = "new_users"
-  time_elapsed="time_elapsed"
-  def __init__(self) -> None:
-      super().__init__()
-      self.create_category(self.subreddits_total, Total_Of_Incremnt_Data_Handler(message_end="subreddits have been crawled"))
-      self.create_category(self.submissions_total,Total_Of_Incremnt_Data_Handler(message_end="submissions have been crawled"))
-      self.create_category(self.comments_total,Total_Of_Incremnt_Data_Handler(message_end="comments have been crawled"))
-      self.create_category(self.comments_no_auhtor, Total_Of_Incremnt_Data_Handler(message_end="comments have had no author"))
-      self.create_category(self.bots_detected, Total_Of_Incremnt_Data_Handler(message_end="bots have been detected (not unique)"))
-      self.create_category(self.new_bots_detected, Total_Of_Incremnt_Data_Handler(message_end="new bots have been detected"))
-      self.create_category(self.new_users, Total_Of_Incremnt_Data_Handler(message_end="new users have been detected"))
-      self.create_category(self.time_elapsed, Total_Crawl_Time_Data_Handler())
-  
-  def increment_subreddits_total(self):
-    self.update_value(self.subreddits_total,1)
-  
-  def accumulate_subreddit_data(self, subreddit_diagnostics: Subreddit_Crawl_Diagnostic):
-    self.update_value(self.comments_total,subreddit_diagnostics.get(subreddit_diagnostics.comments_total))
-    self.update_value(self.comments_no_auhtor,subreddit_diagnostics.get(subreddit_diagnostics.comments_no_auhtor))
-    self.update_value(self.bots_detected,subreddit_diagnostics.get(subreddit_diagnostics.bots_detected))
-    self.update_value(self.new_bots_detected,subreddit_diagnostics.get(subreddit_diagnostics.new_bots_detected))
-    self.update_value(self.submissions_total,subreddit_diagnostics.get(subreddit_diagnostics.submissions_total))
-    self.update_value(self.new_users,subreddit_diagnostics.get(subreddit_diagnostics.new_users))
 
   def end_timing(self):
     self.update_value(self.time_elapsed,None)

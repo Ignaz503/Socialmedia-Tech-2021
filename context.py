@@ -1,25 +1,29 @@
-from bot_blacklist import Bot_Blacklist
+from bot_blacklist import Bot_Blacklist, Threadsafe_Bot_Blacklist
 from simple_logging import Logger
-import praw.models
 from praw.reddit import Reddit
 from app_config import Config
-from subreddit import Subreddit_Data
-from diagnostics import Subreddit_Crawl_Diagnostic, Reddit_Crawl_Diagnostics
+from subreddit import Subreddit_Batch, Subreddit_Data
+from diagnostics import Reddit_Crawl_Diagnostics
+from threading import Lock
 
 class Context:
   reddit: Reddit
   config: Config
-  current_data: Subreddit_Data
+  current_data: Subreddit_Batch
   logger: Logger
-  blacklist: Bot_Blacklist
-  subreddit_diagnostics: Subreddit_Crawl_Diagnostic
+  blacklist: Threadsafe_Bot_Blacklist
   crawl_diagnostics: Reddit_Crawl_Diagnostics
 
-  def __init__(self, reddit: Reddit,config: Config, current_data: Subreddit_Data, logger: Logger, blacklist: Bot_Blacklist, subreddit_diagnostics: Subreddit_Crawl_Diagnostic, crawl_diagnostics: Reddit_Crawl_Diagnostics) -> None:
+  def __init__(self, reddit: Reddit,config: Config, current_data: Subreddit_Batch, logger: Logger, blacklist: Bot_Blacklist, crawl_diagnostics: Reddit_Crawl_Diagnostics) -> None:
       self.reddit = reddit
       self.config = config 
       self.current_data = current_data
       self.logger = logger
       self.blacklist = blacklist
-      self.subreddit_diagnostics = subreddit_diagnostics
       self.crawl_diagnostics = crawl_diagnostics
+
+class Thread_Safe_Context(Context):
+  current_data_lock: Lock
+  def __init__(self, reddit: Reddit, config: Config, current_data: Subreddit_Batch, logger: Logger, blacklist: Bot_Blacklist, crawl_diagnostics: Reddit_Crawl_Diagnostics) -> None:
+      super().__init__(reddit, config, current_data, logger, blacklist, crawl_diagnostics)
+      self.current_data_lock = Lock()

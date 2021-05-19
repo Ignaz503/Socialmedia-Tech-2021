@@ -1,9 +1,9 @@
-from io import FileIO
-import json
 from os import path
 import jsonpickle
-from jsonpickle.handlers import DatetimeHandler
 from os import path
+from defines import DATA_BASE_PATH
+from threading import Lock
+from simple_logging import Logger
 
 def make_name(base_path: str, sub_name: str) -> str:
   return path.join(base_path, sub_name + ".json")
@@ -20,6 +20,9 @@ class Subreddit_Data:
     contained = user_name in self.users
     self.users.add(user_name)
     return not contained
+
+  def add_users(self, users: set[str]):
+    self.users.update(users)
 
   def to_json(self):
     return jsonpickle.encode(self,indent=2)
@@ -39,14 +42,58 @@ def load(base_path: str,name: str) -> Subreddit_Data:
       content = f.read()
       return jsonpickle.decode(content)
 
+class Subreddit_Batch:
+  subs: dict[str, Subreddit_Data]
 
-#def generate_subreddit_pair_for_user(self,user_name: str) -> list[tuple[str,str]]:
-#todo maybe make this a generator as well
-#subs = list(self.data[user_name])
-#pairs =[(subs[i],subs[j]) for i in range(len(subs)) for j in range(i+1, len(subs))]
-#return  pairs
+  def __init__(self) -> None:
+    self.subs = {}
 
-#def generate_subreddit_pairs_for_all_users(self) -> tuple[str,list[tuple[str,str]]]:
-#res: dict[str,tuple[str,str]] = {}
-#for user in self.data:
-#yield (user, self.generate_subreddit_pair_for_user(user))
+  def add_user(self, sub_name: str, user_name: str):
+    if sub_name in self.subs:
+      return self.subs[sub_name].add_user(user_name)
+    self.subs[sub_name] = Subreddit_Data(sub_name,set([user_name]))
+    return True
+
+  def __handle_data(self, sub_name: str, data: Subreddit_Data, logger: Logger):
+    logger.log("Loading data for {s}".format(s=sub_name))
+    current = load(DATA_BASE_PATH,sub_name)
+    logger.log("Updating data for {s}".format(s=sub_name))
+    current.add_users(data.users) 
+    logger.log("Saving {s} to disk".format(s=sub_name))
+    current.save_to_file(DATA_BASE_PATH)
+
+  def save_to_file(self, logger: Logger):
+    for sub in  self.subs:
+
+      self.__handle_data(sub,self.subs[sub], logger)
+
+
+class Subreddit_Batch_Queue:
+  lock: Lock
+  batch_queue: list[Subreddit_Batch]
+
+  def __init__(self) -> None:
+    self.batch_queue = []
+    self.lock = Lock()
+
+  def enqueue(self, batch: Subreddit_Batch):
+    with self.lock:
+      self.batch_queue.append(batch)
+  
+  def update(self,logger: Logger):
+    batch = None
+    while len(self.batch_queue) > 0:
+      leng = len(self.batch_queue)
+      logger.log("{l} batches in queue to handle".format(l = leng))
+      with self.lock:
+        batch = self.batch_queue.pop(0)
+      self.__store_batch(batch, logger)
+
+  def handle_all(self):
+    for batch in self.batch_queue:
+      self.__store_batch(batch)
+
+  def __store_batch(self, batch: Subreddit_Batch, logger: Logger):
+    if batch is None:
+      return
+    batch.save_to_file(logger)

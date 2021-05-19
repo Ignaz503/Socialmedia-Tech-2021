@@ -2,8 +2,6 @@ import jsonpickle
 from os import path
 from submission_getters import HotSubmissionGetter, NewSubmissionGetter, SubmissionsGetter
 
-FILE = "app.config"
-
 class Config:
   subreddits_to_crawl: list[str]
   number_of_posts: int
@@ -12,9 +10,10 @@ class Config:
   repeat_seconds:int
   repeat_minutes:int
   repeat_hours:int
-  max_repetitions:int
+  batch_save_interval_seconds:int
+  stream_save_interval_seconds:int
 
-  def __init__(self,subreddits_to_crawl: list[str],number_of_posts: int,submission_getter:SubmissionsGetter, verbose: bool,repeat_seconds:int,repeat_minutes:int,repeat_hours:int, max_repetitions:int) -> None:
+  def __init__(self,subreddits_to_crawl: list[str],number_of_posts: int,submission_getter:SubmissionsGetter, verbose: bool,repeat_seconds:int,repeat_minutes:int,repeat_hours:int,batch_save_interval_seconds:int,stream_save_interval_seconds:int) -> None:
       self.subreddits_to_crawl = subreddits_to_crawl
       self.number_of_posts = number_of_posts
       self.submission_getter = submission_getter
@@ -22,7 +21,8 @@ class Config:
       self.repeat_hours = repeat_hours
       self.repeat_minutes = repeat_minutes
       self.repeat_seconds = repeat_seconds
-      self.max_repetitions = max_repetitions
+      self.batch_save_interval_seconds = batch_save_interval_seconds
+      self.stream_save_interval_seconds = stream_save_interval_seconds
   
   def get_repeat_time_in_seconds(self):
     return self.repeat_seconds + (self.repeat_minutes*60) + (self.repeat_hours * 60 * 60)
@@ -32,7 +32,7 @@ class Config:
 
 def load(file_path: str) -> Config:
   if not path.exists(file_path):
-    return Config([],10,NewSubmissionGetter())
+    return Config([],10,NewSubmissionGetter(),True,0,5,0)
   else:
     with open(file_path, 'r') as f:
       content = f.read()
