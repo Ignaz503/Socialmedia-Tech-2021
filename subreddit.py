@@ -4,9 +4,8 @@ from os import path
 from defines import DATA_BASE_PATH
 from threading import Lock
 from simple_logging import Logger
+from util import make_data_path
 
-def make_name(base_path: str, sub_name: str) -> str:
-  return path.join(base_path, sub_name + ".json")
 
 class Subreddit_Data:
   name:str
@@ -27,13 +26,14 @@ class Subreddit_Data:
   def to_json(self):
     return jsonpickle.encode(self,indent=2)
   
-  def save_to_file(self, base_path: str):
+  def save_to_file(self):
     content = self.to_json()
-    with open(make_name(base_path,self.name), 'w') as f:
+    
+    with open(make_data_path(self.name + ".json"), 'w') as f:
       f.write(content)
 
-def load(base_path: str,name: str) -> Subreddit_Data:
-  file_path = make_name(base_path,name)
+def load(name: str) -> Subreddit_Data:
+  file_path = make_data_path(name + ".json")
   if not path.exists(file_path):
     with open(file_path,'w'): pass
     return Subreddit_Data(name,set([]))
@@ -57,11 +57,11 @@ class Subreddit_Batch:
   def __handle_data(self, sub_name: str, data: Subreddit_Data, logger: Logger):
     logger.log("-"*30)
     logger.log("Loading data for {s}".format(s=sub_name))
-    current = load(DATA_BASE_PATH,sub_name)
+    current = load(sub_name)
     logger.log("Updating data for {s}".format(s=sub_name))
     current.add_users(data.users) 
     logger.log("Saving {s} to disk".format(s=sub_name))
-    current.save_to_file(DATA_BASE_PATH)
+    current.save_to_file()
     logger.log("-"*30)
 
   def save_to_file(self, logger: Logger):

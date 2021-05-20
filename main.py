@@ -3,8 +3,9 @@ import sys
 import threading
 import app_config
 import bot_blacklist
-import reddit_crawl as crawl
 import reddit_stream as rstr
+import reddit_crawl as crawl
+import visualize_data as vsd
 import data_generator as generator
 import reddit_crawl_historical as rch
 from os import path
@@ -14,20 +15,22 @@ from cancel_token import Cancel_Token
 from repeated_timer import RepeatedTimer
 from subreddit import Subreddit_Batch_Queue
 from bot_blacklist import Threadsafe_Bot_Blacklist
-from defines import ALL_ARGS, BOT_LIST, DATA_BASE_PATH,CRAWL_ARGS,GENERATE_ARGS, CONFIG, STREAM_ARGS, HISTORIC_ARGS
+from defines import ALL_ARGS, BOT_LIST, DATA_BASE_PATH,CRAWL_ARGS,GENERATE_ARGS, CONFIG, STREAM_ARGS, HISTORIC_ARGS, VIS_ARGS
 
 class FlowControl:
   crawl: bool
   generate: bool
   stream: bool
   historic_crawl:bool
-  def __init__(self,crawl: bool, generate: bool, stream: bool, historic_crawl:bool) -> None:
+  visualize:bool
+  def __init__(self,crawl: bool, generate: bool, stream: bool, historic_crawl:bool,visualize:bool) -> None:
       self.crawl = crawl
       self.generate = generate
       self.stream = stream
       self.historic_crawl = historic_crawl
+      self.visualize = visualize
 
-  def need_to_run_main_loop(self)-> bool:
+  def need_to_run_main_observation_loop(self)-> bool:
     return self.crawl or self.stream or self.historic_crawl
 
 def ensure_data_location():
@@ -42,12 +45,14 @@ def parse_args(args: list[str]) -> FlowControl:
   generate = any_element_contained(args,GENERATE_ARGS)
   stream = any_element_contained(args,STREAM_ARGS)
   historical = any_element_contained(args,HISTORIC_ARGS)
+  visualize = any_element_contained(args,VIS_ARGS)
   if any_element_contained(args,ALL_ARGS):
     generate = True
     crawl = True
     stream = True
     historical = True
-  return FlowControl(crawl,generate, stream,historical)
+    visualize = True
+  return FlowControl(crawl,generate, stream,historical,visualize)
 
 def handle_observation_shut_down(repeat_action: RepeatedTimer, tokens:tuple[Cancel_Token,Cancel_Token], logger: Logger, blist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue):
   logger.log("Shutting Down Data Gathering - This may take some time")
@@ -65,7 +70,7 @@ def handle_observation_shut_down(repeat_action: RepeatedTimer, tokens:tuple[Canc
   batch_queue.handle_all(logger)
   logger.log("Done with saving")
 
-def main_loop(config: app_config.Config,repeat_action: RepeatedTimer,tokens: tuple[Cancel_Token,Cancel_Token],batch_queue: Subreddit_Batch_Queue, blist: Threadsafe_Bot_Blacklist, logger: Logger):
+def main_observation_loop(config: app_config.Config,repeat_action: RepeatedTimer,tokens: tuple[Cancel_Token,Cancel_Token],batch_queue: Subreddit_Batch_Queue, blist: Threadsafe_Bot_Blacklist, logger: Logger):
     while True:
       try:
         batch_queue.update(logger)
@@ -90,14 +95,17 @@ def run(program_flow: FlowControl, config: app_config.Config, logger: Logger):
     rch.run(config,logger,blist,batch_queue)
 
   #only run if eiter of stream 
-  if program_flow.need_to_run_main_loop():
+  if program_flow.need_to_run_main_observation_loop():
     logger.log("starting main loop {tid}".format(tid = threading.get_ident()))
-    main_loop(config,repeat_action,tokens,batch_queue,blist,logger)
+    main_observation_loop(config,repeat_action,tokens,batch_queue,blist,logger)
 
   if  program_flow.generate:
     generator.run(config, logger)
 
-  print("Goodbye!")
+  if program_flow.visualize:
+    vsd.run(config,logger)
+
+  logger.log("Goodbye!")
 
 
 def main(args: list[str]):
