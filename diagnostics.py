@@ -1,6 +1,6 @@
+import time
 from typing import Any
 from simple_logging import Logger
-import time
 
 class Data_Handler:
   def __init__(self) -> None:

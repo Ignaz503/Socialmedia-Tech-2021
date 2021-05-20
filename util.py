@@ -1,10 +1,5 @@
-import numpy as np
 import random
-from os import path
-from defines import DATA_BASE_PATH
-
-def make_data_path(filename:str):
-  return path.join(DATA_BASE_PATH,filename)
+import numpy as np
 
 def define_index_dict_for_adj_mat(subs: list[str]):
   idx_dict = {}

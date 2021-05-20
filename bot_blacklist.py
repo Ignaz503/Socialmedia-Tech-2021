@@ -1,6 +1,7 @@
+import data_util
 import jsonpickle
-from os import path
 from threading import Lock
+from data_util import DataLocation
 
 class Bot_Blacklist:
   blacklist: set[str]
@@ -34,11 +35,9 @@ class Threadsafe_Bot_Blacklist:
   def save_to_file(self, file_path: str):
     self.data.save_to_file(file_path)
 
-def load(file_path) -> Threadsafe_Bot_Blacklist:
-  if not path.exists(file_path):
-    with open(file_path,'w'): pass
-    return Threadsafe_Bot_Blacklist(Bot_Blacklist(set([])))
-  else:
-    with open(file_path, 'r') as f:
+def load(filename) -> Threadsafe_Bot_Blacklist:
+  if data_util.file_exists(filename, DataLocation.DEFAULT):
+    with open(data_util.make_data_path(filename, DataLocation.DEFAULT), 'r') as f:
       content = f.read()
       return Threadsafe_Bot_Blacklist(jsonpickle.decode(content))
+  return Threadsafe_Bot_Blacklist(Bot_Blacklist(set([])))

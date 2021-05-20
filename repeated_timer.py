@@ -1,8 +1,7 @@
 #stackoverflow goodness + repetion max
 import threading 
-import time
 
-class RepeatedTimer(object):
+class Repeat_Timer(object):
   def __init__(self, interval, function, *args, **kwargs):
     self._timer     = None
     self.interval   = interval
@@ -25,6 +24,8 @@ class RepeatedTimer(object):
   def start_running(self):
     #hacks
     self._timer = threading.Timer(0.1,self.__run)
+    self.is_running = True
+    self._timer.start()
 
   def stop(self):
     self._timer.cancel()

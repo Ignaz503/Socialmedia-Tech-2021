@@ -1,14 +1,10 @@
 from logging import Logger
-from praw import Reddit
-from praw.models import Subreddit
-from enum import Enum
 
 class SubmissionsGetter:
   def __init__(self) -> None:
       pass
   def get(self, subreddit, number_of_posts: int, logger: Logger):
     pass
-
 
 class TopSubmissionGetter(SubmissionsGetter):
   category: str

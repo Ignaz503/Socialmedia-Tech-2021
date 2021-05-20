@@ -1,11 +1,8 @@
-from os import path
+import data_util
 import jsonpickle
-from os import path
-from defines import DATA_BASE_PATH
 from threading import Lock
 from simple_logging import Logger
-from util import make_data_path
-
+from data_util import DataLocation
 
 class Subreddit_Data:
   name:str
@@ -27,20 +24,18 @@ class Subreddit_Data:
     return jsonpickle.encode(self,indent=2)
   
   def save_to_file(self):
-    content = self.to_json()
-    
-    with open(make_data_path(self.name + ".json"), 'w') as f:
+    content = self.to_json()   
+    with open(data_util.make_data_path(self.name + ".json",DataLocation.SUBREDDIT), 'w') as f:
       f.write(content)
 
-def load(name: str) -> Subreddit_Data:
-  file_path = make_data_path(name + ".json")
-  if not path.exists(file_path):
-    with open(file_path,'w'): pass
-    return Subreddit_Data(name,set([]))
-  else:
-    with open(file_path, 'r') as f:
-      content = f.read()
-      return jsonpickle.decode(content)
+  @staticmethod
+  def load(subbredit_name: str):
+    filename = subbredit_name + ".json"
+    if data_util.file_exists(filename, DataLocation.SUBREDDIT):
+      with open(data_util.make_data_path(filename, DataLocation.SUBREDDIT), 'r') as f:
+        content = f.read()
+        return jsonpickle.decode(content)
+    return Subreddit_Data(subbredit_name,set([]))
 
 class Subreddit_Batch:
   subs: dict[str, Subreddit_Data]
@@ -57,7 +52,7 @@ class Subreddit_Batch:
   def __handle_data(self, sub_name: str, data: Subreddit_Data, logger: Logger):
     logger.log("-"*30)
     logger.log("Loading data for {s}".format(s=sub_name))
-    current = load(sub_name)
+    current: Subreddit_Data = Subreddit_Data.load(sub_name)
     logger.log("Updating data for {s}".format(s=sub_name))
     current.add_users(data.users) 
     logger.log("Saving {s} to disk".format(s=sub_name))
@@ -67,7 +62,6 @@ class Subreddit_Batch:
   def save_to_file(self, logger: Logger):
     for sub in  self.subs:
       self.__handle_data(sub,self.subs[sub], logger)
-
 
 class Subreddit_Batch_Queue:
   lock: Lock
@@ -99,3 +93,56 @@ class Subreddit_Batch_Queue:
       return
     batch.save_to_file(logger)
     del batch
+  
+class Subreddit_MetaData:
+  subscriber_count: int
+  description: str
+
+  def __init__(self,subscriber_count: int, desciption:str) -> None:
+      self.subscriber_count =subscriber_count
+      self.description = desciption
+
+class Crawl_Metadata:
+  data: dict[str,Subreddit_MetaData]
+  larges_sub: str
+  smallest_sub: str
+
+  def __init__(self, data: dict[str,Subreddit_MetaData], largest:str, smallest:str) -> None:
+      self.data = data
+      self.larges_sub = largest
+      self.smallest_sub = smallest
+
+  def add_meta_data(self,sub_name: str, meta: Subreddit_MetaData, update: bool = True):
+    if  sub_name in self.data and not update:
+      return
+    self.data[sub_name] = meta
+    if self.get_smallest_sub_count() > meta.subscriber_count:
+      self.smallest_sub = sub_name
+    if self.get_largest_sub_count() < meta.subscriber_count:
+      self.larges_sub = sub_name
+
+  def get_largest_sub_count(self) -> int:
+    if self.larges_sub not in self.data:
+      return -1
+    return self.data[self.larges_sub].subscriber_count
+
+  def get_smallest_sub_count(self) -> int:
+    if self.smallest_sub not in self.data:
+      return 2 ** 64 #int uncapped so just return some ridiculous huge data
+    return self.data[self.smallest_sub].subscriber_count
+
+  def to_json(self) -> str:
+    return jsonpickle.encode(self, indent=2)
+  
+  def save_to_file(self, name: str):
+    content = self.to_json()   
+    with open(data_util.make_data_path(name,DataLocation.SUBREDDIT_META), 'w') as f:
+      f.write(content)
+
+  @staticmethod
+  def load(name: str):
+    if data_util.file_exists(name,DataLocation.SUBREDDIT_META):
+      with open(data_util.make_data_path(name,DataLocation.SUBREDDIT_META),'r') as f:
+        content = f.read()
+        return jsonpickle.decode(content)
+    return Crawl_Metadata({},"","")

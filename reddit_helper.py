@@ -1,10 +1,10 @@
+import threading
+from time import sleep
+from praw.models import Comment
 from praw.models import Submission
 from context import Context, Thread_Safe_Context
 from praw.models.comment_forest import CommentForest
-from praw.models import Comment
-from time import sleep
 from subreddit import Subreddit_Batch_Queue, Subreddit_Batch
-import threading
 
 def get_all_comments(forest: CommentForest):
   forest.replace_more(limit=None)
