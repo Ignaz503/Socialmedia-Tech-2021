@@ -1,7 +1,7 @@
 import random
 import numpy as np
 
-def define_index_dict_for_adj_mat(subs: list[str]):
+def define_index_dict_for_subreddits(subs: list[str]) -> dict[str,int]:
   idx_dict = {}
   count = 0
   for sub in subs:

@@ -1,8 +1,12 @@
+from os import sep
 import data_util
 import jsonpickle
 from threading import Lock
 from simple_logging import Logger
 from data_util import DataLocation
+import math
+import datetime as dt
+import textwrap
 
 class Subreddit_Data:
   name:str
@@ -94,25 +98,38 @@ class Subreddit_Batch_Queue:
     batch.save_to_file(logger)
     del batch
   
-class Subreddit_MetaData:
+class Subreddit_Metadata:
   subscriber_count: int
   description: str
+  created_utc: float
 
-  def __init__(self,subscriber_count: int, desciption:str) -> None:
+  def __init__(self,subscriber_count: int, description:str,created_utc:float) -> None:
       self.subscriber_count =subscriber_count
-      self.description = desciption
+      self.description = description
+      self.created_utc = created_utc
+  
+  def get_creation_time(self) -> dt.datetime:
+    return dt.datetime.fromtimestamp(self.created_utc)
+
+  def to_html_string(self):
+    date = self.get_creation_time()
+    string = "<b>created on:</b> {d}".format(d=date.isoformat(sep=" "))+'<br>'
+    string += "<b>subscriber count:</b> {c}".format(c=self.subscriber_count) + '<br>'
+    string += "<b>description:</b><br>"
+    desc = '<br>'.join(textwrap.wrap(self.description,50))
+    return string + desc
 
 class Crawl_Metadata:
-  data: dict[str,Subreddit_MetaData]
+  data: dict[str,Subreddit_Metadata]
   larges_sub: str
   smallest_sub: str
 
-  def __init__(self, data: dict[str,Subreddit_MetaData], largest:str, smallest:str) -> None:
+  def __init__(self, data: dict[str,Subreddit_Metadata], largest:str, smallest:str) -> None:
       self.data = data
       self.larges_sub = largest
       self.smallest_sub = smallest
 
-  def add_meta_data(self,sub_name: str, meta: Subreddit_MetaData, update: bool = True):
+  def add_meta_data(self,sub_name: str, meta: Subreddit_Metadata, update: bool = True):
     if  sub_name in self.data and not update:
       return
     self.data[sub_name] = meta
@@ -130,6 +147,21 @@ class Crawl_Metadata:
     if self.smallest_sub not in self.data:
       return 2 ** 64 #int uncapped so just return some ridiculous huge data
     return self.data[self.smallest_sub].subscriber_count
+
+  def lerp_sub_count(self, sub_name: str, logger: Logger)-> float:
+    if sub_name not in self.data:
+      logger.log("{s} not found in meta data".format(s=sub_name))
+      return 0.5
+
+    size = float(self.data[sub_name].subscriber_count)
+    small = float(self.get_smallest_sub_count())
+    large = float(self.get_largest_sub_count())
+    divisor = large - small
+
+    if math.isclose(divisor,0.0):
+      return 0.5#idk maybe something else
+    return (size - small) / divisor
+
 
   def to_json(self) -> str:
     return jsonpickle.encode(self, indent=2)

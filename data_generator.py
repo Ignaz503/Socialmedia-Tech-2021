@@ -31,7 +31,7 @@ def __save_meta_data(meta_data: Crawl_Metadata, config: Config, logger: Logger):
   meta_data.save_to_file(config.meta_data_name)
 
 def generate_adjacency_mat(config: Config, logger: Logger)-> np.ndarray:
-  index_dict = util.define_index_dict_for_adj_mat(config.subreddits_to_crawl)
+  index_dict = util.define_index_dict_for_subreddits(config.subreddits_to_crawl)
   size = len(config.subreddits_to_crawl)
   adjacency_mat = np.zeros((size,size), dtype=np.int32)
   for pair in __sub_pairs(config.subreddits_to_crawl):

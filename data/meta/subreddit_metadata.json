@@ -2,14 +2,16 @@
   "py/object": "subreddit.Crawl_Metadata",
   "data": {
     "Veloren": {
-      "py/object": "subreddit.Subreddit_MetaData",
-      "subscriber_count": 8263,
-      "description": "Veloren is a community-driven multiplayer voxel RPG set in a vast and dynamic procedural world."
+      "py/object": "subreddit.Subreddit_Metadata",
+      "subscriber_count": 8266,
+      "description": "Veloren is a community-driven multiplayer voxel RPG set in a vast and dynamic procedural world.",
+      "created_utc": 1531101324.0
     },
     "gatekeeping": {
-      "py/object": "subreddit.Subreddit_MetaData",
-      "subscriber_count": 821210,
-      "description": "Gatekeeping is when someone takes it upon themselves to decide who does or does not have access or rights to a community or identity. /r/gatekeeping is a subreddit for screenshots and stories of gatekeepers in the wild."
+      "py/object": "subreddit.Subreddit_Metadata",
+      "subscriber_count": 821235,
+      "description": "Gatekeeping is when someone takes it upon themselves to decide who does or does not have access or rights to a community or identity. /r/gatekeeping is a subreddit for screenshots and stories of gatekeepers in the wild.",
+      "created_utc": 1469282948.0
     }
   },
   "larges_sub": "gatekeeping",
