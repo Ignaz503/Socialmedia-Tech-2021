@@ -4,7 +4,7 @@ import reddit_helper as rh
 from typing import Callable
 from app_config import Config
 from praw.reddit import Reddit
-from simple_logging import Logger
+from simple_logging import Logger, Level
 from cancel_token import Cancel_Token
 from context import Thread_Safe_Context
 from praw.models import SubredditHelper
@@ -17,16 +17,16 @@ def __stream_monitor(monitor_type: str, stream_gen, data_handler, subs: Subreddi
   with token:
     rh.start_batch_submit_thread(monitor_type,context,queue)
     #pause after one repsone with nothing new to check if canceled, set to 0 for no delay
-    context.logger.log("Start monitioring {mt} for subreddits {subs}".format(mt = monitor_type, subs = context.config.subreddits_to_crawl))
+    context.logger.log("Start monitioring {mt} for subreddits {subs}".format(mt = monitor_type, subs = context.config.subreddits_to_crawl),Level.INFO)
     for data in stream_gen(pause_after=1):
       if token.is_cancel_requested():
-        context.logger.log("Terminating due to cancel request")
+        context.logger.log("Terminating due to cancel request",Level.INFO)
         break
       if data is None: 
         continue
       data_handler(data,context,token)
     queue.enqueue(context.current_data)
-    context.logger.log("Stop monitoring of comments stream")
+    context.logger.log("Stop monitoring of comments stream",Level.INFO)
 
 
 def __comments_stream(subs: SubredditHelper, reddit: Reddit, context: Thread_Safe_Context, queue: Subreddit_Batch_Queue, token: Cancel_Token):

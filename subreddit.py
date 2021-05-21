@@ -2,7 +2,7 @@ from os import sep
 import data_util
 import jsonpickle
 from threading import Lock
-from simple_logging import Logger
+from simple_logging import Level, Logger
 from data_util import DataLocation
 import math
 import datetime as dt
@@ -54,14 +54,14 @@ class Subreddit_Batch:
     return True
 
   def __handle_data(self, sub_name: str, data: Subreddit_Data, logger: Logger):
-    logger.log("-"*30)
-    logger.log("Loading data for {s}".format(s=sub_name))
+    logger.log("-"*30,Level.INFO)
+    logger.log("Loading data for {s}".format(s=sub_name),Level.INFO)
     current: Subreddit_Data = Subreddit_Data.load(sub_name)
-    logger.log("Updating data for {s}".format(s=sub_name))
+    logger.log("Updating data for {s}".format(s=sub_name),Level.INFO)
     current.add_users(data.users) 
-    logger.log("Saving {s} to disk".format(s=sub_name))
+    logger.log("Saving {s} to disk".format(s=sub_name),Level.INFO)
     current.save_to_file()
-    logger.log("-"*30)
+    logger.log("-"*30, Level.INFO)
 
   def save_to_file(self, logger: Logger):
     for sub in  self.subs:
@@ -83,7 +83,7 @@ class Subreddit_Batch_Queue:
     batch = None
     while len(self.batch_queue) > 0:
       leng = len(self.batch_queue)
-      logger.log("{l} batches in queue to handle".format(l = leng))
+      logger.log("{l} batches in queue to handle".format(l = leng), Level.INFO)
       with self.lock:
         batch = self.batch_queue.pop(0)
       self.__store_batch(batch, logger)
@@ -155,7 +155,7 @@ class Crawl_Metadata:
 
   def lerp_sub_count(self, sub_name: str, logger: Logger)-> float:
     if sub_name not in self.data:
-      logger.log("{s} not found in meta data".format(s=sub_name))
+      logger.log("{s} not found in meta data".format(s=sub_name),Level.WARNING)
       return 0.5
 
     size = float(self.data[sub_name].subscriber_count)

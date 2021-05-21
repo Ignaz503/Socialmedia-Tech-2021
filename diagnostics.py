@@ -1,6 +1,6 @@
 import time
 from typing import Any
-from simple_logging import Logger
+from simple_logging import Level, Logger
 
 class Data_Handler:
   def __init__(self) -> None:
@@ -55,7 +55,7 @@ class Increment_Data_Handler(Data_Handler):
       return current_value + new_value
       
     def log(self, value, logger: Logger):
-      logger.log(self.build_message(value))
+      logger.log(self.build_message(value),Level.INFO)
     
     def build_message(self, value):
       return value
@@ -79,7 +79,7 @@ class Timer_Data_Handler(Data_Handler):
       return current_value
       
     def log(self, value, logger: Logger):
-      logger.log(self.build_message(value))
+      logger.log(self.build_message(value),Level.INFO)
 
     
     def build_message(self, value):
@@ -145,6 +145,6 @@ class Reddit_Crawl_Diagnostics(Diagnostics):
     self.update_value(self.time_elapsed,None)
 
   def log(self, logger: Logger):
-    logger.log("-"*15 + "Total Crawl" + "-"*15)
+    logger.log("-"*15 + "Total Crawl" + "-"*15,Level.INFO)
     super().log(logger)
-    logger.log("-"*30)
+    logger.log("-"*30,Level.INFO)

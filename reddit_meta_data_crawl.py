@@ -3,7 +3,7 @@ import praw
 from praw import Reddit
 from praw.models import Subreddit
 from app_config import Config
-from simple_logging import Logger
+from simple_logging import Level, Logger
 from defines import CLIENT_ID, CLIENT_SECRET, USER_AGENT
 from subreddit import Crawl_Metadata, Subreddit_Metadata 
 
@@ -18,11 +18,11 @@ def run(crawl_metaData: Crawl_Metadata, config: Config, logger: Logger, token: C
       client_id=CLIENT_ID,
       client_secret=CLIENT_SECRET,
       user_agent=USER_AGENT)
-    logger.log("Crawling for subreddit metadata")
+    logger.log("Crawling for subreddit metadata",Level.INFO)
     for sub in config.subreddits_to_crawl:
       if token.is_cancel_requested():
         break
-      logger.log("getting meta data for {s}".format(s=sub))
+      logger.log("getting meta data for {s}".format(s=sub),Level.INFO)
       handle_subreddit(reddit.subreddit(sub),crawl_metaData,logger)
     return crawl_metaData
 

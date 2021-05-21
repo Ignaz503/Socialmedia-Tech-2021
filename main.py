@@ -8,7 +8,8 @@ from time import sleep
 import reddit_stream as rstr
 import reddit_crawl as crawl
 import visualize_data as vsd
-from simple_logging import Logger
+import simple_logging
+from simple_logging import Level, Logger
 import data_generator as generator
 import reddit_crawl_historical as rch
 from cancel_token import Cancel_Token, Thread_Owned_Token_Tray
@@ -54,18 +55,19 @@ def __get_bot_list_name(config: app_config.Config):
   return blist_name
 
 def handle_observation_shut_down(config: app_config.Config,token: Cancel_Token, data_saver_tray: Thread_Owned_Token_Tray, logger: Logger, blist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue):
-  logger.log("Shutting Down - This may take some time")
-  logger.log("informing worker threads to cancel operations")
+  logger.log("Shutting Down - This may take some time",Level.INFO)
+  logger.log("informing worker threads to cancel operations",Level.INFO)
   token.request_cancel()
-  logger.log("waiting for worker threads to cancel")
+  logger.log("waiting for worker threads to cancel",Level.INFO)
   token.wait()
-  logger.log("finished waiting for worker threads")
-  logger.log("Saving data to disk")      
+  logger.log("finished waiting for worker threads",Level.INFO)
+  logger.log("Saving data to disk",Level.INFO)      
   blist.save_to_file(__get_bot_list_name(config))
   
   data_saver_tray.try_rqeuest_cancel()
   data_saver_tray.try_wait()
-  logger.log("Done with saving")
+  logger.log("Done with saving",Level.INFO)
+  logger.stop()
 
 def any_keyword_in_string(keywords: list[str], my_string:str):
   return any(keyword in my_string for keyword in keywords)
@@ -124,13 +126,13 @@ def run(program_flow: FlowControl, config: app_config.Config, logger: Logger):
 
   main_observation_loop(config,token,data_saver_tray,batch_queue,blist,logger)
 
-  logger.log("Goodbye!")
+  print("Goodbye!")
 
 
 def main(args: list[str]):
   data_util.ensure_data_locations()
   config = app_config.load(CONFIG)
-  logger: Logger = Logger(config.verbose)
+  logger: Logger = simple_logging.start(config.verbose,"Welcome Social Media Technologies 2021 Group 1")
 
   program_flow = parse_args(args)
   run(program_flow, config, logger)

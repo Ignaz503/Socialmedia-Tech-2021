@@ -5,7 +5,7 @@ import praw.models
 import reddit_helper as rh
 from context import Context
 from app_config import Config
-from simple_logging import Logger
+from simple_logging import Level, Logger
 from cancel_token import Cancel_Token
 from praw.models import Comment, Submission
 from diagnostics import  Reddit_Crawl_Diagnostics
@@ -31,7 +31,7 @@ def __handle_comment(comment: Comment, submission: Submission, context: Context)
 
 def __handle_post(post: Submission, context: Context, token: Cancel_Token):
   
-  context.logger.log("Crawling submission: {mis}".format(mis=post.title))
+  context.logger.log("Crawling submission: {mis}".format(mis=post.title),Level.INFO)
   context.crawl_diagnostics.increment_submission_total()
 
   if post.author is not None:
@@ -48,7 +48,7 @@ def __handle_post(post: Submission, context: Context, token: Cancel_Token):
 def __handle_crawl(context: Context, token: Cancel_Token):
   for sub in context.config.subreddits_to_crawl:
     subreddit = context.reddit.subreddit(sub)
-    context.logger.log("Crawling subreddits: {subreddit}".format(subreddit = sub))
+    context.logger.log("Crawling subreddits: {subreddit}".format(subreddit = sub),Level.INFO)
     try:
       for submission in context.config.submission_getter.get(subreddit,context.config.number_of_posts, context.logger):
         if token.is_cancel_requested():
@@ -67,7 +67,7 @@ def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Bl
 
     context = Context(reddit,config, Subreddit_Batch(),logger,blacklist, Reddit_Crawl_Diagnostics())
 
-    logger.log("executing crawl every {s} seconds".format(s = wait_period_seconds))
+    logger.log("executing crawl every {s} seconds".format(s = wait_period_seconds),Level.INFO)
 
     current_time = time.time()
     last_execution = float('-inf')

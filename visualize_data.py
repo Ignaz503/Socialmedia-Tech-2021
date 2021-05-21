@@ -7,7 +7,7 @@ import numpy as np
 import networkx as nx
 import data_generator as dg
 from app_config import Config
-from simple_logging import Logger
+from simple_logging import Logger, Level
 from pyvis.network import Network
 from data_util import DataLocation
 from networkx.classes.graph import Graph
@@ -75,15 +75,14 @@ def __visualize(adj_mat: np.ndarray, config: Config, logger:Logger, token: Cance
   vis_network.show_buttons(filter_=['nodes', 'edges', 'layout', 'interaction', 'manipulation', 'selection', 'renderer'])
 
   name = data_util.make_data_path(config.visualization_name,  DataLocation.VISUALIZATION)
-  logger.log("showing visualization {n}".format(n=config.visualization_name))
+  logger.log("showing visualization {n}".format(n=config.visualization_name), Level.INFO)
   vis_network.show(name)
 
 def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token):
   with token:
     mat = dg.generate_adjacency_mat(config,logger,token)
-    print(mat)
+    logger.log(str(mat),Level.INFO)
     if token.is_cancel_requested():
-      logger.log("canceling")
       return
     __visualize(mat,config,logger,token)
 

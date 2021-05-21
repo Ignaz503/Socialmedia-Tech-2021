@@ -5,7 +5,7 @@ import subreddit
 import data_util
 import numpy as np
 from app_config import Config
-from simple_logging import Logger
+from simple_logging import Level, Logger
 from defines import ADJACENCY_MAT
 from data_util import DataLocation
 import reddit_meta_data_crawl as rmdc
@@ -28,7 +28,7 @@ def __save_adjacency_mat(adjacency_mat: np.ndarray, token: Cancel_Token):
   np.savetxt(data_util.make_data_path(ADJACENCY_MAT,DataLocation.DEFAULT),adjacency_mat,fmt="%i", delimiter=",", header=header)
 
 def __save_meta_data(meta_data: Crawl_Metadata, config: Config, logger: Logger, token: Cancel_Token):
-  logger.log("Saving metadata to disk")
+  logger.log("Saving metadata to disk",Level.INFO)
   meta_data.save_to_file(config.meta_data_name)
 
 def generate_adjacency_mat(config: Config, logger: Logger, token: Cancel_Token)-> np.ndarray:
@@ -47,7 +47,7 @@ def generate_meta_data(config: Config, logger: Logger, token: Cancel_Token) -> C
   return md_c
 
 def __execute_generating(config: Config, logger: Logger, token: Cancel_Token):
-  logger.log("generating data")
+  logger.log("generating data",Level.INFO)
   with token:
     mat = generate_adjacency_mat(config,logger,token)
     if token.is_cancel_requested():

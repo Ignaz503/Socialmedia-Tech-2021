@@ -1,3 +1,4 @@
+from simple_logging import Level
 from cancel_token import Cancel_Token
 import threading
 from time import sleep
@@ -40,7 +41,7 @@ def handle_comment_thread_safe(comment: Comment, context: Thread_Safe_Context, t
   handle_user_thread_safe(comment.author.name,comment.subreddit.display_name, context)
 
 def handle_post_thread_safe(post: Submission, context: Thread_Safe_Context, token: Cancel_Token):
-  context.logger.log("Crawling submission: {mis}".format(mis=post.title))
+  context.logger.log("Crawling submission: {mis}".format(mis=post.title),Level.INFO)
   context.crawl_diagnostics.increment_submission_total()
   if post.author is not None:
     handle_user_thread_safe(post.author.name, post.subreddit.display_name, context)
@@ -55,7 +56,7 @@ def handle_post_thread_safe(post: Submission, context: Thread_Safe_Context, toke
 
 def __submit_batch_loop(monitor_type: str, context: Thread_Safe_Context, queue: Subreddit_Batch_Queue):
   #start of with some sleep as to not immediately try to submit an empty batch
-  context.logger.log("Started batch save loop for {mt}".format(mt = monitor_type))
+  context.logger.log("Started batch save loop for {mt}".format(mt = monitor_type),Level.INFO)
   sleep(context.config.stream_save_interval_seconds)
   while True:
     __submit_batch_to_queue(context,queue)

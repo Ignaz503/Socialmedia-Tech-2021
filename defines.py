@@ -13,7 +13,7 @@ VIS_ARGS = ["-v","-vis","-visualize"]
 
 #keyworkds
 EXIT_KEYWORDS =["stop","exit","end", "kill", "terminate"]
-START_KEYWORDS=["start","engage", "kick off", "run", "do", "observe", "monitor"]
+START_KEYWORDS=["start","engage", "kick off", "run", "do", "observe", "monitor", "create"]
 CRAWl_KEYWORDS = ["crawl"]
 HISTORIC_CRAWL_KEYWORDS = ["historic", "h", "old"]
 ACTIVE_KEYWORDS = ["active", "repeated"]
