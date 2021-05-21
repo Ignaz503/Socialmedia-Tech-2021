@@ -1,3 +1,4 @@
+from cancel_token import Cancel_Token
 import threading
 from time import sleep
 from praw.models import Comment
@@ -29,22 +30,26 @@ def handle_user_thread_safe(user_name: str, sub_name: str, context: Thread_Safe_
   if new_user:
     context.crawl_diagnostics.increment_usrers_extracted_total()
 
-def handle_comment_thread_safe(comment: Comment, context: Thread_Safe_Context):
+def handle_comment_thread_safe(comment: Comment, context: Thread_Safe_Context, token: Cancel_Token):
+  if token.is_cancel_requested():
+    return
   if comment.author is None:
     context.crawl_diagnostics.increment_comments_no_author()
     return
   scan_if_new_bot(comment,context)
   handle_user_thread_safe(comment.author.name,comment.subreddit.display_name, context)
 
-def handle_post_thread_safe(post: Submission, context: Thread_Safe_Context):
+def handle_post_thread_safe(post: Submission, context: Thread_Safe_Context, token: Cancel_Token):
   context.logger.log("Crawling submission: {mis}".format(mis=post.title))
   context.crawl_diagnostics.increment_submission_total()
   handle_user_thread_safe(post.author.name, post.subreddit.display_name, context)
 
   all_comments = get_all_comments(post.comments)
   for comment in all_comments:
+    if token.is_cancel_requested():
+      break
     context.crawl_diagnostics.increment_comments_total()
-    handle_comment_thread_safe(comment, context)
+    handle_comment_thread_safe(comment, context,token)
 
 
 def __submit_batch_loop(monitor_type: str, context: Thread_Safe_Context, queue: Subreddit_Batch_Queue):

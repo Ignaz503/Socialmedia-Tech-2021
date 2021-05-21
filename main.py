@@ -48,30 +48,25 @@ def parse_args(args: list[str]) -> FlowControl:
     visualize = True
   return FlowControl(crawl,generate, stream,historical,visualize)
 
-def handle_observation_shut_down(crawl_token: Cancel_Token, tokens:tuple[Cancel_Token,Cancel_Token], logger: Logger, blist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue):
+def handle_observation_shut_down(token: Cancel_Token, logger: Logger, blist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue):
   logger.log("Shutting Down Data Gathering - This may take some time")
-  if crawl_token is not None:
-    crawl_token.request_cancel()
-    crawl_token.wait()
-  if tokens is not None:
-    tokens[0].request_cancel()
-    tokens[1].request_cancel()
-    logger.log("Waiting for streams to end")
-    tokens[0].wait()
-    tokens[1].wait()
-    logger.log("Streams ended")
+  logger.log("informing worker threads to cancel operations")
+  token.request_cancel()
+  logger.log("waiting for worker threads to cancel")
+  token.wait()
+  logger.log("finished waiting for worker threads")
   logger.log("Saving data to disk")      
   blist.save_to_file(BOT_LIST_FALLBACK)
   batch_queue.handle_all(logger)
   logger.log("Done with saving")
 
-def main_observation_loop(config: app_config.Config,crawl_token: Cancel_Token,tokens: tuple[Cancel_Token,Cancel_Token],batch_queue: Subreddit_Batch_Queue, blist: Threadsafe_Bot_Blacklist, logger: Logger):
+def main_observation_loop(config: app_config.Config,token: Cancel_Token,batch_queue: Subreddit_Batch_Queue, blist: Threadsafe_Bot_Blacklist, logger: Logger):
     while True:
       try:
         batch_queue.update(logger)
         sleep(config.batch_save_interval_seconds)
       except KeyboardInterrupt:
-        handle_observation_shut_down(crawl_token,tokens,logger,blist,batch_queue)
+        handle_observation_shut_down(token,logger,blist,batch_queue)
         break
 
 def run(program_flow: FlowControl, config: app_config.Config, logger: Logger):
@@ -83,21 +78,20 @@ def run(program_flow: FlowControl, config: app_config.Config, logger: Logger):
   blist: Threadsafe_Bot_Blacklist = bot_blacklist.load(blist_name)
   batch_queue: Subreddit_Batch_Queue = Subreddit_Batch_Queue()
 
-  crawl_token: Cancel_Token = None
+  token = Cancel_Token()
   if  program_flow.crawl:
-    crawl_token = crawl.run(config, logger, blist, batch_queue)
+    crawl.run(config, logger, blist, batch_queue,token)
   
-  tokens: tuple[Cancel_Token,Cancel_Token] = None
   if program_flow.stream:
-    tokens = rstr.run(config,logger,blist,batch_queue)
+    rstr.run(config,logger,blist,batch_queue,token)
 
   if program_flow.historic_crawl:
-    rch.run(config,logger,blist,batch_queue)
+    rch.run(config,logger,blist,batch_queue,token)
 
   #only run if eiter of stream 
   if program_flow.need_to_run_main_observation_loop():
     logger.log("starting batch queue loop")
-    main_observation_loop(config,crawl_token,tokens,batch_queue,blist,logger)
+    main_observation_loop(config,token,batch_queue,blist,logger)
 
   if  program_flow.generate:
     generator.run(config, logger)
