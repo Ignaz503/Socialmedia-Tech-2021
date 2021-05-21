@@ -3,13 +3,13 @@
   "data": {
     "Veloren": {
       "py/object": "subreddit.Subreddit_Metadata",
-      "subscriber_count": 8266,
+      "subscriber_count": 8268,
       "description": "Veloren is a community-driven multiplayer voxel RPG set in a vast and dynamic procedural world.",
       "created_utc": 1531101324.0
     },
     "gatekeeping": {
       "py/object": "subreddit.Subreddit_Metadata",
-      "subscriber_count": 821235,
+      "subscriber_count": 821244,
       "description": "Gatekeeping is when someone takes it upon themselves to decide who does or does not have access or rights to a community or identity. /r/gatekeeping is a subreddit for screenshots and stories of gatekeepers in the wild.",
       "created_utc": 1469282948.0
     }

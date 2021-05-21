@@ -48,7 +48,13 @@ def parse_args(args: list[str]) -> FlowControl:
     visualize = True
   return FlowControl(crawl,generate, stream,historical,visualize)
 
-def handle_observation_shut_down(token: Cancel_Token, logger: Logger, blist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue):
+def __get_bot_list_name(config: app_config.Config):
+  blist_name = config.bot_list_name
+  if blist_name == "":
+    blist_name = BOT_LIST_FALLBACK
+  return blist_name
+
+def handle_observation_shut_down(config: app_config.Config,token: Cancel_Token, logger: Logger, blist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue):
   logger.log("Shutting Down Data Gathering - This may take some time")
   logger.log("informing worker threads to cancel operations")
   token.request_cancel()
@@ -56,7 +62,7 @@ def handle_observation_shut_down(token: Cancel_Token, logger: Logger, blist: Thr
   token.wait()
   logger.log("finished waiting for worker threads")
   logger.log("Saving data to disk")      
-  blist.save_to_file(BOT_LIST_FALLBACK)
+  blist.save_to_file(__get_bot_list_name(config))
   batch_queue.handle_all(logger)
   logger.log("Done with saving")
 
@@ -66,14 +72,12 @@ def main_observation_loop(config: app_config.Config,token: Cancel_Token,batch_qu
         batch_queue.update(logger)
         sleep(config.batch_save_interval_seconds)
       except KeyboardInterrupt:
-        handle_observation_shut_down(token,logger,blist,batch_queue)
+        handle_observation_shut_down(config,token,logger,blist,batch_queue)
         break
 
 def run(program_flow: FlowControl, config: app_config.Config, logger: Logger):
 
-  blist_name = config.bot_list_name
-  if blist_name == "":
-    blist_name = BOT_LIST_FALLBACK
+  blist_name = __get_bot_list_name(config)
 
   blist: Threadsafe_Bot_Blacklist = bot_blacklist.load(blist_name)
   batch_queue: Subreddit_Batch_Queue = Subreddit_Batch_Queue()
@@ -94,10 +98,10 @@ def run(program_flow: FlowControl, config: app_config.Config, logger: Logger):
     main_observation_loop(config,token,batch_queue,blist,logger)
 
   if  program_flow.generate:
-    generator.run(config, logger)
+    generator.run(config, logger,token)
 
   if program_flow.visualize:
-    vsd.run(config,logger)
+    vsd.run(config,logger,token)
 
   logger.log("Goodbye!")
 

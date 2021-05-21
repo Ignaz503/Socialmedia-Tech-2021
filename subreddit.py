@@ -177,4 +177,8 @@ class Crawl_Metadata:
       with open(data_util.make_data_path(name,DataLocation.SUBREDDIT_META),'r') as f:
         content = f.read()
         return jsonpickle.decode(content)
+    return Crawl_Metadata.empty()
+  
+  @staticmethod
+  def empty():
     return Crawl_Metadata({},"","")

@@ -12,9 +12,9 @@ class Bot_Blacklist:
   def to_json(self):
     return jsonpickle.encode(self, indent=2)
 
-  def save_to_file(self, file_path: str):
-    content = self.to_json()
-    with open(file_path, 'w') as f:
+  def save_to_file(self, filename: str):
+    content = self.to_json()   
+    with open(data_util.make_data_path(filename,DataLocation.DEFAULT), 'w') as f:
       f.write(content)
 
 class Threadsafe_Bot_Blacklist:

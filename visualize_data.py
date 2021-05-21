@@ -1,3 +1,5 @@
+import threading
+from cancel_token import Cancel_Token
 from subreddit import Crawl_Metadata, Subreddit_Metadata
 import util
 import data_util
@@ -20,7 +22,7 @@ def __build_title(meta_data: Crawl_Metadata, subbredit_name: str, node, logger:L
   node['title'] = '<h3>'+subbredit_name +'</h3>'
   node['title'] += sub_data.to_html_string()
 
-def __add_meta_to_nodes(graph: Graph, config: Config, logger: Logger):
+def __add_meta_to_nodes(graph: Graph, config: Config, logger: Logger, token: Cancel_Token):
   idx_dict = util.define_index_dict_for_subreddits(config.subreddits_to_crawl)
   meta_data = Crawl_Metadata.load(config.meta_data_name)
 
@@ -31,13 +33,14 @@ def __add_meta_to_nodes(graph: Graph, config: Config, logger: Logger):
     __build_title(meta_data,sub_name,node,logger)
     __determine_size(meta_data,sub_name, node, logger)
 
-def __build_graph(adj_mat: np.ndarray, config: Config, logger:Logger) -> Graph:
+def __build_graph(adj_mat: np.ndarray, config: Config, logger:Logger, token: Cancel_Token) -> Graph:
   graph = nx.from_numpy_matrix(adj_mat)
-  __add_meta_to_nodes(graph,config,logger)
+  __add_meta_to_nodes(graph,config,logger,token)
   return graph
 
-def __visualize(adj_mat: np.ndarray, config: Config, logger:Logger):
-  graph = __build_graph(adj_mat,config,logger)
+def __visualize(adj_mat: np.ndarray, config: Config, logger:Logger, token: Cancel_Token):
+  graph = __build_graph(adj_mat,config,logger,token)
+
   vis_network = Network('1920px','1920px',bgcolor="#121220",font_color="#fefefe")
   vis_network.from_nx(graph)
   vis_network.toggle_physics(False)
@@ -48,15 +51,21 @@ def __visualize(adj_mat: np.ndarray, config: Config, logger:Logger):
   
   for edge in vis_network.edges:
     edge['color'] ="#3e5c7f"
+
   name = data_util.make_data_path(config.visualization_name,  DataLocation.VISUALIZATION)
-  print(name)
+  logger.log("showing visualization {n}".format(n=config.visualization_name))
   vis_network.show(name)
 
-def __generate_and_visualize(config: Config, logger:Logger):
-  mat = dg.generate_adjacency_mat(config,logger)
-  #mat = util.random_adjacency_mat(10,.25)
-  __visualize(mat,config,logger)
+def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token):
+  with token:
+    mat = dg.generate_adjacency_mat(config,logger,token)
+    #mat = util.random_adjacency_mat(10,.25)
+    if token.is_cancel_requested():
+      logger.log("canceling")
+      return
+    __visualize(mat,config,logger,token)
 
-def run(config: Config, logger: Logger):
-  __generate_and_visualize(config,logger)
+def run(config: Config, logger: Logger, token: Cancel_Token):
+  thread = threading.Thread(name="visualize thread", target=__generate_and_visualize,args=(config,logger,token))
+  thread.start()
 
