@@ -148,6 +148,11 @@ class Crawl_Metadata:
       return 2 ** 64 #int uncapped so just return some ridiculous huge data
     return self.data[self.smallest_sub].subscriber_count
 
+  def get_sub_count(self, sub_name: str):
+    if sub_name not in self.data:
+      return 0
+    return self.data[sub_name].subscriber_count
+
   def lerp_sub_count(self, sub_name: str, logger: Logger)-> float:
     if sub_name not in self.data:
       logger.log("{s} not found in meta data".format(s=sub_name))
