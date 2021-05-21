@@ -33,7 +33,9 @@ def __handle_post(post: Submission, context: Context, token: Cancel_Token):
   
   context.logger.log("Crawling submission: {mis}".format(mis=post.title))
   context.crawl_diagnostics.increment_submission_total()
-  __handle_user(post.author.name, post.subreddit.display_name, context)
+
+  if post.author is not None:
+    __handle_user(post.author.name, post.subreddit.display_name, context)
 
   all_comments = rh.get_all_comments(post.comments)
   for comment in all_comments:

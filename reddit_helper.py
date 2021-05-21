@@ -42,7 +42,8 @@ def handle_comment_thread_safe(comment: Comment, context: Thread_Safe_Context, t
 def handle_post_thread_safe(post: Submission, context: Thread_Safe_Context, token: Cancel_Token):
   context.logger.log("Crawling submission: {mis}".format(mis=post.title))
   context.crawl_diagnostics.increment_submission_total()
-  handle_user_thread_safe(post.author.name, post.subreddit.display_name, context)
+  if post.author is not None:
+    handle_user_thread_safe(post.author.name, post.subreddit.display_name, context)
 
   all_comments = get_all_comments(post.comments)
   for comment in all_comments:

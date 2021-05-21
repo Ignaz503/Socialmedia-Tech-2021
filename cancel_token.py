@@ -20,7 +20,6 @@ class TokenTrayTokenChangeAttempt(Exception):
       super().__init__("An attempt was made to cahnge the token of an already set token tray", *args)
 
 class Cancel_Token:
-  __cr_lock: threading.Lock
   __cancel_request: bool
   __cancel_event: threading.Event
   __listener_lock: threading.Lock
@@ -28,17 +27,14 @@ class Cancel_Token:
   def __init__(self) -> None:
       self.__cancel_request = False
       self.__cancel_event = threading.Event()
-      self.__cr_lock = threading.Lock()
       self.__listener_lock = threading.Lock()
       self.__listeners = {}
 
   def request_cancel(self):
-    with self.__cr_lock:
-      self.__cancel_request = True
+    self.__cancel_request = True
 
   def is_cancel_requested(self):
-    with self.__cr_lock:
-      return self.__cancel_request
+    return self.__cancel_request
   
   def __acknowledge_token(self):
     with self.__listener_lock:
@@ -52,6 +48,9 @@ class Cancel_Token:
       self.__cancel_event.set()
 
   def wait(self):
+    with self.__listener_lock:
+      if len(self.__listeners) == 0:
+        return #don't wait on event if noone acknowledged the token
     self.__cancel_event.wait()
 
   def __enter__(self):
@@ -64,7 +63,6 @@ class Cancel_Token:
 
 
 class Thread_Owned_Cancel_Token:
-  __cr_lock: threading.Lock
   __cancel_request: bool
   __owner_id: int
   __cancel_event: threading.Event
@@ -72,15 +70,12 @@ class Thread_Owned_Cancel_Token:
       self.__cancel_request = False
       self.__owner_id = threading.get_ident()
       self.__cancel_event = threading.Event()
-      self.__cr_lock = threading.Lock()
 
   def request_cancel(self):
-    with self.__cr_lock:
-      self.__cancel_request = True
+    self.__cancel_request = True
   
   def is_cancel_requested(self):
-    with self.__cr_lock:
-      return self.__cancel_request
+    return self.__cancel_request
 
   def __inform_finsihed_cancel(self):
     if threading.get_ident() != self.__owner_id:
@@ -110,7 +105,7 @@ class Thread_Owned_Token_Tray:
   __token_lock = threading.Lock
   def __init__(self) -> None:
       self.__token = None
-      self.__token_lock = threading.Lock
+      self.__token_lock = threading.Lock()
   
   def set_token(self, token: Thread_Owned_Cancel_Token):
     if self.has_token():

@@ -11,6 +11,17 @@ STREAM_ARGS = ["-s","-str", "-stream"]
 HISTORIC_ARGS = ["-h","-historic","-hc","-historic-crawl","-ch"]
 VIS_ARGS = ["-v","-vis","-visualize"]
 
+#keyworkds
+EXIT_KEYWORDS =["stop","exit","end", "kill", "terminate"]
+START_KEYWORDS=["start","engage", "kick off", "run", "do", "observe", "monitor"]
+CRAWl_KEYWORDS = ["crawl"]
+HISTORIC_CRAWL_KEYWORDS = ["historic", "h", "old"]
+ACTIVE_KEYWORDS = ["active", "repeated"]
+STREAM_KEYWORDS = ["stream", "stream observation"]
+GENERATE_KEYWORDS =["generate", "gen"]
+VISUALIZE_KEYWORDS = ["visualize", "vis", "visualization"]
+ALL_KEYWORD = ["all"]
+
 #time
 MIN_REPEAT_TIME = 5 * 60
 

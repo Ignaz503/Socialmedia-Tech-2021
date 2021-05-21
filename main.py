@@ -1,6 +1,8 @@
 import sys
 import data_util
 import app_config
+import data_saver
+import simple_logging
 import bot_blacklist
 from time import sleep
 import reddit_stream as rstr
@@ -9,10 +11,10 @@ import visualize_data as vsd
 from simple_logging import Logger
 import data_generator as generator
 import reddit_crawl_historical as rch
-from cancel_token import Cancel_Token
+from cancel_token import Cancel_Token, Thread_Owned_Token_Tray
 from subreddit import Subreddit_Batch_Queue
 from bot_blacklist import Threadsafe_Bot_Blacklist
-from defines import ALL_ARGS, BOT_LIST_FALLBACK,CRAWL_ARGS,GENERATE_ARGS, CONFIG, STREAM_ARGS, HISTORIC_ARGS, VIS_ARGS
+from defines import ACTIVE_KEYWORDS, ALL_ARGS, ALL_KEYWORD, BOT_LIST_FALLBACK, CRAWl_KEYWORDS,CRAWL_ARGS,GENERATE_ARGS, CONFIG, GENERATE_KEYWORDS, HISTORIC_CRAWL_KEYWORDS, START_KEYWORDS, STREAM_ARGS, HISTORIC_ARGS, STREAM_KEYWORDS, VISUALIZE_KEYWORDS, VIS_ARGS, EXIT_KEYWORDS
 
 class FlowControl:
   crawl: bool
@@ -20,16 +22,13 @@ class FlowControl:
   stream: bool
   historic_crawl:bool
   visualize:bool
+
   def __init__(self,crawl: bool, generate: bool, stream: bool, historic_crawl:bool,visualize:bool) -> None:
       self.crawl = crawl
       self.generate = generate
       self.stream = stream
       self.historic_crawl = historic_crawl
       self.visualize = visualize
-
-  def need_to_run_main_observation_loop(self)-> bool:
-    return self.crawl or self.stream or self.historic_crawl
-
 
 def any_element_contained(args:list[str], check_against: list[str]) -> bool:
   return any(arg in args for arg in check_against)
@@ -54,8 +53,8 @@ def __get_bot_list_name(config: app_config.Config):
     blist_name = BOT_LIST_FALLBACK
   return blist_name
 
-def handle_observation_shut_down(config: app_config.Config,token: Cancel_Token, logger: Logger, blist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue):
-  logger.log("Shutting Down Data Gathering - This may take some time")
+def handle_observation_shut_down(config: app_config.Config,token: Cancel_Token, data_saver_tray: Thread_Owned_Token_Tray, logger: Logger, blist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue):
+  logger.log("Shutting Down - This may take some time")
   logger.log("informing worker threads to cancel operations")
   token.request_cancel()
   logger.log("waiting for worker threads to cancel")
@@ -63,17 +62,39 @@ def handle_observation_shut_down(config: app_config.Config,token: Cancel_Token, 
   logger.log("finished waiting for worker threads")
   logger.log("Saving data to disk")      
   blist.save_to_file(__get_bot_list_name(config))
-  batch_queue.handle_all(logger)
+  
+  data_saver_tray.try_rqeuest_cancel()
+  data_saver_tray.try_wait()
   logger.log("Done with saving")
 
-def main_observation_loop(config: app_config.Config,token: Cancel_Token,batch_queue: Subreddit_Batch_Queue, blist: Threadsafe_Bot_Blacklist, logger: Logger):
-    while True:
-      try:
-        batch_queue.update(logger)
-        sleep(config.batch_save_interval_seconds)
-      except KeyboardInterrupt:
-        handle_observation_shut_down(config,token,logger,blist,batch_queue)
-        break
+def any_keyword_in_string(keywords: list[str], my_string:str):
+  return any(keyword in my_string for keyword in keywords)
+
+def handle_command(command, config: app_config.Config, logger:Logger, blist: Threadsafe_Bot_Blacklist,batch_queue: Subreddit_Batch_Queue,token: Cancel_Token):
+  if any_keyword_in_string(START_KEYWORDS,command):
+    s_all = any_keyword_in_string(ALL_KEYWORD,command)
+    if s_all or any_keyword_in_string(CRAWl_KEYWORDS,command):
+      if s_all or any_keyword_in_string(ACTIVE_KEYWORDS,command):
+        crawl.run(config,logger,blist,batch_queue,token)
+      if s_all or any_keyword_in_string(HISTORIC_CRAWL_KEYWORDS,command):
+        rch.run(config,logger,blist,batch_queue,token)
+    if s_all or any_keyword_in_string(STREAM_KEYWORDS, command):
+      rstr.run(config,logger,blist,batch_queue,token)
+    if s_all or any_keyword_in_string(GENERATE_KEYWORDS,command):
+      generator.run(config,logger,token)
+    if s_all or any_keyword_in_string(VISUALIZE_KEYWORDS,command):
+      vsd.run(config,logger,token)
+
+def main_observation_loop(config: app_config.Config,token: Cancel_Token,data_saver_tray: Thread_Owned_Token_Tray, batch_queue: Subreddit_Batch_Queue, blist: Threadsafe_Bot_Blacklist, logger: Logger):
+    try:
+      while True:
+        inp = input("Command: ")
+        if any(keyword in inp for keyword in EXIT_KEYWORDS):
+          break
+        handle_command(inp,config,logger,blist,batch_queue,token)
+    finally:
+      handle_observation_shut_down(config,token,data_saver_tray,logger,blist,batch_queue)
+
 
 def run(program_flow: FlowControl, config: app_config.Config, logger: Logger):
 
@@ -81,8 +102,11 @@ def run(program_flow: FlowControl, config: app_config.Config, logger: Logger):
 
   blist: Threadsafe_Bot_Blacklist = bot_blacklist.load(blist_name)
   batch_queue: Subreddit_Batch_Queue = Subreddit_Batch_Queue()
-
+  data_saver_tray = Thread_Owned_Token_Tray()
   token = Cancel_Token()
+
+  data_saver.run(config,logger,batch_queue,data_saver_tray)
+
   if  program_flow.crawl:
     crawl.run(config, logger, blist, batch_queue,token)
   
@@ -92,16 +116,13 @@ def run(program_flow: FlowControl, config: app_config.Config, logger: Logger):
   if program_flow.historic_crawl:
     rch.run(config,logger,blist,batch_queue,token)
 
-  #only run if eiter of stream 
-  if program_flow.need_to_run_main_observation_loop():
-    logger.log("starting batch queue loop")
-    main_observation_loop(config,token,batch_queue,blist,logger)
-
   if  program_flow.generate:
     generator.run(config, logger,token)
 
   if program_flow.visualize:
     vsd.run(config,logger,token)
+
+  main_observation_loop(config,token,data_saver_tray,batch_queue,blist,logger)
 
   logger.log("Goodbye!")
 
