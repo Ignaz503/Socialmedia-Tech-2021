@@ -58,7 +58,7 @@
         
 
         // parsing and collecting nodes and edges from the python
-        nodes = new vis.DataSet([{"color": "#e94560", "font": {"color": "#fefefe"}, "id": 0, "label": "Veloren", "shape": "dot", "size": 10.0, "title": "\u003ch3\u003eVeloren\u003c/h3\u003e\u003cb\u003ecreated on:\u003c/b\u003e 2018-07-09 03:55:24\u003cbr\u003e\u003cb\u003esubscriber count:\u003c/b\u003e 8268\u003cbr\u003e\u003cb\u003edescription:\u003c/b\u003e\u003cbr\u003eVeloren is a community-driven multiplayer voxel\u003cbr\u003eRPG set in a vast and dynamic procedural world."}, {"color": "#e94560", "font": {"color": "#fefefe"}, "id": 1, "label": "gatekeeping", "shape": "dot", "size": 50.0, "title": "\u003ch3\u003egatekeeping\u003c/h3\u003e\u003cb\u003ecreated on:\u003c/b\u003e 2016-07-23 16:09:08\u003cbr\u003e\u003cb\u003esubscriber count:\u003c/b\u003e 821258\u003cbr\u003e\u003cb\u003edescription:\u003c/b\u003e\u003cbr\u003eGatekeeping is when someone takes it upon\u003cbr\u003ethemselves to decide who does or does not have\u003cbr\u003eaccess or rights to a community or identity.\u003cbr\u003e/r/gatekeeping is a subreddit for screenshots and\u003cbr\u003estories of gatekeepers in the wild."}]);
+        nodes = new vis.DataSet([{"color": "#e94560", "font": {"color": "#fefefe"}, "id": 0, "label": "Veloren", "shape": "dot", "size": 10.0, "title": "\u003ch3\u003eVeloren\u003c/h3\u003e\u003cb\u003ecreated on:\u003c/b\u003e 2018-07-09 03:55:24\u003cbr\u003e\u003cb\u003esubscriber count:\u003c/b\u003e 8268\u003cbr\u003e\u003cb\u003edescription:\u003c/b\u003e\u003cbr\u003eVeloren is a community-driven multiplayer voxel\u003cbr\u003eRPG set in a vast and dynamic procedural world."}, {"color": "#e94560", "font": {"color": "#fefefe"}, "id": 1, "label": "gatekeeping", "shape": "dot", "size": 50.0, "title": "\u003ch3\u003egatekeeping\u003c/h3\u003e\u003cb\u003ecreated on:\u003c/b\u003e 2016-07-23 16:09:08\u003cbr\u003e\u003cb\u003esubscriber count:\u003c/b\u003e 821295\u003cbr\u003e\u003cb\u003edescription:\u003c/b\u003e\u003cbr\u003eGatekeeping is when someone takes it upon\u003cbr\u003ethemselves to decide who does or does not have\u003cbr\u003eaccess or rights to a community or identity.\u003cbr\u003e/r/gatekeeping is a subreddit for screenshots and\u003cbr\u003estories of gatekeepers in the wild."}]);
         edges = new vis.DataSet([]);
 
         // adding nodes and edges to the graph
@@ -93,14 +93,15 @@
     },
     "physics": {
         "enabled": false,
-        "hierarchicalRepulsion": {
-            "centralGravity": 0.0,
-            "damping": 0.09,
-            "nodeDistance": 120,
-            "springConstant": 0.01,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
             "springLength": 100
         },
-        "solver": "hierarchicalRepulsion",
+        "solver": "forceAtlas2Based",
         "stabilization": {
             "enabled": true,
             "fit": true,

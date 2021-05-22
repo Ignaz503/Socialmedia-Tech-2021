@@ -15,7 +15,7 @@ import reddit_crawl_historical as rch
 from cancel_token import Cancel_Token, Thread_Owned_Token_Tray
 from subreddit import Subreddit_Batch_Queue
 from bot_blacklist import Threadsafe_Bot_Blacklist
-from defines import ACTIVE_KEYWORDS, ALL_ARGS, ALL_KEYWORD, BOT_LIST_FALLBACK, CRAWl_KEYWORDS,CRAWL_ARGS,GENERATE_ARGS, CONFIG, GENERATE_KEYWORDS, HISTORIC_CRAWL_KEYWORDS, START_KEYWORDS, STREAM_ARGS, HISTORIC_ARGS, STREAM_KEYWORDS, VISUALIZE_KEYWORDS, VIS_ARGS, EXIT_KEYWORDS
+from defines import ACTIVE_KEYWORDS, ALL_ARGS, ALL_KEYWORD, BOT_LIST_FALLBACK, CRAWl_KEYWORDS,CRAWL_ARGS,GENERATE_ARGS, CONFIG, DATA_KEYWORDS, HISTORIC_CRAWL_KEYWORDS, START_KEYWORDS, STREAM_ARGS, HISTORIC_ARGS, STREAM_KEYWORDS, VISUALIZE_KEYWORDS, VIS_ARGS, EXIT_KEYWORDS
 
 class FlowControl:
   crawl: bool
@@ -72,20 +72,45 @@ def handle_observation_shut_down(config: app_config.Config,token: Cancel_Token, 
 def any_keyword_in_string(keywords: list[str], my_string:str):
   return any(keyword in my_string for keyword in keywords)
 
-def handle_command(command, config: app_config.Config, logger:Logger, blist: Threadsafe_Bot_Blacklist,batch_queue: Subreddit_Batch_Queue,token: Cancel_Token):
+def print_help():
+  print("To start anything start your command with one of these words {l}".format(l=START_KEYWORDS))
+  print("Follow these up with a combination of the following:")
+  print("\tTo start a crawl of reddit write {ck} and specifiy which with any of {t}".format(ck = CRAWl_KEYWORDS,t=list((ACTIVE_KEYWORDS,HISTORIC_CRAWL_KEYWORDS))))
+  print("\tTo start the observation of reddit via a stream use any of {l}".format(l=STREAM_KEYWORDS))
+  print("\tTo generate data use any of {l}".format(l=DATA_KEYWORDS))
+  print("\tTo visualize data use any of{l}".format(l=VISUALIZE_KEYWORDS))
+  print("To get help type help")
+  print("To close the program use any of {l}".format(l = EXIT_KEYWORDS))
+
+def handle_command(command, config: app_config.Config, logger:Logger, blist: Threadsafe_Bot_Blacklist,batch_queue: Subreddit_Batch_Queue,token: Cancel_Token) -> bool:
   if any_keyword_in_string(START_KEYWORDS,command):
     s_all = any_keyword_in_string(ALL_KEYWORD,command)
+    did_something = False
     if s_all or any_keyword_in_string(CRAWl_KEYWORDS,command):
       if s_all or any_keyword_in_string(ACTIVE_KEYWORDS,command):
         crawl.run(config,logger,blist,batch_queue,token)
+        did_something = True
       if s_all or any_keyword_in_string(HISTORIC_CRAWL_KEYWORDS,command):
         rch.run(config,logger,blist,batch_queue,token)
+        did_something = True
     if s_all or any_keyword_in_string(STREAM_KEYWORDS, command):
       rstr.run(config,logger,blist,batch_queue,token)
-    if s_all or any_keyword_in_string(GENERATE_KEYWORDS,command):
+      did_something = True
+    if s_all or any_keyword_in_string(DATA_KEYWORDS,command):
       generator.run(config,logger,token)
+      did_something = True
     if s_all or any_keyword_in_string(VISUALIZE_KEYWORDS,command):
       vsd.run(config,logger,token)
+      did_something = True
+    return did_something
+  if "help" in command:
+    print_help()
+    return True
+  return False
+
+def print_not_understood(command: str):
+  print("I didn't understand your command: '{c}'".format(c=command))
+  print("Please try again (use help to list all commands)")
 
 def main_observation_loop(config: app_config.Config,token: Cancel_Token,data_saver_tray: Thread_Owned_Token_Tray, batch_queue: Subreddit_Batch_Queue, blist: Threadsafe_Bot_Blacklist, logger: Logger):
     try:
@@ -93,7 +118,8 @@ def main_observation_loop(config: app_config.Config,token: Cancel_Token,data_sav
         inp = input("Command: ")
         if any(keyword in inp for keyword in EXIT_KEYWORDS):
           break
-        handle_command(inp,config,logger,blist,batch_queue,token)
+        if not handle_command(inp,config,logger,blist,batch_queue,token):
+           print_not_understood(inp)
     finally:
       handle_observation_shut_down(config,token,data_saver_tray,logger,blist,batch_queue)
 

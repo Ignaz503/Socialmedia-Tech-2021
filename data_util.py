@@ -7,6 +7,8 @@ class DataLocation(Enum):
   SUBREDDIT_META = "meta"
   SUBREDDIT = "subreddit"
   VISUALIZATION = "visualization"
+  MATRICES = "matrices"
+  GRAPHS ="graphs"
   
 def __combine_dir_with_default(dir:str):
   return path.join(DataLocation.DEFAULT.value,dir)
@@ -16,6 +18,8 @@ def ensure_data_locations():
   os.makedirs(__combine_dir_with_default(DataLocation.SUBREDDIT.value), exist_ok= True)
   os.makedirs(__combine_dir_with_default(DataLocation.SUBREDDIT_META.value), exist_ok= True)
   os.makedirs(__combine_dir_with_default(DataLocation.VISUALIZATION.value), exist_ok= True)
+  os.makedirs(__combine_dir_with_default(DataLocation.MATRICES.value), exist_ok= True)
+  os.makedirs(__combine_dir_with_default(DataLocation.GRAPHS.value), exist_ok= True)
 
 def make_data_path(filename:str, data_type: DataLocation):
   if data_type is DataLocation.DEFAULT:

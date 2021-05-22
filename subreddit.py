@@ -24,6 +24,9 @@ class Subreddit_Data:
   def add_users(self, users: set[str]):
     self.users.update(users)
 
+  def contains(self, user_name: str)->bool:
+    return user_name in self.users
+
   def to_json(self):
     return jsonpickle.encode(self,indent=2)
   
@@ -31,6 +34,13 @@ class Subreddit_Data:
     content = self.to_json()   
     with open(data_util.make_data_path(self.name + ".json",DataLocation.SUBREDDIT), 'w') as f:
       f.write(content)
+
+  def __iter__(self):
+    for user in self.users:
+      yield user
+
+  def __contains__(self, item):
+    return item in self.users
 
   @staticmethod
   def load(subbredit_name: str):
@@ -119,7 +129,8 @@ class Subreddit_Metadata:
     desc = '<br>'.join(textwrap.wrap(self.description,50))
     return string + desc
 
-class Crawl_Metadata:
+class Crawl_Metadata: 
+  __FILE_NAME = "subreddit_metadata.json"
   data: dict[str,Subreddit_Metadata]
   larges_sub: str
   smallest_sub: str
@@ -167,19 +178,18 @@ class Crawl_Metadata:
       return 0.5#idk maybe something else
     return (size - small) / divisor
 
-
   def to_json(self) -> str:
     return jsonpickle.encode(self, indent=2)
   
-  def save_to_file(self, name: str):
+  def save_to_file(self,):
     content = self.to_json()   
-    with open(data_util.make_data_path(name,DataLocation.SUBREDDIT_META), 'w') as f:
+    with open(data_util.make_data_path(Crawl_Metadata.__FILE_NAME,DataLocation.SUBREDDIT_META), 'w') as f:
       f.write(content)
 
   @staticmethod
-  def load(name: str):
-    if data_util.file_exists(name,DataLocation.SUBREDDIT_META):
-      with open(data_util.make_data_path(name,DataLocation.SUBREDDIT_META),'r') as f:
+  def load():
+    if data_util.file_exists(Crawl_Metadata.__FILE_NAME,DataLocation.SUBREDDIT_META):
+      with open(data_util.make_data_path(Crawl_Metadata.__FILE_NAME,DataLocation.SUBREDDIT_META),'r') as f:
         content = f.read()
         return jsonpickle.decode(content)
     return Crawl_Metadata.empty()

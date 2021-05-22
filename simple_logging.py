@@ -24,7 +24,7 @@ class Logger:
       self.__connection = connection
       self.__process = process
   
-  def log(self, message: str, module: Level):
+  def log(self, message: str, module: Level = Level.INFO):
     if self.active:
       if not message.endswith("\n"):
         message+="\n"
@@ -38,17 +38,22 @@ class Logger:
       self.__process.terminate()
     finally:
       pass
-
+  
 def start(verbose: bool,welcome_message:str)-> Logger:
   parent, child = Pipe()
   p = Process(target=__execute,args=(child,welcome_message))
   p.start()
   return Logger(verbose,parent,p)
 
+def __disable_event():
+  pass
+
 def __execute(connection: Connection,welcome_message:str):
   window = Tk()
   window.title("Reddit Crawl Logger")
+  window.wm_attributes("-topmost", 1)
   window.geometry("800x600")
+  window.protocol("WM_DELETE_WINDOW", __disable_event)
   text = ScrolledText(window,width=250,height=150, wrap='word',bg="black", fg="white")
   
   time = "[{d}][{ms}] ".format(d = dt.datetime.now().isoformat(sep=" "), ms=Level.INFO.value)
@@ -60,7 +65,6 @@ def __execute(connection: Connection,welcome_message:str):
   thread.start()
 
   tk.mainloop()
-
 
 def __conection_handler(connection: Connection, text_box: ScrolledText):
   while True:

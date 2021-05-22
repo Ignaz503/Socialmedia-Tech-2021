@@ -13,12 +13,12 @@ VIS_ARGS = ["-v","-vis","-visualize"]
 
 #keyworkds
 EXIT_KEYWORDS =["stop","exit","end", "kill", "terminate"]
-START_KEYWORDS=["start","engage", "kick off", "run", "do", "observe", "monitor", "create"]
+START_KEYWORDS=["start","engage", "kick off", "run", "do", "observe", "monitor", "create", "generate"]
 CRAWl_KEYWORDS = ["crawl"]
 HISTORIC_CRAWL_KEYWORDS = ["historic", "h", "old"]
 ACTIVE_KEYWORDS = ["active", "repeated"]
 STREAM_KEYWORDS = ["stream", "stream observation"]
-GENERATE_KEYWORDS =["generate", "gen"]
+DATA_KEYWORDS =["data", "metadata", "meta"]
 VISUALIZE_KEYWORDS = ["visualize", "vis", "visualization"]
 ALL_KEYWORD = ["all"]
 
@@ -26,6 +26,5 @@ ALL_KEYWORD = ["all"]
 MIN_REPEAT_TIME = 5 * 60
 
 #filenames
-ADJACENCY_MAT = "mat.csv"
 CONFIG = "app.config"
 BOT_LIST_FALLBACK = "bot_list.json"
