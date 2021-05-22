@@ -9,7 +9,7 @@
     },
     "gatekeeping": {
       "py/object": "subreddit.Subreddit_Metadata",
-      "subscriber_count": 821295,
+      "subscriber_count": 821296,
       "description": "Gatekeeping is when someone takes it upon themselves to decide who does or does not have access or rights to a community or identity. /r/gatekeeping is a subreddit for screenshots and stories of gatekeepers in the wild.",
       "created_utc": 1469282948.0
     }

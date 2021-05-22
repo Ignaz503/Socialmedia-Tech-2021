@@ -1,4 +1,3 @@
-from os import sep
 import data_util
 import jsonpickle
 from threading import Lock

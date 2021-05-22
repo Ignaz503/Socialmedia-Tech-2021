@@ -11,9 +11,6 @@ import reddit_meta_data_crawl as rmdc
 from subreddit import Crawl_Metadata, Subreddit_Data
 import graph_generator
 
-__SUBREDDIT_SUBREDDIT_GRAPH = "subreddit_subreddit.dot"
-__SUBREDDIT_USER_GRAPH = "subreddit_user.dot"
-
 def __sub_pairs(subs:list[str]):
   return [(subs[i],subs[j]) for i in range(len(subs)) for j in range(i+1, len(subs))]
  
@@ -99,10 +96,6 @@ def __execute_generating(config: Config, logger: Logger, token: Cancel_Token):
     __save_adjacency_mat(mat, "subreddit_subreddit.csv",logger, token)
     if token.is_cancel_requested():
       return
-    g = graph_generator.build_graph_subreddit_subreddit(mat,config,logger,token)
-    if token.is_cancel_requested():
-      return
-    graph_generator.write_as_dot(g,data_util.make_data_path(__SUBREDDIT_SUBREDDIT_GRAPH,DataLocation.GRAPHS))
     if token.is_cancel_requested():
       return
     if token.is_cancel_requested():
@@ -125,10 +118,7 @@ def __execute_generating(config: Config, logger: Logger, token: Cancel_Token):
     __save_unique_user_list(users)
     if token.is_cancel_requested():
       return
-    g = graph_generator.build_graph_subreddit_user(config,logger,token)
-    if token.is_cancel_requested():
-      return
-    graph_generator.write_as_dot(g,data_util.make_data_path(__SUBREDDIT_USER_GRAPH,DataLocation.GRAPHS))
+    graph_generator.write_all_possible_as_dot(config,logger,token)
     logger.log("data generation done")
 
 

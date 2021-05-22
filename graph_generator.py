@@ -10,6 +10,13 @@ from networkx import Graph
 import numpy as np
 from users import UniqueUsers
 from networkx.drawing.nx_agraph import write_dot
+import data_util
+from data_util import DataLocation
+import data_generator
+
+__SUBREDDIT_SUBREDDIT_GRAPH = "subreddit_subreddit.dot"
+__SUBREDDIT_USER_GRAPH = "subreddit_user.dot"
+
 
 def __determine_size_lerp(meta_data: Crawl_Metadata, subbredit_name: str, node, logger:Logger, min_node_size: float = 10.0, max_node_size:float=50.0):
   t = meta_data.lerp_sub_count(subbredit_name, logger)
@@ -135,6 +142,21 @@ def build_graph_subreddit_user(config:Config, logger:Logger, token: Cancel_Token
   __add_edges_subreddit_user(graph,users, config, logger, token)
   return graph
 
-
 def write_as_dot(graph: Graph, file_path: str):
   write_dot(graph,file_path)
+
+def write_all_possible_as_dot(config: Config, logger: Logger, token: Cancel_Token): 
+  logger.log("generating subreddit subreddit graph")
+  mat = data_generator.generate_sub_sub_adjacency_mat(config,logger,token)
+  g = build_graph_subreddit_subreddit(mat,config,logger,token)
+  if token.is_cancel_requested():
+      return
+  write_as_dot(g,data_util.make_data_path(__SUBREDDIT_SUBREDDIT_GRAPH,DataLocation.GRAPHS))
+  if token.is_cancel_requested():
+    return 
+
+  logger.log("generating subreddit user graph")
+  g = build_graph_subreddit_user(config,logger,token)
+  if token.is_cancel_requested():
+    return
+  write_as_dot(g,data_util.make_data_path(__SUBREDDIT_USER_GRAPH,DataLocation.GRAPHS))
