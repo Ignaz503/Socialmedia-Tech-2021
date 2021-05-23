@@ -18,6 +18,60 @@
       "subscriber_count": 8268,
       "description": "Veloren is a community-driven multiplayer voxel RPG set in a vast and dynamic procedural world.",
       "created_utc": 1531101324.0
+    },
+    "civ": {
+      "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
+      "subscriber_count": 435769,
+      "description": "And now it's 4 AM! Just one more turn...",
+      "created_utc": 1267652884.0
+    },
+    "CrusaderKings": {
+      "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
+      "subscriber_count": 300144,
+      "description": "Crusader Kings is a historical grand strategy / RPG video game series for PC, Mac & Linux developed & published by Paradox Interactive. Engage in courtly intrigue, dynastic struggles, and holy warfare in medi\u00e6val Europe, North Africa, the Middle East, India, the steppes and Tibet. Can you achieve fame and fortune for your noble family, or will your names be forgotten to history?",
+      "created_utc": 1327790087.0
+    },
+    "eu4": {
+      "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
+      "subscriber_count": 252338,
+      "description": "A place to share content, ask questions and/or talk about the grand strategy game Europa Universalis IV by Paradox Development Studio.",
+      "created_utc": 1344610184.0
+    },
+    "totalwar": {
+      "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
+      "subscriber_count": 305477,
+      "description": "A subreddit for the Total War strategy game series, made by Creative Assembly.\n\nDiscussions, strategies, stories, crude cave-drawings, and more for Medieval 2, Empire, Shogun 2, Rome 2, Attila, Thrones of Britannia, Warhammer, Three Kingdoms and others.",
+      "created_utc": 1272929735.0
+    },
+    "SimCity": {
+      "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
+      "subscriber_count": 31579,
+      "description": "A Subreddit for the discussion of the SimCity Franchise and related City Builder games.",
+      "created_utc": 1280088068.0
+    },
+    "CitiesSkylines": {
+      "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
+      "subscriber_count": 351256,
+      "description": "A subreddit for the City Builder game developed by Colossal Order, Cities: Skylines.",
+      "created_utc": 1408044823.0
+    },
+    "WorldofTanks": {
+      "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
+      "subscriber_count": 112117,
+      "description": "World of Tanks is a PvP MMO game created by international game developer Wargaming. We're Redditors with a passion for gaming, tanks, and everything in between! This is a subreddit where we share WoT news, strategy tips, tank choices, and opinions. We have a number of affiliated clans on the NA, EU, and ASIA servers for all levels of game experience.  \n\nCome join the conversation!",
+      "created_utc": 1281722763.0
+    },
+    "Stellaris": {
+      "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
+      "subscriber_count": 282549,
+      "description": "A place to share content, ask questions and/or talk about the 4X grand strategy game Stellaris by Paradox Development Studio.",
+      "created_utc": 1438306568.0
+    },
+    "hoi4": {
+      "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
+      "subscriber_count": 242437,
+      "description": "A place to share content, ask questions and/or talk about the grand strategy game Hearts of Iron IV by Paradox Development Studio.",
+      "created_utc": 1390491158.0
     }
   },
   "larges_sub": "gatekeeping",

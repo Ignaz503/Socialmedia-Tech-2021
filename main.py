@@ -1,5 +1,6 @@
 import sys
 import utility.data_util as data_util
+from utility.data_util import DataLocation
 from utility.app_config import Config
 import reddit_crawl.util.subreddit_batch_queue_data_saver as data_saver
 import utility.simple_logging as simple_logging
@@ -14,6 +15,10 @@ from utility.cancel_token import Cancel_Token, Thread_Owned_Token_Tray
 from reddit_crawl.data.subreddit import Subreddit_Batch_Queue
 from reddit_crawl.data.bot_blacklist import Threadsafe_Bot_Blacklist
 from defines import ACTIVE_KEYWORDS, ALL_ARGS, ALL_KEYWORD, BOT_LIST_FALLBACK, CRAWl_KEYWORDS,CRAWL_ARGS,GENERATE_ARGS, CONFIG, DATA_KEYWORDS, HISTORIC_CRAWL_KEYWORDS, START_KEYWORDS, STREAM_ARGS, HISTORIC_ARGS, STREAM_KEYWORDS, VISUALIZE_KEYWORDS, VIS_ARGS, EXIT_KEYWORDS
+from generators.visualization_generator import SUBREDDIT_SUBREDDIT_VISUALIZATION_NAME, SUBREDDIT_USER_VISUALIZATION_NAME
+import subprocess
+import os
+import platform
 
 class FlowControl:
   crawl: bool
@@ -80,6 +85,18 @@ def print_help():
   print("To get help type help")
   print("To close the program use any of {l}".format(l = EXIT_KEYWORDS))
 
+def show_visualization(file: str):
+  filepath = data_util.make_data_path(file,  DataLocation.VISUALIZATION)
+  filepath = os.path.join(os.getcwd(),filepath)
+
+  if platform.system() == 'Darwin':       # macOS
+      subprocess.call(('open', filepath))
+  elif platform.system() == 'Windows':    # Windows
+      os.startfile(filepath)
+  else:                                   # linux variants
+      subprocess.call(('xdg-open', filepath))
+
+
 def handle_command(command, config: Config, logger:Logger, blist: Threadsafe_Bot_Blacklist,batch_queue: Subreddit_Batch_Queue,token: Cancel_Token) -> bool:
   if any_keyword_in_string(START_KEYWORDS,command):
     s_all = any_keyword_in_string(ALL_KEYWORD,command)
@@ -103,6 +120,14 @@ def handle_command(command, config: Config, logger:Logger, blist: Threadsafe_Bot
     return did_something
   if "help" in command:
     print_help()
+    return True
+
+  if "show sub sub" in command:
+    show_visualization(SUBREDDIT_SUBREDDIT_VISUALIZATION_NAME)
+    return True
+
+  if "show sub user" in command:
+    show_visualization(SUBREDDIT_USER_VISUALIZATION_NAME)
     return True
   return False
 

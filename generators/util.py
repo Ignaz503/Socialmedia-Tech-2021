@@ -46,7 +46,7 @@ def __update_adjacency_matrix(index_dict: dict[str,int], pair: tuple[str,str], a
   sub_one: Subreddit_Data = Subreddit_Data.load(pair[0])
   sub_two: Subreddit_Data = Subreddit_Data.load(pair[1]) 
   idx_one = index_dict[pair[0]]
-  idx_two = index_dict[pair[0]]
+  idx_two = index_dict[pair[1]]
   intersection_size = len(sub_one.users.intersection(sub_two.users))
   adjacency_mat[idx_one,idx_two] = intersection_size
   adjacency_mat[idx_two,idx_one] = intersection_size
