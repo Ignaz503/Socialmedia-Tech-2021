@@ -26,8 +26,9 @@ DATA_KEYWORDS =["data", "metadata", "meta"]
 VISUALIZE_KEYWORDS = ["visualize", "vis", "visualization"]
 ALL_KEYWORD = ["all"]
 
-#time
+#crawl defines
 MIN_REPEAT_TIME = 5 * 60
+MAX_COMMENT_NUM = 1000
 
 #filenames
 CONFIG = "app.config"

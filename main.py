@@ -152,7 +152,6 @@ def run(program_flow: FlowControl, config: Config, logger: Logger):
 
   print("Goodbye!")
 
-
 def main(args: list[str]):
   data_util.ensure_data_locations()
   config = Config.load(CONFIG)

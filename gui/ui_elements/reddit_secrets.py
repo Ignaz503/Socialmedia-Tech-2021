@@ -66,6 +66,8 @@ class Reddit_Crawl_Secrets(UIElement):
 
   def load_from_file(self):
     data: TextIOWrapper = tkfd.askopenfile()
+    if data is None:
+      return
     with data:
       content = data.read()
       self.__update_field_from_dict(jsonpickle.decode(content))

@@ -62,7 +62,6 @@ class Cancel_Token(Waitable_Object):
         print(traceback)
       self.__inform_finsihed_cancel()
 
-
 class Thread_Owned_Cancel_Token(Waitable_Object):
   __cancel_request: bool
   __owner_id: int

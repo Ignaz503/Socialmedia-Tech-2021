@@ -50,10 +50,6 @@ def __execute_generating(config: Config, logger: Logger, token: Cancel_Token):
     __save_adjacency_mat(mat, "subreddit_subreddit.csv",logger, token)
     if token.is_cancel_requested():
       return
-    if token.is_cancel_requested():
-      return
-    if token.is_cancel_requested():
-      return
     mat = util.generate_sub_user_adjacency_mat(config,logger,token)
     if token.is_cancel_requested():
       return

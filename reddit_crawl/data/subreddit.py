@@ -62,6 +62,10 @@ class Subreddit_Batch:
     self.subs[sub_name] = Subreddit_Data(sub_name,set([user_name]))
     return True
 
+  def conatins_user(self, user_name:str, subreddit_name:str)->bool:
+    if subreddit_name in self.subs:
+      return user_name in self.subs[subreddit_name]
+
   def __handle_data(self, sub_name: str, data: Subreddit_Data, logger: Logger):
     logger.log("-"*30,Level.INFO)
     logger.log("Loading data for {s}".format(s=sub_name),Level.INFO)

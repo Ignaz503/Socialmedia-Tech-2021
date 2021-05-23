@@ -3,14 +3,45 @@ from utility.cancel_token import Cancel_Token
 import threading
 from time import sleep
 from praw.models import Comment
-from praw.models import Submission
+from praw.models import Submission, MoreComments
 from reddit_crawl.util.context import Context, Thread_Safe_Context
 from praw.models.comment_forest import CommentForest
 from reddit_crawl.data.subreddit import Subreddit_Batch_Queue, Subreddit_Batch
+from defines import MAX_COMMENT_NUM
+from utility.simple_logging import Logger, Level
+from typing import Callable
 
-def get_all_comments(forest: CommentForest):
-  forest.replace_more(limit=None)
-  return forest.list()
+def handle_all_comments(comment_handler: Callable[[Comment,Thread_Safe_Context,Cancel_Token],None],submission: Submission, context: Thread_Safe_Context, token: Cancel_Token):
+  more_comments: list[MoreComments] = []
+  more_comments.extend(submission.comments.replace_more())
+  context.logger.log("Handling initial comment forest")
+  #handle initial forest
+  for comment in submission.comments.list():
+    if token.is_cancel_requested():
+      break
+    if isinstance(comment, MoreComments):
+      #maybe not needed
+      more_comments.append(comment)
+      continue
+    context.crawl_diagnostics.increment_comments_total()
+    comment_handler(comment,context,token)
+
+  if token.is_cancel_requested():
+    return
+  context.logger.log("Handling more comments")
+  while len(more_comments) > 0:
+    if token.is_cancel_requested():
+      return
+    more_comment = more_comments.pop(0)
+    for comment in more_comment.comments():
+      if token.is_cancel_requested():
+        break
+      if isinstance(comment, MoreComments):
+        context.logger.log("found even more comments to handle, whilst handling more comments")
+        more_comments.append(comment)
+        continue
+      context.crawl_diagnostics.increment_comments_total()
+      comment_handler(comment,context,token) 
 
 def join_subreddits(subs: list[str]):
   return "+".join(subs)
@@ -37,6 +68,11 @@ def handle_comment_thread_safe(comment: Comment, context: Thread_Safe_Context, t
   if comment.author is None:
     context.crawl_diagnostics.increment_comments_no_author()
     return
+
+  if context.current_data.conatins_user(comment.author.name,comment.subreddit.display_name):
+    #we already found this user once for this subreddit
+    return
+
   scan_if_new_bot(comment,context)
   handle_user_thread_safe(comment.author.name,comment.subreddit.display_name, context)
 
@@ -46,12 +82,7 @@ def handle_post_thread_safe(post: Submission, context: Thread_Safe_Context, toke
   if post.author is not None:
     handle_user_thread_safe(post.author.name, post.subreddit.display_name, context)
 
-  all_comments = get_all_comments(post.comments)
-  for comment in all_comments:
-    if token.is_cancel_requested():
-      break
-    context.crawl_diagnostics.increment_comments_total()
-    handle_comment_thread_safe(comment, context,token)
+  handle_all_comments(handle_comment_thread_safe,post,context,token)
 
 
 def __submit_batch_loop(monitor_type: str, context: Thread_Safe_Context, queue: Subreddit_Batch_Queue):

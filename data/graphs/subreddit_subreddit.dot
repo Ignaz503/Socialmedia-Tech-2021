@@ -3,12 +3,12 @@ strict graph "" {
 	0	[color="#e94560",
 		label=veloren,
 		size=10.0,
-		title="<h3>veloren</h3><b>created on:</b> 2018-07-09 03:55:24<br><b>subscriber count:</b> 8269<br><b>description:</b><br>Veloren is a community-driven \
+		title="<h3>veloren</h3><b>created on:</b> 2018-07-09 03:55:24<br><b>subscriber count:</b> 8268<br><b>description:</b><br>Veloren is a community-driven \
 multiplayer voxel<br>RPG set in a vast and dynamic procedural world."];
 	1	[color="#e94560",
 		label=gatekeeping,
 		size=50.0,
-		title="<h3>gatekeeping</h3><b>created on:</b> 2016-07-23 16:09:08<br><b>subscriber count:</b> 821540<br><b>description:</b><br>Gatekeeping \
+		title="<h3>gatekeeping</h3><b>created on:</b> 2016-07-23 16:09:08<br><b>subscriber count:</b> 821557<br><b>description:</b><br>Gatekeeping \
 is when someone takes it upon<br>themselves to decide who does or does not have<br>access or rights to a community or identity.<\
 br>/r/gatekeeping is a subreddit for screenshots and<br>stories of gatekeepers in the wild."];
 }
