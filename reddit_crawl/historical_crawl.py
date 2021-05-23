@@ -1,15 +1,15 @@
 import praw
 import threading
-import reddit_helper as rh
-from app_config import Config
+import reddit_crawl.util.helper_functions as rh
+from utility.app_config import Config
 from psaw import PushshiftAPI
-from simple_logging import Logger
-from cancel_token import Cancel_Token
-from context import Thread_Safe_Context
-from diagnostics import Reddit_Crawl_Diagnostics
-from bot_blacklist import Threadsafe_Bot_Blacklist
+from utility.simple_logging import Logger
+from utility.cancel_token import Cancel_Token
+from reddit_crawl.util.context import Thread_Safe_Context
+from reddit_crawl.util.diagnostics import Reddit_Crawl_Diagnostics
+from reddit_crawl.data.bot_blacklist import Threadsafe_Bot_Blacklist
 from defines import CLIENT_ID, CLIENT_SECRET, USER_AGENT
-from subreddit import Subreddit_Batch_Queue, Subreddit_Batch
+from reddit_crawl.data.subreddit import Subreddit_Batch_Queue, Subreddit_Batch
 
 def handle_subreddit(sub_name: str, api: PushshiftAPI, context: Thread_Safe_Context, queue: Subreddit_Batch_Queue, token: Cancel_Token):
   for submission in api.search_submissions(after= context.config.start_epoch(), before=context.config.end_epoch(),subreddit=sub_name):
@@ -40,9 +40,9 @@ def handle_crawl(context: Thread_Safe_Context,queue: Subreddit_Batch_Queue, toke
 def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue, token: Cancel_Token):
   with  token:
     reddit = praw.Reddit(
-      client_id=CLIENT_ID,
-      client_secret=CLIENT_SECRET,
-      user_agent=USER_AGENT)
+      client_id=config.reddit_app_info[CLIENT_ID],
+      client_secret=config.reddit_app_info[CLIENT_SECRET],
+      user_agent=config.reddit_app_info[USER_AGENT])
 
     context = Thread_Safe_Context(reddit,config, Subreddit_Batch(),logger,blacklist, Reddit_Crawl_Diagnostics())
     rh.start_batch_submit_thread("historical crawl",context,batch_queue)

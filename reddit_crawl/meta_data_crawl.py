@@ -1,11 +1,11 @@
-from cancel_token import Cancel_Token
+from utility.cancel_token import Cancel_Token
 import praw
 from praw import Reddit
 from praw.models import Subreddit
-from app_config import Config
-from simple_logging import Level, Logger
-from defines import CLIENT_ID, CLIENT_SECRET, USER_AGENT
-from subreddit import Crawl_Metadata, Subreddit_Metadata 
+from utility.app_config import Config
+from utility.simple_logging import Logger, Level
+from defines import CLIENT_ID, USER_AGENT, CLIENT_SECRET
+from reddit_crawl.data.subreddit import Crawl_Metadata, Subreddit_Metadata 
 
 def handle_subreddit(subreddit: Subreddit, meta_data: Crawl_Metadata, logger: Logger):
   name = subreddit.display_name
@@ -14,10 +14,10 @@ def handle_subreddit(subreddit: Subreddit, meta_data: Crawl_Metadata, logger: Lo
 
 def run(crawl_metaData: Crawl_Metadata, config: Config, logger: Logger, token: Cancel_Token)-> Crawl_Metadata:
   with token:
-    reddit:Reddit = praw.Reddit(
-      client_id=CLIENT_ID,
-      client_secret=CLIENT_SECRET,
-      user_agent=USER_AGENT)
+    reddit = praw.Reddit(
+      client_id=config.reddit_app_info[CLIENT_ID],
+      client_secret=config.reddit_app_info[CLIENT_SECRET],
+      user_agent=config.reddit_app_info[USER_AGENT])
     logger.log("Crawling for subreddit metadata",Level.INFO)
     for sub in config.subreddits_to_crawl:
       if token.is_cancel_requested():

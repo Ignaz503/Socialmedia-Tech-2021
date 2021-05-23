@@ -1,6 +1,6 @@
 import jsonpickle
-import data_util
-from data_util import DataLocation
+import utility.data_util as data_util
+from utility.data_util import DataLocation
 
 
 class UniqueUsers:

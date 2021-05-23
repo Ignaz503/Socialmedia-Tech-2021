@@ -1,7 +1,11 @@
-#reddit info
-CLIENT_ID="oLm5KqTNCR5qrw"
-CLIENT_SECRET="E-uXbSsa6JTNph_zp49vnbSLZpO0tg"
-USER_AGENT="python:TUG-CommentCrawler:v1.0.0 (by u/Ignaz503)"
+#reddit application info
+CLIENT_ID='client_id'
+CLIENT_SECRET='client_secret'
+USER_AGENT='user_agent'
+
+#submission getter dict entry
+GETTER_TYPE = 'type'
+GETTER_CATEGORY = 'category'
 
 #args
 CRAWL_ARGS = ["-crawl","-c"]

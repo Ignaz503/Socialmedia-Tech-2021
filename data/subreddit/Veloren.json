@@ -1,43 +1,14 @@
 {
-  "py/object": "subreddit.Subreddit_Data",
+  "py/object": "reddit_crawl.data.subreddit.Subreddit_Data",
   "name": "Veloren",
   "users": {
     "py/set": [
-      "LongjumpingStyle",
-      "posting_drunk_naked",
-      "Miroxyde",
-      "Necx999",
-      "DMaster86",
-      "ApTzortzakis",
-      "Kubiboi",
-      "sfsfbln",
-      "Helmic",
-      "StyMaar",
       "wrongerontheinternet",
-      "FranzCorrado",
+      "BigCubeCat",
       "pizzaandcheese",
-      "JCapucho",
-      "Rilabeast",
-      "Pikyso",
-      "Di4mond4rr3l",
-      "s0me1guy",
-      "Marruk14",
-      "AxelTheRabbit",
-      "ZorinSBBH",
-      "songtronix",
+      "lightdarkdaughter",
       "zesterer",
-      "ItsJustReeses",
-      "_AngelOnFira_",
-      "SlippedOnAnIcecube",
-      "kaklik",
-      "asheraryam",
-      "Darth_Tiktaalik",
-      "stoopiit",
-      "datnigc",
-      "marciusoliveiraa",
-      "imwriter1",
-      "Russhang",
-      "TheGuyYouMayHaveSeen"
+      "_AngelOnFira_"
     ]
   }
 }

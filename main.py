@@ -1,20 +1,18 @@
 import sys
-import data_util
-import app_config
-import data_saver
-import simple_logging
-import bot_blacklist
-from time import sleep
-import reddit_stream as rstr
-import reddit_crawl as crawl
-import visualize_data as vsd
-import simple_logging
-from simple_logging import Level, Logger
-import data_generator as generator
-import reddit_crawl_historical as rch
-from cancel_token import Cancel_Token, Thread_Owned_Token_Tray
-from subreddit import Subreddit_Batch_Queue
-from bot_blacklist import Threadsafe_Bot_Blacklist
+import utility.data_util as data_util
+from utility.app_config import Config
+import reddit_crawl.util.subreddit_batch_queue_data_saver as data_saver
+import utility.simple_logging as simple_logging
+import reddit_crawl.data.bot_blacklist as bot_blacklist
+import reddit_crawl.stream_observation as rstr
+import reddit_crawl.active_crawl as crawl
+import generators.visualization_generator as vsd
+from utility.simple_logging import Logger, Level
+import generators.data_generator as generator
+import reddit_crawl.historical_crawl as rch
+from utility.cancel_token import Cancel_Token, Thread_Owned_Token_Tray
+from reddit_crawl.data.subreddit import Subreddit_Batch_Queue
+from reddit_crawl.data.bot_blacklist import Threadsafe_Bot_Blacklist
 from defines import ACTIVE_KEYWORDS, ALL_ARGS, ALL_KEYWORD, BOT_LIST_FALLBACK, CRAWl_KEYWORDS,CRAWL_ARGS,GENERATE_ARGS, CONFIG, DATA_KEYWORDS, HISTORIC_CRAWL_KEYWORDS, START_KEYWORDS, STREAM_ARGS, HISTORIC_ARGS, STREAM_KEYWORDS, VISUALIZE_KEYWORDS, VIS_ARGS, EXIT_KEYWORDS
 
 class FlowControl:
@@ -48,13 +46,13 @@ def parse_args(args: list[str]) -> FlowControl:
     visualize = True
   return FlowControl(crawl,generate, stream,historical,visualize)
 
-def __get_bot_list_name(config: app_config.Config):
+def __get_bot_list_name(config: Config):
   blist_name = config.bot_list_name
   if blist_name == "":
     blist_name = BOT_LIST_FALLBACK
   return blist_name
 
-def handle_observation_shut_down(config: app_config.Config,token: Cancel_Token, data_saver_tray: Thread_Owned_Token_Tray, logger: Logger, blist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue):
+def handle_observation_shut_down(config: Config,token: Cancel_Token, data_saver_tray: Thread_Owned_Token_Tray, logger: Logger, blist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue):
   logger.log("Shutting Down - This may take some time",Level.INFO)
   logger.log("informing worker threads to cancel operations",Level.INFO)
   token.request_cancel()
@@ -82,7 +80,7 @@ def print_help():
   print("To get help type help")
   print("To close the program use any of {l}".format(l = EXIT_KEYWORDS))
 
-def handle_command(command, config: app_config.Config, logger:Logger, blist: Threadsafe_Bot_Blacklist,batch_queue: Subreddit_Batch_Queue,token: Cancel_Token) -> bool:
+def handle_command(command, config: Config, logger:Logger, blist: Threadsafe_Bot_Blacklist,batch_queue: Subreddit_Batch_Queue,token: Cancel_Token) -> bool:
   if any_keyword_in_string(START_KEYWORDS,command):
     s_all = any_keyword_in_string(ALL_KEYWORD,command)
     did_something = False
@@ -112,7 +110,7 @@ def print_not_understood(command: str):
   print("I didn't understand your command: '{c}'".format(c=command))
   print("Please try again (use help to list all commands)")
 
-def main_observation_loop(config: app_config.Config,token: Cancel_Token,data_saver_tray: Thread_Owned_Token_Tray, batch_queue: Subreddit_Batch_Queue, blist: Threadsafe_Bot_Blacklist, logger: Logger):
+def main_observation_loop(config: Config,token: Cancel_Token,data_saver_tray: Thread_Owned_Token_Tray, batch_queue: Subreddit_Batch_Queue, blist: Threadsafe_Bot_Blacklist, logger: Logger):
     try:
       while True:
         inp = input("Command: ")
@@ -124,7 +122,7 @@ def main_observation_loop(config: app_config.Config,token: Cancel_Token,data_sav
       handle_observation_shut_down(config,token,data_saver_tray,logger,blist,batch_queue)
 
 
-def run(program_flow: FlowControl, config: app_config.Config, logger: Logger):
+def run(program_flow: FlowControl, config: Config, logger: Logger):
 
   blist_name = __get_bot_list_name(config)
 
@@ -157,7 +155,7 @@ def run(program_flow: FlowControl, config: app_config.Config, logger: Logger):
 
 def main(args: list[str]):
   data_util.ensure_data_locations()
-  config = app_config.load(CONFIG)
+  config = Config.load(CONFIG)
   logger: Logger = simple_logging.start(config.verbose,"Welcome Social Media Technologies 2021 Group 1")
 
   program_flow = parse_args(args)

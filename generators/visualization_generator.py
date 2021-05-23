@@ -1,20 +1,18 @@
 import threading
-import graph_generator as gg
-from cancel_token import Cancel_Token
-import data_util
+import generators.graph_generator as gg
+from utility.cancel_token import Cancel_Token
+import utility.data_util as data_util
 import numpy as np
-import data_generator as dg
-from app_config import Config
-from simple_logging import Logger, Level
+import generators.util as dg
+from utility.app_config import Config
+from utility.simple_logging import Logger, Level
 from pyvis.network import Network
-from data_util import DataLocation
+from utility.data_util import DataLocation
 from networkx.classes.graph import Graph
-from colorpallet import ColorPallet
+from utility.colorpallet import ColorPallet
 
 __SUBREDDIT_SUBREDDIT_VISUALIZATION_NAME = "reddit_visualization_subreddit_subreddit.html"
 __SUBREDDIT_USER_VISUALIZATION_NAME ="reddit_visualization_subreddit_user.html"
-
-
 
 def __build_network_from_graph(graph: Graph,physics: bool, buttons_filter=[])->Network:
   vis_network = Network('1920px','1920px',bgcolor=ColorPallet.BACKGROUND_COLOR.value,font_color=ColorPallet.FONT_COLOR.value)

@@ -24,11 +24,11 @@ class Logger:
       self.__connection = connection
       self.__process = process
   
-  def log(self, message: str, module: Level = Level.INFO):
+  def log(self, message: str, lvl: Level = Level.INFO):
     if self.active:
       if not message.endswith("\n"):
         message+="\n"
-      time = "[{d}][{ms}] ".format(d = dt.datetime.now().isoformat(sep=" "), ms=module.value)
+      time = "[{d}][{ms}] ".format(d = dt.datetime.now().isoformat(sep=" "), ms=lvl.value)
       self.__connection.send(time + message)
 
   def stop(self):

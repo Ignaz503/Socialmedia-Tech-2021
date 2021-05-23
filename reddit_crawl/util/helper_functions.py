@@ -1,12 +1,12 @@
-from simple_logging import Level
-from cancel_token import Cancel_Token
+from utility.simple_logging import Level
+from utility.cancel_token import Cancel_Token
 import threading
 from time import sleep
 from praw.models import Comment
 from praw.models import Submission
-from context import Context, Thread_Safe_Context
+from reddit_crawl.util.context import Context, Thread_Safe_Context
 from praw.models.comment_forest import CommentForest
-from subreddit import Subreddit_Batch_Queue, Subreddit_Batch
+from reddit_crawl.data.subreddit import Subreddit_Batch_Queue, Subreddit_Batch
 
 def get_all_comments(forest: CommentForest):
   forest.replace_more(limit=None)

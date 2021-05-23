@@ -1,18 +1,17 @@
-from subreddit import Crawl_Metadata, Subreddit_Metadata,Subreddit_Data
-from simple_logging import Logger
+from reddit_crawl.data.subreddit import Crawl_Metadata, Subreddit_Metadata,Subreddit_Data
+from utility.simple_logging import Logger
 import math
-from colorpallet import ColorPallet
-from cancel_token import Cancel_Token
-from app_config import Config
-import util
+from utility.colorpallet import ColorPallet
+from utility.cancel_token import Cancel_Token
+from utility.app_config import Config
+import generators.util as util
 import networkx as nx
 from networkx import Graph
 import numpy as np
-from users import UniqueUsers
+from reddit_crawl.data.users import UniqueUsers
 from networkx.drawing.nx_agraph import write_dot
-import data_util
-from data_util import DataLocation
-import data_generator
+import utility.data_util as data_util
+from utility.data_util import DataLocation
 
 __SUBREDDIT_SUBREDDIT_GRAPH = "subreddit_subreddit.dot"
 __SUBREDDIT_USER_GRAPH = "subreddit_user.dot"
@@ -147,7 +146,7 @@ def write_as_dot(graph: Graph, file_path: str):
 
 def write_all_possible_as_dot(config: Config, logger: Logger, token: Cancel_Token): 
   logger.log("generating subreddit subreddit graph")
-  mat = data_generator.generate_sub_sub_adjacency_mat(config,logger,token)
+  mat = util.generate_sub_sub_adjacency_mat(config,logger,token)
   g = build_graph_subreddit_subreddit(mat,config,logger,token)
   if token.is_cancel_requested():
       return

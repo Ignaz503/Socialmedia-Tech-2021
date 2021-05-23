@@ -1,8 +1,8 @@
-import data_util
+import utility.data_util as data_util
 import jsonpickle
 from threading import Lock
-from simple_logging import Level, Logger
-from data_util import DataLocation
+from utility.simple_logging import Logger, Level
+from utility.data_util import DataLocation
 import math
 import datetime as dt
 import textwrap

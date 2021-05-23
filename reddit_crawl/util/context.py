@@ -1,10 +1,10 @@
 from threading import Lock
-from app_config import Config
+from utility.app_config import Config
 from praw.reddit import Reddit
-from simple_logging import Logger
-from subreddit import Subreddit_Batch
-from diagnostics import Reddit_Crawl_Diagnostics
-from bot_blacklist import Bot_Blacklist, Threadsafe_Bot_Blacklist
+from utility.simple_logging import Logger
+from reddit_crawl.data.subreddit import Subreddit_Batch
+from reddit_crawl.util.diagnostics import Reddit_Crawl_Diagnostics
+from reddit_crawl.data.bot_blacklist import Bot_Blacklist, Threadsafe_Bot_Blacklist
 
 class Context:
   reddit: Reddit

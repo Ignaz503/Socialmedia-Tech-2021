@@ -2,15 +2,15 @@ import time
 import threading
 import traceback
 import praw.models
-import reddit_helper as rh
-from context import Context
-from app_config import Config
-from simple_logging import Level, Logger
-from cancel_token import Cancel_Token
+import reddit_crawl.util.helper_functions as rh
+from reddit_crawl.util.context import Context
+from utility.app_config import Config
+from utility.simple_logging import Logger, Level
+from utility.cancel_token import Cancel_Token
 from praw.models import Comment, Submission
-from diagnostics import  Reddit_Crawl_Diagnostics
-from bot_blacklist import Threadsafe_Bot_Blacklist
-from subreddit import Subreddit_Batch_Queue, Subreddit_Batch
+from reddit_crawl.util.diagnostics import Reddit_Crawl_Diagnostics
+from reddit_crawl.data.bot_blacklist import Threadsafe_Bot_Blacklist
+from reddit_crawl.data.subreddit import Subreddit_Batch_Queue, Subreddit_Batch
 from defines import CLIENT_ID, CLIENT_SECRET, USER_AGENT, MIN_REPEAT_TIME
 
 def __handle_user(user_name: str, sub_name: str, context: Context):
@@ -47,10 +47,12 @@ def __handle_post(post: Submission, context: Context, token: Cancel_Token):
 
 def __handle_crawl(context: Context, token: Cancel_Token):
   for sub in context.config.subreddits_to_crawl:
+    if token.is_cancel_requested():
+      break
     subreddit = context.reddit.subreddit(sub)
     context.logger.log("Crawling subreddits: {subreddit}".format(subreddit = sub),Level.INFO)
     try:
-      for submission in context.config.submission_getter.get(subreddit,context.config.number_of_posts, context.logger):
+      for submission in context.config.get_submission_getter().get(subreddit,context.config.number_of_posts, context.logger):
         if token.is_cancel_requested():
           break
         __handle_post(submission, context, token)
@@ -61,9 +63,9 @@ def __handle_crawl(context: Context, token: Cancel_Token):
 def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue,token: Cancel_Token, wait_period_seconds: float, only_once: bool):
   with token:
     reddit = praw.Reddit(
-      client_id=CLIENT_ID,
-      client_secret=CLIENT_SECRET,
-      user_agent=USER_AGENT)
+      client_id=config.reddit_app_info[CLIENT_ID],
+      client_secret=config.reddit_app_info[CLIENT_SECRET],
+      user_agent=config.reddit_app_info[USER_AGENT])
 
     context = Context(reddit,config, Subreddit_Batch(),logger,blacklist, Reddit_Crawl_Diagnostics())
 

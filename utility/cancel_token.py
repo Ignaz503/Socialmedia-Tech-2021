@@ -1,6 +1,7 @@
 import threading
 from enum import Enum
 from typing import Callable
+from utility.waitableobject import Waitable_Object
 
 class UnauhthorizedAcknowledgeAttempt(Exception):
   allowed_indent: int
@@ -19,7 +20,7 @@ class TokenTrayTokenChangeAttempt(Exception):
   def __init__(self, *args: object) -> None:
       super().__init__("An attempt was made to cahnge the token of an already set token tray", *args)
 
-class Cancel_Token:
+class Cancel_Token(Waitable_Object):
   __cancel_request: bool
   __cancel_event: threading.Event
   __listener_lock: threading.Lock
@@ -62,7 +63,7 @@ class Cancel_Token:
       self.__inform_finsihed_cancel()
 
 
-class Thread_Owned_Cancel_Token:
+class Thread_Owned_Cancel_Token(Waitable_Object):
   __cancel_request: bool
   __owner_id: int
   __cancel_event: threading.Event
@@ -100,7 +101,7 @@ class TrayOperationStatus(Enum):
   SUCCESS = 0
   NO_TOKEN = 0
 
-class Thread_Owned_Token_Tray:
+class Thread_Owned_Token_Tray(Waitable_Object):
   __token: Thread_Owned_Cancel_Token
   __token_lock = threading.Lock
   def __init__(self) -> None:
@@ -135,6 +136,9 @@ class Thread_Owned_Token_Tray:
 
   def try_wait(self) -> TrayOperationStatus:
     return self.__try_token_operation(self.__wait_operation)
+
+  def wait(self):
+    self.try_wait()
 
   def __request_cancel_operation(self, tk: Thread_Owned_Cancel_Token):
     tk.request_cancel()

@@ -1,7 +1,7 @@
-import data_util
+import utility.data_util as data_util
 import jsonpickle
 from threading import Lock
-from data_util import DataLocation
+from utility.data_util import DataLocation
 
 class Bot_Blacklist:
   blacklist: set[str]
