@@ -72,38 +72,19 @@ class Reddit_Crawl_Secrets(UIElement):
       content = data.read()
       self.__update_field_from_dict(jsonpickle.decode(content))
 
-  def __update_config_entry(self, dict_entry: str, mb_title:str, mb_message:str, ask: bool = True):
+  def __update_config_entry(self, dict_entry: str, val:str):
     c: Config = self.application.config
-    val = self.__client_id_input.get()
     if c.reddit_app_info[dict_entry] != val:
-      if ask:
-        if messagebox.askyesno(title=mb_title,message=mb_message):
-          c.reddit_app_info[dict_entry] = val 
-        else:
-          self.__set_field(c,dict_entry)
-      else:
-        c.reddit_app_info[dict_entry] = val
-
+      self.application.update_config()
 
   def __update_config_id_entry(self):
-    self.__update_config_entry(CLIENT_ID,"Update Client ID","Do you want to update the Client ID")
+    self.__update_config_entry(CLIENT_ID,self.__client_id_input.get())
 
   def __update_config_secret_entry(self):
-    self.__update_config_entry(CLIENT_SECRET,"Update Client Secret","Do you want to update the Client Secret")
+    self.__update_config_entry(CLIENT_SECRET,self.__client_secret_input.get())
 
   def __update_config_user_agent_entry(self):
-    self.__update_config_entry(USER_AGENT,"Update User Agnet","Do you want to update the User Agent")
-
-  def __set_field(self,config: Config, entry:str):
-    if entry == CLIENT_ID:
-      self.__client_id_input.delete(0,END)
-      self.__client_id_input.insert(END,config.reddit_app_info[CLIENT_ID])
-    if entry == CLIENT_SECRET:
-      self.__client_secret_input.delete(0,END)
-      self.__client_secret_input.insert(END,config.reddit_app_info[CLIENT_SECRET])
-    if entry == USER_AGENT:
-      self.__client_user_agent_input.delete(0,END)
-      self.__client_user_agent_input.insert(END,config.reddit_app_info[USER_AGENT])
+    self.__update_config_entry(USER_AGENT,self.__client_user_agent_input.get())
 
   def __update_field_from_dict(self, data: dict[str,str]):
     if CLIENT_ID in data:
@@ -115,7 +96,6 @@ class Reddit_Crawl_Secrets(UIElement):
     if USER_AGENT in data:
       self.__client_user_agent_input.delete(0,END)
       self.__client_user_agent_input.insert(END,data[USER_AGENT])
-
 
   def get_client_id(self) -> str:
     return self.__client_id_input.get()

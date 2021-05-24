@@ -1,3 +1,4 @@
+from typing import Callable
 from reddit_crawl.data.users import UniqueUsers
 from utility.cancel_token import Cancel_Token
 import threading
@@ -40,7 +41,7 @@ def __generate_unique_user(config: Config, logger: Logger, token: Cancel_Token) 
 def __save_unique_user_list(users: UniqueUsers):
   users.save_to_file()
 
-def __execute_generating(config: Config, logger: Logger, token: Cancel_Token):
+def __execute_generating(config: Config, logger: Logger, token: Cancel_Token, on_done_callback:Callable):
   #this might be the uggliest function i have ever writen
   logger.log("generating data",Level.INFO)
   with token:
@@ -70,8 +71,9 @@ def __execute_generating(config: Config, logger: Logger, token: Cancel_Token):
       return
     graph_generator.write_all_possible_as_dot(config,logger,token)
     logger.log("data generation done")
+    on_done_callback()
 
 
-def run(config: Config, logger: Logger, token: Cancel_Token):
-  thread = threading.Thread(name="data generation thread",target=__execute_generating,args=(config,logger,token))
+def run(config: Config, logger: Logger, token: Cancel_Token, on_done_callback:Callable = lambda: None):
+  thread = threading.Thread(name="data generation thread",target=__execute_generating,args=(config,logger,token, on_done_callback))
   thread.start()

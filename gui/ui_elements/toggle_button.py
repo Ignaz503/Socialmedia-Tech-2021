@@ -5,6 +5,7 @@ from tkinter import Button, NSEW
 from tkinter.constants import END
 from typing import Callable
 from utility.waitableobject import Waitable_Object
+from utility.simple_logging import Logger
 
 class Toggle_Button(Button):
   __on_start: Callable
@@ -12,7 +13,12 @@ class Toggle_Button(Button):
   __running_text:str
   __stopped_text:str
   __state: bool
-  def __init__(self,on_true:Callable, on_false:Callable,when_true:str, when_false:str,*args, **kwargs):
+  def __init__(self,
+      on_true:Callable,
+      on_false:Callable,when_true:str,
+      when_false:str,
+      *args,
+      **kwargs):
     super().__init__(text=when_false, command= self.switch,relief="raised",*args,**kwargs)
     self.__state = False
     self.__running_text = when_true
@@ -45,13 +51,26 @@ class WaitOptions(Enum):
 
 class DelayedToggleButton(Toggle_Button):
   __wait_on: Waitable_Object
+  __before_wait_action:Callable
   __wait_when: WaitOptions
   __wait_mesage: str
-  def __init__(self,wait_when:WaitOptions, wait_on: Waitable_Object,wait_message:str,  *args, **kwargs):
-      super().__init__(*args, **kwargs)
-      self.__wait_when = wait_when
-      self.__wait_mesage = wait_message
-      self.__wait_on = wait_on
+  __wait_event: threading.Event
+  __logger: Logger
+  def __init__(self,
+      wait_when:WaitOptions,
+      wait_on: Waitable_Object,
+      before_wait_action:Callable,
+      wait_message:str,
+      logger:Logger,
+      *args,
+      **kwargs):
+    super().__init__(*args, **kwargs)
+    self.__wait_when = wait_when
+    self.__wait_mesage = wait_message
+    self.__wait_on = wait_on
+    self.__before_wait_action = before_wait_action
+    self.__wait_event = threading.Event()
+    self.__logger = logger
 
   def change_wait_on_object(self, new_obj: Waitable_Object):
     self.__wait_on = new_obj
@@ -71,14 +90,17 @@ class DelayedToggleButton(Toggle_Button):
   def __when_awaited(self,after: Callable):
     self.configure(state = 'normal')
     after()
+    self.__wait_event.set()
 
   def __kick_off_wait_thread(self, when_awaited: Callable):
     self.configure(state='disabled',text=self.__wait_mesage)
-    thread = threading.Thread(name="wait thread",daemon=True, target=DelayedToggleButton.__wait,args=(self.__wait_on,when_awaited))
+    self.__wait_event.clear()
+    self.__before_wait_action()
+    thread = threading.Thread(name="wait thread", target=DelayedToggleButton.__wait,args=(self.__wait_on,when_awaited, self.__logger))
     thread.start()
 
   @staticmethod
-  def __wait(obj: Waitable_Object,when_awaited: Callable):
+  def __wait(obj: Waitable_Object,when_awaited: Callable,  logger:Logger):
     obj.wait()
     when_awaited()
 

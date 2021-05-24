@@ -146,7 +146,6 @@ def main_observation_loop(config: Config,token: Cancel_Token,data_saver_tray: Th
     finally:
       handle_observation_shut_down(config,token,data_saver_tray,logger,blist,batch_queue)
 
-
 def run(program_flow: FlowControl, config: Config, logger: Logger):
 
   blist_name = __get_bot_list_name(config)
@@ -180,7 +179,7 @@ def run(program_flow: FlowControl, config: Config, logger: Logger):
 def main(args: list[str]):
   data_util.ensure_data_locations()
   config = Config.load(CONFIG)
-  logger: Logger = simple_logging.start(config.verbose,"Welcome Social Media Technologies 2021 Group 1")
+  logger: Logger = simple_logging.start(config.verbose)
 
   program_flow = parse_args(args)
   run(program_flow, config, logger)

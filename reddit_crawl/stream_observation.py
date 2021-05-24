@@ -25,7 +25,7 @@ def __stream_monitor(monitor_type: str, stream_gen, data_handler, subs: Subreddi
       continue
     data_handler(data,context,token)
   queue.enqueue(context.current_data)
-  context.logger.log("Stop monitoring of comments stream",Level.INFO)
+  context.logger.log(f"Stop monitoring of {monitor_type}",Level.INFO)
 
 
 def __comments_stream(config: Config, logger:Logger, blacklist: Threadsafe_Bot_Blacklist, queue: Subreddit_Batch_Queue, token: Cancel_Token):

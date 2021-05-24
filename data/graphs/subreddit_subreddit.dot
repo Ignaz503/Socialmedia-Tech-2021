@@ -2,13 +2,13 @@ strict graph "" {
 	node [label="\N"];
 	0	[color="#e94560",
 		label=civ,
-		size=31.025785421910292,
-		title="<h3>civ</h3><b>created on:</b> 2010-03-03 22:48:04<br><b>subscriber count:</b> 435769<br><b>description:</b><br>And now it's 4 AM! \
+		size=31.031048003846113,
+		title="<h3>civ</h3><b>created on:</b> 2010-03-03 22:48:04<br><b>subscriber count:</b> 435876<br><b>description:</b><br>And now it's 4 AM! \
 Just one more turn..."];
 	1	[color="#e94560",
 		label=CrusaderKings,
-		size=24.355339860738308,
-		title="<h3>CrusaderKings</h3><b>created on:</b> 2012-01-28 23:34:47<br><b>subscriber count:</b> 300144<br><b>description:</b><br>Crusader \
+		size=24.367242148854835,
+		title="<h3>CrusaderKings</h3><b>created on:</b> 2012-01-28 23:34:47<br><b>subscriber count:</b> 300386<br><b>description:</b><br>Crusader \
 Kings is a historical grand strategy /<br>RPG video game series for PC, Mac & Linux<br>developed & published by Paradox Interactive.<\
 br>Engage in courtly intrigue, dynastic struggles,<br>and holy warfare in mediæval Europe, North Africa,<br>the Middle East, India, \
 the steppes and Tibet. Can<br>you achieve fame and fortune for your noble<br>family, or will your names be forgotten to<br>history?"];
@@ -18,8 +18,8 @@ the steppes and Tibet. Can<br>you achieve fame and fortune for your noble<br>fam
 		width=2.125];
 	8	[color="#e94560",
 		label=hoi4,
-		size=21.517135975034705,
-		title="<h3>hoi4</h3><b>created on:</b> 2014-01-23 16:32:38<br><b>subscriber count:</b> 242437<br><b>description:</b><br>A place to share \
+		size=21.53100558350107,
+		title="<h3>hoi4</h3><b>created on:</b> 2014-01-23 16:32:38<br><b>subscriber count:</b> 242719<br><b>description:</b><br>A place to share \
 content, ask questions and/or<br>talk about the grand strategy game Hearts of Iron<br>IV by Paradox Development Studio."];
 	0 -- 8	[color="#3e5c7f",
 		title=1,
@@ -27,8 +27,8 @@ content, ask questions and/or<br>talk about the grand strategy game Hearts of Ir
 		width=2.125];
 	2	[color="#e94560",
 		label=eu4,
-		size=22.00409694462854,
-		title="<h3>eu4</h3><b>created on:</b> 2012-08-10 16:49:44<br><b>subscriber count:</b> 252338<br><b>description:</b><br>A place to share \
+		size=22.013294167264036,
+		title="<h3>eu4</h3><b>created on:</b> 2012-08-10 16:49:44<br><b>subscriber count:</b> 252525<br><b>description:</b><br>A place to share \
 content, ask questions and/or<br>talk about the grand strategy game Europa<br>Universalis IV by Paradox Development Studio."];
 	1 -- 2	[color="#3e5c7f",
 		title=7,
@@ -36,8 +36,8 @@ content, ask questions and/or<br>talk about the grand strategy game Europa<br>Un
 		width=8.875];
 	3	[color="#e94560",
 		label=totalwar,
-		size=24.617632846380562,
-		title="<h3>totalwar</h3><b>created on:</b> 2010-05-04 01:35:35<br><b>subscriber count:</b> 305477<br><b>description:</b><br>A subreddit \
+		size=24.627321899103514,
+		title="<h3>totalwar</h3><b>created on:</b> 2010-05-04 01:35:35<br><b>subscriber count:</b> 305674<br><b>description:</b><br>A subreddit \
 for the Total War strategy game<br>series, made by Creative Assembly.  Discussions,<br>strategies, stories, crude cave-drawings, \
 and more<br>for Medieval 2, Empire, Shogun 2, Rome 2, Attila,<br>Thrones of Britannia, Warhammer, Three Kingdoms<br>and others."];
 	1 -- 3	[color="#3e5c7f",
@@ -46,8 +46,8 @@ and more<br>for Medieval 2, Empire, Shogun 2, Rome 2, Attila,<br>Thrones of Brit
 		width=4.375];
 	7	[color="#e94560",
 		label=Stellaris,
-		size=23.489964821852997,
-		title="<h3>Stellaris</h3><b>created on:</b> 2015-07-31 03:36:08<br><b>subscriber count:</b> 282549<br><b>description:</b><br>A place to \
+		size=23.50919537827267,
+		title="<h3>Stellaris</h3><b>created on:</b> 2015-07-31 03:36:08<br><b>subscriber count:</b> 282940<br><b>description:</b><br>A place to \
 share content, ask questions and/or<br>talk about the 4X grand strategy game Stellaris by<br>Paradox Development Studio."];
 	1 -- 7	[color="#3e5c7f",
 		title=4,
@@ -67,13 +67,13 @@ share content, ask questions and/or<br>talk about the 4X grand strategy game Ste
 		width=3.25];
 	4	[color="#e94560",
 		label=SimCity,
-		size=11.146505116877272,
-		title="<h3>SimCity</h3><b>created on:</b> 2010-07-25 22:01:08<br><b>subscriber count:</b> 31579<br><b>description:</b><br>A Subreddit for \
+		size=11.1473904110347,
+		title="<h3>SimCity</h3><b>created on:</b> 2010-07-25 22:01:08<br><b>subscriber count:</b> 31597<br><b>description:</b><br>A Subreddit for \
 the discussion of the SimCity<br>Franchise and related City Builder games."];
 	5	[color="#e94560",
 		label=CitiesSkylines,
-		size=26.869181803762253,
-		title="<h3>CitiesSkylines</h3><b>created on:</b> 2014-08-14 21:33:43<br><b>subscriber count:</b> 351256<br><b>description:</b><br>A subreddit \
+		size=26.8899862164618,
+		title="<h3>CitiesSkylines</h3><b>created on:</b> 2014-08-14 21:33:43<br><b>subscriber count:</b> 351679<br><b>description:</b><br>A subreddit \
 for the City Builder game developed by<br>Colossal Order, Cities: Skylines."];
 	4 -- 5	[color="#3e5c7f",
 		title=2,
@@ -85,8 +85,8 @@ for the City Builder game developed by<br>Colossal Order, Cities: Skylines."];
 		width=2.125];
 	6	[color="#e94560",
 		label=WorldofTanks,
-		size=15.107606275260087,
-		title="<h3>WorldofTanks</h3><b>created on:</b> 2010-08-13 20:06:03<br><b>subscriber count:</b> 112117<br><b>description:</b><br>World of \
+		size=15.109573595609923,
+		title="<h3>WorldofTanks</h3><b>created on:</b> 2010-08-13 20:06:03<br><b>subscriber count:</b> 112157<br><b>description:</b><br>World of \
 Tanks is a PvP MMO game created by<br>international game developer Wargaming. We're<br>Redditors with a passion for gaming, tanks, \
 and<br>everything in between! This is a subreddit where<br>we share WoT news, strategy tips, tank choices,<br>and opinions. We have \
 a number of affiliated clans<br>on the NA, EU, and ASIA servers for all levels of<br>game experience.    Come join the conversation!"];

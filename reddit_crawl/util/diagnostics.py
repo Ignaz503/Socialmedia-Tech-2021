@@ -55,6 +55,7 @@ class Reddit_Crawl_Diagnostics(Diagnostics):
     self.update_value(self.time_elapsed,None)
 
   def log(self, logger: Logger):
-    logger.log("-"*15 + "Total Crawl" + "-"*15,Level.INFO)
-    super().log(logger)
-    logger.log("-"*30,Level.INFO)
+    s ="-"*15 + "Total Crawl" + "-"*15+"\n"
+    s+= super().to_string()
+    s+="-"*30
+    logger.log(s,Level.INFO)

@@ -63,17 +63,18 @@ def __add_meta_data_to_edge(edge,min_val: float, max_val: float, min_edge_size: 
   edge[2]['title'] = edge[2]['weight']
 
 def __add_meta_to_edges_sub_sub(graph: Graph,adj_mat:np.ndarray, config: Config, logger: Logger, token: Cancel_Token, min_edge_size:float = 1, max_edge_size:float = 10):
-
   min_val = float(adj_mat.min())
   max_val = float(adj_mat.max())
-
   for edge in graph.edges(data=True):
     __add_meta_data_to_edge(edge,min_val,max_val,min_edge_size,max_edge_size)
 
 
 def build_graph_subreddit_subreddit(adj_mat: np.ndarray, config: Config, logger:Logger, token: Cancel_Token) -> Graph:
+  logger.log("building graph subreddit to subreddit")
   graph = nx.from_numpy_matrix(adj_mat)
+  logger.log("adding metadata to nodes")
   __add_meta_to_nodes_sub_sub(graph,config,logger,token)
+  logger.log("adding meta data to edges")
   __add_meta_to_edges_sub_sub(graph,adj_mat,config,logger,token)
   return graph
 
@@ -93,9 +94,7 @@ def __add_subreddit_nodes(graph: Graph, config: Config, logger: Logger, token: C
   graph.add_nodes_from(__subbdredit_nodes_gnerator(config,logger,token))
 
 def __user_node_generator(users: UniqueUsers, config: Config, logger: Logger, token: Cancel_Token, user_node_size:float = 5.0):
-
   counter = len(config.subreddits_to_crawl) # start counter for node id after all subreddits which go from 0 len -1
-
   for user in users:
     if token.is_cancel_requested():
       return
@@ -132,12 +131,17 @@ def __add_edges_subreddit_user(graph: Graph, users:UniqueUsers, config: Config, 
   graph.add_edges_from(__edge_subreddit_user_generator(users,config,logger,token))
 
 def build_graph_subreddit_user(config:Config, logger:Logger, token: Cancel_Token):
+  
+  logger.log("building graph subbredit to user")
   graph: Graph = Graph()
   users = UniqueUsers.load()
+  logger.log("adding subreddit nodes")
   __add_subreddit_nodes(graph,config,logger,token)
+  logger.log("adding user nodes")
   __add_user_nodes(graph,users,config,logger, token)
   if token.is_cancel_requested():
     return graph
+  logger.log("adding edges")
   __add_edges_subreddit_user(graph,users, config, logger, token)
   return graph
 

@@ -28,6 +28,7 @@ ALL_KEYWORD = ["all"]
 
 #crawl defines
 MIN_REPEAT_TIME = 5 * 60
+MIN_BATCH_SAVE_TIME = 5
 MAX_COMMENT_NUM = 1000
 
 #filenames

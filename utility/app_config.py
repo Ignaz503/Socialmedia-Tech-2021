@@ -21,7 +21,7 @@ class Config:
   batch_save_interval_seconds:int
   stream_save_interval_seconds:int
   from_date: str
-  to_data: str
+  to_date: str
   bot_list_name:str
   def __init__(self,  reddit_app_info: dict[str,str],
                       subreddits_to_crawl: list[str],
@@ -34,7 +34,7 @@ class Config:
                       batch_save_interval_seconds:int,
                       stream_save_interval_seconds:int,
                       from_date: str,
-                      to_data: str,
+                      to_date: str,
                       bot_list_name:str) -> None:
       self.reddit_app_info = reddit_app_info
       self.subreddits_to_crawl = subreddits_to_crawl
@@ -47,7 +47,7 @@ class Config:
       self.batch_save_interval_seconds = batch_save_interval_seconds
       self.stream_save_interval_seconds = stream_save_interval_seconds
       self.from_date = from_date
-      self.to_data = to_data
+      self.to_date = to_date
       self.bot_list_name = bot_list_name
   
   def get_submission_getter(self) -> SubmissionsGetter:
@@ -62,7 +62,7 @@ class Config:
     return int(from_dt.timestamp())
 
   def end_epoch(self):
-    to_d = dt.date.fromisoformat(self.from_date)
+    to_d = dt.date.fromisoformat(self.to_date)
     to_dt = dt.datetime(to_d.year,to_d.month,to_d.day,23,59,59)
     return int(to_dt.timestamp())
 
@@ -71,6 +71,9 @@ class Config:
 
   def __str__(self):
     return self.to_json()
+
+  def set_value(self, name:str,value):
+    self.__dict__[name] = value
 
   @staticmethod
   def default():

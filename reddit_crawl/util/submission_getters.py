@@ -9,7 +9,13 @@ class SubmissionGetters(Enum):
   NEW = 'new'
   RISING = 'rising'
 
-
+class TopCategories(Enum):
+  ALL ='all'
+  DAY = 'day'
+  HOUR = 'hour'
+  MONTH = 'month'
+  WEEK = 'week'
+  YEAR = 'year'
 
 class SubmissionsGetter:
   def __init__(self) -> None:

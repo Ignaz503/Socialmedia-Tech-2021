@@ -87,6 +87,7 @@ def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Bl
         break
       current_time = time.time()
     batch_queue.enqueue(context.current_data)
+    logger.log("active crawl stopped")
 
 
 

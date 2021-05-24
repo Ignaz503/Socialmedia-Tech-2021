@@ -30,12 +30,14 @@ def random_adjacency_mat(size:int, likelyhood:  float) -> np.ndarray:
 
 
 def generate_sub_sub_adjacency_mat(config: Config, logger: Logger, token: Cancel_Token)-> np.ndarray:
+  logger.log("starting to generate adjacency matrix subreddit to subreddit")
   index_dict = define_index_dict_for_subreddits(config.subreddits_to_crawl)
   size = len(config.subreddits_to_crawl)
   adjacency_mat = np.zeros((size,size), dtype=np.int32)
   for pair in __sub_pairs(config.subreddits_to_crawl):
     if token.is_cancel_requested():
       break
+    logger.log(f"handling subreddit pair ({pair[0]},{pair[1]})")
     __update_adjacency_matrix(index_dict,pair,adjacency_mat)
   return adjacency_mat
 
@@ -64,7 +66,6 @@ def generate_sub_user_adjacency_mat(config: Config, logger: Logger, token: Cance
   logger.log("creating matrix of size {r}x{c}".format(r=rows,c=cols),Level.INFO)
   mat = np.zeros((rows,cols), dtype= np.int32)
 
-  
   for sub_name in config.subreddits_to_crawl:
     sub: Subreddit_Data = Subreddit_Data.load(sub_name)
     user_idx = 0

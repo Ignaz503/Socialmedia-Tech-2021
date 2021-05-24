@@ -11,6 +11,8 @@ class Data_Handler:
     pass
   def init_value(self):
     return None
+  def to_string(self, value) -> str:
+      return ""
 
 
 class Diagnostics:
@@ -31,7 +33,7 @@ class Diagnostics:
       self.data[category] = self.data_handler[category].update(old_val,data)
   
   def display_category(self, category: str, logger: Logger):
-    if category in self.data:
+    if category in self.data_handler:
       self.data_handler[category].log(self.data[category],logger)
 
   def get(self, category: str):
@@ -42,6 +44,20 @@ class Diagnostics:
   def log(self, logger: Logger):
     for key in self.data:
       self.display_category(key,logger)
+
+  def __stringify_category(self, category:str)->str:
+    if category in self.data_handler:
+      return self.data_handler[category].to_string(self.data[category])
+    return f"{category} has no data handler"
+
+  def to_string(self)->str:
+    return str(self)
+
+  def __str__(self) -> str:
+    s = ""
+    for key in self.data:
+      s+=self.__stringify_category(key)+"\n"
+    return s
 
   def reset(self):
     for key in self.data:
@@ -59,6 +75,9 @@ class Increment_Data_Handler(Data_Handler):
     
     def build_message(self, value):
       return value
+
+    def to_string(self, value) -> str:
+        return self.build_message(value)
 
     def init_value(self):
       return self.start_value
@@ -84,6 +103,9 @@ class Timer_Data_Handler(Data_Handler):
     
     def build_message(self, value):
       return "{t:0.4f} seconds passed ".format(t = self.seconds_passed(value))
+
+    def to_string(self, value) -> str:
+        return self.build_message(value)
 
     def seconds_passed(self, value:list[float]):
       return value[-1]-value[0]
