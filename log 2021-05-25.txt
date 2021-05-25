@@ -461,3 +461,22 @@
 [2021-05-25 22:39:56.774][Info] Saving civ to disk
 [2021-05-25 22:39:56.775][Info] ------------------------------
 
+[2021-05-25 22:50:04.557][Info] 
+[2021-05-25 22:50:17.887][Info] Staring closing procedure
+
+[2021-05-25 22:51:17.706][Info] 
+[2021-05-25 22:51:32.927][Info] Staring closing procedure
+
+[2021-05-25 22:53:01.604][Info] Staring closing procedure
+
+[2021-05-25 22:54:23.579][Info] False
+[2021-05-25 22:54:40.133][Info] Staring closing procedure
+
+[2021-05-25 22:54:57.528][Info] Staring closing procedure
+
+[2021-05-25 22:55:53.308][Info] True
+[2021-05-25 22:56:02.159][Info] True
+[2021-05-25 22:56:09.816][Info] Staring closing procedure
+
+[2021-05-25 23:03:23.263][Info] Staring closing procedure
+

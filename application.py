@@ -30,7 +30,7 @@ class RedditCrawlApplication:
     self.__config_update_event = Event(value_name=str)
     data_util.ensure_data_locations(config)
     self.__logger = simple_logging.start(config)
-    self.__config_update_event.register(self.__update_logger_storage_path)
+    self.__config_update_event.register(self.__handle_storage_path_update)
     self.__gui = appGUI.RedditCrawlGUI(self)
     self.__data_saver_token_tray = Thread_Owned_Token_Tray()
     self.__batch_queue = Subreddit_Batch_Queue()
@@ -74,10 +74,11 @@ class RedditCrawlApplication:
     thread = threading.Thread(name="closing procedure",target=self.__handle_shutdown)
     thread.start()
 
-  def __update_logger_storage_path(self,value_name):
+  def __handle_storage_path_update(self,value_name):
     if value_name == "path_to_storage":
       self.__logger.log("updaing storage path")
       self.__logger.update_log_storage_path(self.config.get_path_to_storage())
+      data_util.ensure_data_locations(self.config)
 
   def __handle_shutdown(self):
     self.__gui.stop_any_running_action()

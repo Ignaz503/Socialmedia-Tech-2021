@@ -58,6 +58,10 @@ class Sperate_Process_Logger(Logger):
   
   def log(self, message: str, lvl: Level = Level.INFO):
     if self._active:
+
+      if not isinstance(message,str):
+        message= str(message)
+
       if not message.endswith("\n"):
         message+="\n"
       time = self._build_header(lvl)
