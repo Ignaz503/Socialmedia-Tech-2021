@@ -3,7 +3,7 @@ from tkinter import BooleanVar, Button, Checkbutton, Entry, Event, Frame, LEFT, 
 from tkinter.constants import BOTTOM, RIGHT, TOP, X
 from tkinter.ttk import LabeledScale
 from typing import Callable
-from utility.simple_logging import Level
+from utility.simple_logging import Level, Logger
 from utility.app_config import Config
 from gui.ui_elements.ui_element import UIElement
 from gui.ui_elements.reddit_secrets import Reddit_Crawl_Secrets
@@ -56,6 +56,8 @@ class GeneralSettings(UIElement):
     #haky focus change for entry
     self.master.focus_set()
     self.application.set_config_value('verbose',self.__verbose.get())
+    l: Logger = self.application.get_logger()
+    l.set_active(self.__verbose.get())
 
   def __on_time_input_update(self,hms:tuple[int,int,int]):
     seconds = get_seconds(hms)

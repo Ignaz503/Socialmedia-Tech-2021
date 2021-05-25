@@ -1,3 +1,4 @@
+import networkx
 from reddit_crawl.data.subreddit import Crawl_Metadata, Subreddit_Metadata,Subreddit_Data
 from utility.simple_logging import Logger
 import math
@@ -9,13 +10,9 @@ import networkx as nx
 from networkx import Graph
 import numpy as np
 from reddit_crawl.data.users import UniqueUsers
+
 from networkx.drawing.nx_agraph import write_dot
-import utility.data_util as data_util
-from utility.data_util import DataLocation
-
-__SUBREDDIT_SUBREDDIT_GRAPH = "subreddit_subreddit.dot"
-__SUBREDDIT_USER_GRAPH = "subreddit_user.dot"
-
+from generators.data.graph_files import GraphDataFiles
 
 def __determine_size_lerp(meta_data: Crawl_Metadata, subbredit_name: str, node, logger:Logger, min_node_size: float = 10.0, max_node_size:float=50.0):
   t = meta_data.lerp_sub_count(subbredit_name, logger)
@@ -34,7 +31,6 @@ def __build_title(meta_data: Crawl_Metadata, subbredit_name: str, node, logger:L
   node['title'] = '<h3>'+subbredit_name +'</h3>'
   node['title'] += sub_data.to_html_string()
 
-
 def __add_meta_data_to_subreddit_node(meta_data: Crawl_Metadata,sub_name: str,node,logger:Logger):
     node['label'] = sub_name
     node['color'] = ColorPallet.SUBREDDIT_COLOR.value 
@@ -42,14 +38,13 @@ def __add_meta_data_to_subreddit_node(meta_data: Crawl_Metadata,sub_name: str,no
     __determine_size_lerp(meta_data,sub_name, node, logger)
     #__determin_size_log(meta_data,sub_name,node)
 
-def __add_meta_to_nodes_sub_sub(graph: Graph, config: Config, logger: Logger, token: Cancel_Token):
+def __add_meta_to_nodes_sub_sub(graph: Graph,crawl_metadata:Crawl_Metadata, config: Config, logger: Logger, token: Cancel_Token):
   idx_dict = util.define_index_dict_for_subreddits(config.subreddits_to_crawl)
-  meta_data = Crawl_Metadata.load()
 
   for sub_name in config.subreddits_to_crawl:
     idx = idx_dict[sub_name]
     node =  graph.nodes[idx]
-    __add_meta_data_to_subreddit_node(meta_data,sub_name,node,logger)
+    __add_meta_data_to_subreddit_node(crawl_metadata,sub_name,node,logger)
 
 def __add_meta_data_to_edge(edge,min_val: float, max_val: float, min_edge_size: float, max_edge_size:float):
   current_val = float(edge[2]['weight'])
@@ -68,18 +63,16 @@ def __add_meta_to_edges_sub_sub(graph: Graph,adj_mat:np.ndarray, config: Config,
   for edge in graph.edges(data=True):
     __add_meta_data_to_edge(edge,min_val,max_val,min_edge_size,max_edge_size)
 
-
-def build_graph_subreddit_subreddit(adj_mat: np.ndarray, config: Config, logger:Logger, token: Cancel_Token) -> Graph:
+def build_graph_subreddit_subreddit(adj_mat: np.ndarray,crawl_metadata: Crawl_Metadata, config: Config, logger:Logger, token: Cancel_Token) -> Graph:
   logger.log("building graph subreddit to subreddit")
   graph = nx.from_numpy_matrix(adj_mat)
   logger.log("adding metadata to nodes")
-  __add_meta_to_nodes_sub_sub(graph,config,logger,token)
+  __add_meta_to_nodes_sub_sub(graph,crawl_metadata, config,logger,token)
   logger.log("adding meta data to edges")
   __add_meta_to_edges_sub_sub(graph,adj_mat,config,logger,token)
   return graph
 
-def __subbdredit_nodes_gnerator(config: Config, logger: Logger, token: Cancel_Token):
-  crawl_metadata: Crawl_Metadata = Crawl_Metadata.load()
+def __subbdredit_nodes_gnerator(crawl_metadata: Crawl_Metadata, config: Config, logger: Logger, token: Cancel_Token):
   counter = 0
   for sub_name in config.subreddits_to_crawl:
     idx = counter
@@ -90,8 +83,8 @@ def __subbdredit_nodes_gnerator(config: Config, logger: Logger, token: Cancel_To
     __add_meta_data_to_subreddit_node(crawl_metadata,sub_name,node,logger)
     yield (idx,node)
 
-def __add_subreddit_nodes(graph: Graph, config: Config, logger: Logger, token: Cancel_Token):
-  graph.add_nodes_from(__subbdredit_nodes_gnerator(config,logger,token))
+def __add_subreddit_nodes(graph: Graph,crawl_metadata: Crawl_Metadata, config: Config, logger: Logger, token: Cancel_Token):
+  graph.add_nodes_from(__subbdredit_nodes_gnerator(crawl_metadata,config,logger,token))
 
 def __user_node_generator(users: UniqueUsers, config: Config, logger: Logger, token: Cancel_Token, user_node_size:float = 5.0):
   counter = len(config.subreddits_to_crawl) # start counter for node id after all subreddits which go from 0 len -1
@@ -117,7 +110,7 @@ def __edge_subreddit_user_generator(users: UniqueUsers, config: Config, logger: 
   for sub_name in config.subreddits_to_crawl:
     if token.is_cancel_requested():
       return
-    sub_data = Subreddit_Data.load(sub_name)
+    sub_data = Subreddit_Data.load(sub_name,config)
     user_counter = len(config.subreddits_to_crawl) #user nodes start at this index in graph
     for user in users:
       if token.is_cancel_requested():
@@ -130,13 +123,11 @@ def __edge_subreddit_user_generator(users: UniqueUsers, config: Config, logger: 
 def __add_edges_subreddit_user(graph: Graph, users:UniqueUsers, config: Config, logger: Logger, token: Cancel_Token):
   graph.add_edges_from(__edge_subreddit_user_generator(users,config,logger,token))
 
-def build_graph_subreddit_user(config:Config, logger:Logger, token: Cancel_Token):
-  
+def build_graph_subreddit_user(users:UniqueUsers, crawl_metadata: Crawl_Metadata, config:Config, logger:Logger, token: Cancel_Token): 
   logger.log("building graph subbredit to user")
   graph: Graph = Graph()
-  users = UniqueUsers.load()
   logger.log("adding subreddit nodes")
-  __add_subreddit_nodes(graph,config,logger,token)
+  __add_subreddit_nodes(graph,crawl_metadata,config,logger,token)
   logger.log("adding user nodes")
   __add_user_nodes(graph,users,config,logger, token)
   if token.is_cancel_requested():
@@ -148,18 +139,17 @@ def build_graph_subreddit_user(config:Config, logger:Logger, token: Cancel_Token
 def write_as_dot(graph: Graph, file_path: str):
   write_dot(graph,file_path)
 
-def write_all_possible_as_dot(config: Config, logger: Logger, token: Cancel_Token): 
+def write_all_possible_as_dot(users: UniqueUsers, crawl_metadata: Crawl_Metadata,mat:np.ndarray,config: Config, logger: Logger, token: Cancel_Token): 
   logger.log("generating subreddit subreddit graph")
-  mat = util.generate_sub_sub_adjacency_mat(config,logger,token)
-  g = build_graph_subreddit_subreddit(mat,config,logger,token)
+  g = build_graph_subreddit_subreddit(mat,crawl_metadata,config,logger,token)
   if token.is_cancel_requested():
       return
-  write_as_dot(g,data_util.make_data_path(__SUBREDDIT_SUBREDDIT_GRAPH,DataLocation.GRAPHS))
+  write_as_dot(g,GraphDataFiles.SUBREDDIT_SUBREDDIT.get_file_path(config))
   if token.is_cancel_requested():
     return 
 
   logger.log("generating subreddit user graph")
-  g = build_graph_subreddit_user(config,logger,token)
+  g = build_graph_subreddit_user(users,crawl_metadata,config,logger,token)
   if token.is_cancel_requested():
     return
-  write_as_dot(g,data_util.make_data_path(__SUBREDDIT_USER_GRAPH,DataLocation.GRAPHS))
+  write_as_dot(g,GraphDataFiles.SUBREDDIT_USER.get_file_path(config))

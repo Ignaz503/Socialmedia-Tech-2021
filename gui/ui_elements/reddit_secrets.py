@@ -75,7 +75,7 @@ class Reddit_Crawl_Secrets(UIElement):
   def __update_config_entry(self, dict_entry: str, val:str):
     c: Config = self.application.config
     if c.reddit_app_info[dict_entry] != val:
-      self.application.update_config()
+      self.application.update_config_secrets()
 
   def __update_config_id_entry(self):
     self.__update_config_entry(CLIENT_ID,self.__client_id_input.get())

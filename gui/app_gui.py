@@ -4,7 +4,7 @@ from gui.ui_elements.subbreddits_to_crawl_gui import Subbredits_To_Crawl_GUI
 from gui.ui_elements.reddit_secrets import Reddit_Crawl_Secrets
 import gui.ui_elements.reddit_actions as ract
 from gui.ui_elements.menu_bar import MenuBar
-from gui.ui_elements.gnerator_actions import GeneratorActions
+from gui.ui_elements.generator_actions import GeneratorActions
 
 class RedditCrawlGUI:
   __main_window: Tk
@@ -56,6 +56,10 @@ class RedditCrawlGUI:
 
   def any_action_running(self)->bool:
     return self.__reddit_actions.any_action_running() or self.__processing_actions.any_action_running()
+
+  def stop_any_running_action(self):
+    self.__reddit_actions.stop_any_running_action()
+    self.__processing_actions.stop_any_running_action()
 
   def quit(self):
     self.__main_window.quit()

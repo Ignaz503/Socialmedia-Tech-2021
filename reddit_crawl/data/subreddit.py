@@ -1,3 +1,4 @@
+from utility.app_config import Config
 import utility.data_util as data_util
 import jsonpickle
 from threading import Lock
@@ -29,9 +30,9 @@ class Subreddit_Data:
   def to_json(self):
     return jsonpickle.encode(self,indent=2)
   
-  def save_to_file(self):
+  def save_to_file(self, config: Config):
     content = self.to_json()   
-    with open(data_util.make_data_path(self.name + ".json",DataLocation.SUBREDDIT), 'w') as f:
+    with open(data_util.make_data_path(config,self.name + ".json",DataLocation.SUBREDDIT), 'w') as f:
       f.write(content)
 
   def __iter__(self):
@@ -42,10 +43,10 @@ class Subreddit_Data:
     return item in self.users
 
   @staticmethod
-  def load(subbredit_name: str):
+  def load(subbredit_name: str, config:Config):
     filename = subbredit_name + ".json"
-    if data_util.file_exists(filename, DataLocation.SUBREDDIT):
-      with open(data_util.make_data_path(filename, DataLocation.SUBREDDIT), 'r') as f:
+    if data_util.file_exists(config,filename, DataLocation.SUBREDDIT):
+      with open(data_util.make_data_path(config,filename, DataLocation.SUBREDDIT), 'r') as f:
         content = f.read()
         return jsonpickle.decode(content)
     return Subreddit_Data(subbredit_name,set([]))
@@ -66,19 +67,19 @@ class Subreddit_Batch:
     if subreddit_name in self.subs:
       return user_name in self.subs[subreddit_name]
 
-  def __handle_data(self, sub_name: str, data: Subreddit_Data, logger: Logger):
+  def __handle_data(self, sub_name: str, data: Subreddit_Data,config:Config, logger: Logger):
     logger.log("-"*30,Level.INFO)
     logger.log("Loading data for {s}".format(s=sub_name),Level.INFO)
-    current: Subreddit_Data = Subreddit_Data.load(sub_name)
+    current: Subreddit_Data = Subreddit_Data.load(sub_name,config)
     logger.log("Updating data for {s}".format(s=sub_name),Level.INFO)
     current.add_users(data.users) 
     logger.log("Saving {s} to disk".format(s=sub_name),Level.INFO)
-    current.save_to_file()
+    current.save_to_file(config)
     logger.log("-"*30, Level.INFO)
 
-  def save_to_file(self, logger: Logger):
+  def save_to_file(self,config:Config, logger: Logger):
     for sub in  self.subs:
-      self.__handle_data(sub,self.subs[sub], logger)
+      self.__handle_data(sub,self.subs[sub],config, logger)
 
 class Subreddit_Batch_Queue:
   lock: Lock
@@ -92,23 +93,23 @@ class Subreddit_Batch_Queue:
     with self.lock:
       self.batch_queue.append(batch)
   
-  def update(self,logger: Logger):
+  def update(self,config:Config, logger: Logger):
     batch = None
     while len(self.batch_queue) > 0:
       leng = len(self.batch_queue)
       logger.log("{l} batches in queue to handle".format(l = leng), Level.INFO)
       with self.lock:
         batch = self.batch_queue.pop(0)
-      self.__store_batch(batch, logger)
+      self.__store_batch(batch,config, logger)
 
-  def handle_all(self, logger: Logger):
+  def handle_all(self,config:Config, logger: Logger):
     for batch in self.batch_queue:
-      self.__store_batch(batch, logger)
+      self.__store_batch(batch,config, logger)
 
-  def __store_batch(self, batch: Subreddit_Batch, logger: Logger):
+  def __store_batch(self, batch: Subreddit_Batch,config:Config, logger: Logger):
     if batch is None:
       return
-    batch.save_to_file(logger)
+    batch.save_to_file(config,logger)
     del batch
   
 class Subreddit_Metadata:
@@ -184,15 +185,15 @@ class Crawl_Metadata:
   def to_json(self) -> str:
     return jsonpickle.encode(self, indent=2)
   
-  def save_to_file(self,):
+  def save_to_file(self,config:Config):
     content = self.to_json()   
-    with open(data_util.make_data_path(Crawl_Metadata.__FILE_NAME,DataLocation.SUBREDDIT_META), 'w') as f:
+    with open(data_util.make_data_path(config,Crawl_Metadata.__FILE_NAME,DataLocation.SUBREDDIT_META), 'w') as f:
       f.write(content)
 
   @staticmethod
-  def load():
-    if data_util.file_exists(Crawl_Metadata.__FILE_NAME,DataLocation.SUBREDDIT_META):
-      with open(data_util.make_data_path(Crawl_Metadata.__FILE_NAME,DataLocation.SUBREDDIT_META),'r') as f:
+  def load(config:Config):
+    if data_util.file_exists(config,Crawl_Metadata.__FILE_NAME,DataLocation.SUBREDDIT_META):
+      with open(data_util.make_data_path(config,Crawl_Metadata.__FILE_NAME,DataLocation.SUBREDDIT_META),'r') as f:
         content = f.read()
         return jsonpickle.decode(content)
     return Crawl_Metadata.empty()

@@ -1,3 +1,4 @@
+from typing import Callable
 import praw
 import threading
 import reddit_crawl.util.helper_functions as rh
@@ -37,7 +38,7 @@ def handle_crawl(context: Thread_Safe_Context,queue: Subreddit_Batch_Queue, toke
   queue.enqueue(data)
 
 
-def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue, token: Cancel_Token):
+def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue, token: Cancel_Token, callback:Callable):
   with  token:
     reddit = praw.Reddit(
       client_id=config.reddit_app_info[CLIENT_ID],
@@ -50,8 +51,9 @@ def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Bl
     handle_crawl(context,batch_queue,token)
     context.crawl_diagnostics.end_timing()
     context.crawl_diagnostics.log(context.logger)
+    callback()
 
 
-def run(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue, token: Cancel_Token):
-  thread = threading.Thread(name="historical_crawl", daemon=True, target=__execute_crawl, args=(config,logger,blacklist,batch_queue,token))
+def run(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue, token: Cancel_Token, callback:Callable = lambda: None):
+  thread = threading.Thread(name="historical_crawl", daemon=True, target=__execute_crawl, args=(config,logger,blacklist,batch_queue,token,callback))
   thread.start()

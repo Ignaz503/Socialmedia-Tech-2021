@@ -3,6 +3,11 @@ from enum import Enum
 from typing import Callable
 from utility.waitableobject import Waitable_Object
 
+class MultiAcknowledegeAttempt(Exception):
+  def __init__(self,id:int, *args: object) -> None:
+      message = f"Thread (id: {id}) tried to acknowledge token multiple times. This is not supported"
+      super().__init__(message,*args)
+
 class UnauhthorizedAcknowledgeAttempt(Exception):
   allowed_indent: int
   raised_indent: int
@@ -38,8 +43,11 @@ class Cancel_Token(Waitable_Object):
     return self.__cancel_request
   
   def __acknowledge_token(self):
+    id = threading.get_ident()
     with self.__listener_lock:
-      self.__listeners[threading.get_ident()] = False
+      if id in self.__listeners:
+        raise MultiAcknowledegeAttempt(id)
+      self.__listeners[id] = False
 
   def __inform_finsihed_cancel(self):
     with self.__listener_lock:

@@ -1,3 +1,4 @@
+from utility.app_config import Config
 import utility.data_util as data_util
 import jsonpickle
 from threading import Lock
@@ -12,9 +13,9 @@ class Bot_Blacklist:
   def to_json(self):
     return jsonpickle.encode(self, indent=2)
 
-  def save_to_file(self, filename: str):
+  def save_to_file(self, filename: str, config:Config):
     content = self.to_json()   
-    with open(data_util.make_data_path(filename,DataLocation.DEFAULT), 'w') as f:
+    with open(data_util.make_data_path(config,filename,DataLocation.DEFAULT), 'w') as f:
       f.write(content)
 
 class Threadsafe_Bot_Blacklist:
@@ -32,12 +33,12 @@ class Threadsafe_Bot_Blacklist:
     with self.lock:
       return name in self.data.blacklist
 
-  def save_to_file(self, file_path: str):
-    self.data.save_to_file(file_path)
+  def save_to_file(self, file_path: str, config:Config):
+    self.data.save_to_file(file_path,config)
 
-def load(filename) -> Threadsafe_Bot_Blacklist:
-  if data_util.file_exists(filename, DataLocation.DEFAULT):
-    with open(data_util.make_data_path(filename, DataLocation.DEFAULT), 'r') as f:
+def load(filename, config:Config) -> Threadsafe_Bot_Blacklist:
+  if data_util.file_exists(config,filename, DataLocation.DEFAULT):
+    with open(data_util.make_data_path(config,filename, DataLocation.DEFAULT), 'r') as f:
       content = f.read()
       return Threadsafe_Bot_Blacklist(jsonpickle.decode(content))
   return Threadsafe_Bot_Blacklist(Bot_Blacklist(set([])))

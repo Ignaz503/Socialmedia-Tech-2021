@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import Frame,Label, NSEW, Tk
 from tkinter.constants import CURRENT, E, EW, NS, X,END
 from tkinter.scrolledtext import ScrolledText
-from utility.simple_logging import LOG_COLOR, LOG_TEXT, Level, start
+from utility.simple_logging import LOG_COLOR, LOG_TEXT, Level
 from gui.ui_elements.ui_element import UIElement
 from tkinter import font
 

@@ -1,9 +1,10 @@
 import jsonpickle
 from os import path
+import os
 import datetime as dt
 import reddit_crawl.util.submission_getters as submission_getters
 from reddit_crawl.util.submission_getters import SubmissionsGetter, SubmissionGetters
-from defines import GETTER_TYPE
+from defines import BOT_LIST_FALLBACK, GETTER_TYPE
 
 class NoConfigExists(Exception):
   def __init__(self,name:str,  *args: object) -> None:
@@ -22,6 +23,7 @@ class Config:
   stream_save_interval_seconds:int
   from_date: str
   to_date: str
+  path_to_storage:str
   bot_list_name:str
   def __init__(self,  reddit_app_info: dict[str,str],
                       subreddits_to_crawl: list[str],
@@ -35,6 +37,7 @@ class Config:
                       stream_save_interval_seconds:int,
                       from_date: str,
                       to_date: str,
+                      path_to_storage:str,
                       bot_list_name:str) -> None:
       self.reddit_app_info = reddit_app_info
       self.subreddits_to_crawl = subreddits_to_crawl
@@ -48,6 +51,7 @@ class Config:
       self.stream_save_interval_seconds = stream_save_interval_seconds
       self.from_date = from_date
       self.to_date = to_date
+      self.path_to_storage = path_to_storage
       self.bot_list_name = bot_list_name
   
   def get_submission_getter(self) -> SubmissionsGetter:
@@ -75,9 +79,39 @@ class Config:
   def set_value(self, name:str,value):
     self.__dict__[name] = value
 
+  def get_path_to_storage(self):
+    if os.path.isabs(self.path_to_storage) and os.path.isdir(self.path_to_storage):
+      return self.path_to_storage
+    else:
+      return os.getcwd()
+
+  def get_value(self, name:str):
+    if name in self.__dict__:
+      return self.__dict__[name]
+    return None
+
+  def get_bot_list_name(self):
+    if self.bot_list_name == "":
+      return BOT_LIST_FALLBACK
+    return self.bot_list_name
+
   @staticmethod
   def default():
-    return Config({'client_id':'','client_secret':'','user_agent':''},[],10,{GETTER_TYPE:SubmissionGetters.HOT.value},True,0,0,0,350,300,"YYYY-MM-DD","YYYY-MM-DD","bot_list.json")
+    return Config(
+      reddit_app_info={'client_id':'','client_secret':'','user_agent':''},
+      subreddits_to_crawl=[],
+      number_of_posts=10,
+      submission_getter={GETTER_TYPE:SubmissionGetters.HOT.value},
+      verbose=True,
+      repeat_hours= 0,
+      repeat_minutes= 0,
+      repeat_seconds= 0,
+      batch_save_interval_seconds= 350,
+      stream_save_interval_seconds= 300,
+      to_date="YYYY-MM-DD",
+      from_date="YYYY-MM-DD",
+      path_to_storage="",
+      bot_list_name="bot_list.json")
 
   @staticmethod
   def load(filename: str):

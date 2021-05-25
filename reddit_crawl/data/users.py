@@ -1,3 +1,4 @@
+from utility.app_config import Config
 import jsonpickle
 import utility.data_util as data_util
 from utility.data_util import DataLocation
@@ -12,9 +13,9 @@ class UniqueUsers:
   def to_json(self):
     return jsonpickle.encode(self,indent=2)
   
-  def save_to_file(self):
+  def save_to_file(self, config: Config):
     content = self.to_json()   
-    with open(data_util.make_data_path(UniqueUsers.__FILE_NAME,DataLocation.SUBREDDIT_META), 'w') as f:
+    with open(data_util.make_data_path(config,UniqueUsers.__FILE_NAME,DataLocation.SUBREDDIT_META), 'w') as f:
       f.write(content)
   
   def add_user(self, user_name: str):
@@ -34,9 +35,9 @@ class UniqueUsers:
     return item in self.data
 
   @staticmethod
-  def load():
-    if data_util.file_exists(UniqueUsers.__FILE_NAME, DataLocation.SUBREDDIT_META):
-      with open(data_util.make_data_path(UniqueUsers.__FILE_NAME, DataLocation.SUBREDDIT_META), 'r') as f:
+  def load(config: Config):
+    if data_util.file_exists(config,UniqueUsers.__FILE_NAME, DataLocation.SUBREDDIT_META):
+      with open(data_util.make_data_path(config,UniqueUsers.__FILE_NAME, DataLocation.SUBREDDIT_META), 'r') as f:
         content = f.read()
         return jsonpickle.decode(content)
     return UniqueUsers(set([]))

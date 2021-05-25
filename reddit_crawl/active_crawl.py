@@ -74,8 +74,8 @@ def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Bl
     logger.log("executing crawl every {s} seconds".format(s = wait_period_seconds),Level.INFO)
 
     current_time = time.time()
-    last_execution = float('-inf')
-
+    last_execution = float('-inf') # start running
+    
     while not token.is_cancel_requested():
       if current_time - last_execution >= wait_period_seconds:
         last_execution = current_time

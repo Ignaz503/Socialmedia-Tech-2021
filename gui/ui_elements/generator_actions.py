@@ -1,16 +1,6 @@
-from math import exp
-from textwrap import fill
-
-from numpy import right_shift
-from utility.data_util import DataLocation
-import utility.data_util as data_util
-import os
-import platform
-import subprocess
-from defines import VIS_ARGS
 from tkinter.constants import BOTTOM, LEFT, RIGHT, TOP, TRUE
 from utility.simple_logging import Level
-from tkinter import Button, Frame, NS,X
+from tkinter import Button, Frame, Label, NS, OptionMenu, StringVar,X
 from gui.ui_elements.ui_element import UIElement
 from gui.ui_elements.toggle_button import DelayedToggleButton
 
@@ -19,6 +9,7 @@ from gui.ui_elements.toggle_button import WaitOptions
 
 import generators.data_generator as data_generator
 import generators.visualization_generator as visualization_generator
+from generators.visualization_generator import VisualizationDataFiles
 
 class GeneratorActions(UIElement):
   __data_generation_btn: DelayedToggleButton
@@ -28,15 +19,21 @@ class GeneratorActions(UIElement):
   __visualization_cancel_token: Cancel_Token
   __show_btn_frame:Frame
   __created_vis:bool
+  __data_processing_done:bool
+  __vis_to_show_var: StringVar
 
   def __init__(self,*args,**kwargs) -> None:
     self.__data_generation_btn = None
     self.__visualization_generation_button = None
     self.__show_btn_frame= None
     self.__created_vis=False
+    self.__data_processing_done=False
+    self.__vis_to_show_var = StringVar()
+    self.__vis_to_show_var.set(VisualizationDataFiles.SUBREDDIT_SUBREDDIT.name.replace("_","-"))
     self.__data_generation_cancel_token = Cancel_Token()
     self.__visualization_cancel_token = Cancel_Token()
     super().__init__(*args,**kwargs)
+    self.application.register_to_config_update(self.__on_config_update)
   
   def _build(self) -> None :
 
@@ -62,7 +59,7 @@ class GeneratorActions(UIElement):
       before_wait_action = lambda: self.__visualization_cancel_token.request_cancel(),
       wait_message="waiting on data visualization",
       logger= self.application.get_logger(),
-      on_true= self.__run_stream_observation,
+      on_true= self.__run_visualization_generator,
       on_false=lambda: None,
       when_true="stop data visualization",
       when_false="start data viusalization",
@@ -74,20 +71,23 @@ class GeneratorActions(UIElement):
 
     if not self.__created_vis:
       self.__show_btn_frame.pack_forget()
- 
-    btn = Button(master=self.__show_btn_frame,
-        text="Show Subreddit Subreddit Graph",
-        command=self.__show_subreddit_subreddit_vis)
-    btn.pack(side=LEFT,fill=X,padx=5,expand=True)
+
+    l = Label(master=self.__show_btn_frame,text="Show Graph:")
+    l.grid(row=0,column=0,padx=5)
+
+    show_options = OptionMenu(self.__show_btn_frame,
+      self.__vis_to_show_var,
+      *[e.name.replace("_","-") for e in VisualizationDataFiles],
+      command=lambda var: None)
+    show_options.grid(row=0,column=1,padx=5)
 
     btn = Button(master=self.__show_btn_frame,
-        text="Show Subreddit User Graph",
-        command=self.__show_subreddit_user_vis)
-    btn.pack(side=RIGHT,fill=X,padx=5,expand=True)
+        text="Go",
+        command=self.__show_visualization)
+    btn.grid(row=0,column=2,padx=5)
 
   def __pack_show_btn_frame(self):
     self.__show_btn_frame.pack(side=BOTTOM,fill=X,pady=5,padx=5,expand=True)
-
 
   def __run_data_generation(self):
     self.__data_generation_cancel_token = Cancel_Token()
@@ -96,39 +96,78 @@ class GeneratorActions(UIElement):
       config= self.application.config,
       logger=self.application.get_logger(),
       token=self.__data_generation_cancel_token,
-      on_done_callback=lambda: self.__data_generation_btn.switch())
+      on_done_callback=lambda: self.__update_data_processing_state(value=True))
 
-  def __run_stream_observation(self):
+  def __run_visualization_generator(self):
     self.__visualization_cancel_token = Cancel_Token()
     self.__visualization_generation_button.change_wait_on_object(self.__visualization_cancel_token)
     visualization_generator.run(
       config = self.application.config,
       logger= self.application.get_logger(),
       token = self.__visualization_cancel_token,
-      on_done_callback= self.__visualization_callback )
+      load_data_from_disk=self.__data_processing_done,
+      on_done_callback=lambda: self.__update_visualization_state(value=True) )
 
-  def __visualization_callback(self):
-    self.__visualization_generation_button.switch()
-    if not self.__created_vis:
-      self.__created_vis = True
+  def __update_visualization_state(self,value):
+    
+    #we came from thread and were running  still
+    if value and self.__visualization_generation_button.get_state(): 
+      #turn of  
+      self.__visualization_generation_button.switch() 
+    
+    #we came from event and were running therefor we need to stop
+    if not value and self.__visualization_generation_button.get_state():
+      #turn of
+      self.__visualization_generation_button.switch()
+
+    #we came from thread and are not running
+    if value and not self.__visualization_generation_button.get_state():
+      return
+
+    #we came from event or from thread and were running
+    self.__created_vis = value
+    if  self.__created_vis:
       self.__pack_show_btn_frame()
+    else:
+      self.application.log("forgetting layout")
+      self.__show_btn_frame.pack_forget()
+
+  def __update_data_processing_state(self,value):
+    if value and self.__data_generation_btn.get_state():
+      #we were invoked by the thread callback turn off
+      self.__data_generation_btn.switch()
+    if not value and self.__data_generation_btn.get_state():
+      #we are running and were invoked by the event turn off
+      self.__data_generation_btn.switch()
+
+    #case we came from thread and are not running
+    if value and not self.__data_generation_btn.get_state():
+      #we don't set the data flag
+      return
+    #case we were not running and we came from event
+    #value is false state is false -> do nothing
+
+    self.__data_processing_done = value
 
   def any_action_running(self)->bool:
     return self.__data_generation_btn.get_state() or self.__visualization_generation_button.get_state()
 
-  def __show_subreddit_subreddit_vis(self):
-    self.__show_visualization(visualization_generator.SUBREDDIT_SUBREDDIT_VISUALIZATION_NAME)
+  def __show_visualization(self):
+    try:
+      self.application.log(f"Showing {self.__vis_to_show_var.get()}")
+      VisualizationDataFiles.from_name(self.__vis_to_show_var.get().replace("-","_")).show(self.application.config)
+    except ValueError:
+      self.application.log("Couldn't parse visualization show option", Level.ERROR)
+      pass
 
-  def __show_subreddit_user_vis(self):
-    self.__show_visualization(visualization_generator.SUBREDDIT_USER_VISUALIZATION_NAME)
+  def __on_config_update(self,value_name: str):
+    if value_name == "subreddits_to_crawl":
+      self.application.log("changed subreddits to crawl")
+      self.__update_data_processing_state(False)
+      self.__update_visualization_state(value=False)
 
-  def __show_visualization(self, file: str):
-    filepath = data_util.make_data_path(file,  DataLocation.VISUALIZATION)
-    filepath = os.path.join(os.getcwd(),filepath)
-
-    if platform.system() == 'Darwin':       # macOS
-        subprocess.call(('open', filepath))
-    elif platform.system() == 'Windows':    # Windows
-        os.startfile(filepath)
-    else:                                   # linux variants
-        subprocess.call(('xdg-open', filepath))
+  def stop_any_running_action(self):
+    if self.__data_generation_btn.get_state():
+      self.__data_generation_btn.switch()
+    if self.__visualization_generation_button.get_state():
+      self.__visualization_generation_button.switch()

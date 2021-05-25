@@ -34,3 +34,6 @@ MAX_COMMENT_NUM = 1000
 #filenames
 CONFIG = "app.config"
 BOT_LIST_FALLBACK = "bot_list.json"
+
+#log defines
+MAX_NUM_ROWS = 200

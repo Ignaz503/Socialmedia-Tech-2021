@@ -15,10 +15,13 @@ from utility.cancel_token import Cancel_Token, Thread_Owned_Token_Tray
 from reddit_crawl.data.subreddit import Subreddit_Batch_Queue
 from reddit_crawl.data.bot_blacklist import Threadsafe_Bot_Blacklist
 from defines import ACTIVE_KEYWORDS, ALL_ARGS, ALL_KEYWORD, BOT_LIST_FALLBACK, CRAWl_KEYWORDS,CRAWL_ARGS,GENERATE_ARGS, CONFIG, DATA_KEYWORDS, HISTORIC_CRAWL_KEYWORDS, START_KEYWORDS, STREAM_ARGS, HISTORIC_ARGS, STREAM_KEYWORDS, VISUALIZE_KEYWORDS, VIS_ARGS, EXIT_KEYWORDS
-from generators.visualization_generator import SUBREDDIT_SUBREDDIT_VISUALIZATION_NAME, SUBREDDIT_USER_VISUALIZATION_NAME
+from generators.visualization_generator import VisualizationDataFiles
 import subprocess
 import os
 import platform
+
+__data_processing_was_run: bool = False
+
 
 class FlowControl:
   crawl: bool
@@ -51,11 +54,9 @@ def parse_args(args: list[str]) -> FlowControl:
     visualize = True
   return FlowControl(crawl,generate, stream,historical,visualize)
 
-def __get_bot_list_name(config: Config):
-  blist_name = config.bot_list_name
-  if blist_name == "":
-    blist_name = BOT_LIST_FALLBACK
-  return blist_name
+def __set_data_processing_run_flag(value: bool = True):
+  global __data_processing_was_run
+  __data_processing_was_run = value
 
 def handle_observation_shut_down(config: Config,token: Cancel_Token, data_saver_tray: Thread_Owned_Token_Tray, logger: Logger, blist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue):
   logger.log("Shutting Down - This may take some time",Level.INFO)
@@ -65,7 +66,7 @@ def handle_observation_shut_down(config: Config,token: Cancel_Token, data_saver_
   token.wait()
   logger.log("finished waiting for worker threads",Level.INFO)
   logger.log("Saving data to disk",Level.INFO)      
-  blist.save_to_file(__get_bot_list_name(config))
+  blist.save_to_file(config.get_bot_list_name(),config)
   
   data_saver_tray.try_rqeuest_cancel()
   data_saver_tray.try_wait()
@@ -85,19 +86,8 @@ def print_help():
   print("To get help type help")
   print("To close the program use any of {l}".format(l = EXIT_KEYWORDS))
 
-def show_visualization(file: str):
-  filepath = data_util.make_data_path(file,  DataLocation.VISUALIZATION)
-  filepath = os.path.join(os.getcwd(),filepath)
-
-  if platform.system() == 'Darwin':       # macOS
-      subprocess.call(('open', filepath))
-  elif platform.system() == 'Windows':    # Windows
-      os.startfile(filepath)
-  else:                                   # linux variants
-      subprocess.call(('xdg-open', filepath))
-
-
 def handle_command(command, config: Config, logger:Logger, blist: Threadsafe_Bot_Blacklist,batch_queue: Subreddit_Batch_Queue,token: Cancel_Token) -> bool:
+  global __data_processing_was_run
   if any_keyword_in_string(START_KEYWORDS,command):
     s_all = any_keyword_in_string(ALL_KEYWORD,command)
     did_something = False
@@ -112,10 +102,10 @@ def handle_command(command, config: Config, logger:Logger, blist: Threadsafe_Bot
       rstr.run(config,logger,blist,batch_queue,token)
       did_something = True
     if s_all or any_keyword_in_string(DATA_KEYWORDS,command):
-      generator.run(config,logger,token)
+      generator.run(config,logger,token,lambda: __set_data_processing_run_flag())
       did_something = True
     if s_all or any_keyword_in_string(VISUALIZE_KEYWORDS,command):
-      vsd.run(config,logger,token)
+      vsd.run(config,logger,token, __data_processing_was_run)
       did_something = True
     return did_something
   if "help" in command:
@@ -123,11 +113,11 @@ def handle_command(command, config: Config, logger:Logger, blist: Threadsafe_Bot
     return True
 
   if "show sub sub" in command:
-    show_visualization(SUBREDDIT_SUBREDDIT_VISUALIZATION_NAME)
+    VisualizationDataFiles.SUBREDDIT_SUBREDDIT.show(config)
     return True
 
   if "show sub user" in command:
-    show_visualization(SUBREDDIT_USER_VISUALIZATION_NAME)
+    VisualizationDataFiles.SUBREDDIT_USER.show(config)
     return True
   return False
 
@@ -147,10 +137,11 @@ def main_observation_loop(config: Config,token: Cancel_Token,data_saver_tray: Th
       handle_observation_shut_down(config,token,data_saver_tray,logger,blist,batch_queue)
 
 def run(program_flow: FlowControl, config: Config, logger: Logger):
+  global __data_processing_was_run
 
-  blist_name = __get_bot_list_name(config)
+  blist_name = config.get_bot_list_name()
 
-  blist: Threadsafe_Bot_Blacklist = bot_blacklist.load(blist_name)
+  blist: Threadsafe_Bot_Blacklist = bot_blacklist.load(blist_name,config)
   batch_queue: Subreddit_Batch_Queue = Subreddit_Batch_Queue()
   data_saver_tray = Thread_Owned_Token_Tray()
   token = Cancel_Token()
@@ -167,19 +158,19 @@ def run(program_flow: FlowControl, config: Config, logger: Logger):
     rch.run(config,logger,blist,batch_queue,token)
 
   if  program_flow.generate:
-    generator.run(config, logger,token)
+    generator.run(config, logger,token,lambda: __set_data_processing_run_flag())
 
   if program_flow.visualize:
-    vsd.run(config,logger,token)
+    vsd.run(config,logger,token,__data_processing_was_run)
 
   main_observation_loop(config,token,data_saver_tray,batch_queue,blist,logger)
 
   print("Goodbye!")
 
 def main(args: list[str]):
-  data_util.ensure_data_locations()
   config = Config.load(CONFIG)
-  logger: Logger = simple_logging.start(config.verbose)
+  data_util.ensure_data_locations(config)
+  logger: Logger = simple_logging.start(config)
 
   program_flow = parse_args(args)
   run(program_flow, config, logger)

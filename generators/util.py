@@ -37,16 +37,16 @@ def generate_sub_sub_adjacency_mat(config: Config, logger: Logger, token: Cancel
   for pair in __sub_pairs(config.subreddits_to_crawl):
     if token.is_cancel_requested():
       break
-    logger.log(f"handling subreddit pair ({pair[0]},{pair[1]})")
-    __update_adjacency_matrix(index_dict,pair,adjacency_mat)
+    logger.log(f"[Sub Sub Adj Mat] handling subreddit pair ({pair[0]},{pair[1]})")
+    __update_adjacency_matrix(index_dict,pair,adjacency_mat,config)
   return adjacency_mat
 
 def __sub_pairs(subs:list[str]):
   return [(subs[i],subs[j]) for i in range(len(subs)) for j in range(i+1, len(subs))]
  
-def __update_adjacency_matrix(index_dict: dict[str,int], pair: tuple[str,str], adjacency_mat: np.ndarray):
-  sub_one: Subreddit_Data = Subreddit_Data.load(pair[0])
-  sub_two: Subreddit_Data = Subreddit_Data.load(pair[1]) 
+def __update_adjacency_matrix(index_dict: dict[str,int], pair: tuple[str,str], adjacency_mat: np.ndarray, config:Config):
+  sub_one: Subreddit_Data = Subreddit_Data.load(pair[0],config)
+  sub_two: Subreddit_Data = Subreddit_Data.load(pair[1],config) 
   idx_one = index_dict[pair[0]]
   idx_two = index_dict[pair[1]]
   intersection_size = len(sub_one.users.intersection(sub_two.users))
@@ -56,7 +56,7 @@ def __update_adjacency_matrix(index_dict: dict[str,int], pair: tuple[str,str], a
 def generate_sub_user_adjacency_mat(config: Config, logger: Logger, token: Cancel_Token)-> np.ndarray:
   logger.log("generating subrredit to user adjacency matrix",Level.INFO)
   index_dict = define_index_dict_for_subreddits(config.subreddits_to_crawl)
-  users = UniqueUsers.load()
+  users = UniqueUsers.load(config)
   cols = len(config.subreddits_to_crawl)
   rows = users.count()
 
@@ -67,7 +67,7 @@ def generate_sub_user_adjacency_mat(config: Config, logger: Logger, token: Cance
   mat = np.zeros((rows,cols), dtype= np.int32)
 
   for sub_name in config.subreddits_to_crawl:
-    sub: Subreddit_Data = Subreddit_Data.load(sub_name)
+    sub: Subreddit_Data = Subreddit_Data.load(sub_name,config)
     user_idx = 0
     for user in users.data:
       if sub.contains(user):

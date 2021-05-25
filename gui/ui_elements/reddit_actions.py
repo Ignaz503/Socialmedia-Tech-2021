@@ -101,8 +101,21 @@ class RedditActions(UIElement):
       logger=self.application.get_logger(),
       blacklist=self.application.get_bot_list(),
       batch_queue=self.application.get_batch_queue(),
-      token=self.__historic_crawl_cancel_token
+      token=self.__historic_crawl_cancel_token,
+      callback=self.__historic_crawl_button
     )
+
+  def __historic_crawl_callback(self):
+    if self.__historic_crawl_button.get_state():
+      self.__historic_crawl_button.switch() #switch of
 
   def any_action_running(self)->bool:
     return self.__active_crawl_btn.get_state() or self.__historic_crawl_button.get_state() or self.__stream_observation_button.get_state()
+
+  def stop_any_running_action(self):
+    if self.__active_crawl_btn.get_state():
+      self.__active_crawl_btn.switch()
+    if self.__stream_observation_button.get_state():
+      self.__stream_observation_button.switch()
+    if self.__historic_crawl_button.get_state():
+      self.__historic_crawl_button.switch()
