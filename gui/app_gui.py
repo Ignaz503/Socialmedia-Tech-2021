@@ -37,6 +37,8 @@ class RedditCrawlGUI:
     self.__reddit_actions = ract.RedditActions(application=self.__application,master=action_frame)
     self.__reddit_actions.pack(fill=X, side=TOP, pady=5,padx=5,expand=True)
 
+    self.__reddit_actions.start_diagnostics_windows(master=self.__main_window)
+
     self.__processing_actions = GeneratorActions(application=self.__application,master=action_frame)
     self.__processing_actions.pack(fill=X, side=BOTTOM, pady=5,padx=5,expand=True)
 

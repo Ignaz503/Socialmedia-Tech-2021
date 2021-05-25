@@ -12,7 +12,8 @@ import reddit_crawl.active_crawl as active_crawl
 import reddit_crawl.stream_observation as stream_observation
 import reddit_crawl.historical_crawl as historic_crawl
 
-
+from reddit_crawl.util.diagnostics import Reddit_Crawl_Diagnostics
+from gui.ui_elements.windows.diagnostics_window import DiagnosticsWindow,StreamObservationDiagnosticsWindow
 
 class RedditActions(UIElement):
   __active_crawl_btn: DelayedToggleButton
@@ -23,6 +24,11 @@ class RedditActions(UIElement):
   __stream_observation_cancel_token: Cancel_Token
   __historic_crawl_cancel_token: Cancel_Token
 
+  __active_crawl_diagnostics: Reddit_Crawl_Diagnostics
+  __historic_crawl_diagnostics: Reddit_Crawl_Diagnostics
+  __stream_observation_diagnostics_submission: Reddit_Crawl_Diagnostics
+  __stream_observation_diagnostics_comments: Reddit_Crawl_Diagnostics
+
   def __init__(self,*args,**kwargs) -> None:
     self.__active_crawl_btn = None
     self.__stream_observation_button = None
@@ -30,7 +36,11 @@ class RedditActions(UIElement):
     self.__active_crawl_cancel_token = Cancel_Token()
     self.__stream_observation_cancel_token = Cancel_Token()
     self.__historic_crawl_cancel_token = Cancel_Token()
-    super().__init__(*args,**kwargs)
+    self.__active_crawl_diagnostics = Reddit_Crawl_Diagnostics()
+    self.__historic_crawl_diagnostics = Reddit_Crawl_Diagnostics()
+    self.__stream_observation_diagnostics_submission = Reddit_Crawl_Diagnostics()
+    self.__stream_observation_diagnostics_comments = Reddit_Crawl_Diagnostics()
+    super().__init__(*args,**kwargs)  
   
   def _build(self) -> None :
 
@@ -73,15 +83,22 @@ class RedditActions(UIElement):
       master=self)   
     self.__stream_observation_button.pack(side=RIGHT,fill=X, padx=5,expand=TRUE)
 
+  def start_diagnostics_windows(self,master):
+    DiagnosticsWindow(self.__active_crawl_diagnostics,"Active Crawl Diagnostics",master = master)
+    DiagnosticsWindow(self.__historic_crawl_diagnostics,"Historic Crawl Diagnostics",master = master)
+    StreamObservationDiagnosticsWindow(self.__stream_observation_diagnostics_comments,self.__stream_observation_diagnostics_submission,"Stream Observation Diagnostics",master = master)
+
   def __run_active_crawl(self):
     self.__active_crawl_cancel_token = Cancel_Token()
+    self.__active_crawl_diagnostics.reset()
     self.__active_crawl_btn.change_wait_on_object(self.__active_crawl_cancel_token)
     active_crawl.run(
       config= self.application.config,
       logger=self.application.get_logger(),
       blacklist=self.application.get_bot_list(),
       batch_queue=self.application.get_batch_queue(),
-      token=self.__active_crawl_cancel_token)
+      token=self.__active_crawl_cancel_token,
+      diagnostics=self.__active_crawl_diagnostics)
 
   def __run_stream_observation(self):
     self.__stream_observation_cancel_token = Cancel_Token()
@@ -91,7 +108,9 @@ class RedditActions(UIElement):
       logger= self.application.get_logger(),
       blacklist=self.application.get_bot_list(),
       queue=self.application.get_batch_queue(),
-      token = self.__stream_observation_cancel_token)
+      token = self.__stream_observation_cancel_token,
+      diagnostics_comments=self.__stream_observation_diagnostics_comments,
+      diagnostics_submissions= self.__stream_observation_diagnostics_submission)
 
   def __run_historic_crawl(self):
     self.__historic_crawl_cancel_token = Cancel_Token()
@@ -102,7 +121,8 @@ class RedditActions(UIElement):
       blacklist=self.application.get_bot_list(),
       batch_queue=self.application.get_batch_queue(),
       token=self.__historic_crawl_cancel_token,
-      callback=self.__historic_crawl_button
+      callback=self.__historic_crawl_callback,
+      diagnostics=self.__historic_crawl_diagnostics
     )
 
   def __historic_crawl_callback(self):

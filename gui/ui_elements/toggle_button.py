@@ -8,8 +8,8 @@ from utility.waitableobject import Waitable_Object
 from utility.simple_logging import Logger
 
 class Toggle_Button(Button):
-  __on_start: Callable
-  __on_stop: Callable
+  __on_true: Callable
+  __on_false: Callable
   __running_text:str
   __stopped_text:str
   __state: bool
@@ -23,8 +23,8 @@ class Toggle_Button(Button):
     self.__state = False
     self.__running_text = when_true
     self.__stopped_text = when_false
-    self.__on_start = on_true
-    self.__on_stop = on_false
+    self.__on_true = on_true
+    self.__on_false = on_false
     
   def get_state(self):
     return self.__state
@@ -38,12 +38,12 @@ class Toggle_Button(Button):
   def _handle_state_switch_true_to_false(self):
     self.__state = False
     self.configure(text=self.__stopped_text,relief="raised")
-    self.__on_stop()
+    self.__on_false()
 
   def _handle_state_switch_false_to_true(self):
     self.__state = True
     self.configure(text=self.__running_text,relief="sunken")
-    self.__on_start()
+    self.__on_true()
   
 class WaitOptions(Enum):
   TRUE_TO_FALSE = 0

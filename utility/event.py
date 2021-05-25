@@ -36,6 +36,10 @@ class Event:
     self.__registerd = []
 
   def invoke(self,**kwargs):
+
+    if len(self.__registerd) == 0:
+      return #don't bother
+
     if len(kwargs) != len(self.__args):
       raise InvokeArgumentCountMismatch()
     

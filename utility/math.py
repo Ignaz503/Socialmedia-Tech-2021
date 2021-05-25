@@ -20,5 +20,12 @@ def get_hours_minutes_seconds(val: float)->tuple[int,int,int]:
   else:
     return (0,0,math.floor(val))
 
+
+def get_hours_minutes_seconds_ms(val:float)->tuple[int,int,float]:
+  h,m,s = get_hours_minutes_seconds(val)
+  hm_in_seconds = (h*60*60) + (m*60)
+  return (h,m,val-hm_in_seconds)
+  
+
 def get_seconds(hms: tuple[int,int,int])->int:
   return (hms[0]*60*60)+(hms[1]*60)+hms[2]

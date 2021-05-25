@@ -62,14 +62,17 @@ def __handle_crawl(context: Thread_Safe_Context,batch_queue: Subreddit_Batch_Que
     batch_queue.enqueue(context.current_data)
     context.current_data = Subreddit_Batch()
 
-def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue,token: Cancel_Token, wait_period_seconds: float, only_once: bool):
+def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue,token: Cancel_Token, wait_period_seconds: float, only_once: bool,diagnostics: Reddit_Crawl_Diagnostics):
   with token:
     reddit = praw.Reddit(
       client_id=config.reddit_app_info[CLIENT_ID],
       client_secret=config.reddit_app_info[CLIENT_SECRET],
       user_agent=config.reddit_app_info[USER_AGENT])
 
-    context = Thread_Safe_Context(reddit,config, Subreddit_Batch(),logger,blacklist, Reddit_Crawl_Diagnostics())
+    if diagnostics is None:
+      diagnostics = Reddit_Crawl_Diagnostics()
+
+    context = Thread_Safe_Context(reddit,config, Subreddit_Batch(),logger,blacklist, diagnostics)
 
     logger.log("executing crawl every {s} seconds".format(s = wait_period_seconds),Level.INFO)
 
@@ -83,6 +86,7 @@ def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Bl
         batch_queue.enqueue(context.current_data)
         context.crawl_diagnostics.end_timing()
         context.crawl_diagnostics.log(context.logger)
+        context.crawl_diagnostics.reset_timing()
       if only_once:
         break
       current_time = time.time()
@@ -91,7 +95,7 @@ def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Bl
 
 
 
-def run(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue, token: Cancel_Token):
+def run(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue, token: Cancel_Token, diagnostics: Reddit_Crawl_Diagnostics = None):
   seconds = config.get_repeat_time_in_seconds()
   only_once = False
   if seconds == 0:
@@ -100,7 +104,7 @@ def run(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, bat
   if seconds < MIN_REPEAT_TIME:
     seconds = MIN_REPEAT_TIME
 
-  thread = threading.Thread(name="crawl",target=__execute_crawl,daemon=True,args=(config,logger,blacklist,batch_queue,token, float(seconds),only_once))
+  thread = threading.Thread(name="crawl",target=__execute_crawl,daemon=True,args=(config,logger,blacklist,batch_queue,token, float(seconds),only_once,diagnostics))
   thread.start()
 
 

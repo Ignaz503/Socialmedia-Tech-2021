@@ -153,9 +153,9 @@ def __try_save_log_and_clear(text:ScrolledText,base_path:str):
   current_row = int(text.index(END).split(".")[0])
   if current_row >= MAX_NUM_ROWS:
     __save_log(text,base_path)
+    text.delete("1.0",END)
 
 def __save_log(text: ScrolledText, base_path:str):
   log_so_far = text.get("1.0",END)
-  text.delete("1.0",END)
   with open(path.join(base_path,f"log {dt.date.today().isoformat()}.txt"),'a') as f:
     f.write(log_so_far)

@@ -1,3 +1,4 @@
+from utility.diagnostics import Diagnostics
 import praw
 import threading
 import reddit_crawl.util.helper_functions as rh
@@ -28,43 +29,74 @@ def __stream_monitor(monitor_type: str, stream_gen, data_handler, subs: Subreddi
   context.logger.log(f"Stop monitoring of {monitor_type}",Level.INFO)
 
 
-def __comments_stream(config: Config, logger:Logger, blacklist: Threadsafe_Bot_Blacklist, queue: Subreddit_Batch_Queue, token: Cancel_Token):
+def __comments_stream(config: Config, logger:Logger, blacklist: Threadsafe_Bot_Blacklist, queue: Subreddit_Batch_Queue, token: Cancel_Token, diagnostics: Reddit_Crawl_Diagnostics):
   with token:
     reddit = praw.Reddit(
       client_id=config.reddit_app_info[CLIENT_ID],
       client_secret=config.reddit_app_info[CLIENT_SECRET],
       user_agent=config.reddit_app_info[USER_AGENT])
-    context = Thread_Safe_Context(reddit,config, Subreddit_Batch(),logger,blacklist, Reddit_Crawl_Diagnostics())
+
+    if diagnostics is None:
+      diagnostics = Reddit_Crawl_Diagnostics()
+
+    context = Thread_Safe_Context(reddit,config, Subreddit_Batch(),logger,blacklist, diagnostics)
 
     subs_to_observe = rh.join_subreddits(config.subreddits_to_crawl)
     subs: SubredditHelper = reddit.subreddit(subs_to_observe)
     __stream_monitor("comments stream",subs.stream.comments,rh.handle_comment_thread_safe,subs,reddit,context,queue,token)
   
-def __submission_stream(config: Config, logger:Logger, blacklist: Threadsafe_Bot_Blacklist, queue: Subreddit_Batch_Queue, token: Cancel_Token):
+def __submission_stream(config: Config, logger:Logger, blacklist: Threadsafe_Bot_Blacklist, queue: Subreddit_Batch_Queue, token: Cancel_Token, diagnostics: Reddit_Crawl_Diagnostics):
   with token:
     reddit = praw.Reddit(
       client_id=config.reddit_app_info[CLIENT_ID],
       client_secret=config.reddit_app_info[CLIENT_SECRET],
       user_agent=config.reddit_app_info[USER_AGENT])
-    context = Thread_Safe_Context(reddit,config, Subreddit_Batch(),logger,blacklist, Reddit_Crawl_Diagnostics())
+
+    if diagnostics is None:
+      diagnostics = Reddit_Crawl_Diagnostics()
+
+    context = Thread_Safe_Context(reddit,config, Subreddit_Batch(),logger,blacklist, diagnostics)
 
     subs_to_observe = rh.join_subreddits(config.subreddits_to_crawl)
     subs: SubredditHelper = reddit.subreddit(subs_to_observe)
     __stream_monitor("submissions stream",subs.stream.submissions,rh.handle_post_thread_safe,subs,reddit,context,queue,token)
   
 
-def __create_stream_monitor_thread(thread_name: str, target: Callable[[SubredditHelper,Reddit,Thread_Safe_Context,Subreddit_Batch_Queue,Cancel_Token],None],config: Config, logger:Logger, blacklist: Threadsafe_Bot_Blacklist, queue: Subreddit_Batch_Queue, token: Cancel_Token):
-  thread = threading.Thread(name=thread_name,target=target,args=(config, logger, blacklist, queue, token))
+def __create_stream_monitor_thread(thread_name: str,
+     target: Callable[[SubredditHelper,Reddit,Thread_Safe_Context,Subreddit_Batch_Queue,Cancel_Token],None],
+     config: Config,
+     logger:Logger, 
+     blacklist: Threadsafe_Bot_Blacklist,
+     queue: Subreddit_Batch_Queue,
+     token: Cancel_Token,
+     diagnostics: Reddit_Crawl_Diagnostics):
+  thread = threading.Thread(name=thread_name,target=target,args=(config, logger, blacklist, queue, token,diagnostics))
   thread.start()
 
-def __create_comments_monitor_thread(config: Config, logger:Logger, blacklist: Threadsafe_Bot_Blacklist, queue: Subreddit_Batch_Queue, token: Cancel_Token):
-  return __create_stream_monitor_thread("comments_stream",__comments_stream, config, logger, blacklist, queue, token)
+def __create_comments_monitor_thread(config: Config,
+     logger:Logger,
+     blacklist: Threadsafe_Bot_Blacklist,
+     queue: Subreddit_Batch_Queue,
+     token: Cancel_Token,
+     diagnostics: Reddit_Crawl_Diagnostics):
+  return __create_stream_monitor_thread("comments_stream",__comments_stream, config, logger, blacklist, queue, token,diagnostics)
   
-def __create_submission_monitor_thread(config: Config, logger:Logger, blacklist: Threadsafe_Bot_Blacklist, queue: Subreddit_Batch_Queue, token: Cancel_Token):
-  return __create_stream_monitor_thread("submission_stream",__submission_stream,config,logger,blacklist,queue, token)
+def __create_submission_monitor_thread(config: Config,
+    logger:Logger,
+    blacklist: Threadsafe_Bot_Blacklist,
+    queue: Subreddit_Batch_Queue,
+    token: Cancel_Token,
+    diagnostics: Reddit_Crawl_Diagnostics):
+  return __create_stream_monitor_thread("submission_stream",__submission_stream,config,logger,blacklist,queue, token,diagnostics)
 
-def run(config: Config, logger:Logger, blacklist: Threadsafe_Bot_Blacklist, queue: Subreddit_Batch_Queue, token: Cancel_Token):
-  comments_token = __create_comments_monitor_thread(config,logger,blacklist,queue,token)
-  submission_token = __create_submission_monitor_thread(config,logger,blacklist,queue,token)
+def run(config: Config,
+    logger:Logger,
+    blacklist: Threadsafe_Bot_Blacklist,
+    queue: Subreddit_Batch_Queue,
+    token: Cancel_Token,
+    diagnostics_comments:Reddit_Crawl_Diagnostics = None,
+    diagnostics_submissions:Reddit_Crawl_Diagnostics = None):
+  comments_token = __create_comments_monitor_thread(config,logger,blacklist,queue,token,diagnostics_comments)
+  submission_token = __create_submission_monitor_thread(config,logger,blacklist,queue,token,diagnostics_submissions)
   return (comments_token,submission_token)
     

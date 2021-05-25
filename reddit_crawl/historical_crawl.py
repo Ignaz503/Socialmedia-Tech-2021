@@ -38,14 +38,17 @@ def handle_crawl(context: Thread_Safe_Context,queue: Subreddit_Batch_Queue, toke
   queue.enqueue(data)
 
 
-def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue, token: Cancel_Token, callback:Callable):
+def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue, token: Cancel_Token, callback:Callable, diagnostics: Reddit_Crawl_Diagnostics):
   with  token:
     reddit = praw.Reddit(
       client_id=config.reddit_app_info[CLIENT_ID],
       client_secret=config.reddit_app_info[CLIENT_SECRET],
       user_agent=config.reddit_app_info[USER_AGENT])
 
-    context = Thread_Safe_Context(reddit,config, Subreddit_Batch(),logger,blacklist, Reddit_Crawl_Diagnostics())
+    if diagnostics is None:
+      diagnostics = Reddit_Crawl_Diagnostics()
+
+    context = Thread_Safe_Context(reddit,config, Subreddit_Batch(),logger,blacklist,diagnostics)
     rh.start_batch_submit_thread("historical crawl",context,batch_queue)
 
     handle_crawl(context,batch_queue,token)
@@ -54,6 +57,6 @@ def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Bl
     callback()
 
 
-def run(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue, token: Cancel_Token, callback:Callable = lambda: None):
-  thread = threading.Thread(name="historical_crawl", daemon=True, target=__execute_crawl, args=(config,logger,blacklist,batch_queue,token,callback))
+def run(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue, token: Cancel_Token, callback:Callable = lambda: None, diagnostics: Reddit_Crawl_Diagnostics = None):
+  thread = threading.Thread(name="historical_crawl", daemon=True, target=__execute_crawl, args=(config,logger,blacklist,batch_queue,token,callback, diagnostics))
   thread.start()
