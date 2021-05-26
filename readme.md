@@ -12,6 +12,7 @@ Before you run the program ensure these things are installed:
 - [networkx](https://networkx.org/documentation/stable/index.html)
 - [pyvis](https://pyvis.readthedocs.io/en/latest/index.html)
 - [pygraphviz](https://pygraphviz.github.io/documentation/stable/install.html)
+- [colour](https://pypi.org/project/colour/)
 
 ## Reddit App
 

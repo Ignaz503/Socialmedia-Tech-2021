@@ -111,7 +111,7 @@ class Config:
       if not authenticate(r):
         logger.log("There seem to be issues with the reddit account authentication information", Level.ERROR)
         return None
-    #no user accuoount needed    
+    #no user accuount needed    
     return praw.Reddit(
       client_id=self.reddit_app_info[CLIENT_ID],
       client_secret=self.reddit_app_info[CLIENT_SECRET],

@@ -8,7 +8,9 @@ from utility.data_util import DataLocation
 
 class VisualizationDataFiles(Enum):
   SUBREDDIT_SUBREDDIT = "reddit_visualization_subreddit_subreddit.html"
+  SUBBREDDIT_SUBBREDIT_COLORING_CLUSTER = "reddit_visualization_subreddit_subreddit_coloring_cluster.html"
   SUBREDDIT_USER = "reddit_visualization_subreddit_user.html"
+  USER_USER = "reddit_visualization_user_user.html"
 
   def get_file_path(self, config: Config):
     return data_util.make_data_path(config,self.value,  DataLocation.VISUALIZATION)

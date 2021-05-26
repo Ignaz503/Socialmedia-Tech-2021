@@ -77,8 +77,6 @@ class RedditCrawlApplication:
     elif not all([sub in old_subs for sub in self.config.subreddits_to_crawl]):
       self.__config_update_event(value_name="subreddits_to_crawl")
 
-
-
   def close(self):
     self.log("Staring closing procedure")
     thread = threading.Thread(name="closing procedure",target=self.__handle_shutdown)

@@ -1,4 +1,6 @@
 import random
+import time
+from typing import Any, Iterable
 import numpy as np
 from utility.app_config import Config
 from utility.simple_logging import Logger, Level
@@ -6,19 +8,16 @@ from utility.cancel_token import Cancel_Token
 from reddit_crawl.data.subreddit import Subreddit_Data
 from reddit_crawl.data.users import UniqueUsers
 
-
-def define_index_dict_for_subreddits(subs: list[str]) -> dict[str,int]:
+def define_index_dict_for_iterable(to_idx: Iterable[str]) -> dict[str,int]:
   idx_dict = {}
   count = 0
-  for sub in subs:
+  for sub in to_idx:
     idx_dict[sub] = count
     count +=1
   return idx_dict
 
 def random_adjacency_mat(size:int, likelyhood:  float) -> np.ndarray:
-
   arr = np.zeros((size,size), dtype=np.int32)
-
   for i in range(0,size):
     for j in range(0,size):
       if i == j:
@@ -28,22 +27,23 @@ def random_adjacency_mat(size:int, likelyhood:  float) -> np.ndarray:
         arr[j,i] += 1
   return arr
 
-
 def generate_sub_sub_adjacency_mat(config: Config, logger: Logger, token: Cancel_Token)-> np.ndarray:
   logger.log("starting to generate adjacency matrix subreddit to subreddit")
-  index_dict = define_index_dict_for_subreddits(config.subreddits_to_crawl)
+  index_dict = define_index_dict_for_iterable(config.subreddits_to_crawl)
   size = len(config.subreddits_to_crawl)
   adjacency_mat = np.zeros((size,size), dtype=np.int32)
-  for pair in __sub_pairs(config.subreddits_to_crawl):
+  for pair in pair_generator(config.subreddits_to_crawl):
     if token.is_cancel_requested():
       break
     logger.log(f"[Sub Sub Adj Mat] handling subreddit pair ({pair[0]},{pair[1]})")
     __update_adjacency_matrix(index_dict,pair,adjacency_mat,config)
   return adjacency_mat
 
-def __sub_pairs(subs:list[str]):
-  return [(subs[i],subs[j]) for i in range(len(subs)) for j in range(i+1, len(subs))]
- 
+def pair_generator(some_list:list[str]):
+  for i in range(len(some_list)):
+    for j in range(i+1, len(some_list)):
+      yield (some_list[i],some_list[j])
+
 def __update_adjacency_matrix(index_dict: dict[str,int], pair: tuple[str,str], adjacency_mat: np.ndarray, config:Config):
   sub_one: Subreddit_Data = Subreddit_Data.load(pair[0],config)
   sub_two: Subreddit_Data = Subreddit_Data.load(pair[1],config) 
@@ -55,7 +55,7 @@ def __update_adjacency_matrix(index_dict: dict[str,int], pair: tuple[str,str], a
 
 def generate_sub_user_adjacency_mat(config: Config, logger: Logger, token: Cancel_Token)-> np.ndarray:
   logger.log("generating subrredit to user adjacency matrix",Level.INFO)
-  index_dict = define_index_dict_for_subreddits(config.subreddits_to_crawl)
+  index_dict = define_index_dict_for_iterable(config.subreddits_to_crawl)
   users = UniqueUsers.load(config)
   cols = len(config.subreddits_to_crawl)
   rows = users.count()

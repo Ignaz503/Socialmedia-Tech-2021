@@ -1,4 +1,6 @@
 from typing import Callable
+
+from scipy import sparse
 from reddit_crawl.data.users import UniqueUsers
 from utility.cancel_token import Cancel_Token
 import threading
@@ -69,6 +71,7 @@ def __execute_generating(config: Config, logger: Logger, token: Cancel_Token, on
     __save_unique_user_list(users,config)
     if token.is_cancel_requested():
       return
+    
     graph_generator.write_all_possible_as_dot(users,md,mat_sub_sub,config,logger,token)
     logger.log("data generation done")
     on_done_callback()
