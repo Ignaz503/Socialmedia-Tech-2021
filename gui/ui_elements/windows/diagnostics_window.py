@@ -1,3 +1,4 @@
+from tkinter.font import BOLD, Font
 from reddit_crawl.util.diagnostics import Reddit_Crawl_Diagnostics
 from tkinter import Frame, Label, StringVar, Toplevel
 from tkinter.constants import BOTH, LEFT, RIGHT, TOP, TRUE, X
@@ -19,6 +20,9 @@ class DiagnosticsWindow(Toplevel):
     self.title(title)
     self.protocol("WM_DELETE_WINDOW", self.__ignore)
 
+    lab = Label(master=self,text=title,font=Font(weight=BOLD),relief="groove", borderwidth=1)
+    lab.pack(side=TOP,fill=X,pady=5,expand=True)
+
     for category in self.__diagnostics.categories():
       var = StringVar()
       self.__vars[category] = var
@@ -30,7 +34,7 @@ class DiagnosticsWindow(Toplevel):
       l.pack(side=LEFT,padx=5, pady=5, fill=X,expand=True)
       l = Label(master=frame,textvariable=var)
       l.pack(side=LEFT,padx=5,pady=5,fill=X,expand=True)
-
+    
   def __on_update(self,category:str,value:str):
     self.__vars[category].set(value)
 
@@ -60,8 +64,11 @@ class StreamObservationDiagnosticsWindow(Toplevel):
     self.title(title)
     self.protocol("WM_DELETE_WINDOW", self.__ignore)
 
+    lab = Label(master=self,text=title,font=Font(weight=BOLD),relief="groove", borderwidth=1)
+    lab.grid(row=0,column=0,columnspan=2)
+
     submission_frame = Frame(self,relief="groove", borderwidth=1)
-    submission_frame.grid(row=0,column=0,padx=5)
+    submission_frame.grid(row=1,column=0,padx=5)
 
     l = Label(master=submission_frame,relief="groove", borderwidth=1,text="From Submissions")
     l.pack(side=TOP,fill=X,pady=5,expand=True)
@@ -69,7 +76,7 @@ class StreamObservationDiagnosticsWindow(Toplevel):
     self.__build_for_diagnostics(self.__diagnostics_submissions,self.__vars_submissions,submission_frame)
 
     comments_frame = Frame(self,relief="groove", borderwidth=1)
-    comments_frame.grid(row=0,column=1,padx=5)
+    comments_frame.grid(row=1,column=1,padx=5)
 
     l = Label(master=comments_frame,relief="groove", borderwidth=1,text="From Comments")
     l.pack(side=TOP,fill=X,pady=5,expand=True)
@@ -89,11 +96,9 @@ class StreamObservationDiagnosticsWindow(Toplevel):
       l = Label(master=frame,textvariable=var)
       l.pack(side=LEFT,padx=5,pady=5,fill=X,expand=True)
 
-
   def __on_update_comments(self,category:str,value:str):
     self.__vars_comments[category].set(value)
-
-    
+ 
   def __on_update_submission(self,category:str,value:str):
     self.__vars_submissions[category].set(value)
 

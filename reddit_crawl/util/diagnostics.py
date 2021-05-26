@@ -41,22 +41,25 @@ class Reddit_Crawl_Diagnostics(Diagnostics):
       self.create_category(RedditCrawlDiagnosticCategories.TIME_ELAPSED.value, Total_Crawl_Time_Data_Handler())
   
   def increment_comments_total(self):
-    self.update_value(RedditCrawlDiagnosticCategories.COMMENTS_TOTAL.value,1) 
-  
+    self.update_value(RedditCrawlDiagnosticCategories.COMMENTS_TOTAL.value,1)
+
   def increment_usrers_extracted_total(self):
     self.update_value(RedditCrawlDiagnosticCategories.USERS_EXTRACTED.value,1) 
 
   def increment_comments_no_author(self):
     self.update_value(RedditCrawlDiagnosticCategories.COMMENTS_NO_AUHTOR.value,1)
-  
+
   def increment_bots_detected(self):
     self.update_value(RedditCrawlDiagnosticCategories.BOTS_DETECTED.value,1)
-  
+
   def increment_submission_total(self):
     self.update_value(RedditCrawlDiagnosticCategories.SUBMISSIONS_TOTAL.value,1)
-  
+
   def increment_new_bots_total(self):
     self.update_value(RedditCrawlDiagnosticCategories.NEW_BOTS_DETECTED.value,1)
+
+  def update_timing(self):
+    self.update_value(RedditCrawlDiagnosticCategories.TIME_ELAPSED.value,None)
 
   def end_timing(self):
     self.update_value(RedditCrawlDiagnosticCategories.TIME_ELAPSED.value,None)

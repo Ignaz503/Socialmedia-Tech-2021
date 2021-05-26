@@ -23,9 +23,11 @@ def __stream_monitor(monitor_type: str, stream_gen, data_handler, subs: Subreddi
       context.logger.log("Terminating due to cancel request",Level.INFO)
       break
     if data is None: 
+      context.crawl_diagnostics.update_timing()
       continue
     data_handler(data,context,token)
   queue.enqueue(context.current_data)
+  context.crawl_diagnostics.end_timing()
   context.logger.log(f"Stop monitoring of {monitor_type}",Level.INFO)
 
 

@@ -84,9 +84,21 @@ class RedditActions(UIElement):
     self.__stream_observation_button.pack(side=RIGHT,fill=X, padx=5,expand=TRUE)
 
   def start_diagnostics_windows(self,master):
-    DiagnosticsWindow(self.__active_crawl_diagnostics,"Active Crawl Diagnostics",master = master)
-    DiagnosticsWindow(self.__historic_crawl_diagnostics,"Historic Crawl Diagnostics",master = master)
-    StreamObservationDiagnosticsWindow(self.__stream_observation_diagnostics_comments,self.__stream_observation_diagnostics_submission,"Stream Observation Diagnostics",master = master)
+
+    x_pos = int(self.winfo_screenwidth()/2)
+    y_pos = int(self.winfo_screenheight()/2)
+
+    DiagnosticsWindow(self.__active_crawl_diagnostics,
+      "Active Crawl Diagnostics",
+      master = master)
+    DiagnosticsWindow(self.__historic_crawl_diagnostics,
+      "Historic Crawl Diagnostics",
+      master = master)
+
+    StreamObservationDiagnosticsWindow(self.__stream_observation_diagnostics_comments,
+      self.__stream_observation_diagnostics_submission,
+      "Stream Observation Diagnostics",
+      master = master)
 
   def __run_active_crawl(self):
     self.__active_crawl_cancel_token = Cancel_Token()
@@ -102,6 +114,8 @@ class RedditActions(UIElement):
 
   def __run_stream_observation(self):
     self.__stream_observation_cancel_token = Cancel_Token()
+    self.__stream_observation_diagnostics_submission.reset()
+    self.__stream_observation_diagnostics_comments.reset()
     self.__stream_observation_button.change_wait_on_object(self.__stream_observation_cancel_token)
     stream_observation.run(
       config = self.application.config,
@@ -114,6 +128,7 @@ class RedditActions(UIElement):
 
   def __run_historic_crawl(self):
     self.__historic_crawl_cancel_token = Cancel_Token()
+    self.__historic_crawl_diagnostics.reset()
     self.__historic_crawl_button.change_wait_on_object(self.__historic_crawl_cancel_token)
     historic_crawl.run(
       config=self.application.config,

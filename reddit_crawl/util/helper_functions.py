@@ -23,7 +23,6 @@ def handle_all_comments(comment_handler: Callable[[Comment,Thread_Safe_Context,C
       #maybe not needed
       more_comments.append(comment)
       continue
-    context.crawl_diagnostics.increment_comments_total()
     comment_handler(comment,context,token)
 
   if token.is_cancel_requested():
@@ -65,6 +64,7 @@ def handle_user_thread_safe(user_name: str, sub_name: str, context: Thread_Safe_
 def handle_comment_thread_safe(comment: Comment, context: Thread_Safe_Context, token: Cancel_Token):
   if token.is_cancel_requested():
     return
+  context.crawl_diagnostics.increment_comments_total()
   if comment.author is None:
     context.crawl_diagnostics.increment_comments_no_author()
     return

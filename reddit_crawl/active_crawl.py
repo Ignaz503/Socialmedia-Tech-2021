@@ -23,10 +23,12 @@ def __handle_user(user_name: str, sub_name: str, context: Thread_Safe_Context):
 
 
 def __handle_comment(comment: Comment, context: Thread_Safe_Context, token: Cancel_Token):
+  if token.is_cancel_requested():
+    return
+  context.crawl_diagnostics.increment_comments_total()
   if comment.author is None:
     context.crawl_diagnostics.increment_comments_no_author()
     return
-
   if context.current_data.conatins_user(comment.author.name,comment.subreddit.display_name):
     #we already found this user once for this subreddit
     return

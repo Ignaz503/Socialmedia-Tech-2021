@@ -1,0 +1,237 @@
+[2021-05-26 07:14:54.864][Info] Staring closing procedure
+
+[2021-05-26 07:15:58.520][Info] Staring closing procedure
+
+[2021-05-26 07:19:43.519][Info] executing crawl every 3600.0 seconds
+[2021-05-26 07:19:43.520][Info] Crawling subreddits: civ
+[2021-05-26 07:19:43.535][Info] Getting 10 hot posts
+[2021-05-26 07:19:46.125][Info] Crawling submission: /r/Civ Weekly Questions Thread - May 24, 2021
+[2021-05-26 07:19:47.773][Info] Handling initial comment forest
+[2021-05-26 07:19:57.778][Info] Handling more comments
+[2021-05-26 07:19:57.778][Info] Crawling submission: [Civ of the Week] Egypt
+[2021-05-26 07:19:59.396][Info] Handling initial comment forest
+[2021-05-26 07:20:07.202][Info] Handling more comments
+[2021-05-26 07:20:07.202][Info] Crawling submission: I built Christo Redentor in Rio but hes looking the wrong way.
+[2021-05-26 07:20:08.837][Info] Handling initial comment forest
+[2021-05-26 07:20:13.293][Info] ---------------Total Crawl---------------
+3
+155
+0
+1
+0
+96
+0h:0m59.5705s
+------------------------------
+[2021-05-26 07:20:13.339][Info] active crawl stopped
+[2021-05-26 07:20:43.006][Info] Staring closing procedure
+[2021-05-26 07:20:43.022][Info] ------------------------------
+[2021-05-26 07:20:43.022][Info] Loading data for civ
+[2021-05-26 07:20:43.033][Info] Updating data for civ
+[2021-05-26 07:20:43.033][Info] Saving civ to disk
+[2021-05-26 07:20:43.035][Info] ------------------------------
+
+[2021-05-26 07:30:58.440][Info] Staring closing procedure
+
+[2021-05-26 07:33:15.223][Info] Staring closing procedure
+
+[2021-05-26 07:38:28.259][Info] Staring closing procedure
+
+[2021-05-26 07:41:27.015][Info] Staring closing procedure
+
+[2021-05-26 07:42:13.469][Info] Staring closing procedure
+
+[2021-05-26 07:43:36.638][Info] Staring closing procedure
+
+[2021-05-26 07:44:01.717][Info] Staring closing procedure
+
+[2021-05-26 07:45:09.699][Info] Staring closing procedure
+
+[2021-05-26 07:46:04.236][Info] Staring closing procedure
+
+[2021-05-26 07:46:28.013][Info] Staring closing procedure
+
+[2021-05-26 07:46:52.619][Info] Staring closing procedure
+
+[2021-05-26 07:47:51.676][Info] Staring closing procedure
+
+[2021-05-26 07:48:48.607][Info] Staring closing procedure
+
+[2021-05-26 08:02:02.542][Info] Staring closing procedure
+
+[2021-05-26 08:04:06.494][Info] Started batch save loop for comments stream
+[2021-05-26 08:04:06.495][Info] Start monitioring comments stream for subreddits ['civ', 'CrusaderKings', 'eu4', 'totalwar', 'SimCity', 'CitiesSkylines', 'WorldofTanks', 'Stellaris', 'hoi4']
+[2021-05-26 08:04:06.496][Info] Started batch save loop for submissions stream
+[2021-05-26 08:04:06.525][Info] Start monitioring submissions stream for subreddits ['civ', 'CrusaderKings', 'eu4', 'totalwar', 'SimCity', 'CitiesSkylines', 'WorldofTanks', 'Stellaris', 'hoi4']
+[2021-05-26 08:04:10.614][Info] Crawling submission: You've heard of ice sleds, but what about goat leggings?
+[2021-05-26 08:04:21.081][Info] Handling initial comment forest
+[2021-05-26 08:04:21.979][Info] Handling more comments
+[2021-05-26 08:04:21.979][Info] Crawling submission: Looking for a mod..
+[2021-05-26 08:04:31.047][Info] Terminating due to cancel request
+[2021-05-26 08:04:31.047][Info] Stop monitoring of comments stream
+[2021-05-26 08:04:31.450][Info] Handling initial comment forest
+[2021-05-26 08:04:31.450][Info] Terminating due to cancel request
+[2021-05-26 08:04:31.480][Info] Stop monitoring of submissions stream
+[2021-05-26 08:04:52.963][Info] Staring closing procedure
+[2021-05-26 08:04:52.995][Info] ------------------------------
+[2021-05-26 08:04:52.995][Info] Loading data for CrusaderKings
+[2021-05-26 08:04:53.005][Info] Updating data for CrusaderKings
+[2021-05-26 08:04:53.005][Info] Saving CrusaderKings to disk
+[2021-05-26 08:04:53.006][Info] ------------------------------
+[2021-05-26 08:04:53.006][Info] ------------------------------
+[2021-05-26 08:04:53.006][Info] Loading data for totalwar
+[2021-05-26 08:04:53.015][Info] Updating data for totalwar
+[2021-05-26 08:04:53.015][Info] Saving totalwar to disk
+[2021-05-26 08:04:53.016][Info] ------------------------------
+[2021-05-26 08:04:53.016][Info] ------------------------------
+[2021-05-26 08:04:53.016][Info] Loading data for hoi4
+[2021-05-26 08:04:53.023][Info] Updating data for hoi4
+[2021-05-26 08:04:53.023][Info] Saving hoi4 to disk
+[2021-05-26 08:04:53.024][Info] ------------------------------
+[2021-05-26 08:04:53.024][Info] ------------------------------
+[2021-05-26 08:04:53.024][Info] Loading data for eu4
+[2021-05-26 08:04:53.032][Info] Updating data for eu4
+[2021-05-26 08:04:53.032][Info] Saving eu4 to disk
+[2021-05-26 08:04:53.033][Info] ------------------------------
+[2021-05-26 08:04:53.033][Info] ------------------------------
+[2021-05-26 08:04:53.033][Info] Loading data for CitiesSkylines
+[2021-05-26 08:04:53.041][Info] Updating data for CitiesSkylines
+[2021-05-26 08:04:53.041][Info] Saving CitiesSkylines to disk
+[2021-05-26 08:04:53.042][Info] ------------------------------
+[2021-05-26 08:04:53.042][Info] ------------------------------
+[2021-05-26 08:04:53.042][Info] Loading data for Stellaris
+[2021-05-26 08:04:53.050][Info] Updating data for Stellaris
+[2021-05-26 08:04:53.050][Info] Saving Stellaris to disk
+[2021-05-26 08:04:53.052][Info] ------------------------------
+[2021-05-26 08:04:53.052][Info] ------------------------------
+[2021-05-26 08:04:53.052][Info] Loading data for WorldofTanks
+[2021-05-26 08:04:53.059][Info] Updating data for WorldofTanks
+[2021-05-26 08:04:53.059][Info] Saving WorldofTanks to disk
+[2021-05-26 08:04:53.060][Info] ------------------------------
+[2021-05-26 08:04:53.060][Info] ------------------------------
+[2021-05-26 08:04:53.060][Info] Loading data for civ
+[2021-05-26 08:04:53.067][Info] Updating data for civ
+[2021-05-26 08:04:53.068][Info] Saving civ to disk
+[2021-05-26 08:04:53.069][Info] ------------------------------
+[2021-05-26 08:04:53.069][Info] ------------------------------
+[2021-05-26 08:04:53.069][Info] Loading data for totalwar
+[2021-05-26 08:04:53.076][Info] Updating data for totalwar
+[2021-05-26 08:04:53.076][Info] Saving totalwar to disk
+[2021-05-26 08:04:53.077][Info] ------------------------------
+[2021-05-26 08:04:53.077][Info] ------------------------------
+[2021-05-26 08:04:53.077][Info] Loading data for hoi4
+[2021-05-26 08:04:53.082][Info] Updating data for hoi4
+[2021-05-26 08:04:53.082][Info] Saving hoi4 to disk
+[2021-05-26 08:04:53.083][Info] ------------------------------
+
+[2021-05-26 08:07:44.074][Info] Started batch save loop for comments stream
+[2021-05-26 08:07:44.105][Info] Started batch save loop for submissions stream
+[2021-05-26 08:07:44.105][Info] Start monitioring comments stream for subreddits ['civ', 'CrusaderKings', 'eu4', 'totalwar', 'SimCity', 'CitiesSkylines', 'WorldofTanks', 'Stellaris', 'hoi4']
+[2021-05-26 08:07:44.121][Info] Start monitioring submissions stream for subreddits ['civ', 'CrusaderKings', 'eu4', 'totalwar', 'SimCity', 'CitiesSkylines', 'WorldofTanks', 'Stellaris', 'hoi4']
+[2021-05-26 08:07:48.009][Info] Crawling submission: Looking for a mod..
+[2021-05-26 08:07:48.477][Info] Handling initial comment forest
+[2021-05-26 08:07:48.554][Info] Handling more comments
+[2021-05-26 08:07:48.554][Info] Crawling submission: This has to be the most op wonder position I’ve ever seen (sorry about it being a phone pic)
+[2021-05-26 08:07:49.066][Info] Handling initial comment forest
+[2021-05-26 08:07:49.530][Info] Handling more comments
+[2021-05-26 08:07:49.530][Info] Crawling submission: Pretty new to CK3, but this can't possibly be a regular occurance... The emperor as a new flame!?
+[2021-05-26 08:07:50.151][Info] Handling initial comment forest
+[2021-05-26 08:07:50.491][Info] Handling more comments
+[2021-05-26 08:07:50.538][Info] Crawling submission: 2 chinese united fronts? why?
+[2021-05-26 08:07:50.941][Info] Handling initial comment forest
+[2021-05-26 08:07:51.003][Info] Handling more comments
+[2021-05-26 08:07:51.018][Info] Crawling submission: Why can i not get parliament as ming?
+[2021-05-26 08:07:51.701][Info] Handling initial comment forest
+[2021-05-26 08:07:51.917][Info] Handling more comments
+[2021-05-26 08:07:51.979][Info] Crawling submission: The Grand North American Alliance
+[2021-05-26 08:07:52.507][Info] Handling initial comment forest
+[2021-05-26 08:07:52.646][Info] Handling more comments
+[2021-05-26 08:07:52.646][Info] Crawling submission: Big Brother is powered by Oracle. apparently.
+[2021-05-26 08:07:53.235][Info] Handling initial comment forest
+[2021-05-26 08:07:53.359][Info] Handling more comments
+[2021-05-26 08:07:53.359][Info] Crawling submission: How are you supposed to make money as vampire coast?
+[2021-05-26 08:07:53.949][Info] Handling initial comment forest
+[2021-05-26 08:07:54.645][Info] Handling more comments
+[2021-05-26 08:07:54.645][Info] Crawling submission: Should I declare for Independence?
+[2021-05-26 08:07:55.250][Info] Handling initial comment forest
+[2021-05-26 08:07:55.343][Info] Handling more comments
+[2021-05-26 08:07:55.358][Info] Crawling submission: Have they added a way to pick your leaders clothing yet?
+[2021-05-26 08:07:55.777][Info] Handling initial comment forest
+[2021-05-26 08:07:55.932][Info] Handling more comments
+[2021-05-26 08:07:55.932][Info] Crawling submission: First attempt at the ruler creator, made a 6 year old in an MP game. Surprised at how absolutely menacing he turned out to look when he grew up to adulthood.
+[2021-05-26 08:07:56.444][Info] Handling initial comment forest
+[2021-05-26 08:07:56.444][Info] Terminating due to cancel request
+[2021-05-26 08:07:56.536][Info] Stop monitoring of submissions stream
+[2021-05-26 08:07:59.645][Info] Terminating due to cancel request
+[2021-05-26 08:07:59.667][Info] Stop monitoring of comments stream
+[2021-05-26 08:08:49.669][Info] Staring closing procedure
+[2021-05-26 08:08:49.700][Info] ------------------------------
+[2021-05-26 08:08:49.700][Info] Loading data for hoi4
+[2021-05-26 08:08:49.708][Info] Updating data for hoi4
+[2021-05-26 08:08:49.709][Info] Saving hoi4 to disk
+[2021-05-26 08:08:49.710][Info] ------------------------------
+[2021-05-26 08:08:49.710][Info] ------------------------------
+[2021-05-26 08:08:49.710][Info] Loading data for civ
+[2021-05-26 08:08:49.718][Info] Updating data for civ
+[2021-05-26 08:08:49.719][Info] Saving civ to disk
+[2021-05-26 08:08:49.721][Info] ------------------------------
+[2021-05-26 08:08:49.721][Info] ------------------------------
+[2021-05-26 08:08:49.721][Info] Loading data for CrusaderKings
+[2021-05-26 08:08:49.729][Info] Updating data for CrusaderKings
+[2021-05-26 08:08:49.729][Info] Saving CrusaderKings to disk
+[2021-05-26 08:08:49.730][Info] ------------------------------
+[2021-05-26 08:08:49.730][Info] ------------------------------
+[2021-05-26 08:08:49.730][Info] Loading data for eu4
+[2021-05-26 08:08:49.737][Info] Updating data for eu4
+[2021-05-26 08:08:49.737][Info] Saving eu4 to disk
+[2021-05-26 08:08:49.738][Info] ------------------------------
+[2021-05-26 08:08:49.738][Info] ------------------------------
+[2021-05-26 08:08:49.738][Info] Loading data for Stellaris
+[2021-05-26 08:08:49.748][Info] Updating data for Stellaris
+[2021-05-26 08:08:49.748][Info] Saving Stellaris to disk
+[2021-05-26 08:08:49.750][Info] ------------------------------
+[2021-05-26 08:08:49.751][Info] ------------------------------
+[2021-05-26 08:08:49.751][Info] Loading data for totalwar
+[2021-05-26 08:08:49.759][Info] Updating data for totalwar
+[2021-05-26 08:08:49.759][Info] Saving totalwar to disk
+[2021-05-26 08:08:49.760][Info] ------------------------------
+[2021-05-26 08:08:49.760][Info] ------------------------------
+[2021-05-26 08:08:49.760][Info] Loading data for WorldofTanks
+[2021-05-26 08:08:49.768][Info] Updating data for WorldofTanks
+[2021-05-26 08:08:49.768][Info] Saving WorldofTanks to disk
+[2021-05-26 08:08:49.769][Info] ------------------------------
+[2021-05-26 08:08:49.769][Info] ------------------------------
+[2021-05-26 08:08:49.769][Info] Loading data for Stellaris
+[2021-05-26 08:08:49.778][Info] Updating data for Stellaris
+[2021-05-26 08:08:49.778][Info] Saving Stellaris to disk
+[2021-05-26 08:08:49.780][Info] ------------------------------
+[2021-05-26 08:08:49.781][Info] ------------------------------
+[2021-05-26 08:08:49.781][Info] Loading data for totalwar
+[2021-05-26 08:08:49.789][Info] Updating data for totalwar
+[2021-05-26 08:08:49.789][Info] Saving totalwar to disk
+[2021-05-26 08:08:49.791][Info] ------------------------------
+[2021-05-26 08:08:49.791][Info] ------------------------------
+[2021-05-26 08:08:49.791][Info] Loading data for CrusaderKings
+[2021-05-26 08:08:49.798][Info] Updating data for CrusaderKings
+[2021-05-26 08:08:49.798][Info] Saving CrusaderKings to disk
+[2021-05-26 08:08:49.800][Info] ------------------------------
+[2021-05-26 08:08:49.800][Info] ------------------------------
+[2021-05-26 08:08:49.800][Info] Loading data for CitiesSkylines
+[2021-05-26 08:08:49.806][Info] Updating data for CitiesSkylines
+[2021-05-26 08:08:49.807][Info] Saving CitiesSkylines to disk
+[2021-05-26 08:08:49.808][Info] ------------------------------
+[2021-05-26 08:08:49.808][Info] ------------------------------
+[2021-05-26 08:08:49.808][Info] Loading data for hoi4
+[2021-05-26 08:08:49.817][Info] Updating data for hoi4
+[2021-05-26 08:08:49.817][Info] Saving hoi4 to disk
+[2021-05-26 08:08:49.817][Info] ------------------------------
+[2021-05-26 08:08:49.818][Info] ------------------------------
+[2021-05-26 08:08:49.818][Info] Loading data for eu4
+[2021-05-26 08:08:49.826][Info] Updating data for eu4
+[2021-05-26 08:08:49.826][Info] Saving eu4 to disk
+[2021-05-26 08:08:49.827][Info] ------------------------------
+[2021-05-26 08:08:49.828][Info] ------------------------------
+[2021-05-26 08:08:49.828][Info] Loading data for civ
+[2021-05-26 08:08:49.836][Info] Updating data for civ
+[2021-05-26 08:08:49.836][Info] Saving civ to disk
+[2021-05-26 08:08:49.837][Info] ------------------------------
+

@@ -112,15 +112,18 @@ class Timer_Data_Handler(Data_Handler):
     def __init__(self) -> None:
       pass   
     def update(self, current_value, new_value):
-      current_value[1] = time.perf_counter()
+      if new_value is not None:
+        current_value[1] = -1.0
+      else:
+        current_value[1] = time.perf_counter()
       return current_value
       
     def log(self, value, logger: Logger):
       logger.log(self.build_message(value),Level.INFO)
  
     def build_message(self, value):
-      if len(value) < 0:
-        return "Timing ongoing"
+      if value[1] < 0:
+        return "--h:--m:--.----s"
       h,m,s = get_hours_minutes_seconds_ms(self.seconds_passed(value))
       return f"{h}h:{m}m{s:0.4f}s"
 
