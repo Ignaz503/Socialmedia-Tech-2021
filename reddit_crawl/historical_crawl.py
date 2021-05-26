@@ -1,15 +1,13 @@
 from typing import Callable
-import praw
 import threading
 import reddit_crawl.util.helper_functions as rh
 from utility.app_config import Config
 from psaw import PushshiftAPI
-from utility.simple_logging import Logger
+from utility.simple_logging import Level, Logger
 from utility.cancel_token import Cancel_Token
 from reddit_crawl.util.context import Thread_Safe_Context
 from reddit_crawl.util.diagnostics import Reddit_Crawl_Diagnostics
 from reddit_crawl.data.bot_blacklist import Threadsafe_Bot_Blacklist
-from defines import CLIENT_ID, CLIENT_SECRET, USER_AGENT
 from reddit_crawl.data.subreddit import Subreddit_Batch_Queue, Subreddit_Batch
 
 def handle_subreddit(sub_name: str, api: PushshiftAPI, context: Thread_Safe_Context, queue: Subreddit_Batch_Queue, token: Cancel_Token):
@@ -40,11 +38,9 @@ def handle_crawl(context: Thread_Safe_Context,queue: Subreddit_Batch_Queue, toke
 
 def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue, token: Cancel_Token, callback:Callable, diagnostics: Reddit_Crawl_Diagnostics):
   with  token:
-    reddit = praw.Reddit(
-      client_id=config.reddit_app_info[CLIENT_ID],
-      client_secret=config.reddit_app_info[CLIENT_SECRET],
-      user_agent=config.reddit_app_info[USER_AGENT])
-
+    reddit = config.get_reddit_instance(logger)
+    if reddit is None:
+      return
     if diagnostics is None:
       diagnostics = Reddit_Crawl_Diagnostics()
 

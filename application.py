@@ -69,6 +69,16 @@ class RedditCrawlApplication:
   def log(self,message: str, lvl: Level = Level.INFO):
     self.__logger.log(message,lvl)
 
+  def update_subs_to_crawl(self,subs: list[str]):
+    old_subs = self.config.subreddits_to_crawl
+    self.config.set_value("subreddits_to_crawl",subs)
+    if len(old_subs) != len(self.config.subreddits_to_crawl):
+      self.__config_update_event(value_name="subreddits_to_crawl")
+    elif not all([sub in old_subs for sub in self.config.subreddits_to_crawl]):
+      self.__config_update_event(value_name="subreddits_to_crawl")
+
+
+
   def close(self):
     self.log("Staring closing procedure")
     thread = threading.Thread(name="closing procedure",target=self.__handle_shutdown)

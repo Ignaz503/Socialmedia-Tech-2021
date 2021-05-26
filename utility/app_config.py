@@ -1,17 +1,22 @@
+from typing import Any
+from utility.simple_logging import Level, Logger
 import jsonpickle
 from os import path
 import os
 import datetime as dt
 import reddit_crawl.util.submission_getters as submission_getters
 from reddit_crawl.util.submission_getters import SubmissionsGetter, SubmissionGetters
-from defines import BOT_LIST_FALLBACK, GETTER_TYPE
+from defines import BOT_LIST_FALLBACK, CLIENT_ID, CLIENT_SECRET, GETTER_TYPE, REDIRECT_URI, USER_ACCOUNT_NAME, USER_ACCOUNT_PWD, USER_AGENT, USE_USER_ACCOUNT
+from praw import Reddit
+import praw
+from reddit_crawl.util.reddit import authenticate
 
 class NoConfigExists(Exception):
   def __init__(self,name:str,  *args: object) -> None:
       super().__init__("No app config file with {n} exists".format(n=name), *args)
 
 class Config:
-  reddit_app_info: dict[str,str]
+  reddit_app_info: dict[str,Any]
   subreddits_to_crawl: list[str]
   number_of_posts: int
   submission_getter:dict[str,str]
@@ -25,7 +30,7 @@ class Config:
   to_date: str
   path_to_storage:str
   bot_list_name:str
-  def __init__(self,  reddit_app_info: dict[str,str],
+  def __init__(self,  reddit_app_info: dict[str,Any],
                       subreddits_to_crawl: list[str],
                       number_of_posts: int,
                       submission_getter:dict[str,str],
@@ -90,6 +95,29 @@ class Config:
       return self.__dict__[name]
     return None
 
+  def get_reddit_instance(self, logger:Logger)-> Reddit:
+    if self.reddit_app_info[USE_USER_ACCOUNT]:
+      logger.log("Using authenticated reddit instance")
+      rdr_uri = "http://localhost:8080"
+      if REDIRECT_URI in self.reddit_app_info:
+        rdr_uri = self.reddit_app_info[rdr_uri]
+      r =  praw.Reddit(
+            client_id=self.reddit_app_info[CLIENT_ID],
+            client_secret=self.reddit_app_info[CLIENT_SECRET],
+            user_agent= self.reddit_app_info[USER_AGENT],
+            redirect_uri= rdr_uri,
+            username=self.reddit_app_info[USER_ACCOUNT_NAME],
+            password=self.reddit_app_info[USER_ACCOUNT_PWD])
+      if not authenticate(r):
+        logger.log("There seem to be issues with the reddit account authentication information", Level.ERROR)
+        return None
+    #no user accuoount needed    
+    return praw.Reddit(
+      client_id=self.reddit_app_info[CLIENT_ID],
+      client_secret=self.reddit_app_info[CLIENT_SECRET],
+      user_agent=self.reddit_app_info[USER_AGENT])
+
+
   def get_bot_list_name(self):
     if self.bot_list_name == "":
       return BOT_LIST_FALLBACK
@@ -98,7 +126,7 @@ class Config:
   @staticmethod
   def default():
     return Config(
-      reddit_app_info={'client_id':'','client_secret':'','user_agent':''},
+      reddit_app_info={CLIENT_ID:'',CLIENT_SECRET:'',USER_AGENT:'',USE_USER_ACCOUNT:False, USER_ACCOUNT_NAME:'', USER_ACCOUNT_PWD: ''},
       subreddits_to_crawl=[],
       number_of_posts=10,
       submission_getter={GETTER_TYPE:SubmissionGetters.HOT.value},

@@ -30,6 +30,5 @@ class Subbredits_To_Crawl_GUI(UIElement):
     return list
 
   def __update_subreddits(self):
-    self.application.log("updaing list")
     subs = self.get_subbredits()
-    self.application.set_config_value("subreddits_to_crawl",subs)
+    self.application.update_subs_to_crawl(subs)

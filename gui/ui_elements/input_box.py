@@ -2,21 +2,25 @@ from tkinter import Entry,Event,Misc, Frame, Label, LEFT,X, StringVar
 from typing import Callable
 from gui.ui_elements.ui_element import UIElement
 import math
+from typing import Union
 
 class EnterAcceptInputBox(Entry):
   __on_accept: Callable
   __focus_target: Misc
-  def __init__(self,on_accept: Callable[[Event],None],focus_target:Misc=None, *args, **kwargs) -> None:
+  def __init__(self,on_accept: Callable[[Event],None],focus_target: Union[Misc,Callable]=None, *args, **kwargs) -> None:
     super().__init__(*args,**kwargs)
     self.bind('<Return>',lambda event: self.__on_key_enter(event))
     self.__on_accept = on_accept
     if focus_target == None:
-      self.__focus_target = self.master
+      self.__focus_target = self
     else:
       self.__focus_target = focus_target
 
   def __on_key_enter(self,event: Event):
-    self.__focus_target.focus_set()
+    if callable(self.__focus_target):
+      self.__focus_target()
+    else:
+      self.__focus_target.focus_set()
     self.__on_accept(event)
 
 class Time_H_M_S_InputBox(UIElement):

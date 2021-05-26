@@ -2,6 +2,10 @@
 CLIENT_ID='client_id'
 CLIENT_SECRET='client_secret'
 USER_AGENT='user_agent'
+USE_USER_ACCOUNT= 'use_user_account'
+USER_ACCOUNT_NAME= 'user_account_name'
+USER_ACCOUNT_PWD = 'user_account_password'
+REDIRECT_URI ='redirect_uri'
 
 #submission getter dict entry
 GETTER_TYPE = 'type'

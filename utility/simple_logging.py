@@ -12,6 +12,7 @@ from enum import IntEnum,Enum
 from queue import Queue
 from typing import Callable
 from os import path
+import utility.data_util as data_util
 
 LOG_TEXT = 'text'
 LOG_COLOR = 'color'
@@ -65,7 +66,8 @@ class Sperate_Process_Logger(Logger):
       if not message.endswith("\n"):
         message+="\n"
       time = self._build_header(lvl)
-      self.__connection.send([MessageType.LOG,time + message, lvl])
+      if not self.__connection.closed:
+        self.__connection.send([MessageType.LOG,time + message, lvl])
 
   def update_log_storage_path(self, new_path:str):
     self.__connection.send([MessageType.PATH_UPDATE,new_path])
@@ -161,5 +163,5 @@ def __try_save_log_and_clear(text:ScrolledText,base_path:str):
 
 def __save_log(text: ScrolledText, base_path:str):
   log_so_far = text.get("1.0",END)
-  with open(path.join(base_path,f"log {dt.date.today().isoformat()}.txt"),'a') as f:
+  with open(data_util.make_data_path_str(base_path,f"log {dt.date.today().isoformat()}.txt",data_util.DataLocation.LOG),'a') as f:
     f.write(log_so_far)

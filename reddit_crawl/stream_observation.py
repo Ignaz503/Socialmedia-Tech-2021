@@ -1,5 +1,3 @@
-from utility.diagnostics import Diagnostics
-import praw
 import threading
 import reddit_crawl.util.helper_functions as rh
 from typing import Callable
@@ -11,7 +9,6 @@ from reddit_crawl.util.context import Thread_Safe_Context
 from praw.models import SubredditHelper
 from reddit_crawl.util.diagnostics import Reddit_Crawl_Diagnostics
 from reddit_crawl.data.bot_blacklist import Threadsafe_Bot_Blacklist
-from defines import CLIENT_ID, CLIENT_SECRET, USER_AGENT
 from reddit_crawl.data.subreddit import Subreddit_Batch_Queue, Subreddit_Batch
 
 def __stream_monitor(monitor_type: str, stream_gen, data_handler, subs: SubredditHelper, reddit: Reddit, context: Thread_Safe_Context, queue: Subreddit_Batch_Queue, token: Cancel_Token):
@@ -33,11 +30,9 @@ def __stream_monitor(monitor_type: str, stream_gen, data_handler, subs: Subreddi
 
 def __comments_stream(config: Config, logger:Logger, blacklist: Threadsafe_Bot_Blacklist, queue: Subreddit_Batch_Queue, token: Cancel_Token, diagnostics: Reddit_Crawl_Diagnostics):
   with token:
-    reddit = praw.Reddit(
-      client_id=config.reddit_app_info[CLIENT_ID],
-      client_secret=config.reddit_app_info[CLIENT_SECRET],
-      user_agent=config.reddit_app_info[USER_AGENT])
-
+    reddit = config.get_reddit_instance(logger)
+    if reddit is None:
+      return
     if diagnostics is None:
       diagnostics = Reddit_Crawl_Diagnostics()
 
@@ -49,11 +44,9 @@ def __comments_stream(config: Config, logger:Logger, blacklist: Threadsafe_Bot_B
   
 def __submission_stream(config: Config, logger:Logger, blacklist: Threadsafe_Bot_Blacklist, queue: Subreddit_Batch_Queue, token: Cancel_Token, diagnostics: Reddit_Crawl_Diagnostics):
   with token:
-    reddit = praw.Reddit(
-      client_id=config.reddit_app_info[CLIENT_ID],
-      client_secret=config.reddit_app_info[CLIENT_SECRET],
-      user_agent=config.reddit_app_info[USER_AGENT])
-
+    reddit = config.get_reddit_instance(logger)
+    if reddit is None:
+      return
     if diagnostics is None:
       diagnostics = Reddit_Crawl_Diagnostics()
 

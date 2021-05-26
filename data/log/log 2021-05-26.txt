@@ -1,0 +1,211 @@
+[2021-05-26 15:02:41.189][Info] Staring closing procedure
+
+[2021-05-26 15:03:50.109][Info] Staring closing procedure
+
+[2021-05-26 15:06:05.798][Info] Staring closing procedure
+
+[2021-05-26 15:07:53.057][Info] Staring closing procedure
+
+[2021-05-26 15:12:12.197][Info] Staring closing procedure
+
+[2021-05-26 15:15:45.540][Info] Staring closing procedure
+
+[2021-05-26 15:18:50.958][Info] Staring closing procedure
+
+[2021-05-26 15:19:17.592][Info] Updated use_user_account
+[2021-05-26 15:19:19.979][Info] Updated use_user_account
+[2021-05-26 15:19:21.420][Info] Updated use_user_account
+[2021-05-26 15:19:27.481][Info] Updated user_account_password
+[2021-05-26 15:19:29.325][Info] Updated user_account_name
+[2021-05-26 15:19:35.417][Info] Updated client_id
+[2021-05-26 15:19:51.289][Info] Staring closing procedure
+
+[2021-05-26 15:24:48.449][Info] Updated use_user_account
+[2021-05-26 15:24:51.285][Info] Updated user_account_password
+[2021-05-26 15:24:52.773][Info] Updated user_account_name
+[2021-05-26 15:24:54.556][Info] Updated user_account_password
+[2021-05-26 15:24:57.222][Info] Updated user_account_password
+[2021-05-26 15:24:59.872][Info] Updated user_account_password
+[2021-05-26 15:25:01.019][Info] Updated user_account_password
+[2021-05-26 15:25:02.135][Info] Updated user_account_password
+[2021-05-26 15:25:03.236][Info] Updated user_account_password
+[2021-05-26 15:25:04.321][Info] Updated user_account_password
+[2021-05-26 15:25:14.055][Info] Staring closing procedure
+
+[2021-05-26 15:29:32.190][Info] use_user_accountwas here
+[2021-05-26 15:29:32.190][Info] Updated use_user_account
+[2021-05-26 15:29:35.740][Info] client_idwas here
+[2021-05-26 15:29:37.956][Info] client_secretwas here
+[2021-05-26 15:29:39.785][Info] user_agentwas here
+[2021-05-26 15:29:41.227][Info] user_account_namewas here
+[2021-05-26 15:29:44.404][Info] user_account_passwordwas here
+[2021-05-26 15:29:46.466][Info] client_idwas here
+[2021-05-26 15:29:47.504][Info] client_secretwas here
+[2021-05-26 15:29:48.264][Info] user_agentwas here
+[2021-05-26 15:30:00.540][Info] user_account_namewas here
+[2021-05-26 15:30:01.113][Info] use_user_accountwas here
+[2021-05-26 15:30:01.129][Info] Updated use_user_account
+[2021-05-26 15:30:02.229][Info] use_user_accountwas here
+[2021-05-26 15:30:02.229][Info] Updated use_user_account
+[2021-05-26 15:30:14.273][Info] use_user_accountwas here
+[2021-05-26 15:30:14.288][Info] Updated use_user_account
+[2021-05-26 15:30:14.970][Info] use_user_accountwas here
+[2021-05-26 15:30:15.001][Info] Updated use_user_account
+[2021-05-26 15:30:22.612][Info] Staring closing procedure
+
+[2021-05-26 15:32:45.062][Info] Staring closing procedure
+
+[2021-05-26 15:34:56.017][Info] {
+  "reddit_app_info": {
+    "client_id": "oLm5KqTNCR5qrw",
+    "client_secret": "E-uXbSsa6JTNph_zp49vnbSLZpO0tg",
+    "user_agent": "python:TUG-CommentCrawler:v1.0.0 (by u/Ignaz503)",
+    "use_user_account": true,
+    "user_account_name": "",
+    "user_account_password": ""
+  },
+  "subreddits_to_crawl": [
+    "civ",
+    "CrusaderKings",
+    "eu4",
+    "totalwar",
+    "SimCity",
+    "CitiesSkylines",
+    "WorldofTanks",
+    "Stellaris",
+    "hoi4"
+  ],
+  "number_of_posts": 10,
+  "submission_getter": {
+    "type": "hot"
+  },
+  "verbose": true,
+  "repeat_hours": 1,
+  "repeat_minutes": 0,
+  "repeat_seconds": 0,
+  "batch_save_interval_seconds": 350,
+  "stream_save_interval_seconds": 300,
+  "from_date": "2021-04-01",
+  "to_date": "2021-05-19",
+  "path_to_storage": "",
+  "bot_list_name": "bot_list.json"
+}
+[2021-05-26 15:35:27.699][Info] {
+  "reddit_app_info": {
+    "client_id": "oLm5KqTNCR5qrw",
+    "client_secret": "E-uXbSsa6JTNph_zp49vnbSLZpO0tg",
+    "user_agent": "python:TUG-CommentCrawler:v1.0.0 (by u/Ignaz503)",
+    "use_user_account": true,
+    "user_account_name": "Ignaz503",
+    "user_account_password": ""
+  },
+  "subreddits_to_crawl": [
+    "civ",
+    "CrusaderKings",
+    "eu4",
+    "totalwar",
+    "SimCity",
+    "CitiesSkylines",
+    "WorldofTanks",
+    "Stellaris",
+    "hoi4"
+  ],
+  "number_of_posts": 10,
+  "submission_getter": {
+    "type": "hot"
+  },
+  "verbose": true,
+  "repeat_hours": 1,
+  "repeat_minutes": 0,
+  "repeat_seconds": 0,
+  "batch_save_interval_seconds": 350,
+  "stream_save_interval_seconds": 300,
+  "from_date": "2021-04-01",
+  "to_date": "2021-05-19",
+  "path_to_storage": "",
+  "bot_list_name": "bot_list.json"
+}
+[2021-05-26 15:36:25.158][Info] {
+  "reddit_app_info": {
+    "client_id": "oLm5KqTNCR5qrw",
+    "client_secret": "E-uXbSsa6JTNph_zp49vnbSLZpO0tg",
+    "user_agent": "python:TUG-CommentCrawler:v1.0.0 (by u/Ignaz503)",
+    "use_user_account": true,
+    "user_account_name": "Ignaz503",
+    "user_account_password": "rj$Fekr5e@qdYFg$"
+  },
+  "subreddits_to_crawl": [
+    "civ",
+    "CrusaderKings",
+    "eu4",
+    "totalwar",
+    "SimCity",
+    "CitiesSkylines",
+    "WorldofTanks",
+    "Stellaris",
+    "hoi4"
+  ],
+  "number_of_posts": 10,
+  "submission_getter": {
+    "type": "hot"
+  },
+  "verbose": true,
+  "repeat_hours": 1,
+  "repeat_minutes": 0,
+  "repeat_seconds": 0,
+  "batch_save_interval_seconds": 350,
+  "stream_save_interval_seconds": 300,
+  "from_date": "2021-04-01",
+  "to_date": "2021-05-19",
+  "path_to_storage": "",
+  "bot_list_name": "bot_list.json"
+}
+[2021-05-26 15:36:48.578][Info] executing crawl every 3600.0 seconds
+[2021-05-26 15:36:48.578][Info] Crawling subreddits: civ
+[2021-05-26 15:36:48.578][Info] Getting 10 hot posts
+[2021-05-26 15:36:50.579][Info] Crawling submission: /r/Civ Weekly Questions Thread - May 24, 2021
+[2021-05-26 15:36:51.948][Info] Handling initial comment forest
+[2021-05-26 15:36:57.444][Info] Handling more comments
+[2021-05-26 15:36:57.444][Info] Crawling submission: [Civ of the Week] Egypt
+[2021-05-26 15:36:58.968][Info] Handling initial comment forest
+[2021-05-26 15:37:03.039][Info] Handling more comments
+[2021-05-26 15:37:03.039][Info] Crawling submission: Was playing on the true start Mediterranean as Cleopatra, and the turn I finished the Etemenanki, the Nile happened to flood. Thought it was too cool not to share
+[2021-05-26 15:37:03.847][Info] Handling initial comment forest
+[2021-05-26 15:37:05.658][Info] Handling more comments
+[2021-05-26 15:37:05.658][Info] Crawling submission: I built Christo Redentor in Rio but hes looking the wrong way.
+[2021-05-26 15:37:07.279][Info] Handling initial comment forest
+[2021-05-26 15:37:08.619][Info] ---------------Total Crawl---------------
+4
+182
+0
+1
+0
+104
+0h:3m24.5071s
+------------------------------
+[2021-05-26 15:37:08.665][Info] active crawl stopped
+[2021-05-26 15:37:25.018][Info] Staring closing procedure
+[2021-05-26 15:37:25.064][Info] ------------------------------
+[2021-05-26 15:37:25.064][Info] Loading data for civ
+[2021-05-26 15:37:25.067][Info] Updating data for civ
+[2021-05-26 15:37:25.067][Info] Saving civ to disk
+[2021-05-26 15:37:25.068][Info] ------------------------------
+
+[2021-05-26 15:38:31.540][Info] Using authenticated reddit instance
+[2021-05-26 15:38:31.633][Info] executing crawl every 3600.0 seconds
+[2021-05-26 15:38:31.633][Info] Crawling subreddits: civ
+[2021-05-26 15:38:31.633][Info] Getting 10 hot posts
+[2021-05-26 15:38:34.037][Info] Crawling submission: /r/Civ Weekly Questions Thread - May 24, 2021
+[2021-05-26 15:38:35.515][Info] Handling initial comment forest
+[2021-05-26 15:38:35.601][Info] ---------------Total Crawl---------------
+1
+0
+0
+1
+0
+0
+0h:0m20.0346s
+------------------------------
+[2021-05-26 15:38:35.678][Info] active crawl stopped
+[2021-05-26 15:38:43.180][Info] Staring closing procedure
+

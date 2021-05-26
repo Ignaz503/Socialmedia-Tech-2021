@@ -1,3 +1,4 @@
+from defines import CLIENT_ID, CLIENT_SECRET, USER_ACCOUNT_NAME, USER_ACCOUNT_PWD, USER_AGENT, USE_USER_ACCOUNT
 from tkinter import Frame, Tk
 from tkinter.constants import BOTTOM, NS, NSEW, TOP, W, X
 from gui.ui_elements.subbreddits_to_crawl_gui import Subbredits_To_Crawl_GUI
@@ -52,9 +53,13 @@ class RedditCrawlGUI:
     return self.__subreddits_to_crawl_input.get_subbredits()
 
   def get_secrets_for_crawl(self)-> dict[str,str]:
-    return { "id":self.__reddit_secrets.get_client_id(),
-      "secret":self.__reddit_secrets.get_client_secret(),
-      "user_agent":self.__reddit_secrets.get_user_agent()}
+    return { CLIENT_ID:self.__reddit_secrets.get_client_id(),
+      CLIENT_SECRET:self.__reddit_secrets.get_client_secret(),
+      USER_AGENT:self.__reddit_secrets.get_user_agent(),
+      USE_USER_ACCOUNT: self.__reddit_secrets.get_use_user_agent(),
+      USER_ACCOUNT_NAME: self.__reddit_secrets.get_user_account_name(),
+      USER_ACCOUNT_PWD: self.__reddit_secrets.get_user_pwd()
+      }
 
   def any_action_running(self)->bool:
     return self.__reddit_actions.any_action_running() or self.__processing_actions.any_action_running()

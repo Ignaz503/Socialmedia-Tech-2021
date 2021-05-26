@@ -1,7 +1,6 @@
 import time
 import threading
 import traceback
-import praw.models
 import reddit_crawl.util.helper_functions as rh
 from reddit_crawl.util.context import Thread_Safe_Context
 from utility.app_config import Config
@@ -11,7 +10,7 @@ from praw.models import Comment, Submission
 from reddit_crawl.util.diagnostics import Reddit_Crawl_Diagnostics
 from reddit_crawl.data.bot_blacklist import Threadsafe_Bot_Blacklist
 from reddit_crawl.data.subreddit import Subreddit_Batch_Queue, Subreddit_Batch
-from defines import CLIENT_ID, CLIENT_SECRET, USER_AGENT, MIN_REPEAT_TIME
+from defines import MIN_REPEAT_TIME
 
 def __handle_user(user_name: str, sub_name: str, context: Thread_Safe_Context):
   if context.blacklist.contains(user_name):
@@ -66,11 +65,9 @@ def __handle_crawl(context: Thread_Safe_Context,batch_queue: Subreddit_Batch_Que
 
 def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Blacklist, batch_queue: Subreddit_Batch_Queue,token: Cancel_Token, wait_period_seconds: float, only_once: bool,diagnostics: Reddit_Crawl_Diagnostics):
   with token:
-    reddit = praw.Reddit(
-      client_id=config.reddit_app_info[CLIENT_ID],
-      client_secret=config.reddit_app_info[CLIENT_SECRET],
-      user_agent=config.reddit_app_info[USER_AGENT])
-
+    reddit = config.get_reddit_instance(logger)
+    if reddit is None:
+      return
     if diagnostics is None:
       diagnostics = Reddit_Crawl_Diagnostics()
 
