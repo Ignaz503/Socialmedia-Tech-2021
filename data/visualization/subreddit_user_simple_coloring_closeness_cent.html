@@ -1,0 +1,129 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1920px;
+            height: 1920px;
+            background-color: #121220;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+        #config {
+            float: left;
+            width: 400px;
+            height: 600px;
+        }
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<div id = "config"></div>
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": "#8bff00", "font": {"color": "#fefefe"}, "id": 0, "label": "civ", "shape": "dot", "size": 50, "title": "\u003ch3\u003eciv\u003c/h3\u003e\u003cb\u003ecreated on:\u003c/b\u003e 2010-03-03 22:48:04\u003cbr\u003e\u003cb\u003esubscriber count:\u003c/b\u003e 436133\u003cbr\u003e\u003cb\u003edescription:\u003c/b\u003e\u003cbr\u003eAnd now it\u0027s 4 AM! Just one more turn..."}, {"color": "#8bff00", "font": {"color": "#fefefe"}, "id": 607, "label": "KaizerKlash", "shape": "dot", "size": 5, "title": "KaizerKlash"}, {"color": "#9bff00", "font": {"color": "#fefefe"}, "id": 1415, "label": "Bonjourap", "shape": "dot", "size": 5, "title": "Bonjourap"}, {"color": "#deff00", "font": {"color": "#fefefe"}, "id": 1763, "label": "Moyes2men", "shape": "dot", "size": 5, "title": "Moyes2men"}, {"color": "#8bff00", "font": {"color": "#fefefe"}, "id": 1780, "label": "RoyalTechnomagi", "shape": "dot", "size": 5, "title": "RoyalTechnomagi"}, {"color": "#a0ff00", "font": {"color": "#fefefe"}, "id": 1784, "label": "CKCarterIII", "shape": "dot", "size": 5, "title": "CKCarterIII"}, {"color": "#8bff00", "font": {"color": "#fefefe"}, "id": 1860, "label": "Toybasher", "shape": "dot", "size": 5, "title": "Toybasher"}, {"color": "#8bff00", "font": {"color": "#fefefe"}, "id": 2100, "label": "Niallism", "shape": "dot", "size": 5, "title": "Niallism"}, {"color": "#a0ff00", "font": {"color": "#fefefe"}, "id": 2651, "label": "taqn22", "shape": "dot", "size": 5, "title": "taqn22"}, {"color": "#43ff00", "font": {"color": "#fefefe"}, "id": 1, "label": "CrusaderKings", "shape": "dot", "size": 36, "title": "\u003ch3\u003eCrusaderKings\u003c/h3\u003e\u003cb\u003ecreated on:\u003c/b\u003e 2012-01-28 23:34:47\u003cbr\u003e\u003cb\u003esubscriber count:\u003c/b\u003e 300963\u003cbr\u003e\u003cb\u003edescription:\u003c/b\u003e\u003cbr\u003eCrusader Kings is a historical grand strategy /\u003cbr\u003eRPG video game series for PC, Mac \u0026 Linux\u003cbr\u003edeveloped \u0026 published by Paradox Interactive.\u003cbr\u003eEngage in courtly intrigue, dynastic struggles,\u003cbr\u003eand holy warfare in medi\u00e6val Europe, North Africa,\u003cbr\u003ethe Middle East, India, the steppes and Tibet. Can\u003cbr\u003eyou achieve fame and fortune for your noble\u003cbr\u003efamily, or will your names be forgotten to\u003cbr\u003ehistory?"}, {"color": "#a0ff00", "font": {"color": "#fefefe"}, "id": 418, "label": "TitanDarwin", "shape": "dot", "size": 5, "title": "TitanDarwin"}, {"color": "#8bff00", "font": {"color": "#fefefe"}, "id": 598, "label": "Tetragrade", "shape": "dot", "size": 5, "title": "Tetragrade"}, {"color": "#8bff00", "font": {"color": "#fefefe"}, "id": 701, "label": "drchaos2000", "shape": "dot", "size": 5, "title": "drchaos2000"}, {"color": "#8bff00", "font": {"color": "#fefefe"}, "id": 795, "label": "sneakyplanner", "shape": "dot", "size": 5, "title": "sneakyplanner"}, {"color": "#4dff00", "font": {"color": "#fefefe"}, "id": 983, "label": "RadioactiveCarrot", "shape": "dot", "size": 5, "title": "RadioactiveCarrot"}, {"color": "#8bff00", "font": {"color": "#fefefe"}, "id": 1054, "label": "xHenkersbrautx", "shape": "dot", "size": 5, "title": "xHenkersbrautx"}, {"color": "#4dff00", "font": {"color": "#fefefe"}, "id": 1155, "label": "LMeire", "shape": "dot", "size": 5, "title": "LMeire"}, {"color": "#8bff00", "font": {"color": "#fefefe"}, "id": 1371, "label": "RexLynxPRT", "shape": "dot", "size": 5, "title": "RexLynxPRT"}, {"color": "#8bff00", "font": {"color": "#fefefe"}, "id": 1806, "label": "monalba", "shape": "dot", "size": 5, "title": "monalba"}, {"color": "#8bff00", "font": {"color": "#fefefe"}, "id": 1843, "label": "vorko_76", "shape": "dot", "size": 5, "title": "vorko_76"}, {"color": "#a0ff00", "font": {"color": "#fefefe"}, "id": 1965, "label": "nullstorm0", "shape": "dot", "size": 5, "title": "nullstorm0"}, {"color": "#39ff00", "font": {"color": "#fefefe"}, "id": 2525, "label": "Locem", "shape": "dot", "size": 5, "title": "Locem"}, {"color": "#8bff00", "font": {"color": "#fefefe"}, "id": 2623, "label": "Better_Buff_Junglers", "shape": "dot", "size": 5, "title": "Better_Buff_Junglers"}, {"color": "#8bff00", "font": {"color": "#fefefe"}, "id": 2669, "label": "MaxNeedy", "shape": "dot", "size": 5, "title": "MaxNeedy"}, {"color": "#4dff00", "font": {"color": "#fefefe"}, "id": 3008, "label": "Kolenga", "shape": "dot", "size": 5, "title": "Kolenga"}, {"color": "#39ff00", "font": {"color": "#fefefe"}, "id": 2, "label": "eu4", "shape": "dot", "size": 31, "title": "\u003ch3\u003eeu4\u003c/h3\u003e\u003cb\u003ecreated on:\u003c/b\u003e 2012-08-10 16:49:44\u003cbr\u003e\u003cb\u003esubscriber count:\u003c/b\u003e 252872\u003cbr\u003e\u003cb\u003edescription:\u003c/b\u003e\u003cbr\u003eA place to share content, ask questions and/or\u003cbr\u003etalk about the grand strategy game Europa\u003cbr\u003eUniversalis IV by Paradox Development Studio."}, {"color": "#4dff00", "font": {"color": "#fefefe"}, "id": 22, "label": "0WatcherintheWater0", "shape": "dot", "size": 5, "title": "0WatcherintheWater0"}, {"color": "#5dff00", "font": {"color": "#fefefe"}, "id": 137, "label": "ipsum629", "shape": "dot", "size": 5, "title": "ipsum629"}, {"color": "#5dff00", "font": {"color": "#fefefe"}, "id": 477, "label": "MrTrt", "shape": "dot", "size": 5, "title": "MrTrt"}, {"color": "#5dff00", "font": {"color": "#fefefe"}, "id": 576, "label": "grahamdanoob", "shape": "dot", "size": 5, "title": "grahamdanoob"}, {"color": "#5dff00", "font": {"color": "#fefefe"}, "id": 959, "label": "ChetWinston", "shape": "dot", "size": 5, "title": "ChetWinston"}, {"color": "#b9ff00", "font": {"color": "#fefefe"}, "id": 2039, "label": "Kloiper", "shape": "dot", "size": 5, "title": "Kloiper"}, {"color": "#5dff00", "font": {"color": "#fefefe"}, "id": 2270, "label": "DuGalle", "shape": "dot", "size": 5, "title": "DuGalle"}, {"color": "#5dff00", "font": {"color": "#fefefe"}, "id": 3658, "label": "Coridimus", "shape": "dot", "size": 5, "title": "Coridimus"}, {"color": "#5dff00", "font": {"color": "#fefefe"}, "id": 3859, "label": "CrayRuse", "shape": "dot", "size": 5, "title": "CrayRuse"}, {"color": "#95ff00", "font": {"color": "#fefefe"}, "id": 3, "label": "totalwar", "shape": "dot", "size": 37, "title": "\u003ch3\u003etotalwar\u003c/h3\u003e\u003cb\u003ecreated on:\u003c/b\u003e 2010-05-04 01:35:35\u003cbr\u003e\u003cb\u003esubscriber count:\u003c/b\u003e 306074\u003cbr\u003e\u003cb\u003edescription:\u003c/b\u003e\u003cbr\u003eA subreddit for the Total War strategy game\u003cbr\u003eseries, made by Creative Assembly.  Discussions,\u003cbr\u003estrategies, stories, crude cave-drawings, and more\u003cbr\u003efor Medieval 2, Empire, Shogun 2, Rome 2, Attila,\u003cbr\u003eThrones of Britannia, Warhammer, Three Kingdoms\u003cbr\u003eand others."}, {"color": "#deff00", "font": {"color": "#fefefe"}, "id": 1517, "label": "WaitingToBeTriggered", "shape": "dot", "size": 5, "title": "WaitingToBeTriggered"}, {"color": "#90ff00", "font": {"color": "#fefefe"}, "id": 2286, "label": "Akratus2", "shape": "dot", "size": 5, "title": "Akratus2"}, {"color": "#90ff00", "font": {"color": "#fefefe"}, "id": 3252, "label": "HouseOfSchaus", "shape": "dot", "size": 5, "title": "HouseOfSchaus"}, {"color": "#ffc400", "font": {"color": "#fefefe"}, "id": 4, "label": "SimCity", "shape": "dot", "size": 10, "title": "\u003ch3\u003eSimCity\u003c/h3\u003e\u003cb\u003ecreated on:\u003c/b\u003e 2010-07-25 22:01:08\u003cbr\u003e\u003cb\u003esubscriber count:\u003c/b\u003e 31621\u003cbr\u003e\u003cb\u003edescription:\u003c/b\u003e\u003cbr\u003eA Subreddit for the discussion of the SimCity\u003cbr\u003eFranchise and related City Builder games."}, {"color": "#ffed00", "font": {"color": "#fefefe"}, "id": 2218, "label": "Elia1799", "shape": "dot", "size": 5, "title": "Elia1799"}, {"color": "#ffed00", "font": {"color": "#fefefe"}, "id": 3732, "label": "SamBellFromSarang", "shape": "dot", "size": 5, "title": "SamBellFromSarang"}, {"color": "#d3ff00", "font": {"color": "#fefefe"}, "id": 5, "label": "CitiesSkylines", "shape": "dot", "size": 41, "title": "\u003ch3\u003eCitiesSkylines\u003c/h3\u003e\u003cb\u003ecreated on:\u003c/b\u003e 2014-08-14 21:33:43\u003cbr\u003e\u003cb\u003esubscriber count:\u003c/b\u003e 352517\u003cbr\u003e\u003cb\u003edescription:\u003c/b\u003e\u003cbr\u003eA subreddit for the City Builder game developed by\u003cbr\u003eColossal Order, Cities: Skylines."}, {"color": "#8bff00", "font": {"color": "#fefefe"}, "id": 3164, "label": "xanhou", "shape": "dot", "size": 5, "title": "xanhou"}, {"color": "#00ff00", "font": {"color": "#fefefe"}, "id": 7, "label": "Stellaris", "shape": "dot", "size": 34, "title": "\u003ch3\u003eStellaris\u003c/h3\u003e\u003cb\u003ecreated on:\u003c/b\u003e 2015-07-31 03:36:08\u003cbr\u003e\u003cb\u003esubscriber count:\u003c/b\u003e 283721\u003cbr\u003e\u003cb\u003edescription:\u003c/b\u003e\u003cbr\u003eA place to share content, ask questions and/or\u003cbr\u003etalk about the 4X grand strategy game Stellaris by\u003cbr\u003eParadox Development Studio."}, {"color": "#b4ff00", "font": {"color": "#fefefe"}, "id": 8, "label": "hoi4", "shape": "dot", "size": 30, "title": "\u003ch3\u003ehoi4\u003c/h3\u003e\u003cb\u003ecreated on:\u003c/b\u003e 2014-01-23 16:32:38\u003cbr\u003e\u003cb\u003esubscriber count:\u003c/b\u003e 243375\u003cbr\u003e\u003cb\u003edescription:\u003c/b\u003e\u003cbr\u003eA place to share content, ask questions and/or\u003cbr\u003etalk about the grand strategy game Hearts of Iron\u003cbr\u003eIV by Paradox Development Studio."}, {"color": "#ff0000", "font": {"color": "#fefefe"}, "id": 6, "label": "WorldofTanks", "shape": "dot", "size": 17, "title": "\u003ch3\u003eWorldofTanks\u003c/h3\u003e\u003cb\u003ecreated on:\u003c/b\u003e 2010-08-13 20:06:03\u003cbr\u003e\u003cb\u003esubscriber count:\u003c/b\u003e 112247\u003cbr\u003e\u003cb\u003edescription:\u003c/b\u003e\u003cbr\u003eWorld of Tanks is a PvP MMO game created by\u003cbr\u003einternational game developer Wargaming. We\u0027re\u003cbr\u003eRedditors with a passion for gaming, tanks, and\u003cbr\u003eeverything in between! This is a subreddit where\u003cbr\u003ewe share WoT news, strategy tips, tank choices,\u003cbr\u003eand opinions. We have a number of affiliated clans\u003cbr\u003eon the NA, EU, and ASIA servers for all levels of\u003cbr\u003egame experience.    Come join the conversation!"}]);
+        edges = new vis.DataSet([{"color": "#3e5c7f", "from": 0, "to": 607, "weight": 1}, {"color": "#3e5c7f", "from": 0, "to": 1415, "weight": 1}, {"color": "#3e5c7f", "from": 0, "to": 1763, "weight": 1}, {"color": "#3e5c7f", "from": 0, "to": 1780, "weight": 1}, {"color": "#3e5c7f", "from": 0, "to": 1784, "weight": 1}, {"color": "#3e5c7f", "from": 0, "to": 1860, "weight": 1}, {"color": "#3e5c7f", "from": 0, "to": 2100, "weight": 1}, {"color": "#3e5c7f", "from": 0, "to": 2651, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 418, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 598, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 701, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 795, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 983, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 1054, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 1155, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 1371, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 1784, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 1806, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 1843, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 1965, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 2525, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 2623, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 2651, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 2669, "weight": 1}, {"color": "#3e5c7f", "from": 1, "to": 3008, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 22, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 137, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 477, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 576, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 598, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 701, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 795, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 959, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 1054, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 1371, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 1415, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 1806, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 1843, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 2039, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 2270, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 2623, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 2669, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 3658, "weight": 1}, {"color": "#3e5c7f", "from": 2, "to": 3859, "weight": 1}, {"color": "#3e5c7f", "from": 3, "to": 418, "weight": 1}, {"color": "#3e5c7f", "from": 3, "to": 1517, "weight": 1}, {"color": "#3e5c7f", "from": 3, "to": 1965, "weight": 1}, {"color": "#3e5c7f", "from": 3, "to": 2286, "weight": 1}, {"color": "#3e5c7f", "from": 3, "to": 2525, "weight": 1}, {"color": "#3e5c7f", "from": 3, "to": 3252, "weight": 1}, {"color": "#3e5c7f", "from": 4, "to": 2218, "weight": 1}, {"color": "#3e5c7f", "from": 4, "to": 3732, "weight": 1}, {"color": "#3e5c7f", "from": 5, "to": 1517, "weight": 1}, {"color": "#3e5c7f", "from": 5, "to": 2218, "weight": 1}, {"color": "#3e5c7f", "from": 5, "to": 3164, "weight": 1}, {"color": "#3e5c7f", "from": 5, "to": 3732, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 22, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 137, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 477, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 576, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 607, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 959, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 983, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 1155, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 1780, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 1860, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 2100, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 2270, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 2286, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 2525, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 3008, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 3164, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 3252, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 3658, "weight": 1}, {"color": "#3e5c7f", "from": 7, "to": 3859, "weight": 1}, {"color": "#3e5c7f", "from": 8, "to": 22, "weight": 1}, {"color": "#3e5c7f", "from": 8, "to": 1763, "weight": 1}, {"color": "#3e5c7f", "from": 8, "to": 2039, "weight": 1}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": true
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+        // if this network requires displaying the configure window,
+        // put it in its div
+        options.configure["container"] = document.getElementById("config");
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

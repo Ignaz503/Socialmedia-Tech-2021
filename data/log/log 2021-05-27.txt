@@ -4022,3 +4022,696 @@
 [2021-05-27 19:12:54.430][Info] visualization complete
 [2021-05-27 19:16:12.597][Info] Staring closing procedure
 
+[2021-05-27 21:27:44.448][Info] starting visualization
+[2021-05-27 21:27:44.448][Info] crawling for metadata before visualization
+[2021-05-27 21:27:46.401][Info] Crawling for subreddit metadata
+[2021-05-27 21:27:46.401][Info] getting meta data for civ
+[2021-05-27 21:27:47.921][Info] getting meta data for CrusaderKings
+[2021-05-27 21:27:48.370][Info] getting meta data for eu4
+[2021-05-27 21:27:48.773][Info] getting meta data for totalwar
+[2021-05-27 21:27:49.238][Info] getting meta data for SimCity
+[2021-05-27 21:27:49.656][Info] getting meta data for CitiesSkylines
+[2021-05-27 21:27:50.029][Info] getting meta data for WorldofTanks
+[2021-05-27 21:27:50.478][Info] getting meta data for Stellaris
+[2021-05-27 21:27:50.881][Info] getting meta data for hoi4
+[2021-05-27 21:27:51.315][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 21:27:51.547][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 21:27:51.795][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 21:27:52.168][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 21:27:52.539][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 21:27:52.787][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 21:27:53.082][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 21:27:53.500][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 21:27:53.810][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 21:27:54.012][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 21:27:54.260][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 21:27:54.493][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 21:27:54.818][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 21:27:55.112][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 21:27:55.485][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 21:27:55.794][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 21:27:56.182][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 21:27:56.399][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 21:27:56.662][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 21:27:56.895][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 21:27:57.221][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 21:27:57.561][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 21:27:57.732][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 21:27:57.995][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 21:27:58.228][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 21:27:58.522][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 21:27:58.817][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 21:27:59.065][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 21:27:59.468][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 21:27:59.716][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 21:27:59.872][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 21:28:00.258][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 21:28:00.553][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 21:28:00.818][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 21:28:01.080][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 21:28:01.578][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 21:28:01.793][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 21:28:02.087][Info] Generating data for visualization subreddit subreddit
+[2021-05-27 21:28:02.088][Info] building graph subreddit to subreddit
+[2021-05-27 21:28:02.088][Info] adding metadata to nodes
+[2021-05-27 21:28:02.089][Info] adding meta data to edges
+[2021-05-27 21:28:02.103][Info] visulaizting graph subreddit_subreddit.html
+[2021-05-27 21:28:02.103][Info] creating visualization
+[2021-05-27 21:28:02.104][Info] saving visualization subreddit_subreddit.html
+[2021-05-27 21:28:02.275][Info] visulaizting graph subreddit_subreddit_coloring_cluster.html
+[2021-05-27 21:28:02.275][Info] creating visualization
+[2021-05-27 21:28:02.275][Info] saving visualization subreddit_subreddit_coloring_cluster.html
+[2021-05-27 21:28:02.599][Info] genrating unqiue user list
+[2021-05-27 21:28:04.087][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 21:28:04.087][Info] Generating data for visualization subreddit user
+[2021-05-27 21:28:04.087][Info] building graph subbredit to user
+[2021-05-27 21:28:04.087][Info] adding subreddit nodes
+[2021-05-27 21:28:04.088][Info] adding user nodes
+[2021-05-27 21:28:04.166][Info] adding edges
+[2021-05-27 21:28:05.406][Info] visulaizting graph subreddit_user.html
+[2021-05-27 21:28:05.407][Info] creating visualization
+[2021-05-27 21:28:07.948][Info] saving visualization subreddit_user.html
+[2021-05-27 21:28:19.462][Info] Staring closing procedure
+
+[2021-05-27 21:28:50.884][Info] starting visualization
+[2021-05-27 21:28:50.915][Info] crawling for metadata before visualization
+[2021-05-27 21:28:51.039][Info] Crawling for subreddit metadata
+[2021-05-27 21:28:51.039][Info] getting meta data for civ
+[2021-05-27 21:28:52.636][Info] getting meta data for CrusaderKings
+[2021-05-27 21:28:53.008][Info] getting meta data for eu4
+[2021-05-27 21:28:53.488][Info] getting meta data for totalwar
+[2021-05-27 21:28:53.892][Info] getting meta data for SimCity
+[2021-05-27 21:28:54.325][Info] getting meta data for CitiesSkylines
+[2021-05-27 21:28:54.713][Info] getting meta data for WorldofTanks
+[2021-05-27 21:28:55.162][Info] getting meta data for Stellaris
+[2021-05-27 21:28:55.565][Info] getting meta data for hoi4
+[2021-05-27 21:28:55.984][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 21:28:56.123][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 21:28:56.295][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 21:28:56.481][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 21:28:56.667][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 21:28:56.867][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 21:28:57.038][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 21:28:57.224][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 21:28:57.410][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 21:28:57.611][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 21:28:57.813][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 21:28:58.061][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 21:28:58.293][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 21:28:58.495][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 21:28:58.696][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 21:28:58.913][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 21:28:59.084][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 21:28:59.270][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 21:28:59.456][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 21:28:59.673][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 21:28:59.875][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 21:29:00.062][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 21:29:00.246][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 21:29:00.494][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 21:29:00.696][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 21:29:00.928][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 21:29:01.145][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 21:29:01.347][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 21:29:01.548][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 21:29:01.766][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 21:29:01.967][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 21:29:02.246][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 21:29:02.478][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 21:29:02.711][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 21:29:02.928][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 21:29:03.129][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 21:29:03.362][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 21:29:03.625][Info] Generating data for visualization subreddit subreddit
+[2021-05-27 21:29:03.625][Info] building graph subreddit to subreddit
+[2021-05-27 21:29:03.626][Info] adding metadata to nodes
+[2021-05-27 21:29:03.626][Info] adding meta data to edges
+[2021-05-27 21:29:03.626][Info] visulaizting graph subreddit_subreddit.html
+[2021-05-27 21:29:03.626][Info] creating visualization
+[2021-05-27 21:29:03.627][Info] saving visualization subreddit_subreddit.html
+[2021-05-27 21:29:03.767][Info] visulaizting graph subreddit_subreddit_coloring_cluster.html
+[2021-05-27 21:29:03.780][Info] creating visualization
+[2021-05-27 21:29:03.811][Info] saving visualization subreddit_subreddit_coloring_cluster.html
+[2021-05-27 21:29:04.013][Info] genrating unqiue user list
+[2021-05-27 21:29:05.082][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 21:29:05.098][Info] Generating data for visualization subreddit user
+[2021-05-27 21:29:05.098][Info] building graph subbredit to user
+[2021-05-27 21:29:05.098][Info] adding subreddit nodes
+[2021-05-27 21:29:05.099][Info] adding user nodes
+[2021-05-27 21:29:05.177][Info] adding edges
+[2021-05-27 21:29:06.107][Info] visulaizting graph subreddit_user.html
+[2021-05-27 21:29:06.136][Info] creating visualization
+[2021-05-27 21:29:08.430][Info] saving visualization subreddit_user.html
+[2021-05-27 21:29:08.639][Info] enumerating bridges
+[2021-05-27 21:29:51.086][Info] Staring closing procedure
+
+[2021-05-27 21:30:20.904][Info] starting visualization
+[2021-05-27 21:30:20.904][Info] crawling for metadata before visualization
+[2021-05-27 21:30:21.028][Info] Crawling for subreddit metadata
+[2021-05-27 21:30:21.028][Info] getting meta data for civ
+[2021-05-27 21:30:23.043][Info] getting meta data for CrusaderKings
+[2021-05-27 21:30:33.598][Info] getting meta data for eu4
+[2021-05-27 21:30:44.061][Info] getting meta data for totalwar
+[2021-05-27 21:30:54.880][Info] getting meta data for SimCity
+[2021-05-27 21:31:05.296][Info] getting meta data for CitiesSkylines
+[2021-05-27 21:31:15.634][Info] getting meta data for WorldofTanks
+[2021-05-27 21:31:26.190][Info] getting meta data for Stellaris
+[2021-05-27 21:31:36.668][Info] getting meta data for hoi4
+[2021-05-27 21:31:47.099][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 21:31:47.193][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 21:31:47.425][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 21:31:47.611][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 21:31:47.828][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 21:31:48.061][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 21:31:48.293][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 21:31:48.494][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 21:31:48.758][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 21:31:48.959][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 21:31:49.192][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 21:31:49.424][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 21:31:49.641][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 21:31:49.859][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 21:31:50.075][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 21:31:50.278][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 21:31:50.463][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 21:31:50.680][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 21:31:50.928][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 21:31:51.145][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 21:31:51.377][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 21:31:51.594][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 21:31:51.811][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 21:31:52.028][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 21:31:52.245][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 21:31:52.462][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 21:31:52.695][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 21:31:52.912][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 21:31:53.144][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 21:31:53.423][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 21:31:53.671][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 21:31:53.888][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 21:31:54.152][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 21:31:54.369][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 21:31:54.617][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 21:31:54.803][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 21:31:55.082][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 21:31:55.330][Info] Generating data for visualization subreddit subreddit
+[2021-05-27 21:31:55.330][Info] building graph subreddit to subreddit
+[2021-05-27 21:31:55.330][Info] adding metadata to nodes
+[2021-05-27 21:31:55.331][Info] adding meta data to edges
+[2021-05-27 21:31:55.331][Info] visulaizting graph subreddit_subreddit.html
+[2021-05-27 21:31:55.331][Info] creating visualization
+[2021-05-27 21:31:55.331][Info] saving visualization subreddit_subreddit.html
+[2021-05-27 21:31:55.471][Info] visulaizting graph subreddit_subreddit_coloring_cluster.html
+[2021-05-27 21:31:55.485][Info] creating visualization
+[2021-05-27 21:31:55.500][Info] saving visualization subreddit_subreddit_coloring_cluster.html
+[2021-05-27 21:31:55.702][Info] genrating unqiue user list
+[2021-05-27 21:31:56.756][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 21:31:56.756][Info] Generating data for visualization subreddit user
+[2021-05-27 21:31:56.756][Info] building graph subbredit to user
+[2021-05-27 21:31:56.756][Info] adding subreddit nodes
+[2021-05-27 21:31:56.757][Info] adding user nodes
+[2021-05-27 21:31:56.835][Info] adding edges
+[2021-05-27 21:31:57.812][Info] visulaizting graph subreddit_user.html
+[2021-05-27 21:31:57.825][Info] creating visualization
+[2021-05-27 21:32:00.361][Info] saving visualization subreddit_user.html
+[2021-05-27 21:32:00.529][Info] enumerating bridges
+[2021-05-27 21:32:00.530][Info] visulaizting graph subreddit_user_color_bridges.html
+[2021-05-27 21:32:00.530][Info] creating visualization
+[2021-05-27 21:32:00.554][Info] saving visualization subreddit_user_color_bridges.html
+[2021-05-27 21:32:00.770][Info] Generating data for visualization subreddit user
+[2021-05-27 21:32:00.786][Info] adding nodes
+[2021-05-27 21:32:00.817][Info] adding edges
+[2021-05-27 21:32:00.833][Info] This took 0h : 0m : 0.0472s
+[2021-05-27 21:32:00.848][Info] visulaizting graph user_user_gt1.html
+[2021-05-27 21:32:00.863][Info] creating visualization
+[2021-05-27 21:32:00.881][Info] saving visualization user_user_gt1.html
+[2021-05-27 21:32:01.112][Info] visulaizting graph user_user_gt1_coloring_deg_cent.html
+[2021-05-27 21:32:01.112][Info] creating visualization
+[2021-05-27 21:32:01.113][Info] saving visualization user_user_gt1_coloring_deg_cent.html
+[2021-05-27 21:32:01.272][Info] visulaizting graph user_user_gt1_coloring_egien_cent.html
+[2021-05-27 21:32:01.272][Info] creating visualization
+[2021-05-27 21:32:01.274][Info] saving visualization user_user_gt1_coloring_egien_cent.html
+[2021-05-27 21:32:01.484][Info] visulaizting graph user_user_gt1_coloring_harmonic_cent.html
+[2021-05-27 21:32:01.499][Info] creating visualization
+[2021-05-27 21:32:01.515][Info] saving visualization user_user_gt1_coloring_harmonic_cent.html
+[2021-05-27 21:32:01.778][Info] visulaizting graph user_user_gt1_coloring_sub_graph_cent.html
+[2021-05-27 21:32:01.778][Info] creating visualization
+[2021-05-27 21:32:01.779][Info] saving visualization user_user_gt1_coloring_sub_graph_cent.html
+[2021-05-27 21:32:01.980][Info] visulaizting graph user_user_gt1_coloring_closeness_cent.html
+[2021-05-27 21:32:01.995][Info] creating visualization
+[2021-05-27 21:32:02.011][Info] saving visualization user_user_gt1_coloring_closeness_cent.html
+[2021-05-27 21:32:02.212][Info] Generating data for visualization subreddit user
+[2021-05-27 21:32:02.227][Info] adding nodes
+[2021-05-27 21:32:02.243][Info] adding edges
+[2021-05-27 21:32:02.260][Info] This took 0h : 0m : 0.0330s
+[2021-05-27 21:32:02.274][Info] visulaizting graph user_user_get1.html
+[2021-05-27 21:32:02.305][Info] creating visualization
+[2021-05-27 21:32:02.317][Info] saving visualization user_user_get1.html
+[2021-05-27 21:32:02.476][Info] visulaizting graph user_user_get1_coloring_deg_cent.html
+[2021-05-27 21:32:02.476][Info] creating visualization
+[2021-05-27 21:32:02.489][Info] saving visualization user_user_get1_coloring_deg_cent.html
+[2021-05-27 21:32:02.648][Info] visulaizting graph user_user_get1_coloring_egien_cent.html
+[2021-05-27 21:32:02.661][Info] creating visualization
+[2021-05-27 21:32:02.725][Info] saving visualization user_user_get1_coloring_egien_cent.html
+[2021-05-27 21:32:02.927][Info] visulaizting graph user_user_get1_coloring_harmonic_cent.html
+[2021-05-27 21:32:02.927][Info] creating visualization
+[2021-05-27 21:32:02.939][Info] saving visualization user_user_get1_coloring_harmonic_cent.html
+[2021-05-27 21:32:03.173][Info] visulaizting graph user_user_get1_coloring_sub_graph_cent.html
+[2021-05-27 21:32:03.188][Info] creating visualization
+[2021-05-27 21:32:03.231][Info] saving visualization user_user_get1_coloring_sub_graph_cent.html
+[2021-05-27 21:32:03.810][Info] visulaizting graph user_user_get1_coloring_current_flow_cent.html
+[2021-05-27 21:32:03.810][Info] creating visualization
+[2021-05-27 21:32:03.842][Info] saving visualization user_user_get1_coloring_current_flow_cent.html
+[2021-05-27 21:32:03.996][Info] visulaizting graph user_user_get1_coloring_closeness_cent.html
+[2021-05-27 21:32:04.025][Info] creating visualization
+[2021-05-27 21:32:04.068][Info] saving visualization user_user_get1_coloring_closeness_cent.html
+[2021-05-27 21:32:04.242][Info] visualization complete
+[2021-05-27 21:34:36.406][Info] Staring closing procedure
+
+[2021-05-27 21:34:48.962][Info] starting visualization
+[2021-05-27 21:34:48.962][Info] crawling for metadata before visualization
+[2021-05-27 21:34:49.102][Info] Crawling for subreddit metadata
+[2021-05-27 21:34:49.102][Info] getting meta data for civ
+[2021-05-27 21:34:51.133][Info] getting meta data for CrusaderKings
+[2021-05-27 21:34:56.930][Info] getting meta data for eu4
+[2021-05-27 21:35:00.432][Info] getting meta data for totalwar
+[2021-05-27 21:35:02.788][Info] getting meta data for SimCity
+[2021-05-27 21:35:04.725][Info] getting meta data for CitiesSkylines
+[2021-05-27 21:35:06.089][Info] getting meta data for WorldofTanks
+[2021-05-27 21:35:07.019][Info] getting meta data for Stellaris
+[2021-05-27 21:35:07.950][Info] getting meta data for hoi4
+[2021-05-27 21:35:09.003][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 21:35:09.096][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 21:35:09.515][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 21:35:09.732][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 21:35:10.043][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 21:35:10.321][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 21:35:10.569][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 21:35:10.817][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 21:35:11.284][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 21:35:11.623][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 21:35:11.949][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 21:35:12.181][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 21:35:12.475][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 21:35:12.817][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 21:35:13.437][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 21:35:13.777][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 21:35:14.118][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 21:35:14.305][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 21:35:14.614][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 21:35:14.893][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 21:35:15.266][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 21:35:15.562][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 21:35:15.963][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 21:35:16.319][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 21:35:16.552][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 21:35:16.909][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 21:35:17.234][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 21:35:17.466][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 21:35:17.792][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 21:35:18.025][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 21:35:18.427][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 21:35:18.737][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 21:35:19.234][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 21:35:19.530][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 21:35:19.791][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 21:35:20.025][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 21:35:20.287][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 21:35:20.644][Info] Generating data for visualization subreddit subreddit
+[2021-05-27 21:35:20.644][Info] building graph subreddit to subreddit
+[2021-05-27 21:35:20.644][Info] adding metadata to nodes
+[2021-05-27 21:35:20.660][Info] adding meta data to edges
+[2021-05-27 21:35:20.660][Info] visulaizting graph subreddit_subreddit.html
+[2021-05-27 21:35:20.660][Info] creating visualization
+[2021-05-27 21:35:20.660][Info] saving visualization subreddit_subreddit.html
+[2021-05-27 21:35:20.893][Info] visulaizting graph subreddit_subreddit_coloring_cluster.html
+[2021-05-27 21:35:20.894][Info] creating visualization
+[2021-05-27 21:35:20.894][Info] saving visualization subreddit_subreddit_coloring_cluster.html
+[2021-05-27 21:35:21.171][Info] genrating unqiue user list
+[2021-05-27 21:35:22.597][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 21:35:22.597][Info] Generating data for visualization subreddit user
+[2021-05-27 21:35:22.597][Info] building graph subbredit to user
+[2021-05-27 21:35:22.597][Info] adding subreddit nodes
+[2021-05-27 21:35:22.598][Info] adding user nodes
+[2021-05-27 21:35:22.676][Info] adding edges
+[2021-05-27 21:35:24.009][Info] visulaizting graph subreddit_user.html
+[2021-05-27 21:35:24.009][Info] creating visualization
+[2021-05-27 21:35:26.103][Info] saving visualization subreddit_user.html
+[2021-05-27 21:35:26.353][Info] enumerating bridges
+[2021-05-27 21:35:26.354][Info] visulaizting graph subreddit_user_color_bridges.html
+[2021-05-27 21:35:26.354][Info] creating visualization
+[2021-05-27 21:35:26.356][Info] saving visualization subreddit_user_color_bridges.html
+[2021-05-27 21:35:26.689][Info] Generating data for visualization subreddit user
+[2021-05-27 21:35:26.689][Info] adding nodes
+[2021-05-27 21:35:26.689][Info] adding edges
+[2021-05-27 21:35:26.690][Info] This took 0h : 0m : 0.0011s
+[2021-05-27 21:35:26.690][Info] visulaizting graph user_user_gt1.html
+[2021-05-27 21:35:26.690][Info] creating visualization
+[2021-05-27 21:35:26.692][Info] saving visualization user_user_gt1.html
+[2021-05-27 21:35:26.999][Info] visulaizting graph user_user_gt1_coloring_deg_cent.html
+[2021-05-27 21:35:26.999][Info] creating visualization
+[2021-05-27 21:35:27.002][Info] saving visualization user_user_gt1_coloring_deg_cent.html
+[2021-05-27 21:35:27.314][Info] visulaizting graph user_user_gt1_coloring_egien_cent.html
+[2021-05-27 21:35:27.315][Info] creating visualization
+[2021-05-27 21:35:27.316][Info] saving visualization user_user_gt1_coloring_egien_cent.html
+[2021-05-27 21:35:27.480][Info] visulaizting graph user_user_gt1_coloring_harmonic_cent.html
+[2021-05-27 21:35:27.480][Info] creating visualization
+[2021-05-27 21:35:27.481][Info] saving visualization user_user_gt1_coloring_harmonic_cent.html
+[2021-05-27 21:35:27.743][Info] visulaizting graph user_user_gt1_coloring_sub_graph_cent.html
+[2021-05-27 21:35:27.743][Info] creating visualization
+[2021-05-27 21:35:27.744][Info] saving visualization user_user_gt1_coloring_sub_graph_cent.html
+[2021-05-27 21:35:28.100][Info] visulaizting graph user_user_gt1_coloring_closeness_cent.html
+[2021-05-27 21:35:28.100][Info] creating visualization
+[2021-05-27 21:35:28.102][Info] saving visualization user_user_gt1_coloring_closeness_cent.html
+[2021-05-27 21:35:28.347][Info] Generating data for visualization subreddit user
+[2021-05-27 21:35:28.347][Info] adding nodes
+[2021-05-27 21:35:28.347][Info] adding edges
+[2021-05-27 21:35:28.349][Info] This took 0h : 0m : 0.0020s
+[2021-05-27 21:35:28.349][Info] visulaizting graph user_user_get1.html
+[2021-05-27 21:35:28.349][Info] creating visualization
+[2021-05-27 21:35:28.374][Info] saving visualization user_user_get1.html
+[2021-05-27 21:35:28.596][Info] visulaizting graph user_user_get1_coloring_deg_cent.html
+[2021-05-27 21:35:28.596][Info] creating visualization
+[2021-05-27 21:35:28.609][Info] saving visualization user_user_get1_coloring_deg_cent.html
+[2021-05-27 21:35:28.923][Info] visulaizting graph user_user_get1_coloring_egien_cent.html
+[2021-05-27 21:35:28.923][Info] creating visualization
+[2021-05-27 21:35:28.935][Info] saving visualization user_user_get1_coloring_egien_cent.html
+[2021-05-27 21:35:29.202][Info] visulaizting graph user_user_get1_coloring_harmonic_cent.html
+[2021-05-27 21:35:29.202][Info] creating visualization
+[2021-05-27 21:35:29.277][Info] saving visualization user_user_get1_coloring_harmonic_cent.html
+[2021-05-27 21:35:29.587][Info] visulaizting graph user_user_get1_coloring_sub_graph_cent.html
+[2021-05-27 21:35:29.618][Info] creating visualization
+[2021-05-27 21:35:29.629][Info] saving visualization user_user_get1_coloring_sub_graph_cent.html
+[2021-05-27 21:35:30.533][Info] visulaizting graph user_user_get1_coloring_current_flow_cent.html
+[2021-05-27 21:35:30.534][Info] creating visualization
+[2021-05-27 21:35:30.545][Info] saving visualization user_user_get1_coloring_current_flow_cent.html
+[2021-05-27 21:35:30.752][Info] visulaizting graph user_user_get1_coloring_closeness_cent.html
+[2021-05-27 21:35:30.752][Info] creating visualization
+[2021-05-27 21:35:30.763][Info] saving visualization user_user_get1_coloring_closeness_cent.html
+[2021-05-27 21:35:31.044][Info] visualization complete
+[2021-05-27 21:40:46.562][Info] Staring closing procedure
+
+[2021-05-27 21:54:28.030][Info] starting visualization
+[2021-05-27 21:54:28.045][Info] crawling for metadata before visualization
+[2021-05-27 21:54:28.216][Info] Crawling for subreddit metadata
+[2021-05-27 21:54:28.216][Info] getting meta data for civ
+[2021-05-27 21:54:30.588][Info] getting meta data for CrusaderKings
+[2021-05-27 21:54:40.926][Info] getting meta data for eu4
+[2021-05-27 21:54:51.714][Info] getting meta data for totalwar
+[2021-05-27 21:54:58.766][Info] getting meta data for SimCity
+[2021-05-27 21:55:02.811][Info] getting meta data for CitiesSkylines
+[2021-05-27 21:55:05.167][Info] getting meta data for WorldofTanks
+[2021-05-27 21:55:06.718][Info] getting meta data for Stellaris
+[2021-05-27 21:55:08.175][Info] getting meta data for hoi4
+[2021-05-27 21:55:09.136][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 21:55:09.245][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 21:55:09.523][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 21:55:09.833][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 21:55:10.174][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 21:55:10.515][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 21:55:10.733][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 21:55:11.027][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 21:55:11.199][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 21:55:11.476][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 21:55:11.771][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 21:55:12.050][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 21:55:12.359][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 21:55:12.623][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 21:55:12.980][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 21:55:13.245][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 21:55:13.507][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 21:55:13.739][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 21:55:14.049][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 21:55:14.251][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 21:55:14.608][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 21:55:14.902][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 21:55:15.212][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 21:55:15.537][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 21:55:15.801][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 21:55:16.173][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 21:55:16.516][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 21:55:16.747][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 21:55:16.964][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 21:55:17.212][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 21:55:17.477][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 21:55:18.002][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 21:55:18.420][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 21:55:18.689][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 21:55:18.994][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 21:55:19.257][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 21:55:19.536][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 21:55:19.924][Info] Generating data for visualization subreddit subreddit
+[2021-05-27 21:55:19.924][Info] building graph subreddit to subreddit
+[2021-05-27 21:55:19.924][Info] adding metadata to nodes
+[2021-05-27 21:55:19.925][Info] adding meta data to edges
+[2021-05-27 21:55:19.925][Info] visulaizting graph subreddit_subreddit.html
+[2021-05-27 21:55:19.925][Info] creating visualization
+[2021-05-27 21:55:19.926][Info] saving visualization subreddit_subreddit.html
+[2021-05-27 21:55:20.282][Info] visulaizting graph subreddit_subreddit_coloring_cluster.html
+[2021-05-27 21:55:20.327][Info] creating visualization
+[2021-05-27 21:55:20.358][Info] saving visualization subreddit_subreddit_coloring_cluster.html
+[2021-05-27 21:55:20.654][Info] visulaizting graph subreddit_user_simple_coloring_deg_cent.html
+[2021-05-27 21:55:20.654][Info] creating visualization
+[2021-05-27 21:55:20.654][Info] saving visualization subreddit_user_simple_coloring_deg_cent.html
+[2021-05-27 21:55:20.870][Info] visulaizting graph subreddit_user_simple_coloring_egien_cent.html
+[2021-05-27 21:55:20.962][Info] creating visualization
+[2021-05-27 21:55:20.963][Info] saving visualization subreddit_user_simple_coloring_egien_cent.html
+[2021-05-27 21:55:21.149][Info] visulaizting graph subreddit_user_simple:coloring_harmonic_cent.html
+[2021-05-27 21:55:21.149][Info] creating visualization
+[2021-05-27 21:55:21.149][Info] saving visualization subreddit_user_simple:coloring_harmonic_cent.html
+[2021-05-27 21:55:21.365][Info] visulaizting graph subreddit_user_simple_coloring_sub_graph_cent.html
+[2021-05-27 21:55:21.365][Info] creating visualization
+[2021-05-27 21:55:21.366][Info] saving visualization subreddit_user_simple_coloring_sub_graph_cent.html
+[2021-05-27 21:55:21.660][Info] visulaizting graph subreddit_user_simple_coloring_closeness_cent.html
+[2021-05-27 21:55:21.660][Info] creating visualization
+[2021-05-27 21:55:21.660][Info] saving visualization subreddit_user_simple_coloring_closeness_cent.html
+[2021-05-27 21:55:22.001][Info] genrating unqiue user list
+[2021-05-27 21:55:23.179][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 21:55:23.179][Info] Generating data for visualization subreddit user
+[2021-05-27 21:55:23.179][Info] building graph subbredit to user
+[2021-05-27 21:55:23.179][Info] adding subreddit nodes
+[2021-05-27 21:55:23.180][Info] adding user nodes
+[2021-05-27 21:55:23.259][Info] adding edges
+[2021-05-27 21:55:24.560][Info] visulaizting graph subreddit_user.html
+[2021-05-27 21:55:24.560][Info] creating visualization
+[2021-05-27 21:55:26.909][Info] saving visualization subreddit_user.html
+[2021-05-27 21:55:27.183][Info] visulaizting graph subreddit_user_simple.html
+[2021-05-27 21:55:27.183][Info] creating visualization
+[2021-05-27 21:55:27.185][Info] saving visualization subreddit_user_simple.html
+[2021-05-27 21:55:27.395][Info] visulaizting graph subreddit_user_simple_coloring_deg_cent.html
+[2021-05-27 21:55:27.395][Info] creating visualization
+[2021-05-27 21:55:27.397][Info] saving visualization subreddit_user_simple_coloring_deg_cent.html
+[2021-05-27 21:55:27.894][Info] visulaizting graph subreddit_user_simple_coloring_egien_cent.html
+[2021-05-27 21:55:27.922][Info] creating visualization
+[2021-05-27 21:55:27.923][Info] saving visualization subreddit_user_simple_coloring_egien_cent.html
+[2021-05-27 21:55:28.159][Info] visulaizting graph subreddit_user_simple:coloring_harmonic_cent.html
+[2021-05-27 21:55:28.170][Info] creating visualization
+[2021-05-27 21:55:28.171][Info] saving visualization subreddit_user_simple:coloring_harmonic_cent.html
+[2021-05-27 21:55:28.418][Info] visulaizting graph subreddit_user_simple_coloring_sub_graph_cent.html
+[2021-05-27 21:55:28.418][Info] creating visualization
+[2021-05-27 21:55:28.420][Info] saving visualization subreddit_user_simple_coloring_sub_graph_cent.html
+[2021-05-27 21:55:28.576][Info] visulaizting graph subreddit_user_simple_coloring_closeness_cent.html
+[2021-05-27 21:55:28.576][Info] creating visualization
+[2021-05-27 21:55:28.578][Info] saving visualization subreddit_user_simple_coloring_closeness_cent.html
+[2021-05-27 21:55:28.852][Info] Generating data for visualization subreddit user
+[2021-05-27 21:55:28.852][Info] adding nodes
+[2021-05-27 21:55:28.852][Info] adding edges
+[2021-05-27 21:55:28.853][Info] This took 0h : 0m : 0.0011s
+[2021-05-27 21:55:28.853][Info] visulaizting graph user_user_gt1.html
+[2021-05-27 21:55:28.853][Info] creating visualization
+[2021-05-27 21:55:28.854][Info] saving visualization user_user_gt1.html
+[2021-05-27 21:55:29.069][Info] visulaizting graph user_user_gt1_coloring_deg_cent.html
+[2021-05-27 21:55:29.069][Info] creating visualization
+[2021-05-27 21:55:29.071][Info] saving visualization user_user_gt1_coloring_deg_cent.html
+[2021-05-27 21:55:29.307][Info] visulaizting graph user_user_gt1_coloring_egien_cent.html
+[2021-05-27 21:55:29.307][Info] creating visualization
+[2021-05-27 21:55:29.308][Info] saving visualization user_user_gt1_coloring_egien_cent.html
+[2021-05-27 21:55:29.581][Info] visulaizting graph user_user_gt1:coloring_harmonic_cent.html
+[2021-05-27 21:55:29.581][Info] creating visualization
+[2021-05-27 21:55:29.583][Info] saving visualization user_user_gt1:coloring_harmonic_cent.html
+[2021-05-27 21:55:29.937][Info] visulaizting graph user_user_gt1_coloring_sub_graph_cent.html
+[2021-05-27 21:55:29.968][Info] creating visualization
+[2021-05-27 21:55:29.969][Info] saving visualization user_user_gt1_coloring_sub_graph_cent.html
+[2021-05-27 21:55:30.263][Info] visulaizting graph user_user_gt1_coloring_closeness_cent.html
+[2021-05-27 21:55:30.263][Info] creating visualization
+[2021-05-27 21:55:30.264][Info] saving visualization user_user_gt1_coloring_closeness_cent.html
+[2021-05-27 21:55:30.464][Info] Generating data for visualization subreddit user
+[2021-05-27 21:55:30.464][Info] adding nodes
+[2021-05-27 21:55:30.464][Info] adding edges
+[2021-05-27 21:55:30.466][Info] This took 0h : 0m : 0.0020s
+[2021-05-27 21:55:30.466][Info] visulaizting graph user_user_get1.html
+[2021-05-27 21:55:30.466][Info] creating visualization
+[2021-05-27 21:55:30.480][Info] saving visualization user_user_get1.html
+[2021-05-27 21:55:30.681][Info] visulaizting graph user_user_get1_coloring_deg_cent.html
+[2021-05-27 21:55:30.681][Info] creating visualization
+[2021-05-27 21:55:30.694][Info] saving visualization user_user_get1_coloring_deg_cent.html
+[2021-05-27 21:55:30.900][Info] visulaizting graph user_user_get1_coloring_egien_cent.html
+[2021-05-27 21:55:30.900][Info] creating visualization
+[2021-05-27 21:55:30.912][Info] saving visualization user_user_get1_coloring_egien_cent.html
+[2021-05-27 21:55:31.132][Info] visulaizting graph user_user_get1:coloring_harmonic_cent.html
+[2021-05-27 21:55:31.132][Info] creating visualization
+[2021-05-27 21:55:31.145][Info] saving visualization user_user_get1:coloring_harmonic_cent.html
+[2021-05-27 21:55:31.751][Info] visulaizting graph user_user_get1_coloring_sub_graph_cent.html
+[2021-05-27 21:55:31.781][Info] creating visualization
+[2021-05-27 21:55:31.793][Info] saving visualization user_user_get1_coloring_sub_graph_cent.html
+[2021-05-27 21:55:32.371][Info] visulaizting graph user_user_get1_coloring_current_flow_cent.html
+[2021-05-27 21:55:32.386][Info] creating visualization
+[2021-05-27 21:55:32.419][Info] saving visualization user_user_get1_coloring_current_flow_cent.html
+[2021-05-27 21:55:32.713][Info] visulaizting graph user_user_get1_coloring_closeness_cent.html
+[2021-05-27 21:55:32.742][Info] creating visualization
+[2021-05-27 21:55:32.785][Info] saving visualization user_user_get1_coloring_closeness_cent.html
+[2021-05-27 21:55:33.021][Info] visualization complete
+[2021-05-27 21:59:08.983][Info] Staring closing procedure
+
+[2021-05-27 22:00:56.163][Info] starting visualization
+[2021-05-27 22:00:56.209][Info] crawling for metadata before visualization
+[2021-05-27 22:00:56.333][Info] Crawling for subreddit metadata
+[2021-05-27 22:00:56.349][Info] getting meta data for civ
+[2021-05-27 22:00:57.883][Info] getting meta data for CrusaderKings
+[2021-05-27 22:01:08.222][Info] getting meta data for eu4
+[2021-05-27 22:01:18.638][Info] getting meta data for totalwar
+[2021-05-27 22:01:29.069][Info] getting meta data for SimCity
+[2021-05-27 22:01:39.594][Info] getting meta data for CitiesSkylines
+[2021-05-27 22:01:50.025][Info] getting meta data for WorldofTanks
+[2021-05-27 22:02:00.426][Info] getting meta data for Stellaris
+[2021-05-27 22:02:10.935][Info] getting meta data for hoi4
+[2021-05-27 22:02:21.289][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 22:02:21.382][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 22:02:21.599][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 22:02:21.800][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 22:02:22.048][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 22:02:22.250][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 22:02:22.467][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 22:02:22.699][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 22:02:22.916][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 22:02:23.164][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 22:02:23.412][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 22:02:23.645][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 22:02:23.846][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 22:02:24.063][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 22:02:24.265][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 22:02:24.482][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 22:02:24.683][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 22:02:24.900][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 22:02:25.086][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 22:02:25.272][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 22:02:25.505][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 22:02:25.753][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 22:02:26.016][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 22:02:26.187][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 22:02:26.388][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 22:02:26.590][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 22:02:26.791][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 22:02:27.008][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 22:02:27.194][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 22:02:27.396][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 22:02:27.613][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 22:02:27.892][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 22:02:28.140][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 22:02:28.358][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 22:02:28.574][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 22:02:28.746][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 22:02:28.946][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 22:02:29.147][Info] Generating data for visualization subreddit subreddit
+[2021-05-27 22:02:29.163][Info] building graph subreddit to subreddit
+[2021-05-27 22:02:29.194][Info] adding metadata to nodes
+[2021-05-27 22:02:29.225][Info] adding meta data to edges
+[2021-05-27 22:02:29.226][Info] visulaizting graph subreddit_subreddit.html
+[2021-05-27 22:02:29.226][Info] creating visualization
+[2021-05-27 22:02:29.226][Info] saving visualization subreddit_subreddit.html
+[2021-05-27 22:02:29.412][Info] visulaizting graph subreddit_subreddit_coloring_cluster.html
+[2021-05-27 22:02:29.426][Info] creating visualization
+[2021-05-27 22:02:29.458][Info] saving visualization subreddit_subreddit_coloring_cluster.html
+[2021-05-27 22:02:29.661][Info] visulaizting graph subreddit_subreddit_coloring_deg_cent.html
+[2021-05-27 22:02:29.661][Info] creating visualization
+[2021-05-27 22:02:29.662][Info] saving visualization subreddit_subreddit_coloring_deg_cent.html
+[2021-05-27 22:02:29.830][Info] visulaizting graph subreddit_subreddit_coloring_egien_cent.html
+[2021-05-27 22:02:29.860][Info] creating visualization
+[2021-05-27 22:02:29.876][Info] saving visualization subreddit_subreddit_coloring_egien_cent.html
+[2021-05-27 22:02:30.078][Info] visulaizting graph subreddit_subreddit:coloring_harmonic_cent.html
+[2021-05-27 22:02:30.078][Info] creating visualization
+[2021-05-27 22:02:30.078][Info] saving visualization subreddit_subreddit:coloring_harmonic_cent.html
+[2021-05-27 22:02:30.263][Info] visulaizting graph subreddit_subreddit_coloring_sub_graph_cent.html
+[2021-05-27 22:02:30.263][Info] creating visualization
+[2021-05-27 22:02:30.264][Info] saving visualization subreddit_subreddit_coloring_sub_graph_cent.html
+[2021-05-27 22:02:30.465][Info] visulaizting graph subreddit_subreddit_coloring_closeness_cent.html
+[2021-05-27 22:02:30.465][Info] creating visualization
+[2021-05-27 22:02:30.465][Info] saving visualization subreddit_subreddit_coloring_closeness_cent.html
+[2021-05-27 22:02:30.604][Info] genrating unqiue user list
+[2021-05-27 22:02:31.674][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 22:02:31.674][Info] Generating data for visualization subreddit user
+[2021-05-27 22:02:31.674][Info] building graph subbredit to user
+[2021-05-27 22:02:31.674][Info] adding subreddit nodes
+[2021-05-27 22:02:31.675][Info] adding user nodes
+[2021-05-27 22:02:31.738][Info] adding edges
+[2021-05-27 22:02:32.605][Info] visulaizting graph subreddit_user.html
+[2021-05-27 22:02:32.605][Info] creating visualization
+[2021-05-27 22:02:34.941][Info] saving visualization subreddit_user.html
+[2021-05-27 22:02:35.166][Info] visulaizting graph subreddit_user_simple.html
+[2021-05-27 22:02:35.166][Info] creating visualization
+[2021-05-27 22:02:35.168][Info] saving visualization subreddit_user_simple.html
+[2021-05-27 22:02:35.332][Info] visulaizting graph subreddit_user_simple_coloring_deg_cent.html
+[2021-05-27 22:02:35.332][Info] creating visualization
+[2021-05-27 22:02:35.333][Info] saving visualization subreddit_user_simple_coloring_deg_cent.html
+[2021-05-27 22:02:35.474][Info] visulaizting graph subreddit_user_simple_coloring_egien_cent.html
+[2021-05-27 22:02:35.474][Info] creating visualization
+[2021-05-27 22:02:35.476][Info] saving visualization subreddit_user_simple_coloring_egien_cent.html
+[2021-05-27 22:02:35.660][Info] visulaizting graph subreddit_user_simple:coloring_harmonic_cent.html
+[2021-05-27 22:02:35.688][Info] creating visualization
+[2021-05-27 22:02:35.720][Info] saving visualization subreddit_user_simple:coloring_harmonic_cent.html
+[2021-05-27 22:02:35.936][Info] visulaizting graph subreddit_user_simple_coloring_sub_graph_cent.html
+[2021-05-27 22:02:35.936][Info] creating visualization
+[2021-05-27 22:02:35.938][Info] saving visualization subreddit_user_simple_coloring_sub_graph_cent.html
+[2021-05-27 22:02:36.094][Info] visulaizting graph subreddit_user_simple_coloring_closeness_cent.html
+[2021-05-27 22:02:36.106][Info] creating visualization
+[2021-05-27 22:02:36.123][Info] saving visualization subreddit_user_simple_coloring_closeness_cent.html
+[2021-05-27 22:02:36.308][Info] Generating data for visualization subreddit user
+[2021-05-27 22:02:36.308][Info] adding nodes
+[2021-05-27 22:02:36.308][Info] adding edges
+[2021-05-27 22:02:36.309][Info] This took 0h : 0m : 0.0009s
+[2021-05-27 22:02:36.309][Info] visulaizting graph user_user_gt1.html
+[2021-05-27 22:02:36.309][Info] creating visualization
+[2021-05-27 22:02:36.311][Info] saving visualization user_user_gt1.html
+[2021-05-27 22:02:36.479][Info] visulaizting graph user_user_gt1_coloring_deg_cent.html
+[2021-05-27 22:02:36.479][Info] creating visualization
+[2021-05-27 22:02:36.480][Info] saving visualization user_user_gt1_coloring_deg_cent.html
+[2021-05-27 22:02:36.608][Info] visulaizting graph user_user_gt1_coloring_egien_cent.html
+[2021-05-27 22:02:36.608][Info] creating visualization
+[2021-05-27 22:02:36.609][Info] saving visualization user_user_gt1_coloring_egien_cent.html
+[2021-05-27 22:02:36.758][Info] visulaizting graph user_user_gt1:coloring_harmonic_cent.html
+[2021-05-27 22:02:36.773][Info] creating visualization
+[2021-05-27 22:02:36.789][Info] saving visualization user_user_gt1:coloring_harmonic_cent.html
+[2021-05-27 22:02:37.005][Info] visulaizting graph user_user_gt1_coloring_sub_graph_cent.html
+[2021-05-27 22:02:37.021][Info] creating visualization
+[2021-05-27 22:02:37.038][Info] saving visualization user_user_gt1_coloring_sub_graph_cent.html
+[2021-05-27 22:02:37.223][Info] visulaizting graph user_user_gt1_coloring_closeness_cent.html
+[2021-05-27 22:02:37.223][Info] creating visualization
+[2021-05-27 22:02:37.224][Info] saving visualization user_user_gt1_coloring_closeness_cent.html
+[2021-05-27 22:02:37.393][Info] Generating data for visualization subreddit user
+[2021-05-27 22:02:37.408][Info] adding nodes
+[2021-05-27 22:02:37.439][Info] adding edges
+[2021-05-27 22:02:37.441][Info] This took 0h : 0m : 0.0329s
+[2021-05-27 22:02:37.455][Info] visulaizting graph user_user_get1.html
+[2021-05-27 22:02:37.455][Info] creating visualization
+[2021-05-27 22:02:37.467][Info] saving visualization user_user_get1.html
+[2021-05-27 22:02:37.657][Info] visulaizting graph user_user_get1_coloring_deg_cent.html
+[2021-05-27 22:02:37.672][Info] creating visualization
+[2021-05-27 22:02:37.699][Info] saving visualization user_user_get1_coloring_deg_cent.html
+[2021-05-27 22:02:37.891][Info] visulaizting graph user_user_get1_coloring_egien_cent.html
+[2021-05-27 22:02:37.891][Info] creating visualization
+[2021-05-27 22:02:37.903][Info] saving visualization user_user_get1_coloring_egien_cent.html
+[2021-05-27 22:02:38.061][Info] visulaizting graph user_user_get1:coloring_harmonic_cent.html
+[2021-05-27 22:02:38.090][Info] creating visualization
+[2021-05-27 22:02:38.117][Info] saving visualization user_user_get1:coloring_harmonic_cent.html
+[2021-05-27 22:02:38.354][Info] visulaizting graph user_user_get1_coloring_sub_graph_cent.html
+[2021-05-27 22:02:38.354][Info] creating visualization
+[2021-05-27 22:02:38.386][Info] saving visualization user_user_get1_coloring_sub_graph_cent.html
+[2021-05-27 22:02:38.881][Info] visulaizting graph user_user_get1_coloring_current_flow_cent.html
+[2021-05-27 22:02:38.881][Info] creating visualization
+[2021-05-27 22:02:38.893][Info] saving visualization user_user_get1_coloring_current_flow_cent.html
+[2021-05-27 22:02:39.038][Info] visulaizting graph user_user_get1_coloring_closeness_cent.html
+[2021-05-27 22:02:39.038][Info] creating visualization
+[2021-05-27 22:02:39.050][Info] saving visualization user_user_get1_coloring_closeness_cent.html
+[2021-05-27 22:02:39.206][Info] visualization complete
+[2021-05-27 22:06:58.847][Info] Staring closing procedure
+

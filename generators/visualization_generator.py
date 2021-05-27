@@ -1,6 +1,8 @@
 import networkx as nx
 import networkx.algorithms.centrality as nx_centrality
+import networkx.algorithms.bridges as nx_bridge
 from networkx.algorithms.centrality import harmonic
+from networkx.readwrite.gml import Token
 from reddit_crawl.data.users import MultiSubredditUsers, UniqueUsers
 from reddit_crawl.data.subreddit import Crawl_Metadata
 import threading
@@ -111,6 +113,20 @@ def __visualize_centrality(graph: Graph, cent_func: Callable[[Graph],dict[int,An
   __color_graph_centrality(graph,gradient,cent_func,logger,token)
   __visualize_graph(graph, VisualizationDataFile(name),config,logger,token, physics=True)
 
+def __color_bridges(graph: Graph,color:Color,config: Config,logger:Logger, token: Cancel_Token):
+  pass
+
+def __viusalize_centraliteis(graph: Graph,name_base:str,gradient: ColorGradient, config: Config, logger: Logger, token: Cancel_Token):
+  __visualize_centrality(graph,nx_centrality.degree_centrality,name_base+"_coloring_deg_cent.html",gradient,config,logger,token)
+  __visualize_centrality(graph,nx_centrality.eigenvector_centrality,name_base+"_coloring_egien_cent.html",gradient,config,logger,token)
+  __visualize_centrality(graph,nx_centrality.harmonic_centrality,name_base+":coloring_harmonic_cent.html",gradient,config,logger,token)
+  __visualize_centrality(graph,nx_centrality.subgraph_centrality,name_base+"_coloring_sub_graph_cent.html",gradient,config,logger,token)
+  if nx.is_connected(graph):
+    __visualize_centrality(graph,nx_centrality.current_flow_closeness_centrality,name_base+"_coloring_current_flow_cent.html",gradient,config,logger,token)
+  __visualize_centrality(graph,nx_centrality.closeness_centrality,name_base+"_coloring_closeness_cent.html",gradient,config,logger,token)
+
+  
+
 def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,load_data_from_disk: bool,on_done_callback: Callable):
   with token:
     logger.log("starting visualization")
@@ -141,6 +157,7 @@ def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,
     gradient = ColorGradient(Color('red'),Color('lime'),100,True)
     __color_graph_clustering(graph,gradient,logger,token)
     __visualize_graph(graph,VisualizationDataFile(__SUBBREDDIT_SUBBREDIT_COLORING_CLUSTER),config,logger,token)
+    __viusalize_centraliteis(graph,"subreddit_subreddit",ColorGradient(Color("#ff5f1f"),Color("#1fbfff"),100,True), config, logger, token)
 
     users = None
     if load_data_from_disk:
@@ -151,7 +168,12 @@ def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,
 
     graph = __get_graph_subreddit_user(users,crawl_metadata,config, logger, token, load_data_from_disk)
 
-    __visualize_graph(graph,VisualizationDataFile(__SUBREDDIT_USER),config,logger,token)
+    __visualize_graph(graph,VisualizationDataFile(__SUBREDDIT_USER),config,logger,token,physics=True,buttons_filter=['physics'])
+    
+    gg.modify_graph_remove_degree_less_than(graph,2)
+    __visualize_graph(graph,VisualizationDataFile("subreddit_user_simple.html"),config,logger,token,physics=True,buttons_filter=['physics'])
+    __viusalize_centraliteis(graph,"subreddit_user_simple",gradient, config, logger, token)
+
     if token.is_cancel_requested():
       return
     #todo
@@ -159,30 +181,15 @@ def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,
     __visualize_graph(graph,VisualizationDataFile(__USER_USER_MORE_THAN_ONE),config,logger,token,physics=True,buttons_filter=['physics'])
     
     __color_graph_edges(graph,DefaultColorPallet.EDGE_COLOR.value[0])
-    __visualize_centrality(graph,nx_centrality.degree_centrality,"user_user_gt1_coloring_deg_cent.html",gradient,config,logger,token)
-    __visualize_centrality(graph,nx_centrality.eigenvector_centrality,"user_user_gt1_coloring_egien_cent.html",gradient,config,logger,token)
-    __visualize_centrality(graph,nx_centrality.harmonic_centrality,"user_user_gt1_coloring_harmonic_cent.html",gradient,config,logger,token)
-    __visualize_centrality(graph,nx_centrality.subgraph_centrality,"user_user_gt1_coloring_sub_graph_cent.html",gradient,config,logger,token)
-    
-    if nx.is_connected(graph):
-      __visualize_centrality(graph,nx_centrality.current_flow_closeness_centrality,"user_user_gt1_coloring_current_flow_cent.html",gradient,config,logger,token)
-    __visualize_centrality(graph,nx_centrality.closeness_centrality,"user_user_gt1_coloring_closeness_cent.html",gradient,config,logger,token)
+    __viusalize_centraliteis(graph,"user_user_gt1",gradient, config, logger, token)
 
-    
     if token.is_cancel_requested():
       return
     graph = __get_graph_user_user(multi_sub_users,GraphDataFiles.USER_USER_ONE_OR_MORE,config,logger,token,load_data_from_disk)
     __visualize_graph(graph,VisualizationDataFile(__USER_USER_ONE_OR_MORE),config,logger,token,physics=True,buttons_filter=['physics'])
 
     __color_graph_edges(graph,DefaultColorPallet.EDGE_COLOR.value[0])
-         
-    __visualize_centrality(graph,nx_centrality.degree_centrality,"user_user_get1_coloring_deg_cent.html",gradient,config,logger,token)
-    __visualize_centrality(graph,nx_centrality.eigenvector_centrality,"user_user_get1_coloring_egien_cent.html",gradient,config,logger,token)
-    __visualize_centrality(graph,nx_centrality.harmonic_centrality,"user_user_get1_coloring_harmonic_cent.html",gradient,config,logger,token)
-    __visualize_centrality(graph,nx_centrality.subgraph_centrality,"user_user_get1_coloring_sub_graph_cent.html",gradient,config,logger,token)
-    if nx.is_connected(graph):
-      __visualize_centrality(graph,nx_centrality.current_flow_closeness_centrality,"user_user_get1_coloring_current_flow_cent.html",gradient,config,logger,token)
-    __visualize_centrality(graph,nx_centrality.closeness_centrality,"user_user_get1_coloring_closeness_cent.html",gradient,config,logger,token)
+    __viusalize_centraliteis(graph,"user_user_get1",gradient, config, logger, token)
 
     logger.log("visualization complete")
     on_done_callback()

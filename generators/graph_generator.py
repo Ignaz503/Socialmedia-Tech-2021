@@ -127,7 +127,7 @@ def __edge_subreddit_user_generator(users: UniqueUsers, config: Config, logger: 
       user_idx = user_counter
       user_counter += 1
       if sub_data.contains(user):
-        yield (idx_dict[sub_name],user_idx,{'color': DefaultColorPallet.EDGE_COLOR.value})
+        yield (idx_dict[sub_name],user_idx,{'color': DefaultColorPallet.EDGE_COLOR.value[0]})
 
 def __add_edges_subreddit_user(graph: Graph, users:UniqueUsers, config: Config, logger: Logger, token: Cancel_Token):
   graph.add_edges_from(__edge_subreddit_user_generator(users,config,logger,token))
@@ -143,6 +143,7 @@ def build_graph_subreddit_user(users:UniqueUsers, crawl_metadata: Crawl_Metadata
     return graph
   logger.log("adding edges")
   __add_edges_subreddit_user(graph,users, config, logger, token)
+    
   return graph
 
 def __edge_generator_user_user_graph(
@@ -224,3 +225,7 @@ def write_all_possible_as_dot(
     return
   write_as_dot(g,GraphDataFiles.USER_USER_ONE_OR_MORE.get_file_path(config))
 
+def modify_graph_remove_degree_less_than(graph: Graph, deg:int):
+    remove = [node for node,degree in dict(graph.degree()).items() if degree < deg]
+    graph.remove_nodes_from(remove)
+  
