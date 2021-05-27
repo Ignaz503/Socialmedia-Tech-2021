@@ -157,6 +157,18 @@ def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,
     #todo
     graph = __get_graph_user_user(multi_sub_users,GraphDataFiles.USER_USER_MORE_THAN_ONE,config,logger,token,load_data_from_disk)
     __visualize_graph(graph,VisualizationDataFile(__USER_USER_MORE_THAN_ONE),config,logger,token,physics=True,buttons_filter=['physics'])
+    
+    __color_graph_edges(graph,DefaultColorPallet.EDGE_COLOR.value[0])
+    __visualize_centrality(graph,nx_centrality.degree_centrality,"user_user_gt1_coloring_deg_cent.html",gradient,config,logger,token)
+    __visualize_centrality(graph,nx_centrality.eigenvector_centrality,"user_user_gt1_coloring_egien_cent.html",gradient,config,logger,token)
+    __visualize_centrality(graph,nx_centrality.harmonic_centrality,"user_user_gt1_coloring_harmonic_cent.html",gradient,config,logger,token)
+    __visualize_centrality(graph,nx_centrality.subgraph_centrality,"user_user_gt1_coloring_sub_graph_cent.html",gradient,config,logger,token)
+    
+    if nx.is_connected(graph):
+      __visualize_centrality(graph,nx_centrality.current_flow_closeness_centrality,"user_user_gt1_coloring_current_flow_cent.html",gradient,config,logger,token)
+    __visualize_centrality(graph,nx_centrality.closeness_centrality,"user_user_gt1_coloring_closeness_cent.html",gradient,config,logger,token)
+
+    
     if token.is_cancel_requested():
       return
     graph = __get_graph_user_user(multi_sub_users,GraphDataFiles.USER_USER_ONE_OR_MORE,config,logger,token,load_data_from_disk)
@@ -168,7 +180,8 @@ def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,
     __visualize_centrality(graph,nx_centrality.eigenvector_centrality,"user_user_get1_coloring_egien_cent.html",gradient,config,logger,token)
     __visualize_centrality(graph,nx_centrality.harmonic_centrality,"user_user_get1_coloring_harmonic_cent.html",gradient,config,logger,token)
     __visualize_centrality(graph,nx_centrality.subgraph_centrality,"user_user_get1_coloring_sub_graph_cent.html",gradient,config,logger,token)
-    __visualize_centrality(graph,nx_centrality.current_flow_closeness_centrality,"user_user_get1_coloring_current_flow_cent.html",gradient,config,logger,token)
+    if nx.is_connected(graph):
+      __visualize_centrality(graph,nx_centrality.current_flow_closeness_centrality,"user_user_get1_coloring_current_flow_cent.html",gradient,config,logger,token)
     __visualize_centrality(graph,nx_centrality.closeness_centrality,"user_user_get1_coloring_closeness_cent.html",gradient,config,logger,token)
 
     logger.log("visualization complete")
