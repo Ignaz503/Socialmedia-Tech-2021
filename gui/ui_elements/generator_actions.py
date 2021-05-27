@@ -1,15 +1,16 @@
+from generators.data.visualization_files import VisualizationDataFile
+import tkinter
 from tkinter.constants import BOTTOM, LEFT, RIGHT, TOP, TRUE
+from tkinter import Button, Frame, Label, NS, X
 from utility.simple_logging import Level
-from tkinter import Button, Frame, Label, NS, OptionMenu, StringVar,X
 from gui.ui_elements.ui_element import UIElement
 from gui.ui_elements.toggle_button import DelayedToggleButton
-
 from utility.cancel_token import Cancel_Token
 from gui.ui_elements.toggle_button import WaitOptions
-
+from utility.data_util import make_data_path, DataLocation
 import generators.data_generator as data_generator
 import generators.visualization_generator as visualization_generator
-from generators.visualization_generator import VisualizationDataFiles
+import tkinter.filedialog as filedialog
 
 class GeneratorActions(UIElement):
   __data_generation_btn: DelayedToggleButton
@@ -20,7 +21,6 @@ class GeneratorActions(UIElement):
   __show_btn_frame:Frame
   __created_vis:bool
   __data_processing_done:bool
-  __vis_to_show_var: StringVar
 
   def __init__(self,*args,**kwargs) -> None:
     self.__data_generation_btn = None
@@ -28,8 +28,6 @@ class GeneratorActions(UIElement):
     self.__show_btn_frame= None
     self.__created_vis=False
     self.__data_processing_done=False
-    self.__vis_to_show_var = StringVar()
-    self.__vis_to_show_var.set(VisualizationDataFiles.SUBREDDIT_SUBREDDIT.name.replace("_","-"))
     self.__data_generation_cancel_token = Cancel_Token()
     self.__visualization_cancel_token = Cancel_Token()
     super().__init__(*args,**kwargs)
@@ -75,16 +73,10 @@ class GeneratorActions(UIElement):
     l = Label(master=self.__show_btn_frame,text="Show Graph:")
     l.grid(row=0,column=0,padx=5)
 
-    show_options = OptionMenu(self.__show_btn_frame,
-      self.__vis_to_show_var,
-      *[e.name.replace("_","-") for e in VisualizationDataFiles],
-      command=lambda var: None)
-    show_options.grid(row=0,column=1,padx=5)
-
     btn = Button(master=self.__show_btn_frame,
-        text="Go",
+        text="Select",
         command=self.__show_visualization)
-    btn.grid(row=0,column=2,padx=5)
+    btn.grid(row=0,column=1,padx=5)
 
   def __pack_show_btn_frame(self):
     self.__show_btn_frame.pack(side=BOTTOM,fill=X,pady=5,padx=5,expand=True)
@@ -153,12 +145,16 @@ class GeneratorActions(UIElement):
     return self.__data_generation_btn.get_state() or self.__visualization_generation_button.get_state()
 
   def __show_visualization(self):
-    try:
-      self.application.log(f"Showing {self.__vis_to_show_var.get()}")
-      VisualizationDataFiles.from_name(self.__vis_to_show_var.get().replace("-","_")).show(self.application.config)
-    except ValueError:
-      self.application.log("Couldn't parse visualization show option", Level.ERROR)
-      pass
+    p = make_data_path(self.application.config,"",DataLocation.VISUALIZATION)
+    resulsts:str = filedialog.askopenfilenames(initialdir=p)
+    if resulsts is not None and resulsts is not []:
+      for res in resulsts:
+        res = res.replace("/","\\")
+        if p not in res:
+          self.application.log("Only files form the visualization folder are valid", Level.WARNING)
+          return
+        file = res.replace(p,"")
+        VisualizationDataFile(file).show(self.application.config)
 
   def __on_config_update(self,value_name: str):
     if value_name == "subreddits_to_crawl":

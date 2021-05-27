@@ -1,11 +1,10 @@
 import networkx as nx
-from networkx.algorithms.bipartite.basic import color
-from networkx.convert import to_edgelist
-from pyvis.physics import Physics
+import networkx.algorithms.centrality as nx_centrality
+from networkx.algorithms.centrality import harmonic
 from reddit_crawl.data.users import MultiSubredditUsers, UniqueUsers
 from reddit_crawl.data.subreddit import Crawl_Metadata
 import threading
-from typing import Callable
+from typing import Any, Callable
 import generators.graph_generator as gg
 from utility.cancel_token import Cancel_Token
 import generators.util as dg
@@ -13,16 +12,23 @@ from utility.app_config import Config
 from utility.simple_logging import Logger, Level
 from pyvis.network import Network
 from networkx.classes.graph import Graph
-from utility.colorpallet import ColorPallet
-from generators.data.visualization_files import VisualizationDataFiles
+from utility.colorpallet import ColorPallet, DefaultColorPallet
+from generators.data.visualization_files import VisualizationDataFile
 from generators.data.graph_files import GraphDataFiles
 import reddit_crawl.meta_data_crawl as metadata_crawl
 import generators.data_generator as data_generator
 from utility.color import ColorGradient
 from colour import Color
+import math
+
+__SUBREDDIT_SUBREDDIT = "subreddit_subreddit.html"
+__SUBBREDDIT_SUBBREDIT_COLORING_CLUSTER = "subreddit_subreddit_coloring_cluster.html"
+__SUBREDDIT_USER = "subreddit_user.html"
+__USER_USER_MORE_THAN_ONE = "user_user_gt1.html"
+__USER_USER_ONE_OR_MORE = "user_user_get1.html"
 
 def __build_network_from_graph(graph: Graph,physics: bool, buttons_filter=[])->Network:
-  vis_network = Network('1920px','1920px',bgcolor=ColorPallet.BACKGROUND_COLOR.value,font_color=ColorPallet.FONT_COLOR.value)
+  vis_network = Network('1920px','1920px',bgcolor=DefaultColorPallet.BACKGROUND_COLOR.value,font_color=DefaultColorPallet.FONT_COLOR.value)
   vis_network.from_nx(graph)
   vis_network.force_atlas_2based()
   vis_network.toggle_physics(physics)
@@ -37,13 +43,16 @@ def __get_graph_subreddit_subreddit(mat,crawl_metadata: Crawl_Metadata,config:Co
     logger.log("Generating data for visualization subreddit subreddit")
     return gg.build_graph_subreddit_subreddit(mat,crawl_metadata,config,logger,token)
 
-def __get_graph_user_user(multi_sub_users:MultiSubredditUsers,config: Config,logger: Logger, token: Cancel_Token,load_data_from_disk:bool) -> Graph:
+def __get_graph_user_user(multi_sub_users:MultiSubredditUsers,file: GraphDataFiles,config: Config,logger: Logger, token: Cancel_Token,load_data_from_disk:bool) -> Graph:
   if load_data_from_disk:
     logger.log("loading data for visualization subreddit user")
-    return GraphDataFiles.USER_USER.load(config)
+    return file.load(config)
   else:
     logger.log("Generating data for visualization subreddit user")
-    return gg.build_graph_user_user(multi_sub_users,config,logger,token)
+    if file is GraphDataFiles.USER_USER_MORE_THAN_ONE:
+      return gg.build_graph_user_user(multi_sub_users,2,config,logger,token)
+    else:
+      return gg.build_graph_user_user(multi_sub_users,1,config,logger,token)
 
 def __get_graph_subreddit_user(users:UniqueUsers,crawl_metadata: Crawl_Metadata,config: Config,logger: Logger, token: Cancel_Token,load_data_from_disk:bool) -> Graph:
   if load_data_from_disk:
@@ -53,22 +62,54 @@ def __get_graph_subreddit_user(users:UniqueUsers,crawl_metadata: Crawl_Metadata,
     logger.log("Generating data for visualization subreddit user")
     return gg.build_graph_subreddit_user(users,crawl_metadata,config,logger,token)
 
-def __visualize_graph(graph: Graph,file:VisualizationDataFiles,config: Config, logger:Logger, token: Cancel_Token,physics=False,buttons_filter=[]):
+def __visualize_graph(graph: Graph,file:VisualizationDataFile,config: Config, logger:Logger, token: Cancel_Token,physics=False,buttons_filter=[]):
   logger.log(f"visulaizting graph {file.name}")
 
   logger.log("creating visualization")
   vis_network = __build_network_from_graph(graph,physics,buttons_filter)
 
   name = file.get_file_path(config)
-  logger.log("saving visualization {n}".format(n=file.value), Level.INFO)
+  logger.log("saving visualization {n}".format(n=file.name), Level.INFO)
   vis_network.save_graph(name)
 
-def __color_graph_clustering(graph:Graph,gradient:ColorGradient,config: Config, logger:Logger, token: Cancel_Token):
+def __color_graph_clustering(graph:Graph,gradient:ColorGradient,logger:Logger, token: Cancel_Token):
   clustering = nx.clustering(graph)
   for c in clustering:
     if token.is_cancel_requested():
       return
     graph.nodes[c]['color'] = gradient[clustering[c]].get_hex_l()
+
+def __color_graph_edges(graph:Graph,color_hex_code:str):
+  for edge in graph.edges(data=True):
+    edge[2]['color'] = color_hex_code
+
+def __color_graph_centrality(graph: Graph,gradient:ColorGradient, centrality_func: Callable[[Graph],dict[int,Any]], logger:Logger,token: Cancel_Token):
+    #v-min / max
+    cent_dict = centrality_func(graph)
+
+    min = float("inf")
+    max = float("-inf")
+
+    for node in cent_dict:
+      if cent_dict[node]> max:
+        max = cent_dict[node]
+      if cent_dict[node]<min:
+        min =cent_dict[node]
+
+    if math.isclose(max,0):
+      max = 0.0001
+
+    if max == min:
+      max += 0.0001
+
+    for node in cent_dict:
+      t = (cent_dict[node]-min)/(max-min)  
+      col = gradient.get(t)
+      graph.nodes[node]['color'] = col.get_hex_l()
+
+def __visualize_centrality(graph: Graph, cent_func: Callable[[Graph],dict[int,Any]],name:str,gradient: ColorGradient,config: Config,logger: Logger,token: Cancel_Token):
+  __color_graph_centrality(graph,gradient,cent_func,logger,token)
+  __visualize_graph(graph, VisualizationDataFile(name),config,logger,token, physics=True)
 
 def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,load_data_from_disk: bool,on_done_callback: Callable):
   with token:
@@ -81,26 +122,25 @@ def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,
       logger.log("loading metadata for visualization")
       crawl_metadata = Crawl_Metadata.load(config)
       #mat can stay none cause we don't load from mat data we load from dot file
-      multi_sub_user = MultiSubredditUsers.load(config)
+      multi_sub_users = MultiSubredditUsers.load(config)
     else:
       logger.log("crawling for metadata before visualization")
       crawl_metadata = Crawl_Metadata.empty()
       metadata_crawl.run_same_thread(crawl_metadata,config,logger, token)
-      mat,multi_sub_user = dg.generate_sub_sub_mat_and_multi_sub_user_metadata(config,logger,token)
+      mat,multi_sub_users = dg.generate_sub_sub_mat_and_multi_sub_user_metadata(config,logger,token)
 
     #we only ever change the color so just reuse this graph
     graph = __get_graph_subreddit_subreddit(mat,crawl_metadata,config,logger,token,load_data_from_disk)
 
     if token.is_cancel_requested():
       return
-    __visualize_graph(graph,VisualizationDataFiles.SUBREDDIT_SUBREDDIT,config,logger,token)
+    __visualize_graph(graph,VisualizationDataFile(__SUBREDDIT_SUBREDDIT),config,logger,token)
     if token.is_cancel_requested():
       return
 
-
     gradient = ColorGradient(Color('red'),Color('lime'),100,True)
-    __color_graph_clustering(graph,gradient,config,logger,token)
-    __visualize_graph(graph,VisualizationDataFiles.SUBBREDDIT_SUBBREDIT_COLORING_CLUSTER,config,logger,token)
+    __color_graph_clustering(graph,gradient,logger,token)
+    __visualize_graph(graph,VisualizationDataFile(__SUBBREDDIT_SUBBREDIT_COLORING_CLUSTER),config,logger,token)
 
     users = None
     if load_data_from_disk:
@@ -111,18 +151,29 @@ def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,
 
     graph = __get_graph_subreddit_user(users,crawl_metadata,config, logger, token, load_data_from_disk)
 
-    __visualize_graph(graph,VisualizationDataFiles.SUBREDDIT_USER,config,logger,token)
+    __visualize_graph(graph,VisualizationDataFile(__SUBREDDIT_USER),config,logger,token)
     if token.is_cancel_requested():
       return
     #todo
-    graph = __get_graph_user_user(multi_sub_users,config,logger,token,load_data_from_disk)
-    __visualize_graph(graph,VisualizationDataFiles.USER_USER,config,logger,token,physics=True,buttons_filter=['physics'])
+    graph = __get_graph_user_user(multi_sub_users,GraphDataFiles.USER_USER_MORE_THAN_ONE,config,logger,token,load_data_from_disk)
+    __visualize_graph(graph,VisualizationDataFile(__USER_USER_MORE_THAN_ONE),config,logger,token,physics=True,buttons_filter=['physics'])
+    if token.is_cancel_requested():
+      return
+    graph = __get_graph_user_user(multi_sub_users,GraphDataFiles.USER_USER_ONE_OR_MORE,config,logger,token,load_data_from_disk)
+    __visualize_graph(graph,VisualizationDataFile(__USER_USER_ONE_OR_MORE),config,logger,token,physics=True,buttons_filter=['physics'])
+
+    __color_graph_edges(graph,DefaultColorPallet.EDGE_COLOR.value[0])
+         
+    __visualize_centrality(graph,nx_centrality.degree_centrality,"user_user_get1_coloring_deg_cent.html",gradient,config,logger,token)
+    __visualize_centrality(graph,nx_centrality.eigenvector_centrality,"user_user_get1_coloring_egien_cent.html",gradient,config,logger,token)
+    __visualize_centrality(graph,nx_centrality.harmonic_centrality,"user_user_get1_coloring_harmonic_cent.html",gradient,config,logger,token)
+    __visualize_centrality(graph,nx_centrality.subgraph_centrality,"user_user_get1_coloring_sub_graph_cent.html",gradient,config,logger,token)
+    __visualize_centrality(graph,nx_centrality.current_flow_closeness_centrality,"user_user_get1_coloring_current_flow_cent.html",gradient,config,logger,token)
+    __visualize_centrality(graph,nx_centrality.closeness_centrality,"user_user_get1_coloring_closeness_cent.html",gradient,config,logger,token)
 
     logger.log("visualization complete")
     on_done_callback()
 
-
 def run(config: Config, logger: Logger, token: Cancel_Token,load_data_from_disk: bool ,on_done_callback: Callable = lambda: None):
   thread = threading.Thread(name="visualize thread", target=__generate_and_visualize,args=(config,logger,token,load_data_from_disk,on_done_callback))
   thread.start()
-

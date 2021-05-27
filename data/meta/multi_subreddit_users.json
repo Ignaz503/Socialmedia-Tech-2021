@@ -3,44 +3,44 @@
   "data": {
     "CKCarterIII": {
       "py/set": [
-        "CrusaderKings",
-        "civ"
+        "civ",
+        "CrusaderKings"
       ]
     },
     "taqn22": {
       "py/set": [
-        "CrusaderKings",
-        "civ"
+        "civ",
+        "CrusaderKings"
       ]
     },
     "Bonjourap": {
       "py/set": [
-        "eu4",
-        "civ"
+        "civ",
+        "eu4"
       ]
     },
     "Niallism": {
       "py/set": [
-        "Stellaris",
-        "civ"
+        "civ",
+        "Stellaris"
       ]
     },
     "KaizerKlash": {
       "py/set": [
-        "Stellaris",
-        "civ"
+        "civ",
+        "Stellaris"
       ]
     },
     "Toybasher": {
       "py/set": [
-        "Stellaris",
-        "civ"
+        "civ",
+        "Stellaris"
       ]
     },
     "RoyalTechnomagi": {
       "py/set": [
-        "Stellaris",
-        "civ"
+        "civ",
+        "Stellaris"
       ]
     },
     "Moyes2men": {
@@ -105,9 +105,9 @@
     },
     "Locem": {
       "py/set": [
-        "Stellaris",
         "CrusaderKings",
-        "totalwar"
+        "totalwar",
+        "Stellaris"
       ]
     },
     "nullstorm0": {
@@ -124,20 +124,20 @@
     },
     "RadioactiveCarrot": {
       "py/set": [
-        "Stellaris",
-        "CrusaderKings"
+        "CrusaderKings",
+        "Stellaris"
       ]
     },
     "LMeire": {
       "py/set": [
-        "Stellaris",
-        "CrusaderKings"
+        "CrusaderKings",
+        "Stellaris"
       ]
     },
     "Kolenga": {
       "py/set": [
-        "Stellaris",
-        "CrusaderKings"
+        "CrusaderKings",
+        "Stellaris"
       ]
     },
     "DuGalle": {
@@ -167,8 +167,8 @@
     "0WatcherintheWater0": {
       "py/set": [
         "Stellaris",
-        "eu4",
-        "hoi4"
+        "hoi4",
+        "eu4"
       ]
     },
     "ipsum629": {
@@ -191,26 +191,26 @@
     },
     "Kloiper": {
       "py/set": [
-        "eu4",
-        "hoi4"
+        "hoi4",
+        "eu4"
       ]
     },
     "WaitingToBeTriggered": {
       "py/set": [
-        "totalwar",
-        "CitiesSkylines"
+        "CitiesSkylines",
+        "totalwar"
       ]
     },
     "HouseOfSchaus": {
       "py/set": [
-        "Stellaris",
-        "totalwar"
+        "totalwar",
+        "Stellaris"
       ]
     },
     "Akratus2": {
       "py/set": [
-        "Stellaris",
-        "totalwar"
+        "totalwar",
+        "Stellaris"
       ]
     },
     "SamBellFromSarang": {
@@ -227,8 +227,8 @@
     },
     "xanhou": {
       "py/set": [
-        "Stellaris",
-        "CitiesSkylines"
+        "CitiesSkylines",
+        "Stellaris"
       ]
     }
   }

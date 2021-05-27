@@ -42,6 +42,14 @@ def interpolate_hsl(c1:Color,c2:Color,t:float,mode:HSLValues=HSLValues.ALL)->Col
     __interpolate(s1,s2,t),
     __interpolate(l1,l2,t)))
 
+def mix(c1: Color, c2:Color):
+  r1,g1,b1 = c1.get_rgb()
+  r2,g2,b2 = c2.get_rgb()
+
+  return Color(rgb=((r1+r2)/2.0,
+      (g1+g2)/2.0,
+      (b1+b2)/2.0))
+
 class ColorGradient:
   def __init__(self, start: Color, end: Color, granularity:int, pre_generate:bool) -> None:
       self.__start = start

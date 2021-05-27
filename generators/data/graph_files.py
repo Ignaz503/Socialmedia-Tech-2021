@@ -9,7 +9,8 @@ import networkx.drawing.nx_agraph as nx_agraph
 class GraphDataFiles(Enum):
   SUBREDDIT_SUBREDDIT ="subreddit_subreddit.dot"
   SUBREDDIT_USER = "subreddit_user.dot"
-  USER_USER = "user_user.dot"
+  USER_USER_MORE_THAN_ONE = "user_user_gt1.dot"
+  USER_USER_ONE_OR_MORE = "user_user_get1.dot"
 
   def get_file_path(self, config:Config):
     return data_util.make_data_path(config,self.value,DataLocation.GRAPHS)

@@ -15,7 +15,7 @@ from utility.cancel_token import Cancel_Token, Thread_Owned_Token_Tray
 from reddit_crawl.data.subreddit import Subreddit_Batch_Queue
 from reddit_crawl.data.bot_blacklist import Threadsafe_Bot_Blacklist
 from defines import ACTIVE_KEYWORDS, ALL_ARGS, ALL_KEYWORD, BOT_LIST_FALLBACK, CRAWl_KEYWORDS,CRAWL_ARGS,GENERATE_ARGS, CONFIG, DATA_KEYWORDS, HISTORIC_CRAWL_KEYWORDS, START_KEYWORDS, STREAM_ARGS, HISTORIC_ARGS, STREAM_KEYWORDS, VISUALIZE_KEYWORDS, VIS_ARGS, EXIT_KEYWORDS
-from generators.visualization_generator import VisualizationDataFiles
+from generators.visualization_generator import VisualizationDataFile
 import subprocess
 import os
 import platform
@@ -110,14 +110,6 @@ def handle_command(command, config: Config, logger:Logger, blist: Threadsafe_Bot
     return did_something
   if "help" in command:
     print_help()
-    return True
-
-  if "show sub sub" in command:
-    VisualizationDataFiles.SUBREDDIT_SUBREDDIT.show(config)
-    return True
-
-  if "show sub user" in command:
-    VisualizationDataFiles.SUBREDDIT_USER.show(config)
     return True
   return False
 

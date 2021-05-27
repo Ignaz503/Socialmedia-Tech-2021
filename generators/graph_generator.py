@@ -5,7 +5,7 @@ from networkx.algorithms.operators.binary import intersection
 from reddit_crawl.data.subreddit import Crawl_Metadata, Subreddit_Groups, Subreddit_Metadata,Subreddit_Data
 from utility.simple_logging import Level, Logger
 import math
-from utility.colorpallet import ColorPallet
+from utility.colorpallet import DefaultColorPallet
 from utility.cancel_token import Cancel_Token
 from utility.app_config import Config
 import generators.util as util
@@ -36,7 +36,7 @@ def __build_title(meta_data: Crawl_Metadata, subbredit_name: str, node, logger:L
 
 def __add_meta_data_to_subreddit_node(meta_data: Crawl_Metadata,sub_name: str,node,logger:Logger):
     node['label'] = sub_name
-    node['color'] = ColorPallet.SUBREDDIT_COLOR.value 
+    node['color'] = DefaultColorPallet.SUBREDDIT_COLOR.value 
     __build_title(meta_data,sub_name,node,logger)
     __determine_size_lerp(meta_data,sub_name, node, logger)
     #__determin_size_log(meta_data,sub_name,node)
@@ -57,7 +57,7 @@ def __add_meta_data_to_edge(edge,min_val: float, max_val: float, min_edge_size: 
     t = (current_val-min_val)/divisor
   
   edge[2]['width'] = ((1.0-t)*min_edge_size) + (t*max_edge_size)
-  edge[2]['color'] = ColorPallet.EDGE_COLOR.value[0]
+  edge[2]['color'] = DefaultColorPallet.EDGE_COLOR.value[0]
   edge[2]['title'] = edge[2]['weight']
 
 def __add_meta_to_edges_sub_sub(graph: Graph,adj_mat:np.ndarray, config: Config, logger: Logger, token: Cancel_Token, min_edge_size:float = 1, max_edge_size:float = 10):
@@ -105,7 +105,7 @@ def __user_node_generator(users: Iterable[str],
     user_node = {}
     user_node['label'] = user
     user_node['title'] = user
-    user_node['color'] = ColorPallet.USER_COLOR.value[color_option] 
+    user_node['color'] = DefaultColorPallet.USER_COLOR.value[color_option] 
     user_node['size'] = user_node_size
     yield (idx,user_node)
 
@@ -127,7 +127,7 @@ def __edge_subreddit_user_generator(users: UniqueUsers, config: Config, logger: 
       user_idx = user_counter
       user_counter += 1
       if sub_data.contains(user):
-        yield (idx_dict[sub_name],user_idx,{'color': ColorPallet.EDGE_COLOR.value})
+        yield (idx_dict[sub_name],user_idx,{'color': DefaultColorPallet.EDGE_COLOR.value})
 
 def __add_edges_subreddit_user(graph: Graph, users:UniqueUsers, config: Config, logger: Logger, token: Cancel_Token):
   graph.add_edges_from(__edge_subreddit_user_generator(users,config,logger,token))
@@ -145,25 +145,32 @@ def build_graph_subreddit_user(users:UniqueUsers, crawl_metadata: Crawl_Metadata
   __add_edges_subreddit_user(graph,users, config, logger, token)
   return graph
 
-def __edge_generator_user_user_graph(mulit_sub_user:MultiSubredditUsers,idx_dict:dict[str,int],token:Cancel_Token):
+def __edge_generator_user_user_graph(
+    mulit_sub_user:MultiSubredditUsers,
+    min_intersect_size:int,
+    idx_dict:dict[str,int],
+    token:Cancel_Token):
   user_list = list(mulit_sub_user.data.keys())
   
   for pair in util.pair_generator(user_list):
     user1, user2 = pair
     intersection = mulit_sub_user.get(user1).intersection(mulit_sub_user.get(user2))
 
-    if len(intersection)>=2: #todo maybe 1 with this approach
+    if len(intersection) >= min_intersect_size: #todo maybe 1 with this approach
       idx1 = idx_dict[user1]
       idx2 = idx_dict[user2]
       yield (idx1,
         idx2,
-        {'color': ColorPallet.EDGE_COLOR.value[1],
+        {'color': DefaultColorPallet.EDGE_COLOR.value[1],
         'title': str(list(intersection)),
         'width': len(intersection),
         'weight':len(intersection)})
 
-
-def build_graph_user_user(multi_sub_user: MultiSubredditUsers,config:Config,logger:Logger,token: Cancel_Token):
+def build_graph_user_user(multi_sub_user: MultiSubredditUsers,
+    min_intersect_size:int,
+    config:Config,
+    logger:Logger,
+    token: Cancel_Token):
   start = time.perf_counter()
   graph = Graph()
 
@@ -172,7 +179,7 @@ def build_graph_user_user(multi_sub_user: MultiSubredditUsers,config:Config,logg
   logger.log("adding nodes")
   graph.add_nodes_from(__user_node_generator(multi_sub_user.data.keys(),0,config,logger,token,color_option=1))
   logger.log("adding edges")
-  graph.add_edges_from(__edge_generator_user_user_graph(multi_sub_user,idx_dict,token))
+  graph.add_edges_from(__edge_generator_user_user_graph(multi_sub_user,min_intersect_size,idx_dict,token))
   
   graph.remove_nodes_from(list(networkx.isolates(graph)))
 
@@ -206,8 +213,14 @@ def write_all_possible_as_dot(
   write_as_dot(g,GraphDataFiles.SUBREDDIT_USER.get_file_path(config))
   if token.is_cancel_requested():
     return
-  logger.log("generating user user graph")
-  g = build_graph_user_user(multi_sub_user,config,logger,token)
+  logger.log("generating user user graphs")
+  g = build_graph_user_user(multi_sub_user,2,config,logger,token)
   if g is None:
     return
-  write_as_dot(g,GraphDataFiles.USER_USER.get_file_path(config))
+  write_as_dot(g,GraphDataFiles.USER_USER_MORE_THAN_ONE.get_file_path(config))
+
+  g = build_graph_user_user(multi_sub_user,1,config,logger,token)
+  if g is None:
+    return
+  write_as_dot(g,GraphDataFiles.USER_USER_ONE_OR_MORE.get_file_path(config))
+
