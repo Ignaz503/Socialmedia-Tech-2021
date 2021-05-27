@@ -3,6 +3,7 @@ import time
 from typing import Union
 from colour import Color
 from enum import Enum
+
 class HSLValues(Enum):
   H = 0
   S = 1

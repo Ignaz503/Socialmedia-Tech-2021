@@ -47,10 +47,11 @@ def __execute_generating(config: Config, logger: Logger, token: Cancel_Token, on
   #this might be the uggliest function i have ever writen
   logger.log("generating data",Level.INFO)
   with token:
-    mat_sub_sub = util.generate_sub_sub_adjacency_mat(config,logger,token)
+    mat_sub_sub,multi_sub_users = util.generate_sub_sub_mat_and_multi_sub_user_metadata(config,logger,token)
     if token.is_cancel_requested():
       return
     __save_adjacency_mat(mat_sub_sub, MatrixFiles.SUBREDDIT_SUBREDDIT,config,logger, token)
+    multi_sub_users.save_to_file(config)    
     if token.is_cancel_requested():
       return
     mat_sub_user = util.generate_sub_user_adjacency_mat(config,logger,token)
@@ -72,7 +73,12 @@ def __execute_generating(config: Config, logger: Logger, token: Cancel_Token, on
     if token.is_cancel_requested():
       return
     
-    graph_generator.write_all_possible_as_dot(users,md,mat_sub_sub,config,logger,token)
+    graph_generator.write_all_possible_as_dot(
+      users,
+      md,
+      mat_sub_sub,
+      multi_sub_users,
+      config, logger, token)
     logger.log("data generation done")
     on_done_callback()
 

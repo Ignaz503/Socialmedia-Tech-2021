@@ -4,7 +4,7 @@ from enum import Enum
 
 class DataLocation(Enum):
   DEFAULT = "data"
-  SUBREDDIT_META = "meta"
+  METADATA = "meta"
   SUBREDDIT = "subreddit"
   VISUALIZATION = "visualization"
   MATRICES = "matrices"

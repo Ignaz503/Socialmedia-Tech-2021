@@ -41,3 +41,6 @@ BOT_LIST_FALLBACK = "bot_list.json"
 
 #log defines
 MAX_NUM_ROWS = 200
+
+#max subreddit group size in bytes
+MAX_SIZE_BYTES = 20*1024*1024 #20MB

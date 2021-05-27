@@ -457,3 +457,851 @@
 [2021-05-27 01:47:06.224][Info] Showing USER-USER
 [2021-05-27 01:47:39.254][Info] Staring closing procedure
 
+[2021-05-27 11:09:54.488][Info] generating data
+[2021-05-27 11:09:54.490][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 11:09:54.490][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 11:09:54.767][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 11:09:55.217][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 11:09:55.558][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 11:09:55.883][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 11:09:56.209][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 11:09:56.596][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 11:09:57.108][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 11:09:57.542][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 11:09:57.867][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 11:09:58.224][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 11:09:58.673][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 11:09:58.984][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 11:09:59.233][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 11:09:59.576][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 11:09:59.913][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 11:10:00.208][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 11:10:00.580][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 11:10:00.875][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 11:10:01.123][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 11:10:01.403][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 11:10:01.619][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 11:10:01.882][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 11:10:02.099][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 11:10:02.641][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 11:10:02.988][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 11:10:03.308][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 11:10:03.571][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 11:10:03.789][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 11:10:04.177][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 11:10:04.502][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 11:10:04.983][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 11:10:05.230][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 11:10:05.540][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 11:10:05.882][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 11:10:06.206][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 11:10:06.687][Info] Saving adjacency matrix subreddit_subreddit.csv to disk
+[2021-05-27 11:10:06.935][Info] generating subrredit to user adjacency matrix
+[2021-05-27 11:10:07.136][Info] creating matrix of size 4017x9
+[2021-05-27 11:10:08.486][Info] Saving adjacency matrix subreddit_user.csv to disk
+[2021-05-27 11:10:10.748][Info] Crawling for subreddit metadata
+[2021-05-27 11:10:10.748][Info] getting meta data for civ
+[2021-05-27 11:10:12.298][Info] getting meta data for CrusaderKings
+[2021-05-27 11:10:22.637][Info] getting meta data for eu4
+[2021-05-27 11:10:33.053][Info] getting meta data for totalwar
+[2021-05-27 11:10:43.577][Info] getting meta data for SimCity
+[2021-05-27 11:10:53.977][Info] getting meta data for CitiesSkylines
+[2021-05-27 11:11:04.347][Info] getting meta data for WorldofTanks
+[2021-05-27 11:11:14.856][Info] getting meta data for Stellaris
+[2021-05-27 11:11:25.319][Info] getting meta data for hoi4
+[2021-05-27 11:11:35.890][Info] Saving metadata to disk
+[2021-05-27 11:11:35.982][Info] genrating unqiue user list
+[2021-05-27 11:11:37.331][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 11:11:37.486][Info] generating subreddit subreddit graph
+[2021-05-27 11:11:37.486][Info] building graph subreddit to subreddit
+[2021-05-27 11:11:37.490][Info] adding metadata to nodes
+[2021-05-27 11:11:37.502][Info] adding meta data to edges
+[2021-05-27 11:11:37.548][Info] generating subreddit user graph
+[2021-05-27 11:11:37.548][Info] building graph subbredit to user
+[2021-05-27 11:11:37.548][Info] adding subreddit nodes
+[2021-05-27 11:11:37.549][Info] adding user nodes
+[2021-05-27 11:11:37.673][Info] adding edges
+[2021-05-27 11:11:40.103][Info] generating user user graph
+[2021-05-27 11:11:40.103][Warning] building support data structure for graph -> this will take some time
+[2021-05-27 11:11:40.260][Info] handling civ
+[2021-05-27 11:11:51.172][Info] handling CrusaderKings
+[2021-05-27 11:12:01.186][Info] handling eu4
+[2021-05-27 11:12:11.911][Info] handling totalwar
+[2021-05-27 11:12:22.157][Info] handling SimCity
+[2021-05-27 11:12:31.938][Info] handling CitiesSkylines
+[2021-05-27 11:12:41.610][Info] handling WorldofTanks
+[2021-05-27 11:12:51.778][Info] handling Stellaris
+[2021-05-27 11:13:03.713][Info] handling hoi4
+[2021-05-27 11:13:14.897][Info] This took 0h : 1m : 34.7932
+[2021-05-27 11:13:14.902][Info] adding nodes
+[2021-05-27 11:13:14.902][Info] adding edges
+[2021-05-27 11:13:14.906][Info] created graph with 34 and 85 edges
+[2021-05-27 11:13:14.970][Info] data generation done
+[2021-05-27 11:14:07.247][Info] Staring closing procedure
+
+[2021-05-27 11:18:54.326][Info] generating data
+[2021-05-27 11:18:54.326][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 11:18:54.326][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 11:18:54.744][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 11:18:54.992][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 11:18:55.411][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 11:18:55.721][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 11:18:56.077][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 11:18:56.403][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 11:18:56.668][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 11:18:56.945][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 11:18:57.256][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 11:18:57.550][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 11:18:57.907][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 11:18:58.279][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 11:18:58.605][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 11:18:58.931][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 11:18:59.317][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 11:18:59.642][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 11:18:59.968][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 11:19:00.386][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 11:19:00.588][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 11:19:01.023][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 11:19:01.270][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 11:19:01.673][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 11:19:01.983][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 11:19:02.231][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 11:19:02.603][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 11:19:02.944][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 11:19:03.255][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 11:19:03.688][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 11:19:04.091][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 11:19:04.432][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 11:19:04.696][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 11:19:05.005][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 11:19:05.222][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 11:19:05.858][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 11:19:06.183][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 11:19:06.571][Info] Saving adjacency matrix subreddit_subreddit.csv to disk
+[2021-05-27 11:19:06.865][Info] generating subrredit to user adjacency matrix
+[2021-05-27 11:19:07.020][Info] creating matrix of size 4017x9
+[2021-05-27 11:19:08.385][Info] Saving adjacency matrix subreddit_user.csv to disk
+[2021-05-27 11:19:09.004][Info] Crawling for subreddit metadata
+[2021-05-27 11:19:09.005][Info] getting meta data for civ
+[2021-05-27 11:19:11.190][Info] getting meta data for CrusaderKings
+[2021-05-27 11:19:11.640][Info] getting meta data for eu4
+[2021-05-27 11:19:12.135][Info] getting meta data for totalwar
+[2021-05-27 11:19:12.554][Info] getting meta data for SimCity
+[2021-05-27 11:19:12.972][Info] getting meta data for CitiesSkylines
+[2021-05-27 11:19:13.515][Info] getting meta data for WorldofTanks
+[2021-05-27 11:19:13.995][Info] getting meta data for Stellaris
+[2021-05-27 11:19:14.399][Info] getting meta data for hoi4
+[2021-05-27 11:19:14.848][Info] Saving metadata to disk
+[2021-05-27 11:19:14.910][Info] genrating unqiue user list
+[2021-05-27 11:19:16.010][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 11:19:16.072][Info] generating subreddit subreddit graph
+[2021-05-27 11:19:16.088][Info] building graph subreddit to subreddit
+[2021-05-27 11:19:16.088][Info] adding metadata to nodes
+[2021-05-27 11:19:16.089][Info] adding meta data to edges
+[2021-05-27 11:19:16.150][Info] generating subreddit user graph
+[2021-05-27 11:19:16.181][Info] building graph subbredit to user
+[2021-05-27 11:19:16.196][Info] adding subreddit nodes
+[2021-05-27 11:19:16.213][Info] adding user nodes
+[2021-05-27 11:19:16.310][Info] adding edges
+[2021-05-27 11:19:18.258][Info] generating user user graph
+[2021-05-27 11:19:18.258][Warning] building support data structure for graph -> this will take some time
+[2021-05-27 11:19:27.247][Info] Staring closing procedure
+
+[2021-05-27 11:20:31.042][Info] generating data
+[2021-05-27 11:20:31.058][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 11:20:31.089][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 11:20:31.399][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 11:20:31.680][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 11:20:31.895][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 11:20:32.344][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 11:20:32.578][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 11:20:32.887][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 11:20:33.150][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 11:20:33.429][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 11:20:33.616][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 11:20:33.894][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 11:20:34.328][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 11:20:34.639][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 11:20:34.934][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 11:20:35.336][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 11:20:35.661][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 11:20:36.049][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 11:20:36.421][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 11:20:36.747][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 11:20:37.041][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 11:20:37.368][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 11:20:37.723][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 11:20:38.002][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 11:20:38.328][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 11:20:38.638][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 11:20:38.949][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 11:20:39.164][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 11:20:39.428][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 11:20:39.738][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 11:20:40.157][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 11:20:40.373][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 11:20:40.745][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 11:20:41.150][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 11:20:41.412][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 11:20:41.690][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 11:20:41.954][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 11:20:42.186][Info] Saving adjacency matrix subreddit_subreddit.csv to disk
+[2021-05-27 11:20:42.403][Info] generating subrredit to user adjacency matrix
+[2021-05-27 11:20:42.574][Info] creating matrix of size 4017x9
+[2021-05-27 11:20:43.661][Info] Saving adjacency matrix subreddit_user.csv to disk
+[2021-05-27 11:20:44.372][Info] Crawling for subreddit metadata
+[2021-05-27 11:20:44.372][Info] getting meta data for civ
+[2021-05-27 11:20:46.465][Info] getting meta data for CrusaderKings
+[2021-05-27 11:20:56.834][Info] getting meta data for eu4
+[2021-05-27 11:21:07.234][Info] getting meta data for totalwar
+[2021-05-27 11:21:17.588][Info] getting meta data for SimCity
+[2021-05-27 11:21:28.082][Info] getting meta data for CitiesSkylines
+[2021-05-27 11:21:38.529][Info] getting meta data for WorldofTanks
+[2021-05-27 11:21:49.084][Info] getting meta data for Stellaris
+[2021-05-27 11:21:59.485][Info] getting meta data for hoi4
+[2021-05-27 11:22:09.932][Info] Saving metadata to disk
+[2021-05-27 11:22:10.071][Info] genrating unqiue user list
+[2021-05-27 11:22:11.777][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 11:22:11.854][Info] generating subreddit subreddit graph
+[2021-05-27 11:22:11.869][Info] building graph subreddit to subreddit
+[2021-05-27 11:22:11.900][Info] adding metadata to nodes
+[2021-05-27 11:22:11.933][Info] adding meta data to edges
+[2021-05-27 11:22:12.056][Info] generating subreddit user graph
+[2021-05-27 11:22:12.056][Info] building graph subbredit to user
+[2021-05-27 11:22:12.056][Info] adding subreddit nodes
+[2021-05-27 11:22:12.057][Info] adding user nodes
+[2021-05-27 11:22:12.102][Info] adding edges
+[2021-05-27 11:22:14.957][Info] generating user user graph
+[2021-05-27 11:22:14.957][Warning] building support data structure for graph -> this will take some time
+[2021-05-27 11:22:16.953][Info] handling subreddit group: ['civ', 'CrusaderKings', 'eu4', 'totalwar', 'SimCity', 'CitiesSkylines', 'WorldofTanks', 'Stellaris', 'hoi4']
+[2021-05-27 11:23:47.805][Info] This took 0h : 1m : 32.8470
+[2021-05-27 11:23:47.809][Info] adding nodes
+[2021-05-27 11:23:47.810][Info] adding edges
+[2021-05-27 11:23:47.814][Info] created graph with 34 and 85 edges
+[2021-05-27 11:23:47.926][Info] data generation done
+[2021-05-27 11:26:26.752][Info] Staring closing procedure
+
+[2021-05-27 11:28:30.750][Info] generating data
+[2021-05-27 11:28:30.766][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 11:28:30.766][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 11:28:31.092][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 11:28:31.417][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 11:28:31.742][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 11:28:31.944][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 11:28:32.223][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 11:28:32.579][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 11:28:32.998][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 11:28:33.277][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 11:28:33.603][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 11:28:33.835][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 11:28:34.160][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 11:28:34.672][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 11:28:34.951][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 11:28:35.245][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 11:28:35.524][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 11:28:35.866][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 11:28:36.145][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 11:28:36.516][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 11:28:36.873][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 11:28:37.185][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 11:28:37.447][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 11:28:37.818][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 11:28:38.020][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 11:28:38.485][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 11:28:38.733][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 11:28:38.981][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 11:28:39.322][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 11:28:39.555][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 11:28:39.864][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 11:28:40.128][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 11:28:40.438][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 11:28:40.670][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 11:28:40.950][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 11:28:41.244][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 11:28:41.601][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 11:28:41.895][Info] Saving adjacency matrix subreddit_subreddit.csv to disk
+[2021-05-27 11:28:42.112][Info] generating subrredit to user adjacency matrix
+[2021-05-27 11:28:42.484][Info] creating matrix of size 4017x9
+[2021-05-27 11:28:43.740][Info] Saving adjacency matrix subreddit_user.csv to disk
+[2021-05-27 11:28:44.514][Info] Crawling for subreddit metadata
+[2021-05-27 11:28:44.515][Info] getting meta data for civ
+[2021-05-27 11:28:46.468][Info] getting meta data for CrusaderKings
+[2021-05-27 11:28:46.886][Info] getting meta data for eu4
+[2021-05-27 11:28:47.258][Info] getting meta data for totalwar
+[2021-05-27 11:28:47.676][Info] getting meta data for SimCity
+[2021-05-27 11:28:48.157][Info] getting meta data for CitiesSkylines
+[2021-05-27 11:28:48.684][Info] getting meta data for WorldofTanks
+[2021-05-27 11:28:49.149][Info] getting meta data for Stellaris
+[2021-05-27 11:28:49.552][Info] getting meta data for hoi4
+[2021-05-27 11:28:50.064][Info] Saving metadata to disk
+[2021-05-27 11:28:50.172][Info] genrating unqiue user list
+[2021-05-27 11:28:51.366][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 11:28:51.474][Info] generating subreddit subreddit graph
+[2021-05-27 11:28:51.474][Info] building graph subreddit to subreddit
+[2021-05-27 11:28:51.474][Info] adding metadata to nodes
+[2021-05-27 11:28:51.491][Info] adding meta data to edges
+[2021-05-27 11:28:51.630][Info] generating subreddit user graph
+[2021-05-27 11:28:51.630][Info] building graph subbredit to user
+[2021-05-27 11:28:51.675][Info] adding subreddit nodes
+[2021-05-27 11:28:51.692][Info] adding user nodes
+[2021-05-27 11:28:51.784][Info] adding edges
+[2021-05-27 11:28:54.093][Info] generating user user graph
+[2021-05-27 11:28:54.094][Warning] building support data structure for graph -> this will take some time
+[2021-05-27 11:28:55.721][Info] handling subreddit group: ['civ', 'CrusaderKings', 'eu4', 'totalwar', 'SimCity', 'CitiesSkylines', 'WorldofTanks', 'Stellaris', 'hoi4']
+[2021-05-27 11:30:33.371][Info] handled 8066136 pairs of users
+[2021-05-27 11:30:33.371][Info] This took 0h : 1m : 39.2767
+[2021-05-27 11:30:33.376][Info] adding nodes
+[2021-05-27 11:30:33.376][Info] adding edges
+[2021-05-27 11:30:33.380][Info] created graph with 34 and 85 edges
+[2021-05-27 11:30:33.466][Info] data generation done
+[2021-05-27 11:43:15.442][Info] Staring closing procedure
+
+[2021-05-27 11:47:29.413][Info] generating data
+[2021-05-27 11:47:29.460][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 11:47:29.460][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 11:47:29.662][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 11:47:29.909][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 11:47:30.313][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 11:47:30.514][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 11:47:30.793][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 11:47:31.087][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 11:47:31.366][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 11:47:31.568][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 11:47:31.785][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 11:47:32.033][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 11:47:32.281][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 11:47:32.468][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 11:47:32.854][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 11:47:33.195][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 11:47:33.490][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 11:47:33.818][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 11:47:34.358][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 11:47:34.668][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 11:47:34.964][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 11:47:35.258][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 11:47:35.474][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 11:47:35.722][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 11:47:36.048][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 11:47:36.374][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 11:47:36.607][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 11:47:36.931][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 11:47:37.102][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 11:47:37.396][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 11:47:37.582][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 11:47:38.093][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 11:47:38.281][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 11:47:38.638][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 11:47:38.915][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 11:47:39.240][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 11:47:39.489][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 11:47:39.938][Info] Saving adjacency matrix subreddit_subreddit.csv to disk
+[2021-05-27 11:47:40.077][Info] generating subrredit to user adjacency matrix
+[2021-05-27 11:47:40.283][Info] creating matrix of size 4017x9
+[2021-05-27 11:47:41.505][Info] Saving adjacency matrix subreddit_user.csv to disk
+[2021-05-27 11:47:42.031][Info] Crawling for subreddit metadata
+[2021-05-27 11:47:42.031][Info] getting meta data for civ
+[2021-05-27 11:47:43.689][Info] getting meta data for CrusaderKings
+[2021-05-27 11:47:44.061][Info] getting meta data for eu4
+[2021-05-27 11:47:44.402][Info] getting meta data for totalwar
+[2021-05-27 11:47:44.960][Info] getting meta data for SimCity
+[2021-05-27 11:47:45.425][Info] getting meta data for CitiesSkylines
+[2021-05-27 11:47:45.952][Info] getting meta data for WorldofTanks
+[2021-05-27 11:47:46.293][Info] getting meta data for Stellaris
+[2021-05-27 11:47:46.696][Info] getting meta data for hoi4
+[2021-05-27 11:47:47.083][Info] Saving metadata to disk
+[2021-05-27 11:47:47.254][Info] genrating unqiue user list
+[2021-05-27 11:47:48.665][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 11:47:48.773][Info] generating subreddit subreddit graph
+[2021-05-27 11:47:48.773][Info] building graph subreddit to subreddit
+[2021-05-27 11:47:48.773][Info] adding metadata to nodes
+[2021-05-27 11:47:48.789][Info] adding meta data to edges
+[2021-05-27 11:47:48.913][Info] generating subreddit user graph
+[2021-05-27 11:47:48.913][Info] building graph subbredit to user
+[2021-05-27 11:47:48.943][Info] adding subreddit nodes
+[2021-05-27 11:47:48.944][Info] adding user nodes
+[2021-05-27 11:47:49.037][Info] adding edges
+[2021-05-27 11:47:51.524][Info] generating user user graph
+[2021-05-27 11:47:51.524][Warning] building support data structure for graph -> this will take some time
+[2021-05-27 11:47:51.525][Warning] We need to handle 8066136
+[2021-05-27 11:47:53.175][Info] handling subreddit group: ['civ', 'CrusaderKings', 'eu4', 'totalwar', 'SimCity', 'CitiesSkylines', 'WorldofTanks', 'Stellaris', 'hoi4']
+[2021-05-27 11:49:26.594][Info] handled 8066136 pairs of users
+[2021-05-27 11:49:26.610][Info] This took 0h : 1m : 35.0692s
+[2021-05-27 11:49:26.610][Info] adding nodes
+[2021-05-27 11:49:26.611][Info] adding edges
+[2021-05-27 11:49:26.612][Info] created graph with 34 and 85 edges
+[2021-05-27 11:49:26.705][Info] data generation done
+[2021-05-27 11:50:43.814][Info] Staring closing procedure
+
+[2021-05-27 12:00:58.226][Info] generating data
+[2021-05-27 12:00:58.226][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 12:00:58.226][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 12:00:58.413][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 12:00:58.645][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 12:00:58.955][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 12:00:59.373][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 12:00:59.653][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 12:00:59.870][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 12:01:00.210][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 12:01:00.644][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 12:01:01.125][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 12:01:01.404][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 12:01:01.745][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 12:01:02.024][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 12:01:02.272][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 12:01:02.690][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 12:01:03.062][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 12:01:03.373][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 12:01:03.651][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 12:01:04.008][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 12:01:04.273][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 12:01:04.536][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 12:01:04.799][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 12:01:05.155][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 12:01:05.357][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 12:01:05.653][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 12:01:05.992][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 12:01:06.209][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 12:01:06.457][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 12:01:06.720][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 12:01:07.050][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 12:01:07.387][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 12:01:07.682][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 12:01:07.991][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 12:01:08.379][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 12:01:08.890][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 12:01:09.154][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 12:01:09.386][Info] Saving adjacency matrix subreddit_subreddit.csv to disk
+[2021-05-27 12:01:09.619][Info] generating subrredit to user adjacency matrix
+[2021-05-27 12:01:09.836][Info] creating matrix of size 4017x9
+[2021-05-27 12:01:11.296][Info] Saving adjacency matrix subreddit_user.csv to disk
+[2021-05-27 12:01:11.743][Info] Crawling for subreddit metadata
+[2021-05-27 12:01:11.743][Info] getting meta data for civ
+[2021-05-27 12:01:13.494][Info] getting meta data for CrusaderKings
+[2021-05-27 12:01:23.957][Info] getting meta data for eu4
+[2021-05-27 12:01:34.419][Info] getting meta data for totalwar
+[2021-05-27 12:01:44.850][Info] getting meta data for SimCity
+[2021-05-27 12:01:55.266][Info] getting meta data for CitiesSkylines
+[2021-05-27 12:02:05.698][Info] getting meta data for WorldofTanks
+[2021-05-27 12:02:16.191][Info] getting meta data for Stellaris
+[2021-05-27 12:02:26.576][Info] getting meta data for hoi4
+[2021-05-27 12:02:36.992][Info] Saving metadata to disk
+[2021-05-27 12:02:37.100][Info] genrating unqiue user list
+[2021-05-27 12:02:38.682][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 12:02:38.805][Info] generating subreddit subreddit graph
+[2021-05-27 12:02:38.852][Info] building graph subreddit to subreddit
+[2021-05-27 12:02:38.883][Info] adding metadata to nodes
+[2021-05-27 12:02:38.884][Info] adding meta data to edges
+[2021-05-27 12:02:38.945][Info] generating subreddit user graph
+[2021-05-27 12:02:38.945][Info] building graph subbredit to user
+[2021-05-27 12:02:38.945][Info] adding subreddit nodes
+[2021-05-27 12:02:38.946][Info] adding user nodes
+[2021-05-27 12:02:39.023][Info] adding edges
+[2021-05-27 12:02:41.330][Info] generating user user graph
+[2021-05-27 12:02:41.330][Warning] building support data structure for graph -> this will take some time
+[2021-05-27 12:02:41.890][Warning] We need to handle 8,066,136 1 times
+[2021-05-27 12:02:42.897][Info] handling subreddit group: ['civ', 'CrusaderKings', 'eu4', 'totalwar', 'SimCity', 'CitiesSkylines', 'WorldofTanks', 'Stellaris', 'hoi4']
+[2021-05-27 12:02:51.360][Info] Still working! Handled 632314 users so far. Finished 0 groups
+[2021-05-27 12:03:01.404][Info] Still working! Handled 1302398 users so far. Finished 0 groups
+[2021-05-27 12:03:11.464][Info] Still working! Handled 2023323 users so far. Finished 0 groups
+[2021-05-27 12:03:21.464][Info] Still working! Handled 2735406 users so far. Finished 0 groups
+[2021-05-27 12:03:31.464][Info] Still working! Handled 3394189 users so far. Finished 0 groups
+[2021-05-27 12:03:41.472][Info] Still working! Handled 4071593 users so far. Finished 0 groups
+[2021-05-27 12:03:51.472][Info] Still working! Handled 4764790 users so far. Finished 0 groups
+[2021-05-27 12:04:01.472][Info] Still working! Handled 5392155 users so far. Finished 0 groups
+[2021-05-27 12:04:11.472][Info] Still working! Handled 6111232 users so far. Finished 0 groups
+[2021-05-27 12:04:21.472][Info] Still working! Handled 6773204 users so far. Finished 0 groups
+[2021-05-27 12:04:31.490][Info] Still working! Handled 7373488 users so far. Finished 0 groups
+[2021-05-27 12:04:41.490][Info] Still working! Handled 7953530 users so far. Finished 0 groups
+[2021-05-27 12:04:43.135][Info] This took 0h : 2m : 1.8041s
+[2021-05-27 12:04:43.135][Info] adding nodes
+[2021-05-27 12:04:43.135][Info] adding edges
+[2021-05-27 12:04:43.135][Info] created graph with 34 and 85 edges
+[2021-05-27 12:04:43.229][Info] data generation done
+[2021-05-27 12:06:55.052][Info] Staring closing procedure
+
+[2021-05-27 13:52:28.075][Info] Staring closing procedure
+
+[2021-05-27 13:53:51.885][Info] generating data
+[2021-05-27 13:53:51.901][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 13:53:51.916][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 13:53:52.180][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 13:53:52.521][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 13:53:52.769][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 13:53:53.156][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 13:53:53.621][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 13:53:53.931][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 13:53:54.148][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 13:53:54.474][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 13:53:54.985][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 13:53:55.342][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 13:53:55.605][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 13:53:55.884][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 13:53:56.086][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 13:53:56.321][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 13:53:56.737][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 13:53:57.171][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 13:53:57.558][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 13:53:57.791][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 13:53:58.070][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 13:53:58.417][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 13:53:58.660][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 13:53:59.031][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 13:53:59.404][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 13:53:59.697][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 13:54:00.056][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 13:54:00.379][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 13:54:00.844][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 13:54:01.108][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 13:54:01.573][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 13:54:01.821][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 13:54:02.177][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 13:54:02.522][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 13:54:02.828][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 13:54:03.158][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 13:54:03.417][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 13:54:34.541][Info] Staring closing procedure
+
+[2021-05-27 13:54:51.615][Info] generating data
+[2021-05-27 13:54:51.631][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 13:54:51.662][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 13:54:51.927][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 13:54:52.314][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 13:54:52.577][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 13:54:53.057][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 13:54:53.367][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 13:54:53.692][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 13:54:54.250][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 13:54:54.622][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 13:54:54.840][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 13:54:55.010][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 13:54:55.289][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 13:54:55.537][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 13:54:55.879][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 13:54:56.234][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 13:54:56.544][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 13:54:56.871][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 13:54:57.102][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 13:54:57.351][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 13:54:57.645][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 13:54:57.972][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 13:54:58.280][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 13:54:58.652][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 13:54:58.917][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 13:54:59.196][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 13:54:59.385][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 13:54:59.691][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 13:55:00.156][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 13:55:00.559][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 13:55:00.871][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 13:55:01.179][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 13:55:01.520][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 13:55:02.110][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 13:55:02.388][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 13:55:02.702][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 13:55:03.023][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 13:55:03.163][Info] Saving adjacency matrix subreddit_subreddit.csv to disk
+[2021-05-27 13:55:03.473][Info] generating subrredit to user adjacency matrix
+[2021-05-27 13:55:03.581][Info] creating matrix of size 4017x9
+[2021-05-27 13:55:05.055][Info] Saving adjacency matrix subreddit_user.csv to disk
+[2021-05-27 13:55:07.549][Info] Crawling for subreddit metadata
+[2021-05-27 13:55:07.611][Info] getting meta data for civ
+[2021-05-27 13:55:09.068][Info] getting meta data for CrusaderKings
+[2021-05-27 13:55:09.564][Info] getting meta data for eu4
+[2021-05-27 13:55:10.169][Info] getting meta data for totalwar
+[2021-05-27 13:55:10.541][Info] getting meta data for SimCity
+[2021-05-27 13:55:11.021][Info] getting meta data for CitiesSkylines
+[2021-05-27 13:55:11.409][Info] getting meta data for WorldofTanks
+[2021-05-27 13:55:11.998][Info] getting meta data for Stellaris
+[2021-05-27 13:55:12.587][Info] getting meta data for hoi4
+[2021-05-27 13:55:12.959][Info] Saving metadata to disk
+[2021-05-27 13:55:13.083][Info] genrating unqiue user list
+[2021-05-27 13:55:14.649][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 13:55:14.726][Info] generating subreddit subreddit graph
+[2021-05-27 13:55:14.757][Info] building graph subreddit to subreddit
+[2021-05-27 13:55:14.772][Info] adding metadata to nodes
+[2021-05-27 13:55:14.773][Info] adding meta data to edges
+[2021-05-27 13:55:14.897][Info] generating subreddit user graph
+[2021-05-27 13:55:14.897][Info] building graph subbredit to user
+[2021-05-27 13:55:14.897][Info] adding subreddit nodes
+[2021-05-27 13:55:14.897][Info] adding user nodes
+[2021-05-27 13:55:14.975][Info] adding edges
+[2021-05-27 13:55:17.401][Info] generating user user graph
+[2021-05-27 13:55:17.401][Info] adding nodes
+[2021-05-27 13:55:17.401][Info] adding edges
+[2021-05-27 13:55:17.402][Info] This took 0h : 0m : 0.0011s
+[2021-05-27 13:55:17.502][Info] data generation done
+[2021-05-27 13:58:45.075][Info] Staring closing procedure
+
+[2021-05-27 13:59:02.007][Info] generating data
+[2021-05-27 13:59:02.007][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 13:59:02.224][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 13:59:02.473][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 13:59:02.923][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 13:59:03.217][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 13:59:03.511][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 13:59:03.867][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 13:59:04.084][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 13:59:04.472][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 13:59:04.828][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 13:59:05.045][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 13:59:05.309][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 13:59:05.464][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 13:59:05.805][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 13:59:06.146][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 13:59:06.364][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 13:59:06.719][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 13:59:07.076][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 13:59:07.401][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 13:59:07.682][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 13:59:07.928][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 13:59:08.331][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 13:59:08.750][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 13:59:09.137][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 13:59:09.385][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 13:59:09.633][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 13:59:09.883][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 13:59:10.130][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 13:59:10.548][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 13:59:10.811][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 13:59:11.183][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 13:59:11.416][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 13:59:11.710][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 13:59:12.067][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 13:59:12.377][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 13:59:12.689][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 13:59:13.013][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 13:59:13.260][Info] Saving adjacency matrix subreddit_subreddit.csv to disk
+[2021-05-27 13:59:13.601][Info] generating subrredit to user adjacency matrix
+[2021-05-27 13:59:13.741][Info] creating matrix of size 4017x9
+[2021-05-27 13:59:14.936][Info] Saving adjacency matrix subreddit_user.csv to disk
+[2021-05-27 13:59:15.399][Info] Crawling for subreddit metadata
+[2021-05-27 13:59:15.430][Info] getting meta data for civ
+[2021-05-27 13:59:17.275][Info] getting meta data for CrusaderKings
+[2021-05-27 13:59:17.709][Info] getting meta data for eu4
+[2021-05-27 13:59:18.174][Info] getting meta data for totalwar
+[2021-05-27 13:59:18.794][Info] getting meta data for SimCity
+[2021-05-27 13:59:19.197][Info] getting meta data for CitiesSkylines
+[2021-05-27 13:59:19.600][Info] getting meta data for WorldofTanks
+[2021-05-27 13:59:20.127][Info] getting meta data for Stellaris
+[2021-05-27 13:59:20.654][Info] getting meta data for hoi4
+[2021-05-27 13:59:21.072][Info] Saving metadata to disk
+[2021-05-27 13:59:21.134][Info] genrating unqiue user list
+[2021-05-27 13:59:22.653][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 13:59:22.777][Info] generating subreddit subreddit graph
+[2021-05-27 13:59:22.792][Info] building graph subreddit to subreddit
+[2021-05-27 13:59:22.792][Info] adding metadata to nodes
+[2021-05-27 13:59:22.793][Info] adding meta data to edges
+[2021-05-27 13:59:22.901][Info] generating subreddit user graph
+[2021-05-27 13:59:22.902][Info] building graph subbredit to user
+[2021-05-27 13:59:22.902][Info] adding subreddit nodes
+[2021-05-27 13:59:22.902][Info] adding user nodes
+[2021-05-27 13:59:23.041][Info] adding edges
+[2021-05-27 13:59:25.696][Info] generating user user graph
+[2021-05-27 13:59:25.696][Info] adding nodes
+[2021-05-27 13:59:25.696][Info] adding edges
+[2021-05-27 13:59:25.698][Info] This took 0h : 0m : 0.0018s
+[2021-05-27 13:59:25.895][Info] data generation done
+[2021-05-27 13:59:33.580][Info] starting visualization
+[2021-05-27 13:59:33.580][Info] loading metadata for visualization
+[2021-05-27 13:59:33.968][Info] loading data for visualization subreddit subreddit
+[2021-05-27 13:59:34.031][Info] visulaizting graph SUBREDDIT_SUBREDDIT
+[2021-05-27 13:59:34.031][Info] creating visualization
+[2021-05-27 13:59:34.032][Info] saving visualization reddit_visualization_subreddit_subreddit.html
+[2021-05-27 13:59:34.248][Info] visulaizting graph SUBBREDDIT_SUBBREDIT_COLORING_CLUSTER
+[2021-05-27 13:59:34.248][Info] creating visualization
+[2021-05-27 13:59:34.249][Info] saving visualization reddit_visualization_subreddit_subreddit_coloring_cluster.html
+[2021-05-27 13:59:34.464][Info] loading unique users for visualization
+[2021-05-27 13:59:34.616][Info] loading data for visualization subreddit user
+[2021-05-27 13:59:35.223][Info] visulaizting graph SUBREDDIT_USER
+[2021-05-27 13:59:35.223][Info] creating visualization
+[2021-05-27 13:59:40.005][Info] saving visualization reddit_visualization_subreddit_user.html
+[2021-05-27 13:59:40.293][Info] loading data for visualization subreddit user
+[2021-05-27 13:59:40.390][Info] visulaizting graph USER_USER
+[2021-05-27 13:59:40.390][Info] creating visualization
+[2021-05-27 13:59:40.392][Info] saving visualization reddit_visualization_user_user.html
+[2021-05-27 13:59:40.586][Info] visualization complete
+[2021-05-27 13:59:45.902][Info] Showing USER-USER
+[2021-05-27 14:01:48.910][Info] Staring closing procedure
+
+[2021-05-27 14:05:25.625][Info] generating data
+[2021-05-27 14:05:25.625][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 14:05:25.641][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 14:05:25.922][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 14:05:26.199][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 14:05:26.540][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 14:05:26.927][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 14:05:27.284][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 14:05:27.749][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 14:05:28.045][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 14:05:28.307][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 14:05:28.586][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 14:05:28.911][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 14:05:29.314][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 14:05:29.717][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 14:05:30.167][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 14:05:30.419][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 14:05:30.710][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 14:05:30.973][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 14:05:31.236][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 14:05:31.499][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 14:05:31.872][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 14:05:32.135][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 14:05:32.352][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 14:05:32.677][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 14:05:32.987][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 14:05:33.530][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 14:05:33.764][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 14:05:34.041][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 14:05:34.429][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 14:05:34.709][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 14:05:35.033][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 14:05:35.328][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 14:05:35.577][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 14:05:35.920][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 14:05:36.165][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 14:05:36.459][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 14:05:36.738][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 14:05:37.265][Info] Saving adjacency matrix subreddit_subreddit.csv to disk
+[2021-05-27 14:05:37.606][Info] generating subrredit to user adjacency matrix
+[2021-05-27 14:05:37.710][Info] creating matrix of size 4017x9
+[2021-05-27 14:05:38.771][Info] Saving adjacency matrix subreddit_user.csv to disk
+[2021-05-27 14:05:39.374][Info] Crawling for subreddit metadata
+[2021-05-27 14:05:39.374][Info] getting meta data for civ
+[2021-05-27 14:05:41.203][Info] getting meta data for CrusaderKings
+[2021-05-27 14:05:41.574][Info] getting meta data for eu4
+[2021-05-27 14:05:42.040][Info] getting meta data for totalwar
+[2021-05-27 14:05:42.396][Info] getting meta data for SimCity
+[2021-05-27 14:05:42.845][Info] getting meta data for CitiesSkylines
+[2021-05-27 14:05:43.233][Info] getting meta data for WorldofTanks
+[2021-05-27 14:05:43.682][Info] getting meta data for Stellaris
+[2021-05-27 14:05:44.163][Info] getting meta data for hoi4
+[2021-05-27 14:05:44.675][Info] Saving metadata to disk
+[2021-05-27 14:05:44.752][Info] genrating unqiue user list
+[2021-05-27 14:05:46.069][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 14:05:46.224][Info] generating subreddit subreddit graph
+[2021-05-27 14:05:46.224][Info] building graph subreddit to subreddit
+[2021-05-27 14:05:46.225][Info] adding metadata to nodes
+[2021-05-27 14:05:46.225][Info] adding meta data to edges
+[2021-05-27 14:05:46.318][Info] generating subreddit user graph
+[2021-05-27 14:05:46.318][Info] building graph subbredit to user
+[2021-05-27 14:05:46.318][Info] adding subreddit nodes
+[2021-05-27 14:05:46.318][Info] adding user nodes
+[2021-05-27 14:05:46.362][Info] adding edges
+[2021-05-27 14:05:49.076][Info] generating user user graph
+[2021-05-27 14:05:49.077][Info] adding nodes
+[2021-05-27 14:05:49.092][Info] adding edges
+[2021-05-27 14:05:49.109][Info] This took 0h : 0m : 0.0325s
+[2021-05-27 14:05:49.187][Info] data generation done
+[2021-05-27 14:08:09.429][Info] starting visualization
+[2021-05-27 14:08:09.429][Info] loading metadata for visualization
+[2021-05-27 14:08:09.754][Info] loading data for visualization subreddit subreddit
+[2021-05-27 14:08:09.895][Info] visulaizting graph SUBREDDIT_SUBREDDIT
+[2021-05-27 14:08:09.895][Info] creating visualization
+[2021-05-27 14:08:09.909][Info] saving visualization reddit_visualization_subreddit_subreddit.html
+[2021-05-27 14:08:10.190][Info] visulaizting graph SUBBREDDIT_SUBBREDIT_COLORING_CLUSTER
+[2021-05-27 14:08:10.190][Info] creating visualization
+[2021-05-27 14:08:10.191][Info] saving visualization reddit_visualization_subreddit_subreddit_coloring_cluster.html
+[2021-05-27 14:08:10.467][Info] loading unique users for visualization
+[2021-05-27 14:08:10.591][Info] loading data for visualization subreddit user
+[2021-05-27 14:08:11.138][Info] visulaizting graph SUBREDDIT_USER
+[2021-05-27 14:08:11.211][Info] creating visualization
+[2021-05-27 14:08:15.766][Info] saving visualization reddit_visualization_subreddit_user.html
+[2021-05-27 14:08:16.173][Info] loading data for visualization subreddit user
+[2021-05-27 14:08:16.238][Info] visulaizting graph USER_USER
+[2021-05-27 14:08:16.238][Info] creating visualization
+[2021-05-27 14:08:16.239][Info] saving visualization reddit_visualization_user_user.html
+[2021-05-27 14:08:16.512][Info] visualization complete
+[2021-05-27 14:08:20.309][Info] Showing USER-USER
+[2021-05-27 14:09:44.691][Info] Staring closing procedure
+
+[2021-05-27 14:10:00.640][Info] generating data
+[2021-05-27 14:10:00.640][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-27 14:10:00.841][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-27 14:10:01.151][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-27 14:10:01.400][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-27 14:10:01.681][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-27 14:10:01.988][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-27 14:10:02.577][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,WorldofTanks)
+[2021-05-27 14:10:02.857][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-27 14:10:03.154][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-27 14:10:03.399][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-27 14:10:03.678][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-27 14:10:03.943][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-27 14:10:04.345][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-27 14:10:04.608][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,WorldofTanks)
+[2021-05-27 14:10:04.902][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-27 14:10:05.200][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-27 14:10:05.399][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-27 14:10:05.647][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-27 14:10:05.895][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-27 14:10:06.220][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,WorldofTanks)
+[2021-05-27 14:10:06.484][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-27 14:10:06.824][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-27 14:10:07.150][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-27 14:10:07.398][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-27 14:10:07.803][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,WorldofTanks)
+[2021-05-27 14:10:08.034][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-27 14:10:08.281][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-27 14:10:08.545][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-27 14:10:08.948][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,WorldofTanks)
+[2021-05-27 14:10:09.289][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-27 14:10:09.523][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-27 14:10:09.862][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,WorldofTanks)
+[2021-05-27 14:10:10.126][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-27 14:10:10.374][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-27 14:10:10.669][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,Stellaris)
+[2021-05-27 14:10:10.901][Info] [Sub Sub Adj Mat] handling subreddit pair (WorldofTanks,hoi4)
+[2021-05-27 14:10:11.257][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-27 14:10:11.567][Info] Saving adjacency matrix subreddit_subreddit.csv to disk
+[2021-05-27 14:10:11.877][Info] generating subrredit to user adjacency matrix
+[2021-05-27 14:10:12.187][Info] creating matrix of size 4017x9
+[2021-05-27 14:10:13.833][Info] Saving adjacency matrix subreddit_user.csv to disk
+[2021-05-27 14:10:14.272][Info] Crawling for subreddit metadata
+[2021-05-27 14:10:14.272][Info] getting meta data for civ
+[2021-05-27 14:10:16.125][Info] getting meta data for CrusaderKings
+[2021-05-27 14:10:26.679][Info] getting meta data for eu4
+[2021-05-27 14:10:37.281][Info] getting meta data for totalwar
+[2021-05-27 14:10:47.667][Info] getting meta data for SimCity
+[2021-05-27 14:10:58.005][Info] getting meta data for CitiesSkylines
+[2021-05-27 14:11:08.560][Info] getting meta data for WorldofTanks
+[2021-05-27 14:11:18.929][Info] getting meta data for Stellaris
+[2021-05-27 14:11:29.283][Info] getting meta data for hoi4
+[2021-05-27 14:11:39.746][Info] Saving metadata to disk
+[2021-05-27 14:11:39.823][Info] genrating unqiue user list
+[2021-05-27 14:11:41.234][Info] found 4017 unique users from 9 subreddits
+[2021-05-27 14:11:41.389][Info] generating subreddit subreddit graph
+[2021-05-27 14:11:41.420][Info] building graph subreddit to subreddit
+[2021-05-27 14:11:41.420][Info] adding metadata to nodes
+[2021-05-27 14:11:41.421][Info] adding meta data to edges
+[2021-05-27 14:11:41.482][Info] generating subreddit user graph
+[2021-05-27 14:11:41.482][Info] building graph subbredit to user
+[2021-05-27 14:11:41.482][Info] adding subreddit nodes
+[2021-05-27 14:11:41.483][Info] adding user nodes
+[2021-05-27 14:11:41.576][Info] adding edges
+[2021-05-27 14:11:44.112][Info] generating user user graph
+[2021-05-27 14:11:44.112][Info] adding nodes
+[2021-05-27 14:11:44.112][Info] adding edges
+[2021-05-27 14:11:44.115][Info] This took 0h : 0m : 0.0028s
+[2021-05-27 14:11:44.211][Info] data generation done
+[2021-05-27 14:11:48.612][Info] starting visualization
+[2021-05-27 14:11:48.627][Info] loading metadata for visualization
+[2021-05-27 14:11:48.922][Info] loading data for visualization subreddit subreddit
+[2021-05-27 14:11:48.969][Info] visulaizting graph SUBREDDIT_SUBREDDIT
+[2021-05-27 14:11:48.969][Info] creating visualization
+[2021-05-27 14:11:48.970][Info] saving visualization reddit_visualization_subreddit_subreddit.html
+[2021-05-27 14:11:49.218][Info] visulaizting graph SUBBREDDIT_SUBBREDIT_COLORING_CLUSTER
+[2021-05-27 14:11:49.218][Info] creating visualization
+[2021-05-27 14:11:49.219][Info] saving visualization reddit_visualization_subreddit_subreddit_coloring_cluster.html
+[2021-05-27 14:11:49.464][Info] loading unique users for visualization
+[2021-05-27 14:11:49.578][Info] loading data for visualization subreddit user
+[2021-05-27 14:11:50.077][Info] visulaizting graph SUBREDDIT_USER
+[2021-05-27 14:11:50.077][Info] creating visualization
+[2021-05-27 14:11:54.503][Info] saving visualization reddit_visualization_subreddit_user.html
+[2021-05-27 14:11:54.768][Info] loading data for visualization subreddit user
+[2021-05-27 14:11:54.862][Info] visulaizting graph USER_USER
+[2021-05-27 14:11:54.862][Info] creating visualization
+[2021-05-27 14:11:54.864][Info] saving visualization reddit_visualization_user_user.html
+[2021-05-27 14:11:55.090][Info] visualization complete
+[2021-05-27 14:11:59.089][Info] Showing USER-USER
+[2021-05-27 14:18:39.609][Info] Staring closing procedure
+

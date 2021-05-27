@@ -1,0 +1,235 @@
+{
+  "py/object": "reddit_crawl.data.users.MultiSubredditUsers",
+  "data": {
+    "CKCarterIII": {
+      "py/set": [
+        "CrusaderKings",
+        "civ"
+      ]
+    },
+    "taqn22": {
+      "py/set": [
+        "CrusaderKings",
+        "civ"
+      ]
+    },
+    "Bonjourap": {
+      "py/set": [
+        "eu4",
+        "civ"
+      ]
+    },
+    "Niallism": {
+      "py/set": [
+        "Stellaris",
+        "civ"
+      ]
+    },
+    "KaizerKlash": {
+      "py/set": [
+        "Stellaris",
+        "civ"
+      ]
+    },
+    "Toybasher": {
+      "py/set": [
+        "Stellaris",
+        "civ"
+      ]
+    },
+    "RoyalTechnomagi": {
+      "py/set": [
+        "Stellaris",
+        "civ"
+      ]
+    },
+    "Moyes2men": {
+      "py/set": [
+        "civ",
+        "hoi4"
+      ]
+    },
+    "xHenkersbrautx": {
+      "py/set": [
+        "CrusaderKings",
+        "eu4"
+      ]
+    },
+    "Better_Buff_Junglers": {
+      "py/set": [
+        "CrusaderKings",
+        "eu4"
+      ]
+    },
+    "Tetragrade": {
+      "py/set": [
+        "CrusaderKings",
+        "eu4"
+      ]
+    },
+    "sneakyplanner": {
+      "py/set": [
+        "CrusaderKings",
+        "eu4"
+      ]
+    },
+    "RexLynxPRT": {
+      "py/set": [
+        "CrusaderKings",
+        "eu4"
+      ]
+    },
+    "monalba": {
+      "py/set": [
+        "CrusaderKings",
+        "eu4"
+      ]
+    },
+    "vorko_76": {
+      "py/set": [
+        "CrusaderKings",
+        "eu4"
+      ]
+    },
+    "MaxNeedy": {
+      "py/set": [
+        "CrusaderKings",
+        "eu4"
+      ]
+    },
+    "drchaos2000": {
+      "py/set": [
+        "CrusaderKings",
+        "eu4"
+      ]
+    },
+    "Locem": {
+      "py/set": [
+        "Stellaris",
+        "CrusaderKings",
+        "totalwar"
+      ]
+    },
+    "nullstorm0": {
+      "py/set": [
+        "CrusaderKings",
+        "totalwar"
+      ]
+    },
+    "TitanDarwin": {
+      "py/set": [
+        "CrusaderKings",
+        "totalwar"
+      ]
+    },
+    "RadioactiveCarrot": {
+      "py/set": [
+        "Stellaris",
+        "CrusaderKings"
+      ]
+    },
+    "LMeire": {
+      "py/set": [
+        "Stellaris",
+        "CrusaderKings"
+      ]
+    },
+    "Kolenga": {
+      "py/set": [
+        "Stellaris",
+        "CrusaderKings"
+      ]
+    },
+    "DuGalle": {
+      "py/set": [
+        "Stellaris",
+        "eu4"
+      ]
+    },
+    "ChetWinston": {
+      "py/set": [
+        "Stellaris",
+        "eu4"
+      ]
+    },
+    "CrayRuse": {
+      "py/set": [
+        "Stellaris",
+        "eu4"
+      ]
+    },
+    "Coridimus": {
+      "py/set": [
+        "Stellaris",
+        "eu4"
+      ]
+    },
+    "0WatcherintheWater0": {
+      "py/set": [
+        "Stellaris",
+        "eu4",
+        "hoi4"
+      ]
+    },
+    "ipsum629": {
+      "py/set": [
+        "Stellaris",
+        "eu4"
+      ]
+    },
+    "grahamdanoob": {
+      "py/set": [
+        "Stellaris",
+        "eu4"
+      ]
+    },
+    "MrTrt": {
+      "py/set": [
+        "Stellaris",
+        "eu4"
+      ]
+    },
+    "Kloiper": {
+      "py/set": [
+        "eu4",
+        "hoi4"
+      ]
+    },
+    "WaitingToBeTriggered": {
+      "py/set": [
+        "totalwar",
+        "CitiesSkylines"
+      ]
+    },
+    "HouseOfSchaus": {
+      "py/set": [
+        "Stellaris",
+        "totalwar"
+      ]
+    },
+    "Akratus2": {
+      "py/set": [
+        "Stellaris",
+        "totalwar"
+      ]
+    },
+    "SamBellFromSarang": {
+      "py/set": [
+        "CitiesSkylines",
+        "SimCity"
+      ]
+    },
+    "Elia1799": {
+      "py/set": [
+        "CitiesSkylines",
+        "SimCity"
+      ]
+    },
+    "xanhou": {
+      "py/set": [
+        "Stellaris",
+        "CitiesSkylines"
+      ]
+    }
+  }
+}

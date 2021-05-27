@@ -1,3 +1,5 @@
+from defines import MAX_SIZE_BYTES
+from typing import Generator
 from utility.app_config import Config
 import utility.data_util as data_util
 import jsonpickle
@@ -7,6 +9,8 @@ from utility.data_util import DataLocation
 import math
 import datetime as dt
 import textwrap
+from pathlib import Path
+from utility.grouping import group
 
 class Subreddit_Data:
   name:str
@@ -43,14 +47,59 @@ class Subreddit_Data:
     return item in self.users
 
   @staticmethod
-  def load(subbredit_name: str, config:Config):
-    filename = subbredit_name + ".json"
+  def load(subreddit_name: str, config:Config):
+    filename = subreddit_name + ".json"
     if data_util.file_exists(config,filename, DataLocation.SUBREDDIT):
       with open(data_util.make_data_path(config,filename, DataLocation.SUBREDDIT), 'r') as f:
         content = f.read()
         return jsonpickle.decode(content)
-    return Subreddit_Data(subbredit_name,set([]))
+    return Subreddit_Data(subreddit_name,set([]))
 
+  @staticmethod
+  def file_size(subreddit_name:str, config:Config)->int:
+    filename =  subreddit_name + ".json"
+    if data_util.file_exists(config,filename, DataLocation.SUBREDDIT):
+        return Path(data_util.make_data_path(config,filename, DataLocation.SUBREDDIT)).stat().st_size
+    return 0
+
+class Subreddit_Group:
+  __data: dict[str, Subreddit_Data]
+
+  def __init__(self,subs: list[str], config: Config):
+    self.__data = {}
+    for sub in subs:
+      self.__data[sub] = Subreddit_Data.load(sub,config)
+
+  def get(self,name: str)-> Subreddit_Data:
+    self.__data.get(name)
+
+  def __str__(self):
+    return str(list(self.__data.keys()))
+
+  def __iter__(self):
+    for sub in self.__data:
+      yield self.__data[sub]
+
+class Subreddit_Groups:
+  __groups: list[list[str]]
+  __config: Config
+  def __init__(self,config: Config):
+    self.__config = config
+    group_gen = group(
+      config.subreddits_to_crawl,
+      lambda s: Subreddit_Data.file_size(s,config),
+      MAX_SIZE_BYTES)
+    self.__groups = []
+    for g in group_gen():
+      self.__groups.append(g[1])
+
+  def count(self):
+    return len(self.__groups)
+
+  def __iter__(self):
+    for group in self.__groups:
+      yield Subreddit_Group(group,self.__config)
+  
 class Subreddit_Batch:
   subs: dict[str, Subreddit_Data]
 
@@ -187,13 +236,13 @@ class Crawl_Metadata:
   
   def save_to_file(self,config:Config):
     content = self.to_json()   
-    with open(data_util.make_data_path(config,Crawl_Metadata.__FILE_NAME,DataLocation.SUBREDDIT_META), 'w') as f:
+    with open(data_util.make_data_path(config,Crawl_Metadata.__FILE_NAME,DataLocation.METADATA), 'w') as f:
       f.write(content)
 
   @staticmethod
   def load(config:Config):
-    if data_util.file_exists(config,Crawl_Metadata.__FILE_NAME,DataLocation.SUBREDDIT_META):
-      with open(data_util.make_data_path(config,Crawl_Metadata.__FILE_NAME,DataLocation.SUBREDDIT_META),'r') as f:
+    if data_util.file_exists(config,Crawl_Metadata.__FILE_NAME,DataLocation.METADATA):
+      with open(data_util.make_data_path(config,Crawl_Metadata.__FILE_NAME,DataLocation.METADATA),'r') as f:
         content = f.read()
         return jsonpickle.decode(content)
     return Crawl_Metadata.empty()
