@@ -127,6 +127,7 @@ def __viusalize_centraliteis(graph: Graph,name_base:str,gradient: ColorGradient,
   __visualize_centrality(graph,nx_centrality.eigenvector_centrality,name_base+"_coloring_egien_cent.html",gradient,config,logger,token)
   __visualize_centrality(graph,nx_centrality.harmonic_centrality,name_base+":coloring_harmonic_cent.html",gradient,config,logger,token)
   __visualize_centrality(graph,nx_centrality.subgraph_centrality,name_base+"_coloring_sub_graph_cent.html",gradient,config,logger,token)
+  __visualize_centrality(graph,nx_centrality.betweenness_centrality,name_base+"_coloring_betweenness.html",gradient,config,logger,token)
   if nx.is_connected(graph):
     __visualize_centrality(graph,nx_centrality.current_flow_closeness_centrality,name_base+"_coloring_current_flow_cent.html",gradient,config,logger,token)
   __visualize_centrality(graph,nx_centrality.closeness_centrality,name_base+"_coloring_closeness_cent.html",gradient,config,logger,token)

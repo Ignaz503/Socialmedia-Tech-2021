@@ -2570,3 +2570,275 @@
 [2021-05-28 17:26:40.848][Info] visualization complete
 [2021-05-28 17:26:48.086][Info] Staring closing procedure
 
+[2021-05-28 18:52:41.135][Info] starting visualization
+[2021-05-28 18:52:41.151][Info] crawling for metadata before visualization
+[2021-05-28 18:52:42.561][Info] Crawling for subreddit metadata
+[2021-05-28 18:52:42.561][Info] getting meta data for civ
+[2021-05-28 18:52:43.941][Info] getting meta data for CrusaderKings
+[2021-05-28 18:52:54.435][Info] getting meta data for eu4
+[2021-05-28 18:53:04.897][Info] getting meta data for totalwar
+[2021-05-28 18:53:15.313][Info] getting meta data for SimCity
+[2021-05-28 18:53:25.667][Info] getting meta data for CitiesSkylines
+[2021-05-28 18:53:36.083][Info] getting meta data for RimWorld
+[2021-05-28 18:53:46.499][Info] getting meta data for Stellaris
+[2021-05-28 18:53:56.977][Info] getting meta data for hoi4
+[2021-05-28 18:54:07.409][Info] getting meta data for dwarffortress
+[2021-05-28 18:54:17.871][Info] getting meta data for victoria2
+[2021-05-28 18:54:28.271][Info] getting meta data for aoe2
+[2021-05-28 18:54:38.687][Info] getting meta data for slaythespire
+[2021-05-28 18:54:49.088][Info] getting meta data for factorio
+[2021-05-28 18:54:59.519][Info] getting meta data for EndlessLegend
+[2021-05-28 18:55:07.393][Info] getting meta data for starcraft
+[2021-05-28 18:55:11.935][Info] getting meta data for Xcom
+[2021-05-28 18:55:14.849][Info] getting meta data for ftlgame
+[2021-05-28 18:55:16.709][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-28 18:55:16.817][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-28 18:55:17.065][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-28 18:55:17.298][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-28 18:55:17.515][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-28 18:55:17.763][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-28 18:55:17.980][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,RimWorld)
+[2021-05-28 18:55:18.166][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-28 18:55:18.399][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-28 18:55:18.647][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,dwarffortress)
+[2021-05-28 18:55:18.895][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,victoria2)
+[2021-05-28 18:55:19.143][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,aoe2)
+[2021-05-28 18:55:19.360][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,slaythespire)
+[2021-05-28 18:55:19.592][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,factorio)
+[2021-05-28 18:55:19.809][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,EndlessLegend)
+[2021-05-28 18:55:20.042][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,starcraft)
+[2021-05-28 18:55:20.274][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Xcom)
+[2021-05-28 18:55:20.476][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,ftlgame)
+[2021-05-28 18:55:20.677][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-28 18:55:20.941][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-28 18:55:21.173][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-28 18:55:21.328][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-28 18:55:21.530][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,RimWorld)
+[2021-05-28 18:55:21.732][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-28 18:55:21.948][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-28 18:55:22.165][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,dwarffortress)
+[2021-05-28 18:55:22.398][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,victoria2)
+[2021-05-28 18:55:22.630][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,aoe2)
+[2021-05-28 18:55:22.863][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,slaythespire)
+[2021-05-28 18:55:23.049][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,factorio)
+[2021-05-28 18:55:23.251][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,EndlessLegend)
+[2021-05-28 18:55:23.436][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,starcraft)
+[2021-05-28 18:55:23.700][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Xcom)
+[2021-05-28 18:55:23.901][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,ftlgame)
+[2021-05-28 18:55:24.149][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-28 18:55:24.351][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-28 18:55:24.552][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-28 18:55:24.770][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,RimWorld)
+[2021-05-28 18:55:24.986][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-28 18:55:25.203][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-28 18:55:25.437][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,dwarffortress)
+[2021-05-28 18:55:25.591][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,victoria2)
+[2021-05-28 18:55:25.808][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,aoe2)
+[2021-05-28 18:55:26.009][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,slaythespire)
+[2021-05-28 18:55:26.257][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,factorio)
+[2021-05-28 18:55:26.459][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,EndlessLegend)
+[2021-05-28 18:55:26.614][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,starcraft)
+[2021-05-28 18:55:26.847][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Xcom)
+[2021-05-28 18:55:27.048][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,ftlgame)
+[2021-05-28 18:55:27.296][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-28 18:55:27.466][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-28 18:55:27.684][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,RimWorld)
+[2021-05-28 18:55:27.900][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-28 18:55:28.135][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-28 18:55:28.334][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,dwarffortress)
+[2021-05-28 18:55:28.505][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,victoria2)
+[2021-05-28 18:55:28.768][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,aoe2)
+[2021-05-28 18:55:29.016][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,slaythespire)
+[2021-05-28 18:55:29.218][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,factorio)
+[2021-05-28 18:55:29.404][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,EndlessLegend)
+[2021-05-28 18:55:29.652][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,starcraft)
+[2021-05-28 18:55:29.853][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Xcom)
+[2021-05-28 18:55:30.070][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,ftlgame)
+[2021-05-28 18:55:30.318][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-28 18:55:30.520][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,RimWorld)
+[2021-05-28 18:55:30.737][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-28 18:55:30.969][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-28 18:55:31.156][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,dwarffortress)
+[2021-05-28 18:55:31.372][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,victoria2)
+[2021-05-28 18:55:31.558][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,aoe2)
+[2021-05-28 18:55:31.806][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,slaythespire)
+[2021-05-28 18:55:32.039][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,factorio)
+[2021-05-28 18:55:32.287][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,EndlessLegend)
+[2021-05-28 18:55:32.519][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,starcraft)
+[2021-05-28 18:55:32.752][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Xcom)
+[2021-05-28 18:55:32.969][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,ftlgame)
+[2021-05-28 18:55:33.186][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,RimWorld)
+[2021-05-28 18:55:33.418][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-28 18:55:33.607][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-28 18:55:33.791][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,dwarffortress)
+[2021-05-28 18:55:34.007][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,victoria2)
+[2021-05-28 18:55:34.255][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,aoe2)
+[2021-05-28 18:55:34.442][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,slaythespire)
+[2021-05-28 18:55:34.658][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,factorio)
+[2021-05-28 18:55:34.860][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,EndlessLegend)
+[2021-05-28 18:55:35.077][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,starcraft)
+[2021-05-28 18:55:35.279][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Xcom)
+[2021-05-28 18:55:35.464][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,ftlgame)
+[2021-05-28 18:55:35.712][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,Stellaris)
+[2021-05-28 18:55:35.931][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,hoi4)
+[2021-05-28 18:55:36.162][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,dwarffortress)
+[2021-05-28 18:55:36.379][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,victoria2)
+[2021-05-28 18:55:36.611][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,aoe2)
+[2021-05-28 18:55:36.844][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,slaythespire)
+[2021-05-28 18:55:37.061][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,factorio)
+[2021-05-28 18:55:37.278][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,EndlessLegend)
+[2021-05-28 18:55:37.464][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,starcraft)
+[2021-05-28 18:55:37.681][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,Xcom)
+[2021-05-28 18:55:37.867][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,ftlgame)
+[2021-05-28 18:55:38.053][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-28 18:55:38.301][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,dwarffortress)
+[2021-05-28 18:55:38.533][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,victoria2)
+[2021-05-28 18:55:38.704][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,aoe2)
+[2021-05-28 18:55:38.906][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,slaythespire)
+[2021-05-28 18:55:39.076][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,factorio)
+[2021-05-28 18:55:39.262][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,EndlessLegend)
+[2021-05-28 18:55:39.494][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,starcraft)
+[2021-05-28 18:55:39.743][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,Xcom)
+[2021-05-28 18:55:39.944][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,ftlgame)
+[2021-05-28 18:55:40.146][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,dwarffortress)
+[2021-05-28 18:55:40.362][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,victoria2)
+[2021-05-28 18:55:40.548][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,aoe2)
+[2021-05-28 18:55:40.719][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,slaythespire)
+[2021-05-28 18:55:40.920][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,factorio)
+[2021-05-28 18:55:41.106][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,EndlessLegend)
+[2021-05-28 18:55:41.323][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,starcraft)
+[2021-05-28 18:55:41.556][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,Xcom)
+[2021-05-28 18:55:41.757][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,ftlgame)
+[2021-05-28 18:55:41.959][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,victoria2)
+[2021-05-28 18:55:42.191][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,aoe2)
+[2021-05-28 18:55:42.409][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,slaythespire)
+[2021-05-28 18:55:42.625][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,factorio)
+[2021-05-28 18:55:42.812][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,EndlessLegend)
+[2021-05-28 18:55:42.997][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,starcraft)
+[2021-05-28 18:55:43.199][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,Xcom)
+[2021-05-28 18:55:43.416][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,ftlgame)
+[2021-05-28 18:55:43.617][Info] [Sub Sub Adj Mat] handling subreddit pair (victoria2,aoe2)
+[2021-05-28 18:55:43.803][Info] [Sub Sub Adj Mat] handling subreddit pair (victoria2,slaythespire)
+[2021-05-28 18:55:44.067][Info] [Sub Sub Adj Mat] handling subreddit pair (victoria2,factorio)
+[2021-05-28 18:55:44.315][Info] [Sub Sub Adj Mat] handling subreddit pair (victoria2,EndlessLegend)
+[2021-05-28 18:55:44.532][Info] [Sub Sub Adj Mat] handling subreddit pair (victoria2,starcraft)
+[2021-05-28 18:55:44.702][Info] [Sub Sub Adj Mat] handling subreddit pair (victoria2,Xcom)
+[2021-05-28 18:55:44.904][Info] [Sub Sub Adj Mat] handling subreddit pair (victoria2,ftlgame)
+[2021-05-28 18:55:45.136][Info] [Sub Sub Adj Mat] handling subreddit pair (aoe2,slaythespire)
+[2021-05-28 18:55:45.338][Info] [Sub Sub Adj Mat] handling subreddit pair (aoe2,factorio)
+[2021-05-28 18:55:45.555][Info] [Sub Sub Adj Mat] handling subreddit pair (aoe2,EndlessLegend)
+[2021-05-28 18:55:45.787][Info] [Sub Sub Adj Mat] handling subreddit pair (aoe2,starcraft)
+[2021-05-28 18:55:46.035][Info] [Sub Sub Adj Mat] handling subreddit pair (aoe2,Xcom)
+[2021-05-28 18:55:46.268][Info] [Sub Sub Adj Mat] handling subreddit pair (aoe2,ftlgame)
+[2021-05-28 18:55:46.454][Info] [Sub Sub Adj Mat] handling subreddit pair (slaythespire,factorio)
+[2021-05-28 18:55:46.671][Info] [Sub Sub Adj Mat] handling subreddit pair (slaythespire,EndlessLegend)
+[2021-05-28 18:55:46.903][Info] [Sub Sub Adj Mat] handling subreddit pair (slaythespire,starcraft)
+[2021-05-28 18:55:47.151][Info] [Sub Sub Adj Mat] handling subreddit pair (slaythespire,Xcom)
+[2021-05-28 18:55:47.368][Info] [Sub Sub Adj Mat] handling subreddit pair (slaythespire,ftlgame)
+[2021-05-28 18:55:47.554][Info] [Sub Sub Adj Mat] handling subreddit pair (factorio,EndlessLegend)
+[2021-05-28 18:55:47.756][Info] [Sub Sub Adj Mat] handling subreddit pair (factorio,starcraft)
+[2021-05-28 18:55:47.973][Info] [Sub Sub Adj Mat] handling subreddit pair (factorio,Xcom)
+[2021-05-28 18:55:48.236][Info] [Sub Sub Adj Mat] handling subreddit pair (factorio,ftlgame)
+[2021-05-28 18:55:48.484][Info] [Sub Sub Adj Mat] handling subreddit pair (EndlessLegend,starcraft)
+[2021-05-28 18:55:48.655][Info] [Sub Sub Adj Mat] handling subreddit pair (EndlessLegend,Xcom)
+[2021-05-28 18:55:48.872][Info] [Sub Sub Adj Mat] handling subreddit pair (EndlessLegend,ftlgame)
+[2021-05-28 18:55:49.073][Info] [Sub Sub Adj Mat] handling subreddit pair (starcraft,Xcom)
+[2021-05-28 18:55:49.306][Info] [Sub Sub Adj Mat] handling subreddit pair (starcraft,ftlgame)
+[2021-05-28 18:55:49.523][Info] [Sub Sub Adj Mat] handling subreddit pair (Xcom,ftlgame)
+[2021-05-28 18:55:49.771][Info] Generating data for visualization subreddit subreddit
+[2021-05-28 18:55:49.771][Info] building graph subreddit to subreddit
+[2021-05-28 18:55:49.771][Info] adding metadata to nodes
+[2021-05-28 18:55:49.772][Info] adding meta data to edges
+[2021-05-28 18:55:49.786][Info] visulaizting graph subreddit_subreddit.html
+[2021-05-28 18:55:49.817][Info] creating visualization
+[2021-05-28 18:55:49.849][Info] saving visualization subreddit_subreddit.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_subreddit.html
+[2021-05-28 18:55:50.037][Info] visulaizting graph subreddit_subreddit_coloring_cluster.html
+[2021-05-28 18:55:50.038][Info] creating visualization
+[2021-05-28 18:55:50.039][Info] saving visualization subreddit_subreddit_coloring_cluster.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_subreddit_coloring_cluster.html
+[2021-05-28 18:55:50.205][Info] visulaizting graph subreddit_subreddit_coloring_deg_cent.html
+[2021-05-28 18:55:50.205][Info] creating visualization
+[2021-05-28 18:55:50.206][Info] saving visualization subreddit_subreddit_coloring_deg_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_subreddit_coloring_deg_cent.html
+[2021-05-28 18:55:50.376][Info] visulaizting graph subreddit_subreddit_coloring_egien_cent.html
+[2021-05-28 18:55:50.376][Info] creating visualization
+[2021-05-28 18:55:50.377][Info] saving visualization subreddit_subreddit_coloring_egien_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_subreddit_coloring_egien_cent.html
+[2021-05-28 18:55:50.531][Info] visulaizting graph subreddit_subreddit:coloring_harmonic_cent.html
+[2021-05-28 18:55:50.531][Info] creating visualization
+[2021-05-28 18:55:50.532][Info] saving visualization subreddit_subreddit:coloring_harmonic_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_subreddit:coloring_harmonic_cent.html
+[2021-05-28 18:55:50.701][Info] visulaizting graph subreddit_subreddit_coloring_sub_graph_cent.html
+[2021-05-28 18:55:50.732][Info] creating visualization
+[2021-05-28 18:55:50.748][Info] saving visualization subreddit_subreddit_coloring_sub_graph_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_subreddit_coloring_sub_graph_cent.html
+[2021-05-28 18:55:50.919][Info] visulaizting graph subreddit_subreddit_coloring_betweenness.html
+
+[2021-05-28 18:55:50.933][Info] creating visualization
+[2021-05-28 18:55:50.949][Info] saving visualization subreddit_subreddit_coloring_betweenness.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_subreddit_coloring_betweenness.html
+[2021-05-28 18:55:51.306][Info] visulaizting graph subreddit_subreddit_coloring_current_flow_cent.html
+[2021-05-28 18:55:51.306][Info] creating visualization
+[2021-05-28 18:55:51.307][Info] saving visualization subreddit_subreddit_coloring_current_flow_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_subreddit_coloring_current_flow_cent.html
+[2021-05-28 18:55:51.476][Info] visulaizting graph subreddit_subreddit_coloring_closeness_cent.html
+[2021-05-28 18:55:51.476][Info] creating visualization
+[2021-05-28 18:55:51.477][Info] saving visualization subreddit_subreddit_coloring_closeness_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_subreddit_coloring_closeness_cent.html
+[2021-05-28 18:55:51.631][Info] visulaizting graph subreddit_subreddit_coloring_bridges.html
+[2021-05-28 18:55:51.662][Info] creating visualization
+[2021-05-28 18:55:51.663][Info] saving visualization subreddit_subreddit_coloring_bridges.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_subreddit_coloring_bridges.html
+[2021-05-28 18:55:51.832][Info] genrating unqiue user list
+[2021-05-28 18:55:53.754][Info] found 8658 unique users from 18 subreddits
+[2021-05-28 18:55:53.770][Info] Generating data for visualization subreddit user
+[2021-05-28 18:55:53.770][Info] building graph subbredit to user
+[2021-05-28 18:55:53.770][Info] adding subreddit nodes
+[2021-05-28 18:55:53.771][Info] adding user nodes
+[2021-05-28 18:55:53.861][Info] adding edges
+[2021-05-28 18:55:55.741][Info] visulaizting graph subreddit_user.html
+[2021-05-28 18:55:55.753][Info] creating visualization
+[2021-05-28 18:56:07.304][Info] saving visualization subreddit_user.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_user.html
+[2021-05-28 18:56:07.583][Info] visulaizting graph subreddit_user_simple.html
+[2021-05-28 18:56:07.583][Info] creating visualization
+[2021-05-28 18:56:07.614][Info] saving visualization subreddit_user_simple.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_user_simple.html
+[2021-05-28 18:56:07.798][Info] visulaizting graph subreddit_user_simple_coloring_deg_cent.html
+[2021-05-28 18:56:07.798][Info] creating visualization
+[2021-05-28 18:56:07.830][Info] saving visualization subreddit_user_simple_coloring_deg_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_user_simple_coloring_deg_cent.html
+[2021-05-28 18:56:08.088][Info] visulaizting graph subreddit_user_simple_coloring_egien_cent.html
+[2021-05-28 18:56:08.121][Info] creating visualization
+[2021-05-28 18:56:08.154][Info] saving visualization subreddit_user_simple_coloring_egien_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_user_simple_coloring_egien_cent.html
+[2021-05-28 18:56:08.476][Info] visulaizting graph subreddit_user_simple:coloring_harmonic_cent.html
+[2021-05-28 18:56:08.493][Info] creating visualization
+[2021-05-28 18:56:08.525][Info] saving visualization subreddit_user_simple:coloring_harmonic_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_user_simple:coloring_harmonic_cent.html
+[2021-05-28 18:56:08.914][Info] visulaizting graph subreddit_user_simple_coloring_sub_graph_cent.html
+[2021-05-28 18:56:08.943][Info] creating visualization
+[2021-05-28 18:56:08.974][Info] saving visualization subreddit_user_simple_coloring_sub_graph_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_user_simple_coloring_sub_graph_cent.html
+[2021-05-28 18:56:09.559][Info] visulaizting graph subreddit_user_simple_coloring_betweenness.html
+[2021-05-28 18:56:09.559][Info] creating visualization
+[2021-05-28 18:56:09.574][Info] saving visualization subreddit_user_simple_coloring_betweenness.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_user_simple_coloring_betweenness.html
+[2021-05-28 18:56:14.308][Info] visulaizting graph subreddit_user_simple_coloring_current_flow_cent.html
+[2021-05-28 18:56:14.308][Info] creating visualization
+[2021-05-28 18:56:14.343][Info] saving visualization subreddit_user_simple_coloring_current_flow_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_user_simple_coloring_current_flow_cent.html
+[2021-05-28 18:56:14.614][Info] visulaizting graph subreddit_user_simple_coloring_closeness_cent.html
+[2021-05-28 18:56:14.614][Info] creating visualization
+[2021-05-28 18:56:14.630][Info] saving visualization subreddit_user_simple_coloring_closeness_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\subreddit_user_simple_coloring_closeness_cent.html
+[2021-05-28 18:56:14.802][Info] Generating data for visualization subreddit user
+[2021-05-28 18:56:14.817][Info] adding nodes
+[2021-05-28 18:56:14.833][Info] adding edges
+[2021-05-28 18:56:14.899][Info] This took 0h : 0m : 0.0822s
+[2021-05-28 18:56:14.900][Info] visulaizting graph user_user_gt1.html
+[2021-05-28 18:56:14.901][Info] creating visualization
+[2021-05-28 18:56:15.092][Info] saving visualization user_user_gt1.html to  C:\Users\lukas\studium\soc-med\data\visualization\user_user_gt1.html
+[2021-05-28 18:56:15.253][Info] visulaizting graph user_user_gt1_coloring_deg_cent.html
+[2021-05-28 18:56:15.254][Info] creating visualization
+[2021-05-28 18:56:15.383][Info] saving visualization user_user_gt1_coloring_deg_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\user_user_gt1_coloring_deg_cent.html
+[2021-05-28 18:56:15.567][Info] visulaizting graph user_user_gt1_coloring_egien_cent.html
+[2021-05-28 18:56:15.592][Info] creating visualization
+[2021-05-28 18:56:15.737][Info] saving visualization user_user_gt1_coloring_egien_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\user_user_gt1_coloring_egien_cent.html
+[2021-05-28 18:56:15.944][Info] visulaizting graph user_user_gt1:coloring_harmonic_cent.html
+[2021-05-28 18:56:15.964][Info] creating visualization
+[2021-05-28 18:56:16.143][Info] saving visualization user_user_gt1:coloring_harmonic_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\user_user_gt1:coloring_harmonic_cent.html
+[2021-05-28 18:56:16.431][Info] visulaizting graph user_user_gt1_coloring_sub_graph_cent.html
+[2021-05-28 18:56:16.431][Info] creating visualization
+[2021-05-28 18:56:16.627][Info] saving visualization user_user_gt1_coloring_sub_graph_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\user_user_gt1_coloring_sub_graph_cent.html
+[2021-05-28 18:56:16.920][Info] visulaizting graph user_user_gt1_coloring_betweenness.html
+[2021-05-28 18:56:16.920][Info] creating visualization
+[2021-05-28 18:56:17.032][Info] saving visualization user_user_gt1_coloring_betweenness.html to  C:\Users\lukas\studium\soc-med\data\visualization\user_user_gt1_coloring_betweenness.html
+[2021-05-28 18:56:17.274][Info] visulaizting graph user_user_gt1_coloring_closeness_cent.html
+[2021-05-28 18:56:17.275][Info] creating visualization
+[2021-05-28 18:56:17.427][Info] saving visualization user_user_gt1_coloring_closeness_cent.html to  C:\Users\lukas\studium\soc-med\data\visualization\user_user_gt1_coloring_closeness_cent.html
+[2021-05-28 18:56:17.607][Info] visualization complete
+[2021-05-28 18:56:27.946][Info] Staring closing procedure
+
