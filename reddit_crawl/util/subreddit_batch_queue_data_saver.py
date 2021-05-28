@@ -9,13 +9,13 @@ def __execute_save_loop(config: Config, logger: Logger,batch_queue: Subreddit_Ba
   token: Thread_Owned_Cancel_Token = Thread_Owned_Cancel_Token()
   tray.set_token(token)
   with token:
-    current_time = time.time()
+    current_time = time.perf_counter()
     last_execution =  current_time # start sleeping
     while not token.is_cancel_requested():
       if current_time - last_execution >= config.batch_save_interval_seconds:
         last_execution = current_time
         batch_queue.update(config,logger)
-      current_time = time.time()
+      current_time = time.perf_counter()
     batch_queue.handle_all(config,logger)
 
 def run(config: Config, logger: Logger,batch_queue: Subreddit_Batch_Queue, tray: Thread_Owned_Token_Tray):

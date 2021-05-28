@@ -51,6 +51,14 @@ def __execute_generating(config: Config, logger: Logger, token: Cancel_Token, on
     if token.is_cancel_requested():
       return
     __save_adjacency_mat(mat_sub_sub, MatrixFiles.SUBREDDIT_SUBREDDIT,config,logger, token)
+    
+    users = generate_unique_user(config,logger,token)
+    if token.is_cancel_requested():
+      return
+    __save_unique_user_list(users,config)
+    if token.is_cancel_requested():
+      return
+    
     multi_sub_users.save_to_file(config)    
     if token.is_cancel_requested():
       return
@@ -65,14 +73,7 @@ def __execute_generating(config: Config, logger: Logger, token: Cancel_Token, on
       return
     __save_meta_data(md,config,logger,token)
     if token.is_cancel_requested():
-      return
-    users = generate_unique_user(config,logger,token)
-    if token.is_cancel_requested():
-      return
-    __save_unique_user_list(users,config)
-    if token.is_cancel_requested():
-      return
-    
+      return  
     graph_generator.write_all_possible_as_dot(
       users,
       md,

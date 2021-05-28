@@ -15,7 +15,7 @@ class Bot_Blacklist:
 
   def save_to_file(self, filename: str, config:Config):
     content = self.to_json()   
-    with open(data_util.make_data_path(config,filename,DataLocation.DEFAULT), 'w') as f:
+    with open(data_util.make_data_path(config,filename,DataLocation.DEFAULT), 'w',encoding="utf-8") as f:
       f.write(content)
 
 class Threadsafe_Bot_Blacklist:
@@ -38,7 +38,7 @@ class Threadsafe_Bot_Blacklist:
 
 def load(filename, config:Config) -> Threadsafe_Bot_Blacklist:
   if data_util.file_exists(config,filename, DataLocation.DEFAULT):
-    with open(data_util.make_data_path(config,filename, DataLocation.DEFAULT), 'r') as f:
+    with open(data_util.make_data_path(config,filename, DataLocation.DEFAULT), 'r',encoding="utf-8") as f:
       content = f.read()
       return Threadsafe_Bot_Blacklist(jsonpickle.decode(content))
   return Threadsafe_Bot_Blacklist(Bot_Blacklist(set([])))

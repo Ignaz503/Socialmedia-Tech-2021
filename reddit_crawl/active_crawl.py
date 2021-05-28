@@ -12,40 +12,6 @@ from reddit_crawl.data.bot_blacklist import Threadsafe_Bot_Blacklist
 from reddit_crawl.data.subreddit import Subreddit_Batch_Queue, Subreddit_Batch
 from defines import MIN_REPEAT_TIME
 
-def __handle_user(user_name: str, sub_name: str, context: Thread_Safe_Context):
-  if context.blacklist.contains(user_name):
-    context.crawl_diagnostics.increment_bots_detected()
-    return
-  new_user = context.current_data.add_user(sub_name,user_name)
-  if new_user:
-    context.crawl_diagnostics.increment_usrers_extracted_total()
-
-
-def __handle_comment(comment: Comment, context: Thread_Safe_Context, token: Cancel_Token):
-  if token.is_cancel_requested():
-    return
-  context.crawl_diagnostics.increment_comments_total()
-  if comment.author is None:
-    context.crawl_diagnostics.increment_comments_no_author()
-    return
-  if context.current_data.conatins_user(comment.author.name,comment.subreddit.display_name):
-    #we already found this user once for this subreddit
-    return
-
-  rh.scan_if_new_bot(comment,context)
-  __handle_user(comment.author.name,comment.subreddit.display_name, context)
-
-def __handle_post(post: Submission, context: Thread_Safe_Context, token: Cancel_Token):
-  
-  context.logger.log("Crawling submission: {mis}".format(mis=post.title),Level.INFO)
-  context.crawl_diagnostics.increment_submission_total()
-
-  if post.author is not None:
-    __handle_user(post.author.name, post.subreddit.display_name, context)
-
-  rh.handle_all_comments(__handle_comment,post,context,token)
-
-
 def __handle_crawl(context: Thread_Safe_Context,batch_queue: Subreddit_Batch_Queue, token: Cancel_Token):
   for sub in context.config.subreddits_to_crawl:
     if token.is_cancel_requested():
@@ -56,7 +22,7 @@ def __handle_crawl(context: Thread_Safe_Context,batch_queue: Subreddit_Batch_Que
       for submission in context.config.get_submission_getter().get(subreddit,context.config.number_of_posts, context.logger):
         if token.is_cancel_requested():
           break
-        __handle_post(submission, context, token)
+        rh.handle_post_thread_safe(submission, context, token)
     except Exception as err:
       print(err)
       traceback.print_tb(err.__traceback__)
@@ -72,10 +38,10 @@ def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Bl
       diagnostics = Reddit_Crawl_Diagnostics()
 
     context = Thread_Safe_Context(reddit,config, Subreddit_Batch(),logger,blacklist, diagnostics)
-
+    rh.start_batch_submit_thread("active crawl batch submit",context,batch_queue,token)
     logger.log("executing crawl every {s} seconds".format(s = wait_period_seconds),Level.INFO)
 
-    current_time = time.time()
+    current_time = time.perf_counter()
     last_execution = float('-inf') # start running
     
     while not token.is_cancel_requested():
@@ -88,7 +54,7 @@ def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Bl
         context.crawl_diagnostics.reset_timing()
       if only_once:
         break
-      current_time = time.time()
+      current_time = time.perf_counter()
     batch_queue.enqueue(context.current_data)
     logger.log("active crawl stopped")
 

@@ -1,113 +1,426 @@
 {
   "py/object": "reddit_crawl.data.users.MultiSubredditUsers",
   "data": {
+    "AssaultDragon": {
+      "py/set": [
+        "CrusaderKings",
+        "civ"
+      ]
+    },
+    "bge223": {
+      "py/set": [
+        "CrusaderKings",
+        "civ",
+        "victoria2"
+      ]
+    },
+    "franckboy13": {
+      "py/set": [
+        "CrusaderKings",
+        "civ"
+      ]
+    },
+    "simanthegratest": {
+      "py/set": [
+        "eu4",
+        "CrusaderKings",
+        "civ"
+      ]
+    },
+    "Bitcoin_Or_Bust": {
+      "py/set": [
+        "CrusaderKings",
+        "civ"
+      ]
+    },
     "CKCarterIII": {
       "py/set": [
-        "civ",
-        "CrusaderKings"
+        "CrusaderKings",
+        "civ"
       ]
     },
     "taqn22": {
       "py/set": [
-        "civ",
-        "CrusaderKings"
+        "CrusaderKings",
+        "civ"
+      ]
+    },
+    "Ainell": {
+      "py/set": [
+        "CrusaderKings",
+        "civ"
+      ]
+    },
+    "budom": {
+      "py/set": [
+        "CrusaderKings",
+        "civ"
       ]
     },
     "Bonjourap": {
       "py/set": [
+        "eu4",
         "civ",
-        "eu4"
+        "totalwar"
       ]
     },
-    "Niallism": {
+    "Linux_MissingNo": {
       "py/set": [
-        "civ",
-        "Stellaris"
+        "eu4",
+        "civ"
       ]
     },
-    "KaizerKlash": {
+    "Quinlov": {
       "py/set": [
-        "civ",
-        "Stellaris"
+        "eu4",
+        "civ"
       ]
     },
-    "Toybasher": {
+    "Thuis001": {
+      "py/set": [
+        "eu4",
+        "civ"
+      ]
+    },
+    "LuxInteriot": {
       "py/set": [
         "civ",
-        "Stellaris"
+        "totalwar"
+      ]
+    },
+    "Umutuku": {
+      "py/set": [
+        "civ",
+        "totalwar"
+      ]
+    },
+    "Manannin": {
+      "py/set": [
+        "civ",
+        "totalwar"
+      ]
+    },
+    "MacDerfus": {
+      "py/set": [
+        "civ",
+        "totalwar"
+      ]
+    },
+    "COMPUTER1313": {
+      "py/set": [
+        "civ",
+        "CitiesSkylines"
+      ]
+    },
+    "TotallyLegitBotLul": {
+      "py/set": [
+        "factorio",
+        "slaythespire",
+        "civ",
+        "RimWorld"
+      ]
+    },
+    "SharkyMcSnarkface": {
+      "py/set": [
+        "Stellaris",
+        "civ"
+      ]
+    },
+    "Grothgerek": {
+      "py/set": [
+        "Stellaris",
+        "civ"
       ]
     },
     "RoyalTechnomagi": {
       "py/set": [
-        "civ",
-        "Stellaris"
+        "Stellaris",
+        "civ"
+      ]
+    },
+    "StandardN00b": {
+      "py/set": [
+        "Stellaris",
+        "civ"
+      ]
+    },
+    "Toybasher": {
+      "py/set": [
+        "Stellaris",
+        "hoi4",
+        "civ"
+      ]
+    },
+    "Chef_BoyarB": {
+      "py/set": [
+        "Stellaris",
+        "civ"
+      ]
+    },
+    "KaizerKlash": {
+      "py/set": [
+        "Stellaris",
+        "civ"
+      ]
+    },
+    "Niallism": {
+      "py/set": [
+        "Stellaris",
+        "civ"
+      ]
+    },
+    "Snownova": {
+      "py/set": [
+        "Stellaris",
+        "civ"
+      ]
+    },
+    "Arekualkhemi": {
+      "py/set": [
+        "Stellaris",
+        "civ"
       ]
     },
     "Moyes2men": {
       "py/set": [
+        "hoi4",
+        "civ"
+      ]
+    },
+    "whatchumeanitstaken": {
+      "py/set": [
+        "hoi4",
+        "civ"
+      ]
+    },
+    "le_beret": {
+      "py/set": [
+        "slaythespire",
+        "civ"
+      ]
+    },
+    "skepticalmonique": {
+      "py/set": [
+        "slaythespire",
+        "civ"
+      ]
+    },
+    "Bobboy5": {
+      "py/set": [
+        "factorio",
+        "civ"
+      ]
+    },
+    "jeremyhoffman": {
+      "py/set": [
+        "EndlessLegend",
+        "civ"
+      ]
+    },
+    "waterman85": {
+      "py/set": [
+        "EndlessLegend",
+        "civ"
+      ]
+    },
+    "Janczareq1": {
+      "py/set": [
         "civ",
-        "hoi4"
+        "starcraft"
       ]
     },
-    "xHenkersbrautx": {
+    "Penguin_Q": {
       "py/set": [
-        "CrusaderKings",
-        "eu4"
+        "civ",
+        "Xcom"
       ]
     },
-    "Better_Buff_Junglers": {
+    "TheBraveGallade": {
       "py/set": [
-        "CrusaderKings",
-        "eu4"
+        "ftlgame",
+        "civ"
       ]
     },
-    "Tetragrade": {
+    "Nomand55": {
       "py/set": [
-        "CrusaderKings",
-        "eu4"
-      ]
-    },
-    "sneakyplanner": {
-      "py/set": [
-        "CrusaderKings",
-        "eu4"
+        "eu4",
+        "CrusaderKings"
       ]
     },
     "RexLynxPRT": {
       "py/set": [
-        "CrusaderKings",
-        "eu4"
+        "eu4",
+        "CrusaderKings"
       ]
     },
-    "monalba": {
+    "2LazyToPickANameLeL": {
       "py/set": [
-        "CrusaderKings",
-        "eu4"
+        "eu4",
+        "CrusaderKings"
       ]
     },
     "vorko_76": {
       "py/set": [
-        "CrusaderKings",
-        "eu4"
+        "eu4",
+        "CrusaderKings"
+      ]
+    },
+    "Better_Buff_Junglers": {
+      "py/set": [
+        "eu4",
+        "CrusaderKings"
+      ]
+    },
+    "xHenkersbrautx": {
+      "py/set": [
+        "eu4",
+        "CrusaderKings"
       ]
     },
     "MaxNeedy": {
       "py/set": [
-        "CrusaderKings",
-        "eu4"
+        "eu4",
+        "CrusaderKings"
+      ]
+    },
+    "Tayl100": {
+      "py/set": [
+        "eu4",
+        "CrusaderKings"
+      ]
+    },
+    "holy_roman_emperor": {
+      "py/set": [
+        "eu4",
+        "CrusaderKings"
+      ]
+    },
+    "Tetragrade": {
+      "py/set": [
+        "eu4",
+        "CrusaderKings"
       ]
     },
     "drchaos2000": {
       "py/set": [
+        "eu4",
+        "CrusaderKings"
+      ]
+    },
+    "gringochilenoo": {
+      "py/set": [
+        "RimWorld",
+        "eu4",
+        "CrusaderKings"
+      ]
+    },
+    "sneakyplanner": {
+      "py/set": [
+        "eu4",
+        "CrusaderKings"
+      ]
+    },
+    "monalba": {
+      "py/set": [
+        "eu4",
         "CrusaderKings",
-        "eu4"
+        "totalwar"
+      ]
+    },
+    "Dreknarr": {
+      "py/set": [
+        "eu4",
+        "CrusaderKings"
+      ]
+    },
+    "TheKolyFrog": {
+      "py/set": [
+        "eu4",
+        "CrusaderKings"
+      ]
+    },
+    "comfort_bot_1962": {
+      "py/set": [
+        "aoe2",
+        "hoi4",
+        "totalwar",
+        "RimWorld",
+        "CrusaderKings"
+      ]
+    },
+    "GumdropGoober": {
+      "py/set": [
+        "CrusaderKings",
+        "totalwar"
+      ]
+    },
+    "TitanDarwin": {
+      "py/set": [
+        "hoi4",
+        "CrusaderKings",
+        "totalwar"
       ]
     },
     "Locem": {
       "py/set": [
+        "Stellaris",
         "CrusaderKings",
-        "totalwar",
-        "Stellaris"
+        "totalwar"
+      ]
+    },
+    "RaeMerrick": {
+      "py/set": [
+        "CrusaderKings",
+        "totalwar"
+      ]
+    },
+    "TempestM": {
+      "py/set": [
+        "CrusaderKings",
+        "totalwar"
+      ]
+    },
+    "Gerreth_Gobulcoque": {
+      "py/set": [
+        "Stellaris",
+        "CrusaderKings",
+        "totalwar"
+      ]
+    },
+    "retief1": {
+      "py/set": [
+        "CrusaderKings",
+        "totalwar"
+      ]
+    },
+    "InterestedObserver20": {
+      "py/set": [
+        "CrusaderKings",
+        "totalwar"
+      ]
+    },
+    "Cloverskeeper": {
+      "py/set": [
+        "CrusaderKings",
+        "totalwar"
+      ]
+    },
+    "Wolf6120": {
+      "py/set": [
+        "CrusaderKings",
+        "totalwar"
+      ]
+    },
+    "Nightmare_Pasta": {
+      "py/set": [
+        "CrusaderKings",
+        "totalwar"
+      ]
+    },
+    "aiquoc": {
+      "py/set": [
+        "CrusaderKings",
+        "totalwar"
       ]
     },
     "nullstorm0": {
@@ -116,68 +429,233 @@
         "totalwar"
       ]
     },
-    "TitanDarwin": {
+    "AMasonJar": {
       "py/set": [
         "CrusaderKings",
         "totalwar"
       ]
     },
-    "RadioactiveCarrot": {
+    "ZJuni0r": {
       "py/set": [
-        "CrusaderKings",
-        "Stellaris"
+        "RimWorld",
+        "CrusaderKings"
       ]
     },
-    "LMeire": {
+    "wayofwisdomlbw": {
       "py/set": [
-        "CrusaderKings",
-        "Stellaris"
+        "Stellaris",
+        "CrusaderKings"
+      ]
+    },
+    "DeanTheDull": {
+      "py/set": [
+        "Stellaris",
+        "CrusaderKings"
+      ]
+    },
+    "RadioactiveCarrot": {
+      "py/set": [
+        "Stellaris",
+        "CrusaderKings"
       ]
     },
     "Kolenga": {
       "py/set": [
+        "Stellaris",
+        "CrusaderKings"
+      ]
+    },
+    "TheEccentricEmpiric": {
+      "py/set": [
+        "Stellaris",
+        "dwarffortress",
+        "CrusaderKings"
+      ]
+    },
+    "SplendorTami": {
+      "py/set": [
+        "Stellaris",
+        "CrusaderKings"
+      ]
+    },
+    "ActualPimpHagrid": {
+      "py/set": [
+        "Stellaris",
+        "CrusaderKings"
+      ]
+    },
+    "faerakhasa": {
+      "py/set": [
+        "Stellaris",
+        "CrusaderKings"
+      ]
+    },
+    "Raestloz": {
+      "py/set": [
+        "Stellaris",
+        "hoi4",
+        "CrusaderKings"
+      ]
+    },
+    "Meteorite12": {
+      "py/set": [
+        "Stellaris",
+        "CrusaderKings"
+      ]
+    },
+    "LMeire": {
+      "py/set": [
+        "Stellaris",
+        "CrusaderKings"
+      ]
+    },
+    "allpurposetool": {
+      "py/set": [
+        "Stellaris",
+        "CrusaderKings"
+      ]
+    },
+    "Dsingis": {
+      "py/set": [
+        "hoi4",
+        "CrusaderKings"
+      ]
+    },
+    "JacobJamesTrowbridge": {
+      "py/set": [
+        "hoi4",
+        "CrusaderKings"
+      ]
+    },
+    "RapidWaffle": {
+      "py/set": [
+        "hoi4",
+        "CrusaderKings"
+      ]
+    },
+    "PlayMp1": {
+      "py/set": [
+        "hoi4",
+        "CrusaderKings"
+      ]
+    },
+    "AccessTheMainframe": {
+      "py/set": [
+        "hoi4",
+        "CrusaderKings"
+      ]
+    },
+    "Kobrag90": {
+      "py/set": [
+        "dwarffortress",
+        "CrusaderKings"
+      ]
+    },
+    "NewRomanian": {
+      "py/set": [
         "CrusaderKings",
-        "Stellaris"
+        "victoria2"
       ]
     },
-    "DuGalle": {
+    "murrman104": {
       "py/set": [
-        "Stellaris",
+        "CrusaderKings",
+        "victoria2"
+      ]
+    },
+    "Ezils1004": {
+      "py/set": [
+        "CrusaderKings",
+        "victoria2"
+      ]
+    },
+    "dudhhr_": {
+      "py/set": [
+        "CrusaderKings",
+        "aoe2"
+      ]
+    },
+    "I_h8_normies": {
+      "py/set": [
+        "eu4",
+        "totalwar"
+      ]
+    },
+    "CaptainCodreanu": {
+      "py/set": [
+        "eu4",
+        "totalwar"
+      ]
+    },
+    "BelizariuszS": {
+      "py/set": [
+        "eu4",
+        "totalwar"
+      ]
+    },
+    "FieryXJoe": {
+      "py/set": [
+        "eu4",
+        "totalwar"
+      ]
+    },
+    "-hegemony_": {
+      "py/set": [
+        "eu4",
+        "totalwar"
+      ]
+    },
+    "jamesyishere": {
+      "py/set": [
+        "eu4",
+        "totalwar"
+      ]
+    },
+    "anselmL": {
+      "py/set": [
+        "eu4",
+        "totalwar"
+      ]
+    },
+    "SpectacularSophistry": {
+      "py/set": [
+        "eu4",
+        "totalwar"
+      ]
+    },
+    "HeyIAmInfinity": {
+      "py/set": [
+        "eu4",
+        "CitiesSkylines"
+      ]
+    },
+    "dabigchina": {
+      "py/set": [
+        "RimWorld",
         "eu4"
       ]
     },
-    "ChetWinston": {
+    "Fentouk": {
       "py/set": [
-        "Stellaris",
-        "eu4"
-      ]
-    },
-    "CrayRuse": {
-      "py/set": [
-        "Stellaris",
-        "eu4"
-      ]
-    },
-    "Coridimus": {
-      "py/set": [
-        "Stellaris",
+        "RimWorld",
         "eu4"
       ]
     },
     "0WatcherintheWater0": {
       "py/set": [
         "Stellaris",
-        "hoi4",
-        "eu4"
+        "eu4",
+        "hoi4"
       ]
     },
     "ipsum629": {
       "py/set": [
         "Stellaris",
-        "eu4"
+        "eu4",
+        "hoi4"
       ]
     },
-    "grahamdanoob": {
+    "DuGalle": {
       "py/set": [
         "Stellaris",
         "eu4"
@@ -189,46 +667,662 @@
         "eu4"
       ]
     },
+    "thecrazyrai": {
+      "py/set": [
+        "Stellaris",
+        "eu4"
+      ]
+    },
+    "MichaelTheSlav": {
+      "py/set": [
+        "Stellaris",
+        "eu4"
+      ]
+    },
+    "CrayRuse": {
+      "py/set": [
+        "Stellaris",
+        "eu4"
+      ]
+    },
+    "Dahak17": {
+      "py/set": [
+        "Stellaris",
+        "eu4"
+      ]
+    },
+    "IlikeJG": {
+      "py/set": [
+        "Stellaris",
+        "slaythespire",
+        "eu4"
+      ]
+    },
+    "Coridimus": {
+      "py/set": [
+        "Stellaris",
+        "eu4"
+      ]
+    },
+    "ChetWinston": {
+      "py/set": [
+        "Stellaris",
+        "eu4",
+        "hoi4"
+      ]
+    },
+    "grahamdanoob": {
+      "py/set": [
+        "Stellaris",
+        "eu4",
+        "hoi4"
+      ]
+    },
+    "SpecialistAddendum6": {
+      "py/set": [
+        "eu4",
+        "hoi4"
+      ]
+    },
+    "Brotherly-Moment": {
+      "py/set": [
+        "eu4",
+        "hoi4"
+      ]
+    },
+    "recalcitrantJester": {
+      "py/set": [
+        "eu4",
+        "hoi4"
+      ]
+    },
+    "HolyHutini": {
+      "py/set": [
+        "eu4",
+        "hoi4"
+      ]
+    },
     "Kloiper": {
       "py/set": [
-        "hoi4",
+        "eu4",
+        "hoi4"
+      ]
+    },
+    "Annual_Wasabi3899": {
+      "py/set": [
+        "eu4",
+        "hoi4"
+      ]
+    },
+    "clappedboi69420": {
+      "py/set": [
+        "eu4",
+        "hoi4"
+      ]
+    },
+    "DoInotFeelIt": {
+      "py/set": [
+        "eu4",
+        "hoi4"
+      ]
+    },
+    "Chance-Essay-2504": {
+      "py/set": [
+        "eu4",
+        "hoi4"
+      ]
+    },
+    "VegetableScram5826": {
+      "py/set": [
+        "eu4",
+        "hoi4"
+      ]
+    },
+    "niofalpha": {
+      "py/set": [
+        "eu4",
+        "hoi4"
+      ]
+    },
+    "Nerdorama09": {
+      "py/set": [
+        "eu4",
+        "victoria2"
+      ]
+    },
+    "GBabeuf": {
+      "py/set": [
+        "eu4",
+        "victoria2"
+      ]
+    },
+    "paradoxplazabot": {
+      "py/set": [
+        "eu4",
+        "victoria2"
+      ]
+    },
+    "The_Jousting_Duck": {
+      "py/set": [
+        "eu4",
+        "victoria2"
+      ]
+    },
+    "ebin44": {
+      "py/set": [
+        "eu4",
+        "victoria2"
+      ]
+    },
+    "DunoCO": {
+      "py/set": [
+        "eu4",
+        "victoria2"
+      ]
+    },
+    "GreenKangaroo3": {
+      "py/set": [
+        "eu4",
+        "aoe2"
+      ]
+    },
+    "_moobear": {
+      "py/set": [
+        "slaythespire",
         "eu4"
+      ]
+    },
+    "towerator": {
+      "py/set": [
+        "ftlgame",
+        "eu4"
+      ]
+    },
+    "bxzidff": {
+      "py/set": [
+        "totalwar",
+        "CitiesSkylines"
       ]
     },
     "WaitingToBeTriggered": {
       "py/set": [
-        "CitiesSkylines",
+        "totalwar",
+        "CitiesSkylines"
+      ]
+    },
+    "AlmightyOomgosh": {
+      "py/set": [
+        "Stellaris",
         "totalwar"
       ]
     },
     "HouseOfSchaus": {
       "py/set": [
-        "totalwar",
-        "Stellaris"
+        "Stellaris",
+        "totalwar"
+      ]
+    },
+    "YeOldeOle": {
+      "py/set": [
+        "Stellaris",
+        "totalwar"
+      ]
+    },
+    "icemoomoo": {
+      "py/set": [
+        "Stellaris",
+        "totalwar"
+      ]
+    },
+    "silgidorn": {
+      "py/set": [
+        "Stellaris",
+        "totalwar"
+      ]
+    },
+    "Maniac112": {
+      "py/set": [
+        "Stellaris",
+        "totalwar"
       ]
     },
     "Akratus2": {
       "py/set": [
-        "totalwar",
-        "Stellaris"
+        "Stellaris",
+        "totalwar"
       ]
     },
-    "SamBellFromSarang": {
+    "tabris51": {
       "py/set": [
-        "CitiesSkylines",
-        "SimCity"
+        "Stellaris",
+        "totalwar"
+      ]
+    },
+    "AgrippAA": {
+      "py/set": [
+        "Stellaris",
+        "totalwar"
+      ]
+    },
+    "Sardorim": {
+      "py/set": [
+        "Stellaris",
+        "totalwar"
+      ]
+    },
+    "Hellknightx": {
+      "py/set": [
+        "Stellaris",
+        "totalwar"
+      ]
+    },
+    "SirAzalot": {
+      "py/set": [
+        "hoi4",
+        "totalwar"
+      ]
+    },
+    "Mark112373848": {
+      "py/set": [
+        "hoi4",
+        "totalwar"
+      ]
+    },
+    "TheReaperAbides": {
+      "py/set": [
+        "hoi4",
+        "totalwar"
+      ]
+    },
+    "TarnishedSteel": {
+      "py/set": [
+        "dwarffortress",
+        "totalwar"
+      ]
+    },
+    "Satanus9001": {
+      "py/set": [
+        "totalwar",
+        "aoe2"
+      ]
+    },
+    "Saapas420": {
+      "py/set": [
+        "starcraft",
+        "totalwar"
+      ]
+    },
+    "Victizes": {
+      "py/set": [
+        "totalwar",
+        "Xcom"
       ]
     },
     "Elia1799": {
       "py/set": [
-        "CitiesSkylines",
-        "SimCity"
+        "SimCity",
+        "CitiesSkylines"
+      ]
+    },
+    "SamBellFromSarang": {
+      "py/set": [
+        "SimCity",
+        "CitiesSkylines"
       ]
     },
     "xanhou": {
       "py/set": [
-        "CitiesSkylines",
-        "Stellaris"
+        "Stellaris",
+        "CitiesSkylines"
+      ]
+    },
+    "olican101": {
+      "py/set": [
+        "Stellaris",
+        "CitiesSkylines"
+      ]
+    },
+    "winowmak3r": {
+      "py/set": [
+        "hoi4",
+        "CitiesSkylines"
+      ]
+    },
+    "PatBrennan": {
+      "py/set": [
+        "hoi4",
+        "CitiesSkylines"
+      ]
+    },
+    "seattle_exile": {
+      "py/set": [
+        "Stellaris",
+        "RimWorld"
+      ]
+    },
+    "se05239": {
+      "py/set": [
+        "Stellaris",
+        "RimWorld"
+      ]
+    },
+    "apolloxer": {
+      "py/set": [
+        "Stellaris",
+        "RimWorld"
+      ]
+    },
+    "WhipPotato69": {
+      "py/set": [
+        "Stellaris",
+        "RimWorld"
+      ]
+    },
+    "riesenarethebest": {
+      "py/set": [
+        "Stellaris",
+        "RimWorld"
+      ]
+    },
+    "fradzio": {
+      "py/set": [
+        "RimWorld",
+        "victoria2"
+      ]
+    },
+    "jstank2": {
+      "py/set": [
+        "factorio",
+        "RimWorld"
+      ]
+    },
+    "Feliphysics": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "LoSboccacc": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "MaxVexis": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "Chimpcookie": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "rooftopworld": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "Sunny_Blueberry": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "Ottodeviant": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "cdub8D": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "Syt1976": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "LothernSeaguard": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "BrainOnLoan": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "Warhawg01": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "nanoman92": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "Puss_Fondue": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "Razgriz032": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "Negao_da_piroca": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "Culbrelai": {
+      "py/set": [
+        "Stellaris",
+        "hoi4"
+      ]
+    },
+    "Immortal-D": {
+      "py/set": [
+        "Stellaris",
+        "dwarffortress"
+      ]
+    },
+    "Slaav": {
+      "py/set": [
+        "Stellaris",
+        "victoria2"
+      ]
+    },
+    "SLNWRK": {
+      "py/set": [
+        "Stellaris",
+        "victoria2"
+      ]
+    },
+    "ElvinodeHans": {
+      "py/set": [
+        "Stellaris",
+        "victoria2"
+      ]
+    },
+    "Snipahar": {
+      "py/set": [
+        "Stellaris",
+        "victoria2"
+      ]
+    },
+    "Takseen": {
+      "py/set": [
+        "Stellaris",
+        "victoria2"
+      ]
+    },
+    "Steel_Airship": {
+      "py/set": [
+        "Stellaris",
+        "victoria2"
+      ]
+    },
+    "maynardangelo": {
+      "py/set": [
+        "Stellaris",
+        "victoria2"
+      ]
+    },
+    "TheSkiGeek": {
+      "py/set": [
+        "Stellaris",
+        "factorio"
+      ]
+    },
+    "Aenir": {
+      "py/set": [
+        "Stellaris",
+        "factorio"
+      ]
+    },
+    "N35t0r": {
+      "py/set": [
+        "Stellaris",
+        "factorio"
+      ]
+    },
+    "regenzeus": {
+      "py/set": [
+        "Stellaris",
+        "EndlessLegend"
+      ]
+    },
+    "1spook": {
+      "py/set": [
+        "Stellaris",
+        "starcraft",
+        "Xcom"
+      ]
+    },
+    "mikezznl": {
+      "py/set": [
+        "Stellaris",
+        "starcraft"
+      ]
+    },
+    "JulianSkies": {
+      "py/set": [
+        "Stellaris",
+        "Xcom"
+      ]
+    },
+    "Full-Attempt7749": {
+      "py/set": [
+        "hoi4",
+        "victoria2"
+      ]
+    },
+    "SophiaIsBased": {
+      "py/set": [
+        "hoi4",
+        "victoria2"
+      ]
+    },
+    "BricktheElder": {
+      "py/set": [
+        "hoi4",
+        "victoria2"
+      ]
+    },
+    "elpoopenator": {
+      "py/set": [
+        "hoi4",
+        "victoria2"
+      ]
+    },
+    "Pashahlis": {
+      "py/set": [
+        "hoi4",
+        "victoria2"
+      ]
+    },
+    "Itzcohuatl": {
+      "py/set": [
+        "hoi4",
+        "victoria2"
+      ]
+    },
+    "esobar": {
+      "py/set": [
+        "hoi4",
+        "victoria2"
+      ]
+    },
+    "PMMePrettyRedheads": {
+      "py/set": [
+        "hoi4",
+        "aoe2"
+      ]
+    },
+    "whyareall": {
+      "py/set": [
+        "factorio",
+        "hoi4"
+      ]
+    },
+    "Dubax": {
+      "py/set": [
+        "factorio",
+        "hoi4"
+      ]
+    },
+    "Polar_Vortx": {
+      "py/set": [
+        "hoi4",
+        "Xcom"
+      ]
+    },
+    "wicked_cute": {
+      "py/set": [
+        "factorio",
+        "dwarffortress"
+      ]
+    },
+    "Contribution-Sharp": {
+      "py/set": [
+        "factorio",
+        "aoe2"
+      ]
+    },
+    "sebalnesag": {
+      "py/set": [
+        "starcraft",
+        "aoe2"
+      ]
+    },
+    "Osric250": {
+      "py/set": [
+        "slaythespire",
+        "Xcom"
+      ]
+    },
+    "133DK": {
+      "py/set": [
+        "factorio",
+        "starcraft"
       ]
     }
   }

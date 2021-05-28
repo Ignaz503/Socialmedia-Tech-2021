@@ -36,7 +36,7 @@ class Subreddit_Data:
   
   def save_to_file(self, config: Config):
     content = self.to_json()   
-    with open(data_util.make_data_path(config,self.name + ".json",DataLocation.SUBREDDIT), 'w') as f:
+    with open(data_util.make_data_path(config,self.name + ".json",DataLocation.SUBREDDIT), 'w',encoding="utf-8") as f:
       f.write(content)
 
   def __iter__(self):
@@ -50,7 +50,7 @@ class Subreddit_Data:
   def load(subreddit_name: str, config:Config):
     filename = subreddit_name + ".json"
     if data_util.file_exists(config,filename, DataLocation.SUBREDDIT):
-      with open(data_util.make_data_path(config,filename, DataLocation.SUBREDDIT), 'r') as f:
+      with open(data_util.make_data_path(config,filename, DataLocation.SUBREDDIT), 'r',encoding="utf-8") as f:
         content = f.read()
         return jsonpickle.decode(content)
     return Subreddit_Data(subreddit_name,set([]))
@@ -236,13 +236,13 @@ class Crawl_Metadata:
   
   def save_to_file(self,config:Config):
     content = self.to_json()   
-    with open(data_util.make_data_path(config,Crawl_Metadata.__FILE_NAME,DataLocation.METADATA), 'w') as f:
+    with open(data_util.make_data_path(config,Crawl_Metadata.__FILE_NAME,DataLocation.METADATA), 'w',encoding="utf-8") as f:
       f.write(content)
 
   @staticmethod
   def load(config:Config):
     if data_util.file_exists(config,Crawl_Metadata.__FILE_NAME,DataLocation.METADATA):
-      with open(data_util.make_data_path(config,Crawl_Metadata.__FILE_NAME,DataLocation.METADATA),'r') as f:
+      with open(data_util.make_data_path(config,Crawl_Metadata.__FILE_NAME,DataLocation.METADATA),'r',encoding="utf-8") as f:
         content = f.read()
         return jsonpickle.decode(content)
     return Crawl_Metadata.empty()

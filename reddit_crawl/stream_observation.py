@@ -12,7 +12,7 @@ from reddit_crawl.data.bot_blacklist import Threadsafe_Bot_Blacklist
 from reddit_crawl.data.subreddit import Subreddit_Batch_Queue, Subreddit_Batch
 
 def __stream_monitor(monitor_type: str, stream_gen, data_handler, subs: SubredditHelper, reddit: Reddit, context: Thread_Safe_Context, queue: Subreddit_Batch_Queue, token: Cancel_Token):
-  rh.start_batch_submit_thread(monitor_type,context,queue)
+  rh.start_batch_submit_thread(monitor_type,context,queue,token)
   #pause after one repsone with nothing new to check if canceled, set to 0 for no delay
   context.logger.log("Start monitioring {mt} for subreddits {subs}".format(mt = monitor_type, subs = context.config.subreddits_to_crawl),Level.INFO)
   for data in stream_gen(pause_after=1):

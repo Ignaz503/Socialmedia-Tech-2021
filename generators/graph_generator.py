@@ -94,7 +94,7 @@ def __user_node_generator(users: Iterable[str],
     config: Config,
      logger: Logger, 
      token: Cancel_Token, 
-     user_node_size:float = 5.0,
+     user_node_size:float = 10.0,
     color_option:int = 0):
   counter = start_idx # start counter for node id after all subreddits which go from 0 len -1
   for user in users:
@@ -220,10 +220,10 @@ def write_all_possible_as_dot(
     return
   write_as_dot(g,GraphDataFiles.USER_USER_MORE_THAN_ONE.get_file_path(config))
 
-  g = build_graph_user_user(multi_sub_user,1,config,logger,token)
-  if g is None:
-    return
-  write_as_dot(g,GraphDataFiles.USER_USER_ONE_OR_MORE.get_file_path(config))
+  #g = build_graph_user_user(multi_sub_user,1,config,logger,token)
+  #if g is None:
+  #  return
+  #write_as_dot(g,GraphDataFiles.USER_USER_ONE_OR_MORE.get_file_path(config))
 
 def modify_graph_remove_degree_less_than(graph: Graph, deg:int):
     remove = [node for node,degree in dict(graph.degree()).items() if degree < deg]

@@ -18,7 +18,7 @@ class UniqueUsers:
   
   def save_to_file(self, config: Config):
     content = self.to_json()   
-    with open(data_util.make_data_path(config,UniqueUsers.__FILE_NAME,DataLocation.METADATA), 'w') as f:
+    with open(data_util.make_data_path(config,UniqueUsers.__FILE_NAME,DataLocation.METADATA), 'w',encoding="utf-8") as f:
       f.write(content)
   
   def add_user(self, user_name: str):
@@ -40,7 +40,7 @@ class UniqueUsers:
   @staticmethod
   def load(config: Config):
     if data_util.file_exists(config,UniqueUsers.__FILE_NAME, DataLocation.METADATA):
-      with open(data_util.make_data_path(config,UniqueUsers.__FILE_NAME, DataLocation.METADATA), 'r') as f:
+      with open(data_util.make_data_path(config,UniqueUsers.__FILE_NAME, DataLocation.METADATA), 'r',encoding="utf-8") as f:
         content = f.read()
         return jsonpickle.decode(content)
     return UniqueUsers(set([]))
@@ -73,13 +73,13 @@ class MultiSubredditUsers:
 
   def save_to_file(self,config: Config):
     content = self.to_json()   
-    with open(data_util.make_data_path(config,MultiSubredditUsers.__FILE_NAME,DataLocation.METADATA), 'w') as f:
+    with open(data_util.make_data_path(config,MultiSubredditUsers.__FILE_NAME,DataLocation.METADATA), 'w',encoding="utf-8") as f:
       f.write(content)
 
   @staticmethod
   def load(config: Config):
     if data_util.file_exists(config,MultiSubredditUsers.__FILE_NAME, DataLocation.METADATA):
-      with open(data_util.make_data_path(config,MultiSubredditUsers.__FILE_NAME, DataLocation.METADATA), 'r') as f:
+      with open(data_util.make_data_path(config,MultiSubredditUsers.__FILE_NAME, DataLocation.METADATA), 'r',encoding="utf-8") as f:
         content = f.read()
         return jsonpickle.decode(content)
     return MultiSubredditUsers({})

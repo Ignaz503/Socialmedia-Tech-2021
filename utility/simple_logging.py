@@ -163,5 +163,5 @@ def __try_save_log_and_clear(text:ScrolledText,base_path:str):
 
 def __save_log(text: ScrolledText, base_path:str):
   log_so_far = text.get("1.0",END)
-  with open(data_util.make_data_path_str(base_path,f"log {dt.date.today().isoformat()}.txt",data_util.DataLocation.LOG),'a') as f:
+  with open(data_util.make_data_path_str(base_path,f"log {dt.date.today().isoformat()}.txt",data_util.DataLocation.LOG),'a',encoding="utf-8") as f:
     f.write(log_so_far)

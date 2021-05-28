@@ -10,7 +10,6 @@ class GraphDataFiles(Enum):
   SUBREDDIT_SUBREDDIT ="subreddit_subreddit.dot"
   SUBREDDIT_USER = "subreddit_user.dot"
   USER_USER_MORE_THAN_ONE = "user_user_gt1.dot"
-  USER_USER_ONE_OR_MORE = "user_user_get1.dot"
 
   def get_file_path(self, config:Config):
     return data_util.make_data_path(config,self.value,DataLocation.GRAPHS)
@@ -28,3 +27,10 @@ class GraphDataFiles(Enum):
       if 'width' in edge[2]:
         edge[2]['width'] = float(edge[2]['width'])
     return g
+
+  @staticmethod
+  def from_name(name:str):
+    for t in GraphDataFiles:
+      if t.name == name:
+        return t
+    raise ValueError(f"{name} is not a valid VisualizationDataFiles name")

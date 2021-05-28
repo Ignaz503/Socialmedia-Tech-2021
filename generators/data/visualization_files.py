@@ -23,10 +23,3 @@ class VisualizationDataFile:
         os.startfile(filepath)
     else:                                   # linux variants
         subprocess.call(('xdg-open', filepath))
-
-  @staticmethod
-  def from_name(name:str):
-    for t in VisualizationDataFile:
-      if t.name == name:
-        return t
-    raise ValueError(f"{name} is not a valid VisualizationDataFiles name")

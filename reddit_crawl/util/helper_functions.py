@@ -1,7 +1,7 @@
 from utility.simple_logging import Level
 from utility.cancel_token import Cancel_Token
 import threading
-from time import sleep
+import time
 from praw.models import Comment
 from praw.models import Submission, MoreComments
 from reddit_crawl.util.context import Context, Thread_Safe_Context
@@ -10,6 +10,7 @@ from reddit_crawl.data.subreddit import Subreddit_Batch_Queue, Subreddit_Batch
 from defines import MAX_COMMENT_NUM
 from utility.simple_logging import Logger, Level
 from typing import Callable
+
 
 def handle_all_comments(comment_handler: Callable[[Comment,Thread_Safe_Context,Cancel_Token],None],submission: Submission, context: Thread_Safe_Context, token: Cancel_Token):
   more_comments: list[MoreComments] = []
@@ -85,23 +86,26 @@ def handle_post_thread_safe(post: Submission, context: Thread_Safe_Context, toke
   handle_all_comments(handle_comment_thread_safe,post,context,token)
 
 
-def __submit_batch_loop(monitor_type: str, context: Thread_Safe_Context, queue: Subreddit_Batch_Queue):
+def __submit_batch_loop(monitor_type: str, context: Thread_Safe_Context, queue: Subreddit_Batch_Queue, token: Cancel_Token):
   #start of with some sleep as to not immediately try to submit an empty batch
-  context.logger.log("Started batch save loop for {mt}".format(mt = monitor_type),Level.INFO)
-  sleep(context.config.stream_save_interval_seconds)
-  while True:
-    __submit_batch_to_queue(context,queue)
-    sleep(context.config.stream_save_interval_seconds)
-
+  with token:
+    context.logger.log("Started batch save loop for {mt}".format(mt = monitor_type),Level.INFO)
+    current_time = time.perf_counter()
+    last_execution =  current_time # start sleeping
+    while not token.is_cancel_requested():
+      if current_time - last_execution >= context.config.stream_save_interval_seconds:
+        last_execution = current_time
+        __submit_batch_to_queue(context,queue)
+      current_time = time.perf_counter()
 
 def __submit_batch_to_queue(context: Thread_Safe_Context, queue: Subreddit_Batch_Queue):
   old_batch = None
   new_batch = Subreddit_Batch()
   with context.current_data_lock:
     old_batch = context.current_data
-    context.current_data = new_batch()
+    context.current_data = new_batch
   queue.enqueue(old_batch)
 
-def start_batch_submit_thread(name_specifier:str, context: Thread_Safe_Context, queue: Subreddit_Batch_Queue):
-  thread = threading.Thread(name="submit_thread {monitor_type}",daemon=True, target=__submit_batch_loop,args=(name_specifier,context,queue))
+def start_batch_submit_thread(name_specifier:str, context: Thread_Safe_Context, queue: Subreddit_Batch_Queue, token: Cancel_Token):
+  thread = threading.Thread(name="submit_thread {monitor_type}",daemon=True, target=__submit_batch_loop,args=(name_specifier,context,queue,token))
   thread.start()

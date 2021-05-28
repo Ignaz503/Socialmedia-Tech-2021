@@ -45,7 +45,7 @@ def __execute_crawl(config: Config, logger: Logger, blacklist: Threadsafe_Bot_Bl
       diagnostics = Reddit_Crawl_Diagnostics()
 
     context = Thread_Safe_Context(reddit,config, Subreddit_Batch(),logger,blacklist,diagnostics)
-    rh.start_batch_submit_thread("historical crawl",context,batch_queue)
+    rh.start_batch_submit_thread("historical crawl",context,batch_queue,token)
 
     handle_crawl(context,batch_queue,token)
     context.crawl_diagnostics.end_timing()

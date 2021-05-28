@@ -27,12 +27,11 @@ __SUBREDDIT_SUBREDDIT = "subreddit_subreddit.html"
 __SUBBREDDIT_SUBBREDIT_COLORING_CLUSTER = "subreddit_subreddit_coloring_cluster.html"
 __SUBREDDIT_USER = "subreddit_user.html"
 __USER_USER_MORE_THAN_ONE = "user_user_gt1.html"
-__USER_USER_ONE_OR_MORE = "user_user_get1.html"
 
 def __build_network_from_graph(graph: Graph,physics: bool, buttons_filter=[])->Network:
   vis_network = Network('1920px','1920px',bgcolor=DefaultColorPallet.BACKGROUND_COLOR.value,font_color=DefaultColorPallet.FONT_COLOR.value)
   vis_network.from_nx(graph)
-  vis_network.force_atlas_2based()
+  vis_network.hrepulsion(node_distance=250)
   vis_network.toggle_physics(physics)
   vis_network.show_buttons(filter_=buttons_filter)
   return vis_network
@@ -64,15 +63,15 @@ def __get_graph_subreddit_user(users:UniqueUsers,crawl_metadata: Crawl_Metadata,
     logger.log("Generating data for visualization subreddit user")
     return gg.build_graph_subreddit_user(users,crawl_metadata,config,logger,token)
 
-def __visualize_graph(graph: Graph,file:VisualizationDataFile,config: Config, logger:Logger, token: Cancel_Token,physics=False,buttons_filter=[]):
+def __visualize_graph(graph: Graph,file:VisualizationDataFile,config: Config, logger:Logger, token: Cancel_Token,physics=True,buttons_filter=['physics']):
   logger.log(f"visulaizting graph {file.name}")
 
   logger.log("creating visualization")
   vis_network = __build_network_from_graph(graph,physics,buttons_filter)
 
-  name = file.get_file_path(config)
-  logger.log("saving visualization {n}".format(n=file.name), Level.INFO)
-  vis_network.save_graph(name)
+  path = file.get_file_path(config)
+  logger.log("saving visualization {n} to  {l}".format(n=file.name,l=path), Level.INFO)
+  vis_network.save_graph(path)
 
 def __color_graph_clustering(graph:Graph,gradient:ColorGradient,logger:Logger, token: Cancel_Token):
   clustering = nx.clustering(graph)
@@ -84,6 +83,11 @@ def __color_graph_clustering(graph:Graph,gradient:ColorGradient,logger:Logger, t
 def __color_graph_edges(graph:Graph,color_hex_code:str):
   for edge in graph.edges(data=True):
     edge[2]['color'] = color_hex_code
+
+def __color_graph_nodes(graph:Graph, color_hex_code:str):
+  for node in graph.nodes(data=True):
+    node[1]['color']= color_hex_code
+
 
 def __color_graph_centrality(graph: Graph,gradient:ColorGradient, centrality_func: Callable[[Graph],dict[int,Any]], logger:Logger,token: Cancel_Token):
     #v-min / max
@@ -114,7 +118,9 @@ def __visualize_centrality(graph: Graph, cent_func: Callable[[Graph],dict[int,An
   __visualize_graph(graph, VisualizationDataFile(name),config,logger,token, physics=True)
 
 def __color_bridges(graph: Graph,color:Color,config: Config,logger:Logger, token: Cancel_Token):
-  pass
+  hex_code = color.get_hex_l()
+  for bridge in nx_bridge(graph):
+    graph.edges[bridge]['color'] = hex_code
 
 def __viusalize_centraliteis(graph: Graph,name_base:str,gradient: ColorGradient, config: Config, logger: Logger, token: Cancel_Token):
   __visualize_centrality(graph,nx_centrality.degree_centrality,name_base+"_coloring_deg_cent.html",gradient,config,logger,token)
@@ -126,7 +132,6 @@ def __viusalize_centraliteis(graph: Graph,name_base:str,gradient: ColorGradient,
   __visualize_centrality(graph,nx_centrality.closeness_centrality,name_base+"_coloring_closeness_cent.html",gradient,config,logger,token)
 
   
-
 def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,load_data_from_disk: bool,on_done_callback: Callable):
   with token:
     logger.log("starting visualization")
@@ -150,14 +155,19 @@ def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,
 
     if token.is_cancel_requested():
       return
-    __visualize_graph(graph,VisualizationDataFile(__SUBREDDIT_SUBREDDIT),config,logger,token)
+    __visualize_graph(graph,VisualizationDataFile(__SUBREDDIT_SUBREDDIT),config,logger,token,physics=True)
     if token.is_cancel_requested():
       return
 
     gradient = ColorGradient(Color('red'),Color('lime'),100,True)
     __color_graph_clustering(graph,gradient,logger,token)
-    __visualize_graph(graph,VisualizationDataFile(__SUBBREDDIT_SUBBREDIT_COLORING_CLUSTER),config,logger,token)
-    __viusalize_centraliteis(graph,"subreddit_subreddit",ColorGradient(Color("#ff5f1f"),Color("#1fbfff"),100,True), config, logger, token)
+    __visualize_graph(graph,VisualizationDataFile(__SUBBREDDIT_SUBBREDIT_COLORING_CLUSTER),config,logger,token,physics=True)
+    __viusalize_centraliteis(graph,"subreddit_subreddit",gradient, config, logger, token)
+
+    __color_graph_nodes(graph,DefaultColorPallet.SUBREDDIT_COLOR.value)
+    __color_bridges(graph,Color("#b2e945"),config,logger,token)
+    __visualize_graph(graph,VisualizationDataFile("subreddit_subreddit_coloring_bridges.html"),config,logger,token,physics=True)
+
 
     users = None
     if load_data_from_disk:
@@ -182,14 +192,6 @@ def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,
     
     __color_graph_edges(graph,DefaultColorPallet.EDGE_COLOR.value[0])
     __viusalize_centraliteis(graph,"user_user_gt1",gradient, config, logger, token)
-
-    if token.is_cancel_requested():
-      return
-    graph = __get_graph_user_user(multi_sub_users,GraphDataFiles.USER_USER_ONE_OR_MORE,config,logger,token,load_data_from_disk)
-    __visualize_graph(graph,VisualizationDataFile(__USER_USER_ONE_OR_MORE),config,logger,token,physics=True,buttons_filter=['physics'])
-
-    __color_graph_edges(graph,DefaultColorPallet.EDGE_COLOR.value[0])
-    __viusalize_centraliteis(graph,"user_user_get1",gradient, config, logger, token)
 
     logger.log("visualization complete")
     on_done_callback()
