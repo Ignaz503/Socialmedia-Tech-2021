@@ -2842,3 +2842,208 @@
 [2021-05-28 18:56:17.607][Info] visualization complete
 [2021-05-28 18:56:27.946][Info] Staring closing procedure
 
+[2021-05-28 21:55:35.861][Info] Staring closing procedure
+
+[2021-05-28 21:55:47.640][Info] generating data
+[2021-05-28 21:55:47.640][Info] starting to generate adjacency matrix subreddit to subreddit
+[2021-05-28 21:55:47.733][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CrusaderKings)
+[2021-05-28 21:55:47.965][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,eu4)
+[2021-05-28 21:55:48.213][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,totalwar)
+[2021-05-28 21:55:48.430][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,SimCity)
+[2021-05-28 21:55:48.694][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,CitiesSkylines)
+[2021-05-28 21:55:48.926][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,RimWorld)
+[2021-05-28 21:55:49.143][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Stellaris)
+[2021-05-28 21:55:49.360][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,hoi4)
+[2021-05-28 21:55:49.563][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,dwarffortress)
+[2021-05-28 21:55:49.763][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,victoria2)
+[2021-05-28 21:55:49.996][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,aoe2)
+[2021-05-28 21:55:50.197][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,slaythespire)
+[2021-05-28 21:55:50.430][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,factorio)
+[2021-05-28 21:55:50.662][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,EndlessLegend)
+[2021-05-28 21:55:50.879][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,starcraft)
+[2021-05-28 21:55:51.112][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,Xcom)
+[2021-05-28 21:55:51.329][Info] [Sub Sub Adj Mat] handling subreddit pair (civ,ftlgame)
+[2021-05-28 21:55:51.561][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,eu4)
+[2021-05-28 21:55:51.763][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,totalwar)
+[2021-05-28 21:55:52.011][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,SimCity)
+[2021-05-28 21:55:52.243][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,CitiesSkylines)
+[2021-05-28 21:55:52.460][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,RimWorld)
+[2021-05-28 21:55:52.693][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Stellaris)
+[2021-05-28 21:55:52.910][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,hoi4)
+[2021-05-28 21:55:53.127][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,dwarffortress)
+[2021-05-28 21:55:53.359][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,victoria2)
+[2021-05-28 21:55:53.592][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,aoe2)
+[2021-05-28 21:55:53.824][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,slaythespire)
+[2021-05-28 21:55:54.073][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,factorio)
+[2021-05-28 21:55:54.259][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,EndlessLegend)
+[2021-05-28 21:55:54.460][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,starcraft)
+[2021-05-28 21:55:54.646][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,Xcom)
+[2021-05-28 21:55:54.847][Info] [Sub Sub Adj Mat] handling subreddit pair (CrusaderKings,ftlgame)
+[2021-05-28 21:55:55.064][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,totalwar)
+[2021-05-28 21:55:55.283][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,SimCity)
+[2021-05-28 21:55:55.498][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,CitiesSkylines)
+[2021-05-28 21:55:55.700][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,RimWorld)
+[2021-05-28 21:55:55.917][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Stellaris)
+[2021-05-28 21:55:56.120][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,hoi4)
+[2021-05-28 21:55:56.335][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,dwarffortress)
+[2021-05-28 21:55:56.537][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,victoria2)
+[2021-05-28 21:55:56.770][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,aoe2)
+[2021-05-28 21:55:57.002][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,slaythespire)
+[2021-05-28 21:55:57.265][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,factorio)
+[2021-05-28 21:55:57.498][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,EndlessLegend)
+[2021-05-28 21:55:57.699][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,starcraft)
+[2021-05-28 21:55:57.932][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,Xcom)
+[2021-05-28 21:55:58.149][Info] [Sub Sub Adj Mat] handling subreddit pair (eu4,ftlgame)
+[2021-05-28 21:55:58.350][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,SimCity)
+[2021-05-28 21:55:58.567][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,CitiesSkylines)
+[2021-05-28 21:55:58.800][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,RimWorld)
+[2021-05-28 21:55:58.986][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Stellaris)
+[2021-05-28 21:55:59.156][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,hoi4)
+[2021-05-28 21:55:59.404][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,dwarffortress)
+[2021-05-28 21:55:59.637][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,victoria2)
+[2021-05-28 21:55:59.870][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,aoe2)
+[2021-05-28 21:56:00.086][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,slaythespire)
+[2021-05-28 21:56:00.303][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,factorio)
+[2021-05-28 21:56:00.489][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,EndlessLegend)
+[2021-05-28 21:56:00.737][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,starcraft)
+[2021-05-28 21:56:00.955][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,Xcom)
+[2021-05-28 21:56:01.171][Info] [Sub Sub Adj Mat] handling subreddit pair (totalwar,ftlgame)
+[2021-05-28 21:56:01.404][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,CitiesSkylines)
+[2021-05-28 21:56:01.621][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,RimWorld)
+[2021-05-28 21:56:01.807][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Stellaris)
+[2021-05-28 21:56:02.039][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,hoi4)
+[2021-05-28 21:56:02.287][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,dwarffortress)
+[2021-05-28 21:56:02.473][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,victoria2)
+[2021-05-28 21:56:02.675][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,aoe2)
+[2021-05-28 21:56:02.876][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,slaythespire)
+[2021-05-28 21:56:03.093][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,factorio)
+[2021-05-28 21:56:03.311][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,EndlessLegend)
+[2021-05-28 21:56:03.481][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,starcraft)
+[2021-05-28 21:56:03.652][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,Xcom)
+[2021-05-28 21:56:03.822][Info] [Sub Sub Adj Mat] handling subreddit pair (SimCity,ftlgame)
+[2021-05-28 21:56:04.023][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,RimWorld)
+[2021-05-28 21:56:04.271][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Stellaris)
+[2021-05-28 21:56:04.504][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,hoi4)
+[2021-05-28 21:56:04.752][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,dwarffortress)
+[2021-05-28 21:56:04.984][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,victoria2)
+[2021-05-28 21:56:05.201][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,aoe2)
+[2021-05-28 21:56:05.418][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,slaythespire)
+[2021-05-28 21:56:05.605][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,factorio)
+[2021-05-28 21:56:05.791][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,EndlessLegend)
+[2021-05-28 21:56:05.992][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,starcraft)
+[2021-05-28 21:56:06.224][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,Xcom)
+[2021-05-28 21:56:06.441][Info] [Sub Sub Adj Mat] handling subreddit pair (CitiesSkylines,ftlgame)
+[2021-05-28 21:56:06.643][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,Stellaris)
+[2021-05-28 21:56:06.893][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,hoi4)
+[2021-05-28 21:56:07.077][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,dwarffortress)
+[2021-05-28 21:56:07.309][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,victoria2)
+[2021-05-28 21:56:07.526][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,aoe2)
+[2021-05-28 21:56:07.728][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,slaythespire)
+[2021-05-28 21:56:07.945][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,factorio)
+[2021-05-28 21:56:08.193][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,EndlessLegend)
+[2021-05-28 21:56:08.410][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,starcraft)
+[2021-05-28 21:56:08.642][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,Xcom)
+[2021-05-28 21:56:08.859][Info] [Sub Sub Adj Mat] handling subreddit pair (RimWorld,ftlgame)
+[2021-05-28 21:56:09.045][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,hoi4)
+[2021-05-28 21:56:09.263][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,dwarffortress)
+[2021-05-28 21:56:09.433][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,victoria2)
+[2021-05-28 21:56:09.635][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,aoe2)
+[2021-05-28 21:56:09.821][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,slaythespire)
+[2021-05-28 21:56:10.053][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,factorio)
+[2021-05-28 21:56:10.271][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,EndlessLegend)
+[2021-05-28 21:56:10.456][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,starcraft)
+[2021-05-28 21:56:10.688][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,Xcom)
+[2021-05-28 21:56:10.921][Info] [Sub Sub Adj Mat] handling subreddit pair (Stellaris,ftlgame)
+[2021-05-28 21:56:11.091][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,dwarffortress)
+[2021-05-28 21:56:11.277][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,victoria2)
+[2021-05-28 21:56:11.463][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,aoe2)
+[2021-05-28 21:56:11.711][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,slaythespire)
+[2021-05-28 21:56:11.928][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,factorio)
+[2021-05-28 21:56:12.176][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,EndlessLegend)
+[2021-05-28 21:56:12.409][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,starcraft)
+[2021-05-28 21:56:12.641][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,Xcom)
+[2021-05-28 21:56:12.874][Info] [Sub Sub Adj Mat] handling subreddit pair (hoi4,ftlgame)
+[2021-05-28 21:56:13.106][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,victoria2)
+[2021-05-28 21:56:13.308][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,aoe2)
+[2021-05-28 21:56:13.525][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,slaythespire)
+[2021-05-28 21:56:13.773][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,factorio)
+[2021-05-28 21:56:13.990][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,EndlessLegend)
+[2021-05-28 21:56:14.223][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,starcraft)
+[2021-05-28 21:56:14.408][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,Xcom)
+[2021-05-28 21:56:14.641][Info] [Sub Sub Adj Mat] handling subreddit pair (dwarffortress,ftlgame)
+[2021-05-28 21:56:14.842][Info] [Sub Sub Adj Mat] handling subreddit pair (victoria2,aoe2)
+[2021-05-28 21:56:15.059][Info] [Sub Sub Adj Mat] handling subreddit pair (victoria2,slaythespire)
+[2021-05-28 21:56:15.338][Info] [Sub Sub Adj Mat] handling subreddit pair (victoria2,factorio)
+[2021-05-28 21:56:15.587][Info] [Sub Sub Adj Mat] handling subreddit pair (victoria2,EndlessLegend)
+[2021-05-28 21:56:15.819][Info] [Sub Sub Adj Mat] handling subreddit pair (victoria2,starcraft)
+[2021-05-28 21:56:16.020][Info] [Sub Sub Adj Mat] handling subreddit pair (victoria2,Xcom)
+[2021-05-28 21:56:16.253][Info] [Sub Sub Adj Mat] handling subreddit pair (victoria2,ftlgame)
+[2021-05-28 21:56:16.455][Info] [Sub Sub Adj Mat] handling subreddit pair (aoe2,slaythespire)
+[2021-05-28 21:56:16.640][Info] [Sub Sub Adj Mat] handling subreddit pair (aoe2,factorio)
+[2021-05-28 21:56:16.857][Info] [Sub Sub Adj Mat] handling subreddit pair (aoe2,EndlessLegend)
+[2021-05-28 21:56:17.074][Info] [Sub Sub Adj Mat] handling subreddit pair (aoe2,starcraft)
+[2021-05-28 21:56:17.260][Info] [Sub Sub Adj Mat] handling subreddit pair (aoe2,Xcom)
+[2021-05-28 21:56:17.493][Info] [Sub Sub Adj Mat] handling subreddit pair (aoe2,ftlgame)
+[2021-05-28 21:56:17.710][Info] [Sub Sub Adj Mat] handling subreddit pair (slaythespire,factorio)
+[2021-05-28 21:56:17.927][Info] [Sub Sub Adj Mat] handling subreddit pair (slaythespire,EndlessLegend)
+[2021-05-28 21:56:18.159][Info] [Sub Sub Adj Mat] handling subreddit pair (slaythespire,starcraft)
+[2021-05-28 21:56:18.392][Info] [Sub Sub Adj Mat] handling subreddit pair (slaythespire,Xcom)
+[2021-05-28 21:56:18.609][Info] [Sub Sub Adj Mat] handling subreddit pair (slaythespire,ftlgame)
+[2021-05-28 21:56:18.841][Info] [Sub Sub Adj Mat] handling subreddit pair (factorio,EndlessLegend)
+[2021-05-28 21:56:19.043][Info] [Sub Sub Adj Mat] handling subreddit pair (factorio,starcraft)
+[2021-05-28 21:56:19.275][Info] [Sub Sub Adj Mat] handling subreddit pair (factorio,Xcom)
+[2021-05-28 21:56:19.492][Info] [Sub Sub Adj Mat] handling subreddit pair (factorio,ftlgame)
+[2021-05-28 21:56:19.709][Info] [Sub Sub Adj Mat] handling subreddit pair (EndlessLegend,starcraft)
+[2021-05-28 21:56:19.942][Info] [Sub Sub Adj Mat] handling subreddit pair (EndlessLegend,Xcom)
+[2021-05-28 21:56:20.190][Info] [Sub Sub Adj Mat] handling subreddit pair (EndlessLegend,ftlgame)
+[2021-05-28 21:56:20.391][Info] [Sub Sub Adj Mat] handling subreddit pair (starcraft,Xcom)
+[2021-05-28 21:56:20.593][Info] [Sub Sub Adj Mat] handling subreddit pair (starcraft,ftlgame)
+[2021-05-28 21:56:20.794][Info] [Sub Sub Adj Mat] handling subreddit pair (Xcom,ftlgame)
+[2021-05-28 21:56:21.027][Info] Saving adjacency matrix subreddit_subreddit.csv to disk
+[2021-05-28 21:56:21.166][Info] genrating unqiue user list
+[2021-05-28 21:56:23.011][Info] found 8658 unique users from 18 subreddits
+[2021-05-28 21:56:23.150][Info] generating subrredit to user adjacency matrix
+[2021-05-28 21:56:23.274][Info] creating matrix of size 8658x18
+[2021-05-28 21:56:25.105][Info] Saving adjacency matrix subreddit_user.csv to disk
+[2021-05-28 21:56:26.746][Info] Crawling for subreddit metadata
+[2021-05-28 21:56:26.746][Info] getting meta data for civ
+[2021-05-28 21:56:28.064][Info] getting meta data for CrusaderKings
+[2021-05-28 21:56:28.436][Info] getting meta data for eu4
+[2021-05-28 21:56:28.823][Info] getting meta data for totalwar
+[2021-05-28 21:56:29.273][Info] getting meta data for SimCity
+[2021-05-28 21:56:29.567][Info] getting meta data for CitiesSkylines
+[2021-05-28 21:56:29.955][Info] getting meta data for RimWorld
+[2021-05-28 21:56:30.342][Info] getting meta data for Stellaris
+[2021-05-28 21:56:30.761][Info] getting meta data for hoi4
+[2021-05-28 21:56:31.164][Info] getting meta data for dwarffortress
+[2021-05-28 21:56:31.598][Info] getting meta data for victoria2
+[2021-05-28 21:56:31.939][Info] getting meta data for aoe2
+[2021-05-28 21:56:32.311][Info] getting meta data for slaythespire
+[2021-05-28 21:56:32.714][Info] getting meta data for factorio
+[2021-05-28 21:56:33.194][Info] getting meta data for EndlessLegend
+[2021-05-28 21:56:33.551][Info] getting meta data for starcraft
+[2021-05-28 21:56:33.985][Info] getting meta data for Xcom
+[2021-05-28 21:56:34.357][Info] getting meta data for ftlgame
+[2021-05-28 21:56:34.729][Info] Saving metadata to disk
+[2021-05-28 21:56:34.822][Info] generating subreddit subreddit graph
+[2021-05-28 21:56:34.822][Info] building graph subreddit to subreddit
+[2021-05-28 21:56:34.822][Info] adding metadata to nodes
+[2021-05-28 21:56:34.823][Info] adding meta data to edges
+[2021-05-28 21:56:34.902][Info] generating subreddit user graph
+[2021-05-28 21:56:34.915][Info] building graph subbredit to user
+[2021-05-28 21:56:34.930][Info] adding subreddit nodes
+[2021-05-28 21:56:34.962][Info] adding user nodes
+[2021-05-28 21:56:35.032][Info] adding edges
+[2021-05-28 21:56:38.564][Info] generating user user graphs
+[2021-05-28 21:56:38.564][Info] adding nodes
+[2021-05-28 21:56:38.565][Info] adding edges
+[2021-05-28 21:56:38.598][Info] This took 0h : 0m : 0.0340s
+[2021-05-28 21:56:38.782][Info] data generation done
+[2021-05-28 21:57:59.839][Info] Shutting Down - This may take some time
+[2021-05-28 21:57:59.855][Info] informing worker threads to cancel operations
+[2021-05-28 21:57:59.855][Info] waiting for worker threads to cancel
+
+[2021-05-28 21:57:59.855][Info] finished waiting for worker threads
+[2021-05-28 21:57:59.855][Info] Saving data to disk
+[2021-05-28 21:57:59.917][Info] Done with saving
+

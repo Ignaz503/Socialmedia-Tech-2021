@@ -31,7 +31,8 @@ __USER_USER_MORE_THAN_ONE = "user_user_gt1.html"
 def __build_network_from_graph(graph: Graph,physics: bool, buttons_filter=[])->Network:
   vis_network = Network('1920px','1920px',bgcolor=DefaultColorPallet.BACKGROUND_COLOR.value,font_color=DefaultColorPallet.FONT_COLOR.value)
   vis_network.from_nx(graph)
-  vis_network.hrepulsion(node_distance=250)
+  vis_network.force_atlas_2based(gravity=-200,spring_length=315,overlap=1)
+  #vis_network.hrepulsion(node_distance=250)
   vis_network.toggle_physics(physics)
   vis_network.show_buttons(filter_=buttons_filter)
   return vis_network
@@ -63,7 +64,7 @@ def __get_graph_subreddit_user(users:UniqueUsers,crawl_metadata: Crawl_Metadata,
     logger.log("Generating data for visualization subreddit user")
     return gg.build_graph_subreddit_user(users,crawl_metadata,config,logger,token)
 
-def __visualize_graph(graph: Graph,file:VisualizationDataFile,config: Config, logger:Logger, token: Cancel_Token,physics=True,buttons_filter=['physics']):
+def __visualize_graph(graph: Graph,file:VisualizationDataFile,config: Config, logger:Logger, token: Cancel_Token,physics=True,buttons_filter=['physics','interaction']):
   logger.log(f"visulaizting graph {file.name}")
 
   logger.log("creating visualization")
@@ -115,7 +116,7 @@ def __color_graph_centrality(graph: Graph,gradient:ColorGradient, centrality_fun
 
 def __visualize_centrality(graph: Graph, cent_func: Callable[[Graph],dict[int,Any]],name:str,gradient: ColorGradient,config: Config,logger: Logger,token: Cancel_Token):
   __color_graph_centrality(graph,gradient,cent_func,logger,token)
-  __visualize_graph(graph, VisualizationDataFile(name),config,logger,token, physics=True)
+  __visualize_graph(graph, VisualizationDataFile(name),config,logger,token)
 
 def __color_bridges(graph: Graph,color:Color,config: Config,logger:Logger, token: Cancel_Token):
   hex_code = color.get_hex_l()
@@ -132,7 +133,6 @@ def __viusalize_centraliteis(graph: Graph,name_base:str,gradient: ColorGradient,
     __visualize_centrality(graph,nx_centrality.current_flow_closeness_centrality,name_base+"_coloring_current_flow_cent.html",gradient,config,logger,token)
   __visualize_centrality(graph,nx_centrality.closeness_centrality,name_base+"_coloring_closeness_cent.html",gradient,config,logger,token)
 
-  
 def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,load_data_from_disk: bool,on_done_callback: Callable):
   with token:
     logger.log("starting visualization")
@@ -156,19 +156,18 @@ def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,
 
     if token.is_cancel_requested():
       return
-    __visualize_graph(graph,VisualizationDataFile(__SUBREDDIT_SUBREDDIT),config,logger,token,physics=True)
+    __visualize_graph(graph,VisualizationDataFile(__SUBREDDIT_SUBREDDIT),config,logger,token)
     if token.is_cancel_requested():
       return
 
     gradient = ColorGradient(Color('red'),Color('lime'),100,True)
     __color_graph_clustering(graph,gradient,logger,token)
-    __visualize_graph(graph,VisualizationDataFile(__SUBBREDDIT_SUBBREDIT_COLORING_CLUSTER),config,logger,token,physics=True)
+    __visualize_graph(graph,VisualizationDataFile(__SUBBREDDIT_SUBBREDIT_COLORING_CLUSTER),config,logger,token)
     __viusalize_centraliteis(graph,"subreddit_subreddit",gradient, config, logger, token)
 
     __color_graph_nodes(graph,DefaultColorPallet.SUBREDDIT_COLOR.value)
     __color_bridges(graph,Color("#b2e945"),config,logger,token)
-    __visualize_graph(graph,VisualizationDataFile("subreddit_subreddit_coloring_bridges.html"),config,logger,token,physics=True)
-
+    __visualize_graph(graph,VisualizationDataFile("subreddit_subreddit_coloring_bridges.html"),config,logger,token)
 
     users = None
     if load_data_from_disk:
@@ -179,17 +178,19 @@ def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,
 
     graph = __get_graph_subreddit_user(users,crawl_metadata,config, logger, token, load_data_from_disk)
 
-    __visualize_graph(graph,VisualizationDataFile(__SUBREDDIT_USER),config,logger,token,physics=True,buttons_filter=['physics'])
+    __visualize_graph(graph,VisualizationDataFile(__SUBREDDIT_USER),config,logger,token)
     
     gg.modify_graph_remove_degree_less_than(graph,2)
-    __visualize_graph(graph,VisualizationDataFile("subreddit_user_simple.html"),config,logger,token,physics=True,buttons_filter=['physics'])
+    __visualize_graph(graph,VisualizationDataFile("subreddit_user_simple.html"),config,logger,token)
     __viusalize_centraliteis(graph,"subreddit_user_simple",gradient, config, logger, token)
 
     if token.is_cancel_requested():
       return
     #todo
     graph = __get_graph_user_user(multi_sub_users,GraphDataFiles.USER_USER_MORE_THAN_ONE,config,logger,token,load_data_from_disk)
-    __visualize_graph(graph,VisualizationDataFile(__USER_USER_MORE_THAN_ONE),config,logger,token,physics=True,buttons_filter=['physics'])
+    __visualize_graph(graph,VisualizationDataFile(__USER_USER_MORE_THAN_ONE),config,logger,token)
+    
+    __viusalize_centraliteis(graph,"user_user_gt1_col_edge_",gradient, config, logger, token)
     
     __color_graph_edges(graph,DefaultColorPallet.EDGE_COLOR.value[0])
     __viusalize_centraliteis(graph,"user_user_gt1",gradient, config, logger, token)

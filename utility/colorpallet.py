@@ -1,8 +1,10 @@
 from enum import Enum
 
 from colour import Color
+from scipy.sparse.construct import rand
 from utility.color import mix
 import random
+import math
 
 class DefaultColorPallet(Enum):
   USER_COLOR = ("#45e9ce","#1fbfff")
@@ -17,17 +19,41 @@ class ColorPallet:
       self.__colors = colors
 
   def get(self,idx:int)->Color:
-    assert(idx > 0 and idx < len(self.__colors))
+    assert(idx >= 0 and idx < len(self.__colors))
     return self.__colors[idx]
 
-  @staticmethod
-  def random(size: int):
-    colors: list[Color] = []
-    base = Color(rgb=(1.0,1.0,1.0))
+  def length(self):
+    return len(self.__colors)
 
-    for i in range(0,size):
+  @staticmethod
+  def random(size: int, make_neon: bool, mix_base: Color = Color(rgb=(1.0,1.0,1.0))):
+    colors: list[Color] = []
+    
+    for _ in range(0,size):
       col = Color(rgb=(random.random(),
         random.random(),
         random.random()))
-      colors.append(mix(col,base))
+      col = mix(col,mix_base)
+
+      if make_neon:
+        h,s,l = col.get_hsl()
+        s = random.randint(85,100)/100
+        l = random.randint(50,60)/100
+        col = Color(hsl=(h,s,l))
+      colors.append(col)
     return ColorPallet(colors)
+
+  @staticmethod
+  def even_dist_hsl_neon(size: int):
+    colors: list[Color] = []
+
+    step = 0.93 / size
+
+    for i in range(0,size):
+      h =  i * step
+      if h > 1.0:
+        h = 1.0
+      colors.append(Color(hsl=( h, random.randint(85,100)/100, random.randint(50,60)/100)))  
+    return ColorPallet(colors)
+
+

@@ -9,9 +9,9 @@
     },
     "bge223": {
       "py/set": [
+        "victoria2",
         "CrusaderKings",
-        "civ",
-        "victoria2"
+        "civ"
       ]
     },
     "franckboy13": {
@@ -114,8 +114,8 @@
     },
     "TotallyLegitBotLul": {
       "py/set": [
-        "factorio",
         "slaythespire",
+        "factorio",
         "civ",
         "RimWorld"
       ]
@@ -225,8 +225,8 @@
     },
     "Janczareq1": {
       "py/set": [
-        "civ",
-        "starcraft"
+        "starcraft",
+        "civ"
       ]
     },
     "Penguin_Q": {
@@ -237,8 +237,8 @@
     },
     "TheBraveGallade": {
       "py/set": [
-        "ftlgame",
-        "civ"
+        "civ",
+        "ftlgame"
       ]
     },
     "Nomand55": {
@@ -309,9 +309,9 @@
     },
     "gringochilenoo": {
       "py/set": [
-        "RimWorld",
         "eu4",
-        "CrusaderKings"
+        "CrusaderKings",
+        "RimWorld"
       ]
     },
     "sneakyplanner": {
@@ -342,10 +342,10 @@
     "comfort_bot_1962": {
       "py/set": [
         "aoe2",
-        "hoi4",
-        "totalwar",
         "RimWorld",
-        "CrusaderKings"
+        "hoi4",
+        "CrusaderKings",
+        "totalwar"
       ]
     },
     "GumdropGoober": {
@@ -437,8 +437,8 @@
     },
     "ZJuni0r": {
       "py/set": [
-        "RimWorld",
-        "CrusaderKings"
+        "CrusaderKings",
+        "RimWorld"
       ]
     },
     "wayofwisdomlbw": {
@@ -467,8 +467,8 @@
     },
     "TheEccentricEmpiric": {
       "py/set": [
-        "Stellaris",
         "dwarffortress",
+        "Stellaris",
         "CrusaderKings"
       ]
     },
@@ -553,20 +553,20 @@
     },
     "NewRomanian": {
       "py/set": [
-        "CrusaderKings",
-        "victoria2"
+        "victoria2",
+        "CrusaderKings"
       ]
     },
     "murrman104": {
       "py/set": [
-        "CrusaderKings",
-        "victoria2"
+        "victoria2",
+        "CrusaderKings"
       ]
     },
     "Ezils1004": {
       "py/set": [
-        "CrusaderKings",
-        "victoria2"
+        "victoria2",
+        "CrusaderKings"
       ]
     },
     "dudhhr_": {
@@ -631,90 +631,90 @@
     },
     "dabigchina": {
       "py/set": [
-        "RimWorld",
-        "eu4"
+        "eu4",
+        "RimWorld"
       ]
     },
     "Fentouk": {
       "py/set": [
-        "RimWorld",
-        "eu4"
+        "eu4",
+        "RimWorld"
       ]
     },
     "0WatcherintheWater0": {
       "py/set": [
-        "Stellaris",
         "eu4",
+        "Stellaris",
         "hoi4"
       ]
     },
     "ipsum629": {
       "py/set": [
-        "Stellaris",
         "eu4",
+        "Stellaris",
         "hoi4"
       ]
     },
     "DuGalle": {
       "py/set": [
-        "Stellaris",
-        "eu4"
+        "eu4",
+        "Stellaris"
       ]
     },
     "MrTrt": {
       "py/set": [
-        "Stellaris",
-        "eu4"
+        "eu4",
+        "Stellaris"
       ]
     },
     "thecrazyrai": {
       "py/set": [
-        "Stellaris",
-        "eu4"
+        "eu4",
+        "Stellaris"
       ]
     },
     "MichaelTheSlav": {
       "py/set": [
-        "Stellaris",
-        "eu4"
+        "eu4",
+        "Stellaris"
       ]
     },
     "CrayRuse": {
       "py/set": [
-        "Stellaris",
-        "eu4"
+        "eu4",
+        "Stellaris"
       ]
     },
     "Dahak17": {
       "py/set": [
-        "Stellaris",
-        "eu4"
+        "eu4",
+        "Stellaris"
       ]
     },
     "IlikeJG": {
       "py/set": [
+        "eu4",
         "Stellaris",
-        "slaythespire",
-        "eu4"
+        "slaythespire"
       ]
     },
     "Coridimus": {
       "py/set": [
-        "Stellaris",
-        "eu4"
+        "eu4",
+        "Stellaris"
       ]
     },
     "ChetWinston": {
       "py/set": [
-        "Stellaris",
         "eu4",
+        "Stellaris",
         "hoi4"
       ]
     },
     "grahamdanoob": {
       "py/set": [
-        "Stellaris",
         "eu4",
+        "Stellaris",
         "hoi4"
       ]
     },
@@ -828,26 +828,26 @@
     },
     "_moobear": {
       "py/set": [
-        "slaythespire",
-        "eu4"
+        "eu4",
+        "slaythespire"
       ]
     },
     "towerator": {
       "py/set": [
-        "ftlgame",
-        "eu4"
+        "eu4",
+        "ftlgame"
       ]
     },
     "bxzidff": {
       "py/set": [
-        "totalwar",
-        "CitiesSkylines"
+        "CitiesSkylines",
+        "totalwar"
       ]
     },
     "WaitingToBeTriggered": {
       "py/set": [
-        "totalwar",
-        "CitiesSkylines"
+        "CitiesSkylines",
+        "totalwar"
       ]
     },
     "AlmightyOomgosh": {
@@ -942,8 +942,8 @@
     },
     "Satanus9001": {
       "py/set": [
-        "totalwar",
-        "aoe2"
+        "aoe2",
+        "totalwar"
       ]
     },
     "Saapas420": {
@@ -954,8 +954,8 @@
     },
     "Victizes": {
       "py/set": [
-        "totalwar",
-        "Xcom"
+        "Xcom",
+        "totalwar"
       ]
     },
     "Elia1799": {
@@ -1026,8 +1026,8 @@
     },
     "fradzio": {
       "py/set": [
-        "RimWorld",
-        "victoria2"
+        "victoria2",
+        "RimWorld"
       ]
     },
     "jstank2": {
@@ -1140,8 +1140,8 @@
     },
     "Immortal-D": {
       "py/set": [
-        "Stellaris",
-        "dwarffortress"
+        "dwarffortress",
+        "Stellaris"
       ]
     },
     "Slaav": {
@@ -1279,14 +1279,14 @@
     },
     "whyareall": {
       "py/set": [
-        "factorio",
-        "hoi4"
+        "hoi4",
+        "factorio"
       ]
     },
     "Dubax": {
       "py/set": [
-        "factorio",
-        "hoi4"
+        "hoi4",
+        "factorio"
       ]
     },
     "Polar_Vortx": {
@@ -1297,8 +1297,8 @@
     },
     "wicked_cute": {
       "py/set": [
-        "factorio",
-        "dwarffortress"
+        "dwarffortress",
+        "factorio"
       ]
     },
     "Contribution-Sharp": {
@@ -1321,8 +1321,8 @@
     },
     "133DK": {
       "py/set": [
-        "factorio",
-        "starcraft"
+        "starcraft",
+        "factorio"
       ]
     }
   }

@@ -2,8 +2,8 @@
   "py/object": "reddit_crawl.data.bot_blacklist.Bot_Blacklist",
   "blacklist": {
     "py/set": [
-      "queen_of_england_bot",
       "AutoModerator",
+      "queen_of_england_bot",
       "devTripp"
     ]
   }
