@@ -51,12 +51,28 @@ class Logger:
 class Sperate_Process_Logger(Logger):
   __connection: Connection
   __process: Process
+  __queue: Queue
 
   def __init__(self,connection: Connection,process: Process,*args,**kwargs) -> None:
       super().__init__(*args,**kwargs)
       self.__connection = connection
       self.__process = process
+      self.__queue = Queue()
+      self.__start_queue_daemon()
   
+  def __handle_queue(self):
+    while True:
+      item = self.__queue.get()
+      if not self.__connection.closed:
+        self.__connection.send(item)
+
+      self.__queue.task_done()
+      time.sleep(0.1)
+
+  def __start_queue_daemon(self):
+    thread = threading.Thread(name="log queue handler",daemon=True,target=self.__handle_queue)
+    thread.start()
+
   def log(self, message: str, lvl: Level = Level.INFO):
     if self._active:
 
@@ -66,11 +82,11 @@ class Sperate_Process_Logger(Logger):
       if not message.endswith("\n"):
         message+="\n"
       time = self._build_header(lvl)
-      if not self.__connection.closed:
-        self.__connection.send([MessageType.LOG,time + message, lvl])
+
+      self.__queue.put([MessageType.LOG,time + message, lvl])
 
   def update_log_storage_path(self, new_path:str):
-    self.__connection.send([MessageType.PATH_UPDATE,new_path])
+    self.__queue.put([MessageType.PATH_UPDATE,new_path])
 
   def stop(self):
     try:

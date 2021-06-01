@@ -117,14 +117,9 @@ class Subreddit_Batch:
       return user_name in self.subs[subreddit_name]
 
   def __handle_data(self, sub_name: str, data: Subreddit_Data,config:Config, logger: Logger):
-    logger.log("-"*30,Level.INFO)
-    logger.log("Loading data for {s}".format(s=sub_name),Level.INFO)
     current: Subreddit_Data = Subreddit_Data.load(sub_name,config)
-    logger.log("Updating data for {s}".format(s=sub_name),Level.INFO)
     current.add_users(data.users) 
-    logger.log("Saving {s} to disk".format(s=sub_name),Level.INFO)
     current.save_to_file(config)
-    logger.log("-"*30, Level.INFO)
 
   def save_to_file(self,config:Config, logger: Logger):
     for sub in  self.subs:
@@ -144,9 +139,9 @@ class Subreddit_Batch_Queue:
   
   def update(self,config:Config, logger: Logger):
     batch = None
-    while len(self.batch_queue) > 0:
-      leng = len(self.batch_queue)
-      logger.log("{l} batches in queue to handle".format(l = leng), Level.INFO)
+    leng = len(self.batch_queue)
+    logger.log("{l} batches in queue to handle".format(l = leng), Level.INFO)
+    while len(self.batch_queue) > 0:    
       with self.lock:
         batch = self.batch_queue.pop(0)
       self.__store_batch(batch,config, logger)

@@ -1,3 +1,5 @@
+from datetime import datetime
+from os import sep
 from utility.simple_logging import Level
 from utility.cancel_token import Cancel_Token
 import threading
@@ -78,7 +80,7 @@ def handle_comment_thread_safe(comment: Comment, context: Thread_Safe_Context, t
   handle_user_thread_safe(comment.author.name,comment.subreddit.display_name, context)
 
 def handle_post_thread_safe(post: Submission, context: Thread_Safe_Context, token: Cancel_Token):
-  context.logger.log("Crawling submission: {mis}".format(mis=post.title),Level.INFO)
+  context.logger.log("Crawling submission: {mis}\ndate:{dt}".format(mis=post.title,dt=datetime.fromtimestamp(post.created_utc).isoformat(sep=" ",timespec='seconds')),Level.INFO)
   context.crawl_diagnostics.increment_submission_total()
   if post.author is not None:
     handle_user_thread_safe(post.author.name, post.subreddit.display_name, context)

@@ -22,6 +22,7 @@ def __stream_monitor(monitor_type: str, stream_gen, data_handler, subs: Subreddi
     if data is None: 
       context.crawl_diagnostics.update_timing()
       continue
+    context.crawl_diagnostics.update_subreddit(data.subreddit.display_name)
     data_handler(data,context,token)
   queue.enqueue(context.current_data)
   context.crawl_diagnostics.end_timing()

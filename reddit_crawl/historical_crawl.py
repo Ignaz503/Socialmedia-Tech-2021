@@ -10,11 +10,18 @@ from reddit_crawl.util.diagnostics import Reddit_Crawl_Diagnostics
 from reddit_crawl.data.bot_blacklist import Threadsafe_Bot_Blacklist
 from reddit_crawl.data.subreddit import Subreddit_Batch_Queue, Subreddit_Batch
 
+__LIMIT = 1000
+
 def handle_subreddit(sub_name: str, api: PushshiftAPI, context: Thread_Safe_Context, queue: Subreddit_Batch_Queue, token: Cancel_Token):
+  context.crawl_diagnostics.update_subreddit(sub_name)
+  count = 0
   for submission in api.search_submissions(after= context.config.start_epoch(), before=context.config.end_epoch(),subreddit=sub_name):
     if token.is_cancel_requested():
       break
+    if count > __LIMIT:
+      break
     rh.handle_post_thread_safe(submission,context,token)
+    count += 1
 
   data = None
   new_batch = Subreddit_Batch()
@@ -26,6 +33,7 @@ def handle_subreddit(sub_name: str, api: PushshiftAPI, context: Thread_Safe_Cont
 def handle_crawl(context: Thread_Safe_Context,queue: Subreddit_Batch_Queue, token:Cancel_Token):
   api = PushshiftAPI(context.reddit)
 
+  context.logger.log(f"crawling submissions from {context.config.from_date} to {context.config.to_date}")
   for sub in context.config.subreddits_to_crawl:
     if token.is_cancel_requested():
       break

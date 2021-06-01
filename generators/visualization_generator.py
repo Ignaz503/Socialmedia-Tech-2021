@@ -195,6 +195,7 @@ def __generate_and_visualize(config: Config, logger:Logger, token: Cancel_Token,
     __color_graph_edges(graph,DefaultColorPallet.EDGE_COLOR.value[0])
     __viusalize_centraliteis(graph,"user_user_gt1",gradient, config, logger, token)
 
+
     logger.log("visualization complete")
     on_done_callback()
 

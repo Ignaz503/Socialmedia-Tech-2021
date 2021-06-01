@@ -2,9 +2,13 @@
   "py/object": "reddit_crawl.data.bot_blacklist.Bot_Blacklist",
   "blacklist": {
     "py/set": [
-      "AutoModerator",
+      "Philip_Jeffries",
+      "exponant",
       "queen_of_england_bot",
-      "devTripp"
+      "banana_converter_bot",
+      "Generic_Reddit_Bot",
+      "devTripp",
+      "AutoModerator"
     ]
   }
 }

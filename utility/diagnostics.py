@@ -138,3 +138,22 @@ class Timer_Data_Handler(Data_Handler):
     def init_value(self):
       return [time.perf_counter(),-1.0]
 
+class TextDataHandler(Data_Handler):
+  __start_value:str
+  def __init__(self, start_value:str) -> None:
+    self.__start_value = start_value
+  
+  def update(self, current_value, new_value):
+    return new_value
+    
+  def log(self, value, logger: Logger):
+    logger.log(value, Level.INFO)
+  
+  def build_message(self, value):
+    return value
+
+  def to_string(self, value) -> str:
+    return value
+
+  def init_value(self):
+    return self.__start_value

@@ -1,4 +1,4 @@
-from utility.diagnostics import Timer_Data_Handler, Diagnostics, Counting_Data_Handler
+from utility.diagnostics import TextDataHandler, Timer_Data_Handler, Diagnostics, Counting_Data_Handler
 from utility.simple_logging import Logger,Level
 from enum import Enum
 import time
@@ -20,6 +20,7 @@ class Total_Crawl_Time_Data_Handler(Timer_Data_Handler):
  
 
 class RedditCrawlDiagnosticCategories(Enum):
+  CURRENT_SUBREDDIT = "current_subreddit"
   SUBMISSIONS_TOTAL = "submissions_total"
   COMMENTS_TOTAL ="comments_total"
   COMMENTS_NO_AUHTOR = "comments_no_auhtor"
@@ -32,6 +33,7 @@ class Reddit_Crawl_Diagnostics(Diagnostics):
 
   def __init__(self) -> None:
       super().__init__()
+      self.create_category(RedditCrawlDiagnosticCategories.CURRENT_SUBREDDIT.value,TextDataHandler("None"))
       self.create_category(RedditCrawlDiagnosticCategories.SUBMISSIONS_TOTAL.value,Counting_Data_Handler(message_end="submissions have been crawled"))
       self.create_category(RedditCrawlDiagnosticCategories.COMMENTS_TOTAL.value,Counting_Data_Handler(message_end="comments have been crawled"))
       self.create_category(RedditCrawlDiagnosticCategories.COMMENTS_NO_AUHTOR.value, Counting_Data_Handler(message_end="comments have had no author"))
@@ -66,6 +68,9 @@ class Reddit_Crawl_Diagnostics(Diagnostics):
 
   def reset_timing(self):
     self.reset_value(RedditCrawlDiagnosticCategories.TIME_ELAPSED.value)
+
+  def update_subreddit(self, name:str):
+    self.update_value(RedditCrawlDiagnosticCategories.CURRENT_SUBREDDIT.value,name)
 
   def log(self, logger: Logger):
     s ="-"*15 + "Total Crawl" + "-"*15+"\n"

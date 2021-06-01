@@ -2,9 +2,9 @@ import time
 from typing import Iterable
 from IPython.core import logger
 import networkx
-from networkx.algorithms.operators.binary import intersection
-from reddit_crawl.data.subreddit import Crawl_Metadata, Subreddit_Groups, Subreddit_Metadata,Subreddit_Data
-from utility.simple_logging import Level, Logger
+
+from reddit_crawl.data.subreddit import Crawl_Metadata, Subreddit_Metadata,Subreddit_Data
+from utility.simple_logging import Logger
 import math
 from utility.colorpallet import ColorPallet, DefaultColorPallet
 from utility.cancel_token import Cancel_Token
@@ -17,6 +17,7 @@ from reddit_crawl.data.users import MultiSubredditUsers, UniqueUsers
 from utility.math import get_hours_minutes_seconds_ms
 from networkx.drawing.nx_agraph import write_dot
 from generators.data.graph_files import GraphDataFiles
+from networkx.algorithms.community.kclique import k_clique_communities
 
 def __determine_size_lerp(meta_data: Crawl_Metadata, subbredit_name: str, node, logger:Logger, min_node_size: float = 10.0, max_node_size:float=50.0):
   t = meta_data.lerp_sub_count(subbredit_name, logger)

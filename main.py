@@ -1,6 +1,5 @@
 import sys
 import utility.data_util as data_util
-from utility.data_util import DataLocation
 from utility.app_config import Config
 import reddit_crawl.util.subreddit_batch_queue_data_saver as data_saver
 import utility.simple_logging as simple_logging
@@ -15,13 +14,10 @@ from utility.cancel_token import Cancel_Token, Thread_Owned_Token_Tray
 from reddit_crawl.data.subreddit import Subreddit_Batch_Queue
 from reddit_crawl.data.bot_blacklist import Threadsafe_Bot_Blacklist
 from defines import ACTIVE_KEYWORDS, ALL_ARGS, ALL_KEYWORD, BOT_LIST_FALLBACK, CRAWl_KEYWORDS,CRAWL_ARGS,GENERATE_ARGS, CONFIG, DATA_KEYWORDS, HISTORIC_CRAWL_KEYWORDS, START_KEYWORDS, STREAM_ARGS, HISTORIC_ARGS, STREAM_KEYWORDS, VISUALIZE_KEYWORDS, VIS_ARGS, EXIT_KEYWORDS
-from generators.visualization_generator import VisualizationDataFile
-import subprocess
-import os
-import platform
+from generators.graph_generator import enumerate_cliques
+from generators.data.graph_files import GraphDataFiles
 
 __data_processing_was_run: bool = False
-
 
 class FlowControl:
   crawl: bool
@@ -111,6 +107,7 @@ def handle_command(command, config: Config, logger:Logger, blist: Threadsafe_Bot
   if "help" in command:
     print_help()
     return True
+
   return False
 
 def print_not_understood(command: str):

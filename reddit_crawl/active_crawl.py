@@ -17,6 +17,7 @@ def __handle_crawl(context: Thread_Safe_Context,batch_queue: Subreddit_Batch_Que
     if token.is_cancel_requested():
       break
     subreddit = context.reddit.subreddit(sub)
+    context.crawl_diagnostics.update_subreddit(subreddit.display_name)
     context.logger.log("Crawling subreddits: {subreddit}".format(subreddit = sub),Level.INFO)
     try:
       for submission in context.config.get_submission_getter().get(subreddit,context.config.number_of_posts, context.logger):
