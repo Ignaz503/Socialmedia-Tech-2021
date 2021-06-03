@@ -65,7 +65,6 @@ class Sperate_Process_Logger(Logger):
       item = self.__queue.get()
       if not self.__connection.closed:
         self.__connection.send(item)
-
       self.__queue.task_done()
       time.sleep(0.1)
 

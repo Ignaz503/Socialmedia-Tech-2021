@@ -50,7 +50,7 @@ def join_subreddits(subs: list[str]):
 
 def scan_if_new_bot(comment: Comment, context: Context):  
   #todo maybe better check if user is bot
-  if "I am a bot" in comment.body and not context.blacklist.contains(comment.author.name):
+  if "I am a bot" in comment.body or "I'm a bot" in comment.body or "I'm a robot" in comment.body and not context.blacklist.contains(comment.author.name):
     context.crawl_diagnostics.increment_new_bots_total()
     context.blacklist.add(comment.author.name)
 

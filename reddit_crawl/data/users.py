@@ -1,4 +1,4 @@
-from typing import Iterable
+from typing import Callable, Iterable
 
 from networkx.convert_matrix import to_pandas_adjacency
 from utility.app_config import Config
@@ -63,6 +63,11 @@ class MultiSubredditUsers:
       self.data[user_name].update(subs)
     else:
       self.data[user_name]= set(subs)
+
+  def iter_condition(self, condition: Callable[[str,set[str]],bool]):
+    for data in self:
+      if condition(data[0],data[1]):
+        yield data 
 
   def __str__(self) -> str:
       return self.to_json()

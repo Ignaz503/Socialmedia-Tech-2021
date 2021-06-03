@@ -1,0 +1,58 @@
+{
+  "number_of_subreddits": 30,
+  "number_of_unique_users": 91352,
+  "number_of_bots_detected": 59,
+  "number_of_users_per_subreddit": {
+    "civ": 4995,
+    "CrusaderKings": 4614,
+    "eu4": 3808,
+    "totalwar": 6577,
+    "SimCity": 422,
+    "CitiesSkylines": 3123,
+    "RimWorld": 4243,
+    "Stellaris": 5363,
+    "hoi4": 3733,
+    "dwarffortress": 2441,
+    "victoria2": 3116,
+    "aoe2": 3436,
+    "slaythespire": 3200,
+    "factorio": 4967,
+    "EndlessLegend": 256,
+    "starcraft": 3787,
+    "Xcom": 3258,
+    "ftlgame": 1513,
+    "prisonarchitect": 920,
+    "Oxygennotincluded": 2437,
+    "Frostpunk": 1163,
+    "bindingofisaac": 2916,
+    "deadcells": 2031,
+    "HadesTheGame": 3806,
+    "hearthstone": 5010,
+    "EnterTheGungeon": 2365,
+    "StardewValley": 4721,
+    "riskofrain": 3125,
+    "SurvivingMars": 1283,
+    "pathofexile": 7092
+  },
+  "biggest_subreddit_by_users": [
+    [
+      "pathofexile"
+    ],
+    7092
+  ],
+  "smallest_subreddit_by_users": [
+    [
+      "EndlessLegend"
+    ],
+    256
+  ],
+  "number_of_users_more_than_k_subreddits": {
+    "posted to more than 1": 6815,
+    "posted to more than 2": 1182,
+    "posted to more than 3": 286,
+    "posted to more than 4": 91,
+    "posted to more than 5": 29,
+    "posted to more than 6": 9,
+    "posted to more than 7": 1
+  }
+}

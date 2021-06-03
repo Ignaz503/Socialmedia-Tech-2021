@@ -28,11 +28,14 @@ __SUBBREDDIT_SUBBREDIT_COLORING_CLUSTER = "subreddit_subreddit_coloring_cluster.
 __SUBREDDIT_USER = "subreddit_user.html"
 __USER_USER_MORE_THAN_ONE = "user_user_gt1.html"
 
-def __build_network_from_graph(graph: Graph,physics: bool, buttons_filter=[])->Network:
+def __build_network_from_graph(graph: Graph,physics: bool,logger:Logger, buttons_filter=[])->Network:
   vis_network = Network('1920px','1920px',bgcolor=DefaultColorPallet.BACKGROUND_COLOR.value,font_color=DefaultColorPallet.FONT_COLOR.value)
+  logger.log("building from graph")
   vis_network.from_nx(graph)
+  logger.log("applying physics")
   vis_network.force_atlas_2based(gravity=-200,spring_length=315,overlap=1)
   #vis_network.hrepulsion(node_distance=250)
+  logger.log("done applying physics")
   vis_network.toggle_physics(physics)
   vis_network.show_buttons(filter_=buttons_filter)
   return vis_network
@@ -68,7 +71,7 @@ def __visualize_graph(graph: Graph,file:VisualizationDataFile,config: Config, lo
   logger.log(f"visulaizting graph {file.name}")
 
   logger.log("creating visualization")
-  vis_network = __build_network_from_graph(graph,physics,buttons_filter)
+  vis_network = __build_network_from_graph(graph,physics,logger,buttons_filter)
 
   path = file.get_file_path(config)
   logger.log("saving visualization {n} to  {l}".format(n=file.name,l=path), Level.INFO)
@@ -90,9 +93,13 @@ def __color_graph_nodes(graph:Graph, color_hex_code:str):
     node[1]['color']= color_hex_code
 
 
-def __color_graph_centrality(graph: Graph,gradient:ColorGradient, centrality_func: Callable[[Graph],dict[int,Any]], logger:Logger,token: Cancel_Token):
+def __color_graph_centrality(graph: Graph,gradient:ColorGradient, centrality_func: Callable[[Graph],dict[int,Any]], logger:Logger,token: Cancel_Token, is_eigen: bool):
     #v-min / max
-    cent_dict = centrality_func(graph)
+    cent_dict = None
+    if is_eigen:
+      cent_dict = centrality_func(graph,max_iter = 500)
+    else:
+      cent_dict = centrality_func(graph)
 
     min = float("inf")
     max = float("-inf")
@@ -114,9 +121,12 @@ def __color_graph_centrality(graph: Graph,gradient:ColorGradient, centrality_fun
       col = gradient.get(t)
       graph.nodes[node]['color'] = col.get_hex_l()
 
-def __visualize_centrality(graph: Graph, cent_func: Callable[[Graph],dict[int,Any]],name:str,gradient: ColorGradient,config: Config,logger: Logger,token: Cancel_Token):
-  __color_graph_centrality(graph,gradient,cent_func,logger,token)
-  __visualize_graph(graph, VisualizationDataFile(name),config,logger,token)
+def __visualize_centrality(graph: Graph, cent_func: Callable[[Graph],dict[int,Any]],name:str,gradient: ColorGradient,config: Config,logger: Logger,token: Cancel_Token, is_eigen: bool = False):
+  try:
+    __color_graph_centrality(graph,gradient,cent_func,logger,token, is_eigen)
+    __visualize_graph(graph, VisualizationDataFile(name),config,logger,token)
+  except Exception:
+    logger.log(f"Failed to create visualization: {name}",Level.WARNING)
 
 def __color_bridges(graph: Graph,color:Color,config: Config,logger:Logger, token: Cancel_Token):
   hex_code = color.get_hex_l()
@@ -125,11 +135,12 @@ def __color_bridges(graph: Graph,color:Color,config: Config,logger:Logger, token
 
 def __viusalize_centraliteis(graph: Graph,name_base:str,gradient: ColorGradient, config: Config, logger: Logger, token: Cancel_Token):
   __visualize_centrality(graph,nx_centrality.degree_centrality,name_base+"_coloring_deg_cent.html",gradient,config,logger,token)
-  __visualize_centrality(graph,nx_centrality.eigenvector_centrality,name_base+"_coloring_egien_cent.html",gradient,config,logger,token)
+  __visualize_centrality(graph,nx_centrality.eigenvector_centrality,name_base+"_coloring_egien_cent.html",gradient,config,logger,token,True)
   __visualize_centrality(graph,nx_centrality.harmonic_centrality,name_base+":coloring_harmonic_cent.html",gradient,config,logger,token)
   __visualize_centrality(graph,nx_centrality.subgraph_centrality,name_base+"_coloring_sub_graph_cent.html",gradient,config,logger,token)
   __visualize_centrality(graph,nx_centrality.betweenness_centrality,name_base+"_coloring_betweenness.html",gradient,config,logger,token)
   if nx.is_connected(graph):
+    logger.log("Graph is connected")
     __visualize_centrality(graph,nx_centrality.current_flow_closeness_centrality,name_base+"_coloring_current_flow_cent.html",gradient,config,logger,token)
   __visualize_centrality(graph,nx_centrality.closeness_centrality,name_base+"_coloring_closeness_cent.html",gradient,config,logger,token)
 

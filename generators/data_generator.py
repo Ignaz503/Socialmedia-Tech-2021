@@ -1,7 +1,7 @@
 from typing import Callable
 
 from scipy import sparse
-from reddit_crawl.data.users import UniqueUsers
+from reddit_crawl.data.users import MultiSubredditUsers, UniqueUsers
 from utility.cancel_token import Cancel_Token
 import threading
 import generators.util as util
@@ -13,6 +13,7 @@ import reddit_crawl.meta_data_crawl as rmdc
 from reddit_crawl.data.subreddit import Crawl_Metadata, Subreddit_Data
 import generators.graph_generator as graph_generator
 from generators.data.matrix_files import MatrixFiles
+from reddit_crawl.data.data_about_data import DataAboutData
 
 def __save_adjacency_mat(adjacency_mat: np.ndarray,file: MatrixFiles,config:Config,logger:Logger, token: Cancel_Token):
   if adjacency_mat is None:
@@ -42,6 +43,12 @@ def generate_unique_user(config: Config, logger: Logger, token: Cancel_Token) ->
 
 def __save_unique_user_list(users: UniqueUsers, config: Config):
   users.save_to_file(config)
+
+
+def __generate_data_about_data(unique_users:UniqueUsers,multi_user: MultiSubredditUsers,config:Config, logger: Logger, token: Cancel_Token) -> DataAboutData:
+  data: DataAboutData = DataAboutData.empty()
+  data.fill(unique_users,multi_user,config,logger,token)
+  return data
 
 def __execute_generating(config: Config, logger: Logger, token: Cancel_Token, on_done_callback:Callable):
   #this might be the uggliest function i have ever writen
@@ -80,6 +87,10 @@ def __execute_generating(config: Config, logger: Logger, token: Cancel_Token, on
       mat_sub_sub,
       multi_sub_users,
       config, logger, token)
+
+    logger.log("creating data about the data")
+    data = __generate_data_about_data(users,multi_sub_users,config,logger,token)
+    data.save_to_file(config)
     logger.log("data generation done")
     on_done_callback()
 

@@ -61,7 +61,7 @@ def __add_meta_data_to_edge(edge,min_val: float, max_val: float, min_edge_size: 
   edge[2]['width'] = ((1.0-t)*min_edge_size) + (t*max_edge_size)
   edge[2]['color'] = DefaultColorPallet.EDGE_COLOR.value[0]
   edge[2]['title'] = edge[2]['weight']
-  edge[2]['label'] = edge[2]['weight']
+  #edge[2]['label'] = edge[2]['weight']
 
 def __add_meta_to_edges_sub_sub(graph: Graph,adj_mat:np.ndarray, config: Config, logger: Logger, token: Cancel_Token, min_edge_size:float = 1, max_edge_size:float = 10):
   min_val = float(adj_mat.min())
