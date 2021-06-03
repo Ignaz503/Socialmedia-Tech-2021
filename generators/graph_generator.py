@@ -2,6 +2,7 @@ import time
 from typing import Iterable
 from IPython.core import logger
 import networkx
+from networkx.generators.triads import TRIAD_EDGES
 
 from reddit_crawl.data.subreddit import Crawl_Metadata, Subreddit_Metadata,Subreddit_Data
 from utility.simple_logging import Logger
@@ -98,7 +99,8 @@ def __user_node_generator(users: Iterable[str],
      logger: Logger, 
      token: Cancel_Token, 
      user_node_size:float = 10.0,
-    color_option:int = 0):
+    color_option:int = 0,
+    label_node:bool = True):
   counter = start_idx # start counter for node id after all subreddits which go from 0 len -1
   for user in users:
     if token.is_cancel_requested():
@@ -106,8 +108,9 @@ def __user_node_generator(users: Iterable[str],
     idx = counter
     counter+=1
     user_node = {}
-    user_node['label'] = user
-    user_node['title'] = user
+    if label_node:
+      user_node['label'] = user
+      user_node['title'] = user
     user_node['color'] = DefaultColorPallet.USER_COLOR.value[color_option] 
     user_node['size'] = user_node_size
     yield (idx,user_node)
@@ -115,7 +118,7 @@ def __user_node_generator(users: Iterable[str],
 def __add_user_nodes(graph: Graph,users: UniqueUsers, config: Config, logger: Logger, token: Cancel_Token, user_node_size:float = 5.0):
   if token.is_cancel_requested():
     return
-  graph.add_nodes_from(__user_node_generator(users,len(config.subreddits_to_crawl),config,logger,token))
+  graph.add_nodes_from(__user_node_generator(users,len(config.subreddits_to_crawl),config,logger,token,label_node=False))
     
 def __edge_subreddit_user_generator(users: UniqueUsers, config: Config, logger: Logger, token: Cancel_Token):
   idx_dict = util.define_index_dict_for_iterable(config.subreddits_to_crawl)

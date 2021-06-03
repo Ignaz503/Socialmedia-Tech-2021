@@ -2,13 +2,13 @@ strict graph "" {
 	node [label="\N"];
 	0	[color="#e94560",
 		label=civ,
-		size=19.48917741129323,
-		title="<h3>civ</h3><b>created on:</b> 2010-03-03 22:48:04<br><b>subscriber count:</b> 437124<br><b>description:</b><br>And now it's 4 AM! \
+		size=19.489223538142802,
+		title="<h3>civ</h3><b>created on:</b> 2010-03-03 22:48:04<br><b>subscriber count:</b> 437127<br><b>description:</b><br>And now it's 4 AM! \
 Just one more turn..."];
 	1	[color="#e94560",
 		label=CrusaderKings,
-		size=16.44656229109753,
-		title="<h3>CrusaderKings</h3><b>created on:</b> 2012-01-28 23:34:47<br><b>subscriber count:</b> 301831<br><b>description:</b><br>Crusader \
+		size=16.446637749522814,
+		title="<h3>CrusaderKings</h3><b>created on:</b> 2012-01-28 23:34:47<br><b>subscriber count:</b> 301835<br><b>description:</b><br>Crusader \
 Kings is a historical grand strategy /<br>RPG video game series for PC, Mac & Linux<br>developed & published by Paradox Interactive.<\
 br>Engage in courtly intrigue, dynastic struggles,<br>and holy warfare in mediæval Europe, North Africa,<br>the Middle East, India, \
 the steppes and Tibet. Can<br>you achieve fame and fortune for your noble<br>family, or will your names be forgotten to<br>history?"];
@@ -18,8 +18,8 @@ the steppes and Tibet. Can<br>you achieve fame and fortune for your noble<br>fam
 		width=4.445544554455446];
 	2	[color="#e94560",
 		label=eu4,
-		size=15.35856308271315,
-		title="<h3>eu4</h3><b>created on:</b> 2012-08-10 16:49:44<br><b>subscriber count:</b> 253452<br><b>description:</b><br>A place to share \
+		size=15.358618498913499,
+		title="<h3>eu4</h3><b>created on:</b> 2012-08-10 16:49:44<br><b>subscriber count:</b> 253455<br><b>description:</b><br>A place to share \
 content, ask questions and/or<br>talk about the grand strategy game Europa<br>Universalis IV by Paradox Development Studio."];
 	0 -- 2	[color="#3e5c7f",
 		title=57,
@@ -27,8 +27,8 @@ content, ask questions and/or<br>talk about the grand strategy game Europa<br>Un
 		width=2.693069306930693];
 	3	[color="#e94560",
 		label=totalwar,
-		size=16.56550703598984,
-		title="<h3>totalwar</h3><b>created on:</b> 2010-05-04 01:35:35<br><b>subscriber count:</b> 307120<br><b>description:</b><br>A subreddit \
+		size=16.565807117215634,
+		title="<h3>totalwar</h3><b>created on:</b> 2010-05-04 01:35:35<br><b>subscriber count:</b> 307134<br><b>description:</b><br>A subreddit \
 for the Total War strategy game<br>series, made by Creative Assembly.  Discussions,<br>strategies, stories, crude cave-drawings, \
 and more<br>for Medieval 2, Empire, Shogun 2, Rome 2, Attila,<br>Thrones of Britannia, Warhammer, Three Kingdoms<br>and others."];
 	0 -- 3	[color="#3e5c7f",
@@ -37,8 +37,8 @@ and more<br>for Medieval 2, Empire, Shogun 2, Rome 2, Attila,<br>Thrones of Brit
 		width=3.4356435643564356];
 	4	[color="#e94560",
 		label=SimCity,
-		size=10.371744494813736,
-		title="<h3>SimCity</h3><b>created on:</b> 2010-07-25 22:01:08<br><b>subscriber count:</b> 31708<br><b>description:</b><br>A Subreddit for \
+		size=10.371766147826014,
+		title="<h3>SimCity</h3><b>created on:</b> 2010-07-25 22:01:08<br><b>subscriber count:</b> 31709<br><b>description:</b><br>A Subreddit for \
 the discussion of the SimCity<br>Franchise and related City Builder games."];
 	0 -- 4	[color="#3e5c7f",
 		title=6,
@@ -46,8 +46,8 @@ the discussion of the SimCity<br>Franchise and related City Builder games."];
 		width=1.1782178217821782];
 	5	[color="#e94560",
 		label=CitiesSkylines,
-		size=17.620537252880148,
-		title="<h3>CitiesSkylines</h3><b>created on:</b> 2014-08-14 21:33:43<br><b>subscriber count:</b> 354033<br><b>description:</b><br>A subreddit \
+		size=17.62061007114967,
+		title="<h3>CitiesSkylines</h3><b>created on:</b> 2014-08-14 21:33:43<br><b>subscriber count:</b> 354037<br><b>description:</b><br>A subreddit \
 for the City Builder game developed by<br>Colossal Order, Cities: Skylines."];
 	0 -- 5	[color="#3e5c7f",
 		title=45,
@@ -55,8 +55,8 @@ for the City Builder game developed by<br>Colossal Order, Cities: Skylines."];
 		width=2.3366336633663365];
 	6	[color="#e94560",
 		label=RimWorld,
-		size=16.09080753226761,
-		title="<h3>RimWorld</h3><b>created on:</b> 2013-09-19 18:58:18<br><b>subscriber count:</b> 286012<br><b>description:</b><br>Discussion, \
+		size=16.09081632366211,
+		title="<h3>RimWorld</h3><b>created on:</b> 2013-09-19 18:58:18<br><b>subscriber count:</b> 286013<br><b>description:</b><br>Discussion, \
 screenshots, and links, get all your<br>RimWorld content here!"];
 	0 -- 6	[color="#3e5c7f",
 		title=44,
@@ -64,8 +64,8 @@ screenshots, and links, get all your<br>RimWorld content here!"];
 		width=2.306930693069307];
 	7	[color="#e94560",
 		label=Stellaris,
-		size=16.062381334963042,
-		title="<h3>Stellaris</h3><b>created on:</b> 2015-07-31 03:36:08<br><b>subscriber count:</b> 284748<br><b>description:</b><br>A place to \
+		size=16.06241267931487,
+		title="<h3>Stellaris</h3><b>created on:</b> 2015-07-31 03:36:08<br><b>subscriber count:</b> 284750<br><b>description:</b><br>A place to \
 share content, ask questions and/or<br>talk about the 4X grand strategy game Stellaris by<br>Paradox Development Studio."];
 	0 -- 7	[color="#3e5c7f",
 		title=88,
@@ -73,8 +73,8 @@ share content, ask questions and/or<br>talk about the 4X grand strategy game Ste
 		width=3.613861386138614];
 	8	[color="#e94560",
 		label=hoi4,
-		size=15.159489745260569,
-		title="<h3>hoi4</h3><b>created on:</b> 2014-01-23 16:32:38<br><b>subscriber count:</b> 244600<br><b>description:</b><br>A place to share \
+		size=15.159613076246243,
+		title="<h3>hoi4</h3><b>created on:</b> 2014-01-23 16:32:38<br><b>subscriber count:</b> 244606<br><b>description:</b><br>A place to share \
 content, ask questions and/or<br>talk about the grand strategy game Hearts of Iron<br>IV by Paradox Development Studio."];
 	0 -- 8	[color="#3e5c7f",
 		title=64,
@@ -82,8 +82,8 @@ content, ask questions and/or<br>talk about the grand strategy game Hearts of Ir
 		width=2.900990099009901];
 	9	[color="#e94560",
 		label=dwarffortress,
-		size=12.277761504429506,
-		title="<h3>dwarffortress</h3><b>created on:</b> 2009-05-16 18:35:00<br><b>subscriber count:</b> 116461<br><b>description:</b><br>Dwarf \
+		size=12.277733892935352,
+		title="<h3>dwarffortress</h3><b>created on:</b> 2009-05-16 18:35:00<br><b>subscriber count:</b> 116460<br><b>description:</b><br>Dwarf \
 Fortress - Losing is fun!"];
 	0 -- 9	[color="#3e5c7f",
 		title=13,
@@ -91,8 +91,8 @@ Fortress - Losing is fun!"];
 		width=1.386138613861386];
 	10	[color="#e94560",
 		label=victoria2,
-		size=11.35615900004554,
-		title="<h3>victoria2</h3><b>created on:</b> 2012-06-13 11:12:32<br><b>subscriber count:</b> 75481<br><b>description:</b><br>For discussion \
+		size=11.356200928234694,
+		title="<h3>victoria2</h3><b>created on:</b> 2012-06-13 11:12:32<br><b>subscriber count:</b> 75483<br><b>description:</b><br>For discussion \
 about the game Victoria 2 by<br>Paradox Interactive."];
 	0 -- 10	[color="#3e5c7f",
 		title=54,
@@ -100,8 +100,8 @@ about the game Victoria 2 by<br>Paradox Interactive."];
 		width=2.6039603960396036];
 	11	[color="#e94560",
 		label=aoe2,
-		size=12.26982285913796,
-		title="<h3>aoe2</h3><b>created on:</b> 2011-04-24 11:19:21<br><b>subscriber count:</b> 116108<br><b>description:</b><br>Community for AoE2 \
+		size=12.26984024355619,
+		title="<h3>aoe2</h3><b>created on:</b> 2011-04-24 11:19:21<br><b>subscriber count:</b> 116109<br><b>description:</b><br>Community for AoE2 \
 players"];
 	0 -- 11	[color="#3e5c7f",
 		title=44,
@@ -109,7 +109,7 @@ players"];
 		width=2.306930693069307];
 	12	[color="#e94560",
 		label=slaythespire,
-		size=12.019834244234783,
+		size=12.019829701823578,
 		title="<h3>slaythespire</h3><b>created on:</b> 2016-10-31 20:07:54<br><b>subscriber count:</b> 104992<br><b>description:</b><br>Dedicated \
 to all discussion on the roguelike<br>deckbuilding game Slay the Spire by Mega Crit<br>Games.  Currently available on Windows, Mac,<\
 br>Linux, PS4, Nintendo Switch, Xbox One, Android and<br>iOS."];
@@ -119,8 +119,8 @@ br>Linux, PS4, Nintendo Switch, Xbox One, Android and<br>iOS."];
 		width=2.099009900990099];
 	13	[color="#e94560",
 		label=factorio,
-		size=15.081879929676646,
-		title="<h3>factorio</h3><b>created on:</b> 2013-02-09 21:39:56<br><b>subscriber count:</b> 241149<br><b>description:</b><br>Subreddit for \
+		size=15.081958457140127,
+		title="<h3>factorio</h3><b>created on:</b> 2013-02-09 21:39:56<br><b>subscriber count:</b> 241153<br><b>description:</b><br>Subreddit for \
 the game Factorio made by Wube<br>Software."];
 	0 -- 13	[color="#3e5c7f",
 		title=19,
@@ -137,7 +137,7 @@ for fans of Endless Legend, a game by<br>Amplitude Studios."];
 		width=1.297029702970297];
 	15	[color="#e94560",
 		label=starcraft,
-		size=15.875564546190041,
+		size=15.875551332615558,
 		title="<h3>starcraft</h3><b>created on:</b> 2008-12-10 09:23:54<br><b>subscriber count:</b> 276441<br><b>description:</b><br>All about \
 the StarCraft games and professional<br>scenes surrounding them. Please read the rules<br>before submitting content."];
 	0 -- 15	[color="#3e5c7f",
@@ -146,15 +146,15 @@ the StarCraft games and professional<br>scenes surrounding them. Please read the
 		width=1.504950495049505];
 	16	[color="#e94560",
 		label=Xcom,
-		size=11.9072539090238,
-		title="<h3>Xcom</h3><b>created on:</b> 2011-05-20 20:08:24<br><b>subscriber count:</b> 99986<br><b>description:</b><br>"];
+		size=11.907272108824413,
+		title="<h3>Xcom</h3><b>created on:</b> 2011-05-20 20:08:24<br><b>subscriber count:</b> 99987<br><b>description:</b><br>"];
 	0 -- 16	[color="#3e5c7f",
 		title=59,
 		weight=59,
 		width=2.7524752475247523];
 	17	[color="#e94560",
 		label=ftlgame,
-		size=10.984212103510488,
+		size=10.984209890112979,
 		title="<h3>ftlgame</h3><b>created on:</b> 2012-03-02 17:04:49<br><b>subscriber count:</b> 58942<br><b>description:</b><br>A subreddit to \
 discuss the Kickstarter-backed<br>\"roguelike-like\" game FTL: Faster Than Light by<br>Subset Games."];
 	0 -- 17	[color="#3e5c7f",
@@ -163,8 +163,8 @@ discuss the Kickstarter-backed<br>\"roguelike-like\" game FTL: Faster Than Light
 		width=1.386138613861386];
 	18	[color="#e94560",
 		label=prisonarchitect,
-		size=10.974901624330036,
-		title="<h3>prisonarchitect</h3><b>created on:</b> 2012-02-14 15:27:06<br><b>subscriber count:</b> 58528<br><b>description:</b><br>A subreddit \
+		size=10.97487694284132,
+		title="<h3>prisonarchitect</h3><b>created on:</b> 2012-02-14 15:27:06<br><b>subscriber count:</b> 58527<br><b>description:</b><br>A subreddit \
 dedicated to the game Prison<br>Architect, developed by Introversion Software and<br>ported to console (Xbox, Playstation, and Nintendo<\
 br>Switch) and mobile platforms (Android and Apple)<br>by Double11 Studios and Paradox Interactive,<br>respectively.  Recently, \
 Paradox Interactive<br>purchased Prison Architect and all its related<br>intellectual property (IP). Now, all Prison<br>Architect \
@@ -175,8 +175,8 @@ development and support belong to<br>Paradox Interactive.  Visit our Discord<br>
 		width=1.1188118811881187];
 	19	[color="#e94560",
 		label=Oxygennotincluded,
-		size=12.699184377285805,
-		title="<h3>Oxygennotincluded</h3><b>created on:</b> 2016-06-14 04:12:45<br><b>subscriber count:</b> 135200<br><b>description:</b><br>Community \
+		size=12.699403197377778,
+		title="<h3>Oxygennotincluded</h3><b>created on:</b> 2016-06-14 04:12:45<br><b>subscriber count:</b> 135210<br><b>description:</b><br>Community \
 for the space-colony simulation game<br>Oxygen Not Included, developed by Klei."];
 	0 -- 19	[color="#3e5c7f",
 		title=15,
@@ -184,16 +184,16 @@ for the space-colony simulation game<br>Oxygen Not Included, developed by Klei."
 		width=1.4455445544554455];
 	20	[color="#e94560",
 		label=Frostpunk,
-		size=10.280866121943665,
-		title="<h3>Frostpunk</h3><b>created on:</b> 2016-08-30 21:01:32<br><b>subscriber count:</b> 27667<br><b>description:</b><br>"];
+		size=10.280955446421293,
+		title="<h3>Frostpunk</h3><b>created on:</b> 2016-08-30 21:01:32<br><b>subscriber count:</b> 27671<br><b>description:</b><br>"];
 	0 -- 20	[color="#3e5c7f",
 		title=17,
 		weight=17,
 		width=1.504950495049505];
 	21	[color="#e94560",
 		label=bindingofisaac,
-		size=14.646221469087916,
-		title="<h3>bindingofisaac</h3><b>created on:</b> 2011-10-02 19:20:29<br><b>subscriber count:</b> 221777<br><b>description:</b><br>The official \
+		size=14.646345954364136,
+		title="<h3>bindingofisaac</h3><b>created on:</b> 2011-10-02 19:20:29<br><b>subscriber count:</b> 221783<br><b>description:</b><br>The official \
 subreddit for Edmund McMillen's<br>Zelda-inspired roguelite, The Binding of Isaac!"];
 	0 -- 21	[color="#3e5c7f",
 		title=6,
@@ -201,8 +201,8 @@ subreddit for Edmund McMillen's<br>Zelda-inspired roguelite, The Binding of Isaa
 		width=1.1782178217821782];
 	22	[color="#e94560",
 		label=deadcells,
-		size=11.651485600523095,
-		title="<h3>deadcells</h3><b>created on:</b> 2016-03-01 12:45:13<br><b>subscriber count:</b> 88613<br><b>description:</b><br>Dead Cells \
+		size=11.651436908433105,
+		title="<h3>deadcells</h3><b>created on:</b> 2016-03-01 12:45:13<br><b>subscriber count:</b> 88611<br><b>description:</b><br>Dead Cells \
 is an action/platformer/roguelite game<br>developed by Motion Twin, a French independent<br>developer based in Bordeaux. It's available \
 on all<br>current gaming platforms.  This subreddit is here<br>for anyone wanting to discuss the game.  Everyone<br>is welcome to \
 participate!  Please read the rules<br>before you post but don't be shy, come say hi! Got<br>a question ? Go ask in Noob Central (\
@@ -213,8 +213,8 @@ see \"Useful<br>Resources\" below the subreddit header)."];
 		width=1.1782178217821782];
 	23	[color="#e94560",
 		label=HadesTheGame,
-		size=13.903699509906719,
-		title="<h3>HadesTheGame</h3><b>created on:</b> 2018-12-07 09:09:32<br><b>subscriber count:</b> 188760<br><b>description:</b><br>The subreddit \
+		size=13.90364575280621,
+		title="<h3>HadesTheGame</h3><b>created on:</b> 2018-12-07 09:09:32<br><b>subscriber count:</b> 188758<br><b>description:</b><br>The subreddit \
 for Hades, the god-like rogue-like<br>from Supergiant Games."];
 	0 -- 23	[color="#3e5c7f",
 		title=28,
@@ -223,7 +223,7 @@ for Hades, the god-like rogue-like<br>from Supergiant Games."];
 	24	[color="#e94560",
 		label=hearthstone,
 		size=50.0,
-		title="<h3>hearthstone</h3><b>created on:</b> 2013-01-17 19:33:00<br><b>subscriber count:</b> 1793819<br><b>description:</b><br>For fans \
+		title="<h3>hearthstone</h3><b>created on:</b> 2013-01-17 19:33:00<br><b>subscriber count:</b> 1793823<br><b>description:</b><br>For fans \
 of Blizzard Entertainment's digital card<br>game, Hearthstone"];
 	0 -- 24	[color="#3e5c7f",
 		title=19,
@@ -231,8 +231,8 @@ of Blizzard Entertainment's digital card<br>game, Hearthstone"];
 		width=1.5643564356435644];
 	25	[color="#e94560",
 		label=EnterTheGungeon,
-		size=12.547045750097967,
-		title="<h3>EnterTheGungeon</h3><b>created on:</b> 2015-03-11 18:56:17<br><b>subscriber count:</b> 128435<br><b>description:</b><br>Enter \
+		size=12.54712997815753,
+		title="<h3>EnterTheGungeon</h3><b>created on:</b> 2015-03-11 18:56:17<br><b>subscriber count:</b> 128439<br><b>description:</b><br>Enter \
 the Gungeon is a gunfight dungeon crawler<br>following a band of misfits seeking to shoot,<br>loot, dodge roll and table-flip their \
 way to<br>personal absolution by reaching the legendary<br>Gungeon’s ultimate treasure: the gun that can kill<br>the past."];
 	0 -- 25	[color="#3e5c7f",
@@ -241,8 +241,8 @@ way to<br>personal absolution by reaching the legendary<br>Gungeon’s ultimate 
 		width=1.2673267326732673];
 	26	[color="#e94560",
 		label=StardewValley,
-		size=28.34991996698603,
-		title="<h3>StardewValley</h3><b>created on:</b> 2013-02-12 12:51:56<br><b>subscriber count:</b> 831126<br><b>description:</b><br>Stardew \
+		size=28.350036123003747,
+		title="<h3>StardewValley</h3><b>created on:</b> 2013-02-12 12:51:56<br><b>subscriber count:</b> 831133<br><b>description:</b><br>Stardew \
 Valley is an open-ended country-life RPG<br>with support for 1–4 players. (Multiplayer isn't<br>supported on mobile)."];
 	0 -- 26	[color="#3e5c7f",
 		title=44,
@@ -250,8 +250,8 @@ Valley is an open-ended country-life RPG<br>with support for 1–4 players. (Mul
 		width=2.306930693069307];
 	27	[color="#e94560",
 		label=riskofrain,
-		size=11.996895382485842,
-		title="<h3>riskofrain</h3><b>created on:</b> 2013-03-01 08:29:47<br><b>subscriber count:</b> 103972<br><b>description:</b><br>Subreddit \
+		size=11.996935869721053,
+		title="<h3>riskofrain</h3><b>created on:</b> 2013-03-01 08:29:47<br><b>subscriber count:</b> 103974<br><b>description:</b><br>Subreddit \
 for Risk of Rain and Risk of Rain 2!"];
 	0 -- 27	[color="#3e5c7f",
 		title=10,
@@ -259,8 +259,8 @@ for Risk of Rain and Risk of Rain 2!"];
 		width=1.297029702970297];
 	28	[color="#e94560",
 		label=SurvivingMars,
-		size=10.227117220394673,
-		title="<h3>SurvivingMars</h3><b>created on:</b> 2017-05-12 09:58:30<br><b>subscriber count:</b> 25277<br><b>description:</b><br>Surviving \
+		size=10.227139198659653,
+		title="<h3>SurvivingMars</h3><b>created on:</b> 2017-05-12 09:58:30<br><b>subscriber count:</b> 25278<br><b>description:</b><br>Surviving \
 Mars is a sci-fi settlement builder all<br>about colonizing Mars and surviving the process.<br>Choose a space agency for resources \
 and financial<br>support before determining a location for your<br>colony.  There will be challenges to overcome.<br>Execute your \
 strategy and improve your colony’s<br>chances of survival while unlocking the mysteries<br>of this alien world. Are you ready? \
@@ -271,7 +271,7 @@ Mars is<br>waiting for you."];
 		width=1.9207920792079207];
 	29	[color="#e94560",
 		label=pathofexile,
-		size=19.530692253242783,
+		size=19.530670819640793,
 		title="<h3>pathofexile</h3><b>created on:</b> 2011-04-08 08:26:57<br><b>subscriber count:</b> 438970<br><b>description:</b><br>A subreddit \
 dedicated to Path of Exile, an ARPG<br>made by Grinding Gear Games. Spiritual successor<br>to Diablo 2"];
 	0 -- 29	[color="#3e5c7f",

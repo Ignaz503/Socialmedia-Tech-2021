@@ -3,73 +3,73 @@
   "data": {
     "civ": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 437124,
+      "subscriber_count": 437127,
       "description": "And now it's 4 AM! Just one more turn...",
       "created_utc": 1267652884.0
     },
     "CrusaderKings": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 301831,
+      "subscriber_count": 301835,
       "description": "Crusader Kings is a historical grand strategy / RPG video game series for PC, Mac & Linux developed & published by Paradox Interactive. Engage in courtly intrigue, dynastic struggles, and holy warfare in medi\u00e6val Europe, North Africa, the Middle East, India, the steppes and Tibet. Can you achieve fame and fortune for your noble family, or will your names be forgotten to history?",
       "created_utc": 1327790087.0
     },
     "eu4": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 253452,
+      "subscriber_count": 253455,
       "description": "A place to share content, ask questions and/or talk about the grand strategy game Europa Universalis IV by Paradox Development Studio.",
       "created_utc": 1344610184.0
     },
     "totalwar": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 307120,
+      "subscriber_count": 307134,
       "description": "A subreddit for the Total War strategy game series, made by Creative Assembly.\n\nDiscussions, strategies, stories, crude cave-drawings, and more for Medieval 2, Empire, Shogun 2, Rome 2, Attila, Thrones of Britannia, Warhammer, Three Kingdoms and others.",
       "created_utc": 1272929735.0
     },
     "SimCity": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 31708,
+      "subscriber_count": 31709,
       "description": "A Subreddit for the discussion of the SimCity Franchise and related City Builder games.",
       "created_utc": 1280088068.0
     },
     "CitiesSkylines": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 354033,
+      "subscriber_count": 354037,
       "description": "A subreddit for the City Builder game developed by Colossal Order, Cities: Skylines.",
       "created_utc": 1408044823.0
     },
     "RimWorld": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 286012,
+      "subscriber_count": 286013,
       "description": "Discussion, screenshots, and links, get all your RimWorld content here!",
       "created_utc": 1379609898.0
     },
     "Stellaris": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 284748,
+      "subscriber_count": 284750,
       "description": "A place to share content, ask questions and/or talk about the 4X grand strategy game Stellaris by Paradox Development Studio.",
       "created_utc": 1438306568.0
     },
     "hoi4": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 244600,
+      "subscriber_count": 244606,
       "description": "A place to share content, ask questions and/or talk about the grand strategy game Hearts of Iron IV by Paradox Development Studio.",
       "created_utc": 1390491158.0
     },
     "dwarffortress": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 116461,
+      "subscriber_count": 116460,
       "description": "Dwarf Fortress - Losing is fun!",
       "created_utc": 1242491700.0
     },
     "victoria2": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 75481,
+      "subscriber_count": 75483,
       "description": "For discussion about the game Victoria 2 by Paradox Interactive.",
       "created_utc": 1339578752.0
     },
     "aoe2": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 116108,
+      "subscriber_count": 116109,
       "description": "Community for AoE2 players",
       "created_utc": 1303636761.0
     },
@@ -81,7 +81,7 @@
     },
     "factorio": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 241149,
+      "subscriber_count": 241153,
       "description": "Subreddit for the game Factorio made by Wube Software.",
       "created_utc": 1360442396.0
     },
@@ -99,7 +99,7 @@
     },
     "Xcom": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 99986,
+      "subscriber_count": 99987,
       "description": "",
       "created_utc": 1305914904.0
     },
@@ -111,67 +111,67 @@
     },
     "prisonarchitect": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 58528,
+      "subscriber_count": 58527,
       "description": "A subreddit dedicated to the game Prison Architect, developed by Introversion Software and ported to console (Xbox, Playstation, and Nintendo Switch) and mobile platforms (Android and Apple) by Double11 Studios and Paradox Interactive, respectively.\n\nRecently, Paradox Interactive purchased Prison Architect and all its related intellectual property (IP). Now, all Prison Architect development and support belong to Paradox Interactive.\n\nVisit our Discord https://discord.gg/prisonarchitect",
       "created_utc": 1329229626.0
     },
     "Oxygennotincluded": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 135200,
+      "subscriber_count": 135210,
       "description": "Community for the space-colony simulation game Oxygen Not Included, developed by Klei.",
       "created_utc": 1465870365.0
     },
     "Frostpunk": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 27667,
+      "subscriber_count": 27671,
       "description": "",
       "created_utc": 1472583692.0
     },
     "bindingofisaac": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 221777,
+      "subscriber_count": 221783,
       "description": "The official subreddit for Edmund McMillen's Zelda-inspired roguelite, The Binding of Isaac!",
       "created_utc": 1317576029.0
     },
     "deadcells": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 88613,
+      "subscriber_count": 88611,
       "description": "Dead Cells is an action/platformer/roguelite game developed by Motion Twin, a French independent developer based in Bordeaux. It's available on all current gaming platforms.\n\nThis subreddit is here for anyone wanting to discuss the game.  Everyone is welcome to participate!  Please read the rules before you post but don't be shy, come say hi! Got a question ? Go ask in Noob Central (see \"Useful Resources\" below the subreddit header).",
       "created_utc": 1456832713.0
     },
     "HadesTheGame": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 188760,
+      "subscriber_count": 188758,
       "description": "The subreddit for Hades, the god-like rogue-like from Supergiant Games.",
       "created_utc": 1544170172.0
     },
     "hearthstone": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 1793819,
+      "subscriber_count": 1793823,
       "description": "For fans of Blizzard Entertainment's digital card game, Hearthstone",
       "created_utc": 1358447580.0
     },
     "EnterTheGungeon": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 128435,
+      "subscriber_count": 128439,
       "description": "Enter the Gungeon is a gunfight dungeon crawler following a band of misfits seeking to shoot, loot, dodge roll and table-flip their way to personal absolution by reaching the legendary Gungeon\u2019s ultimate treasure: the gun that can kill the past.",
       "created_utc": 1426096577.0
     },
     "StardewValley": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 831126,
+      "subscriber_count": 831133,
       "description": "Stardew Valley is an open-ended country-life RPG with support for 1\u20134 players. (Multiplayer isn't supported on mobile).",
       "created_utc": 1360669916.0
     },
     "riskofrain": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 103972,
+      "subscriber_count": 103974,
       "description": "Subreddit for Risk of Rain and Risk of Rain 2!",
       "created_utc": 1362122987.0
     },
     "SurvivingMars": {
       "py/object": "reddit_crawl.data.subreddit.Subreddit_Metadata",
-      "subscriber_count": 25277,
+      "subscriber_count": 25278,
       "description": "Surviving Mars is a sci-fi settlement builder all about colonizing Mars and surviving the process. Choose a space agency for resources and financial support before determining a location for your colony.\n\nThere will be challenges to overcome. Execute your strategy and improve your colony\u2019s chances of survival while unlocking the mysteries of this alien world. Are you ready? Mars is waiting for you.",
       "created_utc": 1494575910.0
     },
