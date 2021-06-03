@@ -231,6 +231,11 @@ def write_all_possible_as_dot(
   write_as_dot(g,GraphDataFiles.SUBREDDIT_USER.get_file_path(config))
   if token.is_cancel_requested():
     return
+  
+  logger.log("generating subreddit user minmal graph")
+  modify_graph_remove_degree_less_than(g,2)
+  write_as_dot(g,GraphDataFiles.SUBREDDIT_USER_MINIMAL.get_file_path(config))
+  
   logger.log("generating user user graphs")
   g = build_graph_user_user(multi_sub_user,2,config,logger,token)
   if g is None:
