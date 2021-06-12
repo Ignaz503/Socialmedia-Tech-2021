@@ -14,8 +14,6 @@ from utility.cancel_token import Cancel_Token, Thread_Owned_Token_Tray
 from reddit_crawl.data.subreddit import Subreddit_Batch_Queue
 from reddit_crawl.data.bot_blacklist import Threadsafe_Bot_Blacklist
 from defines import ACTIVE_KEYWORDS, ALL_ARGS, ALL_KEYWORD, BOT_LIST_FALLBACK, CRAWl_KEYWORDS,CRAWL_ARGS,GENERATE_ARGS, CONFIG, DATA_KEYWORDS, HISTORIC_CRAWL_KEYWORDS, START_KEYWORDS, STREAM_ARGS, HISTORIC_ARGS, STREAM_KEYWORDS, VISUALIZE_KEYWORDS, VIS_ARGS, EXIT_KEYWORDS
-from generators.graph_generator import enumerate_cliques
-from generators.data.graph_files import GraphDataFiles
 
 __data_processing_was_run: bool = False
 
