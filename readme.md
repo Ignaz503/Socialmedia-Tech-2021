@@ -5,8 +5,9 @@ This information can afterwards be visualized in a few ways to analyze the data 
 The visualizations are output as html file.
 For large datasets it is recommended to use the also generated DOT files and a external Tool like [Gephi](https://gephi.org/)
 
-run python main.py [Args] to run the command line tool
-run pythin application.py to get a GUI
+Run python main.py [Args] to run the command line tool.
+
+Run pythin application.py to get a GUI.
 
 ## Running the program
 
