@@ -1,5 +1,10 @@
 # Social Media Technologies 2021 Group 1
 
+This applet crawls user defined subreddits and extracts information such as which user posted/comment in the subreddits I am interessted in.
+This information can afterwards be visualized in a few ways to analyze the data found.
+The visualizations are output as html file.
+For large datasets it is recommended to use the also generated DOT files and a external Tool like [Gephi](https://gephi.org/)
+
 ## Running the program
 
 Before you run the program ensure these things are installed:
